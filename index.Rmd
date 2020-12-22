@@ -19,14 +19,14 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 # Welcome to Youreka Canada {-}
 
-Welcome to the Youreka Canada textbook! In this course, you will learn how to wrangle data, perform statistical tests, and visualize data with R. The purpose of this textbook is to provide a companion to the [Youreka Canada program](https://yourekacanada.org/), which teaches introductory statistics, data science, and research methods. This textbook does not assume you have any prior knowledge other than basic arithmetic.
+Welcome to the Youreka Canada textbook! In this course, you will learn how to wrangle data, perform statistical tests, and visualize data with R. The purpose of this textbook is to provide a companion to the [Youreka Canada program](https://yourekacanada.org/), which teaches introductory statistics, data science, and research methods. Here, we provide an intuitive approach to data science rather than a rigorous, proof-based course. As such, this textbook does not assume you have any prior knowledge other than basic arithmetic, and it should be accessible to both high school and undergraduate students.
 
 
 ## How to use this textbook {-}
 
 Please note that this text goes into additional detail not covered in session---all optional material is marked as OPTIONAL in the headings. Again, please note that this text is a *complements* the Youreka program. *These notes are not a substitute for attending the Youreka sessions!*
 
-This text focuses on how the material taught in-session can be applied using the R programming language. As with all programming languages, the best way to learn is to actively code. That is, when you read this textbook, open up R Studio and write the code verbatim. Soon enough, you will be confident to code on your own!
+This text focuses on how the material taught in-session can be applied using the R programming language. As with all programming languages, the best way to learn is to actively code. That is, when you read this textbook, open up R Studio and copy the code verbatim. Then, play around with the code---try to find alternative solutions, or even break the code. Don't be afraid to make mistakes, and soon enough, you will be confident to code on your own!
 
 
 ## Contributors {-}
