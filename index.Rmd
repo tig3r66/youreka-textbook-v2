@@ -1,7 +1,9 @@
 ---
 title: "A Gentle Introduction to Data Science with R"
 subtitle: "Explore, visualize, and analyze data"
-author: "Youreka Canada"
+author:
+  - Eddie Guo
+  - Youreka Canada Programs Team
 github-repo: tig3r66/youreka-textbook
 cover-image: assets/youreka-logo.png
 bibliography: [book.bib]
