@@ -1,28 +1,31 @@
 # Basics of R and RStudio
 
-Launch RStudio.
+Launch RStudio. If this is your first time opening RStudio, you should see the following panes:
 
-Notice the default panes:
-
-* Console (entire left)
-* Environment/History (upper right)
-* Files/Plots/Packages/Help (lower right)
+  * Console (entire left)
+  * Environment/History (upper right)
+  * Files/Plots/Packages/Help (lower right)
 
 You can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
 
-For now, go to the Console so we can begin our journey with R!
+For now, place your cursor in the console so we can begin our journey with R!
 
 
 ## Objects
 
-Make an assignment and inspect the object you just created:
+Here's some basic information to get us started.
+
+  * R is an object-oriented programming language (OOP), meaning that R creates different types of objects that we can manipulate with functions and operators.
+  * Our first operator will be the **assignment operator**; either `<-` (a left arrow) or `=` (the equal sign).
+
+Let's make our first assignment and inspect the object we've just created:
 
 ```{r}
-x <- 5*10
-x
+myObject <- 5*10
+myObject
 ```
 
-In plain English, the above snippet tells us that "five times ten is assigned to `x`".
+In plain English, the above snippet tells us that "five times ten is assigned to myObject".
 
 Every value you assign to an object will be in this form:
 
@@ -30,11 +33,16 @@ Every value you assign to an object will be in this form:
 objectName <- value
 ```
 
-Don't be lazy and use `=` to assign variables. Although this works, it will just sow confusion later. Instead, utilize RStudio's keyboard shortcut: Alt + - (the minus sign). Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
+By convention, we use `<-` to assign variables. Don't be lazy and use `=` to assign variables. Although this works, it will just sow confusion later. Instead, utilize RStudio's keyboard shortcut: `Alt`+`-` (the minus sign). Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
 
-RStudio offers many handy keyboard shortcuts. Alt+Shift+K brings up a keyboard shortcut reference card.
+RStudio offers many handy keyboard shortcuts. The shortcut to rule them all is `Alt`+`Shift`+`K`, which brings up a keyboard shortcut reference card.
 
-Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a convention for demarcating words in names.
+Although object names are flexible, we do need to follow some rules.
+
+  * Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space.
+  * As a general rule of thumb, object names should be short and meaningful. Misleading or overly long object names will make it a pain to debug your code.
+
+Below is an example of various object name conventions. My best advice would be to pick one and stick with it.
 
 ```
 this_is_snake_case
@@ -50,26 +58,22 @@ this_is_a_really_long_name <- 2.5
 
 To inspect the object we just created, try out RStudio's completion facility: type the first few characters, press TAB, add characters until you get what you want, then press return.
 
-As a general rule of thumb, object names should be short and meaningful. Misleading or overly long object names will make it a pain to debug your code.
-
 Let's make another assignment:
 
 ```{r}
-jennys_age <- 2 ^ 5
+eddiesAge <- 2^4+4
 ```
 
-Now inspect the variable `jennys-age`:
+Now inspect the variable `eddiesAge`:
 
 ```{r}
-jennys_age
+eddiesAge
 ```
 
 
-## Functions
+## Function Basics
 
-Functions are always followed by a pair of brackets `()`.
-
-R has a mind-blowing collection of built-in functions that are accessed like so:
+Functions are always followed by a pair of brackets `()`. R has a huge collection of built-in functions that can be accessed like this:
 
 ```{r eval = FALSE}
 functionName(arg1 = val1, arg2 = val2, ...)
@@ -79,9 +83,9 @@ Notice that we should use `=` instead of `->` within a function. Here, `arg1` an
 
 Let's try using `seq()` which makes regular sequences of numbers and, while we're at it, demo more helpful features of RStudio.
 
-Type `se` and hit TAB. A pop up shows you possible completions. Select `seq()` by using the up/down arrows to select. Notice the floating tool-tip-type help that pops up reminding you of a function's arguments.
+Type `se` and hit `TAB`. A pop up shows you possible completions. Select `seq()` by using the up/down arrows to select. Notice the floating tool-tip-type help that pops up reminding you of a function's arguments.
 
-If you want even more help, press F1 as directed to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle. Type the arguments `1, 10` and hit return. RStudio also exits the parenthetical expression for you.
+If you want even more help, press `F1` as directed to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle. Type the arguments `1, 10` and hit return. RStudio also exits the parenthetical expression for you.
 
 ```{r}
 seq(1, 10)
@@ -153,11 +157,13 @@ It is also displayed at the top of the RStudio console. Notice that `getwd()` lo
 
 As a beginning R user, it's OK let your home directory or any other weird directory on your computer be R's working directory. _Very soon_, I urge you to evolve to the next level, where you organize your analytical projects into directories and, when working on project A, set R's working directory to the associated directory.
 
-__Although I do not recommend it__, in case you're curious, you can set R's working directory at the command line like so:
+In case you're curious, you can set R's working directory at the command line like so:
 
 ```{r eval=F}
 setwd("~/myCoolProject")
 ```
+
+The `setwd()` function is extremely useful for times you want to read in external data, such as a .csv file.
 
 Let's enter a few commands in the Console, as if we are just beginning a project:
 
@@ -916,8 +922,6 @@ output
 
 
 ## Functions
-
-### Function basics
 
 Sometimes, we wish to define our own functions. For example, we usually create functions if we need to do similar tasks more than once. Below is a basic format to write a function.
 

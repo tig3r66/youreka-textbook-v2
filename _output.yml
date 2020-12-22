@@ -20,6 +20,3 @@ bookdown::gitbook:
       github: yes
       facebook: no
       twitter: no
-    download:
-      - ["gentle-intro-youreka.pdf", "PDF"]
-      - ["gentle-intro-youreka", "EPUB"]
