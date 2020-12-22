@@ -5,21 +5,21 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Basics of R and RStudio | A Gentle Introduction to Data Science with R</title>
-  <meta name="description" content="Description here" />
+  <meta name="description" content="2 Basics of R and RStudio | A Gentle Introduction to Data Science with R" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Basics of R and RStudio | A Gentle Introduction to Data Science with R" />
   <meta property="og:type" content="book" />
   
+  <meta property="og:image" content="assets/youreka-logo.png" />
   
-  <meta property="og:description" content="Description here" />
   <meta name="github-repo" content="tig3r66/youreka-textbook" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="2 Basics of R and RStudio | A Gentle Introduction to Data Science with R" />
   
-  <meta name="twitter:description" content="Description here" />
   
+  <meta name="twitter:image" content="assets/youreka-logo.png" />
 
 <meta name="author" content="Youreka Canada" />
 
@@ -129,6 +129,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/youreka-logo.png" ></a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-textbook"><i class="fa fa-check"></i>How to use this textbook</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i>Contributors</a></li>
@@ -265,6 +268,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.10" data-path="data-frames.html"><a href="data-frames.html#additional-resources"><i class="fa fa-check"></i><b>8.10</b> Additional resources</a></li>
 </ul></li>
+<li class="divider"></li>
+<li><center>
+  <a rel="license" href="./index.html#license">
+    License: CC-BY-SA<br>
+    <i class = "fab fa-creative-commons fa-2x"></i>
+    <i class = "fab fa-creative-commons-by fa-2x"></i>
+    <i class = "fab fa-creative-commons-sa fa-2x"></i>
+  </a>
+</li></center>
+
 </ul>
 
       </nav>
@@ -344,7 +357,7 @@ argument or maybe the first two. After that, I always use <code>name = value</co
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>Not all functions have (or require) arguments:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">date</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 21 20:12:38 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Mon Dec 21 21:18:55 2020&quot;</code></pre>
 <p>Now look at your workspace – in the upper right pane. The workspace is where user-defined objects accumulate. You can also get a listing of these objects with commands:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">objects</span>()</a></code></pre></div>
 <pre><code>## [1] &quot;greeting&quot;                   &quot;jennys_age&quot;                
@@ -376,7 +389,7 @@ argument or maybe the first two. After that, I always use <code>name = value</co
 <a class="sourceLine" id="cb29-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>)</a>
 <a class="sourceLine" id="cb29-5" data-line-number="5">y &lt;-<span class="st"> </span>a <span class="op">+</span><span class="st"> </span>b <span class="op">*</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dt">sd =</span> <span class="kw">sqrt</span>(sig_sq))</a>
 <a class="sourceLine" id="cb29-6" data-line-number="6">(avg_x &lt;-<span class="st"> </span><span class="kw">mean</span>(x))</a></code></pre></div>
-<pre><code>## [1] 0.4670738</code></pre>
+<pre><code>## [1] 0.4946292</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">plot</span>(x, y)</a></code></pre></div>
 <p><img src="_main_files/figure-html/toy-line-1.png" width="672" /></p>
 <p>Let’s say this is a good start of an analysis and your ready to start preserving the logic and code. Visit the History tab of the upper right pane. Select these commands. Click “To Source”. Now you have a new pane containing a new R script. Click on the floppy disk to save. Give it a name ending in <code>.R</code> or <code>.r</code>. Note that, by default, it will go in the directory associated with your project.</p>
@@ -1355,9 +1368,9 @@ produces</p>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
@@ -1381,9 +1394,9 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": [["gentle-intro-youreka.pdf", "PDF"], ["gentle-intro-youreka", "EPUB"]],
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
