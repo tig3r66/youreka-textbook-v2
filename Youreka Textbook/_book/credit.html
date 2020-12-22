@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Credit | A Gentle Introduction to Data Science with R</title>
+  <meta name="description" content="Description here" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Credit | A Gentle Introduction to Data Science with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Description here" />
+  <meta name="github-repo" content="tig3r66/youreka-textbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Credit | A Gentle Introduction to Data Science with R" />
+  
+  <meta name="twitter:description" content="Description here" />
+  
+
+<meta name="author" content="Eddie Guo" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="install.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i>Contributors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="credit.html"><a href="credit.html"><i class="fa fa-check"></i>Credit</a></li>
+<li class="part"><span><b>I Prerequisites</b></span></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Install R and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> R and RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Basics of R and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
+<li class="chapter" data-level="2.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#working-directory"><i class="fa fa-check"></i><b>2.3</b> Working directory</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#other-important-things"><i class="fa fa-check"></i><b>2.3.1</b> Other important things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#basic-math-in-r"><i class="fa fa-check"></i><b>2.4</b> Basic math in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#data-structures-in-r"><i class="fa fa-check"></i><b>2.5</b> Data structures in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#vectors"><i class="fa fa-check"></i><b>2.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="2.5.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#missing-values-na"><i class="fa fa-check"></i><b>2.5.2</b> Missing values (NA)</a></li>
+<li class="chapter" data-level="2.5.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#working-with-multiple-vectors"><i class="fa fa-check"></i><b>2.5.3</b> Working with multiple vectors</a></li>
+<li class="chapter" data-level="2.5.4" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#data-frames"><i class="fa fa-check"></i><b>2.5.4</b> Data frames</a></li>
+<li class="chapter" data-level="2.5.5" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#reading-in-external-data"><i class="fa fa-check"></i><b>2.5.5</b> Reading in external data</a></li>
+<li class="chapter" data-level="2.5.6" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#factors"><i class="fa fa-check"></i><b>2.5.6</b> Factors</a></li>
+<li class="chapter" data-level="2.5.7" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#lists"><i class="fa fa-check"></i><b>2.5.7</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#conditionals"><i class="fa fa-check"></i><b>2.6</b> Conditionals</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#conditional-basics"><i class="fa fa-check"></i><b>2.6.1</b> Conditional basics</a></li>
+<li class="chapter" data-level="2.6.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#if-statements"><i class="fa fa-check"></i><b>2.6.2</b> <code>if</code> statements</a></li>
+<li class="chapter" data-level="2.6.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#multiple-ifs-vs-else-if"><i class="fa fa-check"></i><b>2.6.3</b> Multiple <code>if</code>s vs <code>else if</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#for-loops"><i class="fa fa-check"></i><b>2.7</b> <code>for</code> loops</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#basic-for-loop"><i class="fa fa-check"></i><b>2.7.1</b> Basic <code>for</code> loop</a></li>
+<li class="chapter" data-level="2.7.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#looping-with-an-index-storing-results"><i class="fa fa-check"></i><b>2.7.2</b> Looping with an index &amp; storing results</a></li>
+<li class="chapter" data-level="2.7.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#looping-over-files-optional"><i class="fa fa-check"></i><b>2.7.3</b> Looping over files (OPTIONAL)</a></li>
+<li class="chapter" data-level="2.7.4" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#subsetting-data-optional"><i class="fa fa-check"></i><b>2.7.4</b> Subsetting data (OPTIONAL)</a></li>
+<li class="chapter" data-level="2.7.5" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#nested-loops-optional"><i class="fa fa-check"></i><b>2.7.5</b> Nested loops (OPTIONAL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#functions-1"><i class="fa fa-check"></i><b>2.8</b> Functions</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#function-basics"><i class="fa fa-check"></i><b>2.8.1</b> Function basics</a></li>
+<li class="chapter" data-level="2.8.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#conditionals-within-functions"><i class="fa fa-check"></i><b>2.8.2</b> Conditionals within functions</a></li>
+<li class="chapter" data-level="2.8.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#nested-conditionals-optional"><i class="fa fa-check"></i><b>2.8.3</b> Nested conditionals (OPTIONAL)</a></li>
+<li class="chapter" data-level="2.8.4" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#default-arguments-and-unnamed-arguments"><i class="fa fa-check"></i><b>2.8.4</b> Default arguments and unnamed arguments</a></li>
+<li class="chapter" data-level="2.8.5" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#combining-functions-optional"><i class="fa fa-check"></i><b>2.8.5</b> Combining functions (OPTIONAL)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#data-frames"><i class="fa fa-check"></i><b>3</b> Data frames</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>3.1</b> Get the gapminder data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-frames.html"><a href="data-frames.html#explore-gapminder"><i class="fa fa-check"></i><b>3.2</b> Explore gapminder</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="data-frames.html"><a href="data-frames.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>3.2.1</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-frames.html"><a href="data-frames.html#exploring-variables-in-a-data-frame"><i class="fa fa-check"></i><b>3.2.2</b> Exploring variables in a data Frame</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-frames.html"><a href="data-frames.html#plotting-variables-with-r-optional"><i class="fa fa-check"></i><b>3.2.3</b> Plotting variables with R (OPTIONAL)</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-frames.html"><a href="data-frames.html#data-frame-summary"><i class="fa fa-check"></i><b>3.2.4</b> Data frame summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-frames.html"><a href="data-frames.html#data-frames-with-dplyr"><i class="fa fa-check"></i><b>3.3</b> Data frames with dplyr</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-frames.html"><a href="data-frames.html#subsetting-the-data"><i class="fa fa-check"></i><b>3.3.1</b> Subsetting the data</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-frames.html"><a href="data-frames.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>3.3.2</b> Filter rows with <code>filter()</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-frames.html"><a href="data-frames.html#pipe-operator"><i class="fa fa-check"></i><b>3.3.3</b> Pipe operator <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-frames.html"><a href="data-frames.html#select-columns-with-select"><i class="fa fa-check"></i><b>3.3.4</b> Select Columns with <code>select()</code></a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-frames.html"><a href="data-frames.html#pure-predictable-pipeable-optional"><i class="fa fa-check"></i><b>3.3.5</b> Pure, predictable, pipeable (OPTIONAL)</a></li>
+<li class="chapter" data-level="3.3.6" data-path="data-frames.html"><a href="data-frames.html#additional-resources"><i class="fa fa-check"></i><b>3.3.6</b> Additional resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>4</b> More dplyr</a><ul>
+<li class="chapter" data-level="4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>4.1</b> Review and preparation</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-frames.html"><a href="data-frames.html#load-dplyr-and-gapminder"><i class="fa fa-check"></i><b>4.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>4.2</b> Use <code>mutate()</code> to add new variables</a></li>
+<li class="chapter" data-level="4.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>4.3</b> Use <code>arrange()</code> to row-order data</a></li>
+<li class="chapter" data-level="4.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>4.4</b> Use <code>rename()</code> to rename variables</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#select-can-rename-and-reposition-variables"><i class="fa fa-check"></i><b>4.4.1</b> <code>select()</code> Can Rename and Reposition Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>4.5</b> Perform tasks on subsets with <code>group_by()</code></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#counting"><i class="fa fa-check"></i><b>4.5.1</b> Counting</a></li>
+<li class="chapter" data-level="4.5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#general-summarization"><i class="fa fa-check"></i><b>4.5.2</b> General summarization</a></li>
+<li class="chapter" data-level="4.5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#computing-with-group-wise-summaries"><i class="fa fa-check"></i><b>4.5.3</b> Computing with group-wise summaries</a></li>
+<li class="chapter" data-level="4.5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#window-functions-optional"><i class="fa fa-check"></i><b>4.5.4</b> Window functions (OPTIONAL)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-to-visualization-optional"><i class="fa fa-check"></i><b>4.6</b> Introduction to visualization (OPTIONAL)</a></li>
+<li class="chapter" data-level="4.7" data-path="more-dplyr.html"><a href="more-dplyr.html#comprehensive-practice-optional"><i class="fa fa-check"></i><b>4.7</b> Comprehensive practice (OPTIONAL)</a></li>
+<li class="chapter" data-level="4.8" data-path="more-dplyr.html"><a href="more-dplyr.html#summary-and-further-resource"><i class="fa fa-check"></i><b>4.8</b> Summary and further resource</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>5</b> Central limit theorem</a><ul>
+<li class="chapter" data-level="5.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>5.1</b> Central limit theorem for means</a></li>
+<li class="chapter" data-level="5.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability-optional"><i class="fa fa-check"></i><b>5.2</b> Central limit theorem for probability (OPTIONAL)</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Gentle Introduction to Data Science with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="credit" class="section level1 unnumbered">
+<h1>Credit</h1>
+<p>This material was adapted from:</p>
+<p>Jennifer Bryan STAT 545 at UBC <a href="https://stat545.com/" class="uri">https://stat545.com/</a></p>
+<p>Jennifer Bryan (2017). gapminder: Data from Gapminder. R package version 0.3.0. <a href="https://CRAN.R-project.org/package=gapminder" class="uri">https://CRAN.R-project.org/package=gapminder</a></p>
+
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

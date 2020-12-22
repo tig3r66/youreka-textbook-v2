@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 More dplyr | A Gentle Introduction to Data Science with R</title>
+  <meta name="description" content="Description here" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 More dplyr | A Gentle Introduction to Data Science with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Description here" />
+  <meta name="github-repo" content="tig3r66/youreka-textbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 More dplyr | A Gentle Introduction to Data Science with R" />
+  
+  <meta name="twitter:description" content="Description here" />
+  
+
+<meta name="author" content="Youreka Canada" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-frames.html"/>
+<link rel="next" href="central-limit-theorem.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-textbook"><i class="fa fa-check"></i>How to use this textbook</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i>Contributors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#credit"><i class="fa fa-check"></i>Credit</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="part"><span><b>I Prerequisites</b></span></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Install R and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> R and RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Basics of R and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
+<li class="chapter" data-level="2.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#working-directory"><i class="fa fa-check"></i><b>2.3</b> Working directory</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#other-important-things"><i class="fa fa-check"></i><b>2.3.1</b> Other important things</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#basic-math-in-r"><i class="fa fa-check"></i><b>2.4</b> Basic math in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#data-structures-in-r"><i class="fa fa-check"></i><b>2.5</b> Data structures in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#vectors"><i class="fa fa-check"></i><b>2.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="2.5.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#missing-values-na"><i class="fa fa-check"></i><b>2.5.2</b> Missing values (NA)</a></li>
+<li class="chapter" data-level="2.5.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#working-with-multiple-vectors"><i class="fa fa-check"></i><b>2.5.3</b> Working with multiple vectors</a></li>
+<li class="chapter" data-level="2.5.4" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#data-frames"><i class="fa fa-check"></i><b>2.5.4</b> Data frames</a></li>
+<li class="chapter" data-level="2.5.5" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#reading-in-external-data"><i class="fa fa-check"></i><b>2.5.5</b> Reading in external data</a></li>
+<li class="chapter" data-level="2.5.6" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#factors"><i class="fa fa-check"></i><b>2.5.6</b> Factors</a></li>
+<li class="chapter" data-level="2.5.7" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#lists"><i class="fa fa-check"></i><b>2.5.7</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#conditionals"><i class="fa fa-check"></i><b>2.6</b> Conditionals</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#conditional-basics"><i class="fa fa-check"></i><b>2.6.1</b> Conditional basics</a></li>
+<li class="chapter" data-level="2.6.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#if-statements"><i class="fa fa-check"></i><b>2.6.2</b> <code>if</code> statements</a></li>
+<li class="chapter" data-level="2.6.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#multiple-ifs-vs-else-if"><i class="fa fa-check"></i><b>2.6.3</b> Multiple <code>if</code>s vs <code>else if</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#for-loops"><i class="fa fa-check"></i><b>2.7</b> <code>for</code> loops</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#basic-for-loop"><i class="fa fa-check"></i><b>2.7.1</b> Basic <code>for</code> loop</a></li>
+<li class="chapter" data-level="2.7.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#looping-with-an-index-storing-results"><i class="fa fa-check"></i><b>2.7.2</b> Looping with an index &amp; storing results</a></li>
+<li class="chapter" data-level="2.7.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#looping-over-files-optional"><i class="fa fa-check"></i><b>2.7.3</b> Looping over files (OPTIONAL)</a></li>
+<li class="chapter" data-level="2.7.4" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#subsetting-data-optional"><i class="fa fa-check"></i><b>2.7.4</b> Subsetting data (OPTIONAL)</a></li>
+<li class="chapter" data-level="2.7.5" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#nested-loops-optional"><i class="fa fa-check"></i><b>2.7.5</b> Nested loops (OPTIONAL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#functions-1"><i class="fa fa-check"></i><b>2.8</b> Functions</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#function-basics"><i class="fa fa-check"></i><b>2.8.1</b> Function basics</a></li>
+<li class="chapter" data-level="2.8.2" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#conditionals-within-functions"><i class="fa fa-check"></i><b>2.8.2</b> Conditionals within functions</a></li>
+<li class="chapter" data-level="2.8.3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#nested-conditionals-optional"><i class="fa fa-check"></i><b>2.8.3</b> Nested conditionals (OPTIONAL)</a></li>
+<li class="chapter" data-level="2.8.4" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#default-arguments-and-unnamed-arguments"><i class="fa fa-check"></i><b>2.8.4</b> Default arguments and unnamed arguments</a></li>
+<li class="chapter" data-level="2.8.5" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#combining-functions-optional"><i class="fa fa-check"></i><b>2.8.5</b> Combining functions (OPTIONAL)</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Data Wrangling</b></span></li>
+<li class="chapter" data-level="3" data-path="basics-of-r-and-rstudio.html"><a href="basics-of-r-and-rstudio.html#data-frames"><i class="fa fa-check"></i><b>3</b> Data frames</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>3.1</b> Get the gapminder data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-frames.html"><a href="data-frames.html#explore-gapminder"><i class="fa fa-check"></i><b>3.2</b> Explore gapminder</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="data-frames.html"><a href="data-frames.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>3.2.1</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-frames.html"><a href="data-frames.html#exploring-variables-in-a-data-frame"><i class="fa fa-check"></i><b>3.2.2</b> Exploring variables in a data Frame</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-frames.html"><a href="data-frames.html#plotting-variables-with-r-optional"><i class="fa fa-check"></i><b>3.2.3</b> Plotting variables with R (OPTIONAL)</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-frames.html"><a href="data-frames.html#data-frame-summary"><i class="fa fa-check"></i><b>3.2.4</b> Data frame summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-frames.html"><a href="data-frames.html#data-frames-with-dplyr"><i class="fa fa-check"></i><b>3.3</b> Data frames with dplyr</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-frames.html"><a href="data-frames.html#subsetting-the-data"><i class="fa fa-check"></i><b>3.3.1</b> Subsetting the data</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-frames.html"><a href="data-frames.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>3.3.2</b> Filter rows with <code>filter()</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-frames.html"><a href="data-frames.html#pipe-operator"><i class="fa fa-check"></i><b>3.3.3</b> Pipe operator <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-frames.html"><a href="data-frames.html#select-columns-with-select"><i class="fa fa-check"></i><b>3.3.4</b> Select Columns with <code>select()</code></a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-frames.html"><a href="data-frames.html#pure-predictable-pipeable-optional"><i class="fa fa-check"></i><b>3.3.5</b> Pure, predictable, pipeable (OPTIONAL)</a></li>
+<li class="chapter" data-level="3.3.6" data-path="data-frames.html"><a href="data-frames.html#additional-resources"><i class="fa fa-check"></i><b>3.3.6</b> Additional resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>4</b> More dplyr</a><ul>
+<li class="chapter" data-level="4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>4.1</b> Review and preparation</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-frames.html"><a href="data-frames.html#load-dplyr-and-gapminder"><i class="fa fa-check"></i><b>4.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>4.2</b> Use mutate() to add new variables</a></li>
+<li class="chapter" data-level="4.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>4.3</b> Use arrange() to row-order data</a></li>
+<li class="chapter" data-level="4.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>4.4</b> Use rename() to rename variables</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#select-can-rename-and-reposition-variables"><i class="fa fa-check"></i><b>4.4.1</b> <code>select()</code> Can Rename and Reposition Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>4.5</b> Perform tasks on subsets with <code>group_by()</code></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#counting"><i class="fa fa-check"></i><b>4.5.1</b> Counting</a></li>
+<li class="chapter" data-level="4.5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#general-summarization"><i class="fa fa-check"></i><b>4.5.2</b> General summarization</a></li>
+<li class="chapter" data-level="4.5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#computing-with-group-wise-summaries"><i class="fa fa-check"></i><b>4.5.3</b> Computing with group-wise summaries</a></li>
+<li class="chapter" data-level="4.5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#window-functions-optional"><i class="fa fa-check"></i><b>4.5.4</b> Window functions (OPTIONAL)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-to-visualization-optional"><i class="fa fa-check"></i><b>4.6</b> Introduction to visualization (OPTIONAL)</a></li>
+<li class="chapter" data-level="4.7" data-path="more-dplyr.html"><a href="more-dplyr.html#comprehensive-practice-optional"><i class="fa fa-check"></i><b>4.7</b> Comprehensive practice (OPTIONAL)</a></li>
+<li class="chapter" data-level="4.8" data-path="more-dplyr.html"><a href="more-dplyr.html#summary"><i class="fa fa-check"></i><b>4.8</b> Summary</a></li>
+</ul></li>
+<li class="part"><span><b>III Statistics</b></span></li>
+<li class="chapter" data-level="5" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>5</b> Central limit theorem</a><ul>
+<li class="chapter" data-level="5.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>5.1</b> Central limit theorem for means</a></li>
+<li class="chapter" data-level="5.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability-optional"><i class="fa fa-check"></i><b>5.2</b> Central limit theorem for probability (OPTIONAL)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>6</b> Basic statistical tests</a><ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#getting-ready"><i class="fa fa-check"></i><b>6.1</b> Getting ready</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#students-t-test"><i class="fa fa-check"></i><b>6.2</b> Student’s t-test</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi-squared-test"><i class="fa fa-check"></i><b>6.3</b> Chi-squared test</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-goodness-of-fit"><i class="fa fa-check"></i><b>6.3.1</b> <span class="math inline">\(\chi^2\)</span> test for goodness-of-fit</a></li>
+<li class="chapter" data-level="6.3.2" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-independence"><i class="fa fa-check"></i><b>6.3.2</b> <span class="math inline">\(\chi^2\)</span> test for independence</a></li>
+<li class="chapter" data-level="6.3.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-homogeneity"><i class="fa fa-check"></i><b>6.3.3</b> <span class="math inline">\(\chi^2\)</span> test for homogeneity</a></li>
+<li class="chapter" data-level="6.3.4" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#fishers-exact-test-optional"><i class="fa fa-check"></i><b>6.3.4</b> Fisher’s exact test (OPTIONAL)</a></li>
+<li class="chapter" data-level="6.3.5" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#comparison-of-proportions-optional"><i class="fa fa-check"></i><b>6.3.5</b> Comparison of proportions (OPTIONAL)</a></li>
+<li class="chapter" data-level="6.3.6" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#contingency-tables"><i class="fa fa-check"></i><b>6.3.6</b> Contingency tables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#visualizing-data-distributions-optional"><i class="fa fa-check"></i><b>6.4</b> Visualizing data distributions (OPTIONAL)</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html"><i class="fa fa-check"></i><b>7</b> Comparing multiple means</a><ul>
+<li class="chapter" data-level="7.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#loading-packages"><i class="fa fa-check"></i><b>7.1</b> Loading packages</a></li>
+<li class="chapter" data-level="7.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#merging-datasets"><i class="fa fa-check"></i><b>7.2</b> Merging datasets</a></li>
+<li class="chapter" data-level="7.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#one-way-anova"><i class="fa fa-check"></i><b>7.3</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#the-iris-dataset"><i class="fa fa-check"></i><b>7.3.1</b> The iris dataset</a></li>
+<li class="chapter" data-level="7.3.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#non-parametric-alternatives-to-anova"><i class="fa fa-check"></i><b>7.3.2</b> Non-parametric alternatives to ANOVA</a></li>
+<li class="chapter" data-level="7.3.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#two-way-anova"><i class="fa fa-check"></i><b>7.3.3</b> Two-way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#linear-regression"><i class="fa fa-check"></i><b>7.4</b> Linear regression</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#basic-concepts"><i class="fa fa-check"></i><b>7.4.1</b> Basic concepts</a></li>
+<li class="chapter" data-level="7.4.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#pearson-correlation"><i class="fa fa-check"></i><b>7.4.2</b> Pearson correlation</a></li>
+<li class="chapter" data-level="7.4.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#spearman-correlation"><i class="fa fa-check"></i><b>7.4.3</b> Spearman correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>8</b> Data visualization</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-visualization.html"><a href="data-visualization.html#a-graphing-template"><i class="fa fa-check"></i><b>8.1</b> A graphing template</a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualization.html"><a href="data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>8.2</b> Scatter plot</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="data-visualization.html"><a href="data-visualization.html#trend-lines"><i class="fa fa-check"></i><b>8.2.1</b> Trend lines</a></li>
+<li class="chapter" data-level="8.2.2" data-path="data-visualization.html"><a href="data-visualization.html#facets"><i class="fa fa-check"></i><b>8.2.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="data-visualization.html"><a href="data-visualization.html#aesthetic-mappings"><i class="fa fa-check"></i><b>8.3</b> Aesthetic mappings</a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualization.html"><a href="data-visualization.html#line-plot"><i class="fa fa-check"></i><b>8.4</b> Line plot</a></li>
+<li class="chapter" data-level="8.5" data-path="data-visualization.html"><a href="data-visualization.html#bar-plot"><i class="fa fa-check"></i><b>8.5</b> Bar plot</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="data-visualization.html"><a href="data-visualization.html#basics"><i class="fa fa-check"></i><b>8.5.1</b> Basics</a></li>
+<li class="chapter" data-level="8.5.2" data-path="data-visualization.html"><a href="data-visualization.html#plotting-significance-optional"><i class="fa fa-check"></i><b>8.5.2</b> Plotting significance (OPTIONAL)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="data-visualization.html"><a href="data-visualization.html#box-plot"><i class="fa fa-check"></i><b>8.6</b> Box plot</a></li>
+<li class="chapter" data-level="8.7" data-path="data-visualization.html"><a href="data-visualization.html#histogram-and-density-plot"><i class="fa fa-check"></i><b>8.7</b> Histogram and density plot</a></li>
+<li class="chapter" data-level="8.8" data-path="data-visualization.html"><a href="data-visualization.html#assembly-of-multiple-figures-optional"><i class="fa fa-check"></i><b>8.8</b> Assembly of multiple figures (OPTIONAL)</a></li>
+<li class="chapter" data-level="8.9" data-path="data-visualization.html"><a href="data-visualization.html#extras-optional"><i class="fa fa-check"></i><b>8.9</b> Extras (OPTIONAL)</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="data-visualization.html"><a href="data-visualization.html#choropleth"><i class="fa fa-check"></i><b>8.9.1</b> Choropleth</a></li>
+<li class="chapter" data-level="8.9.2" data-path="data-visualization.html"><a href="data-visualization.html#animations"><i class="fa fa-check"></i><b>8.9.2</b> Animations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="data-frames.html"><a href="data-frames.html#additional-resources"><i class="fa fa-check"></i><b>8.10</b> Additional resources</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Gentle Introduction to Data Science with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="more-dplyr" class="section level1">
+<h1><span class="header-section-number">4</span> More dplyr</h1>
+<div id="review-and-preparation" class="section level2">
+<h2><span class="header-section-number">4.1</span> Review and preparation</h2>
+<p>In the previous chapter, we introduced three important concepts:</p>
+<ol style="list-style-type: decimal">
+<li><code>filter()</code> for subsetting rows</li>
+<li><code>select()</code> for subsetting columns (i.e., variables)</li>
+<li>The pipe operator <code>%&gt;%</code>, which feeds the left-hand side as the first argument to the expression on the right-hand side</li>
+</ol>
+<p>We also discussed dplyr’s role inside the tidyverse and tibbles:</p>
+<ul>
+<li><code>dplyr</code> is a core package in the <a href="https://github.com/hadley/tidyverse">tidyverse</a> meta-package. Since we often make incidental usage of the others, we will load dplyr and the others via <code>library(tidyverse)</code>.</li>
+<li>The <code>tidyverse</code> embraces a special flavor of data frame, called a tibble. The <code>gapminder</code> dataset is stored as a tibble.</li>
+</ul>
+<div id="load-dplyr-and-gapminder" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Load <code>dplyr</code> and gapminder</h3>
+<p>I choose to load the tidyverse, which will load <code>dplyr</code>, among other packages we use incidentally below. Let’s also load gapminder.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb345-2" data-line-number="2"><span class="kw">library</span>(gapminder)</a></code></pre></div>
+<p>We’re going to make changes to the <code>gapminder</code> tibble. To eliminate any fear that you’re damaging the data that comes with the package, let’s create an explicit copy of <code>gapminder</code> for our experiments.</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1">my_gap &lt;-<span class="st"> </span>gapminder</a></code></pre></div>
+<p><strong>Pay close attention</strong> to when we evaluate statements but let the output just print to screen…</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1"><span class="co">## let output print to screen, but do not store</span></a>
+<a class="sourceLine" id="cb347-2" data-line-number="2">my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 12 x 6
+##    country continent  year lifeExp      pop gdpPercap
+##    &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1 Canada  Americas   1952    68.8 14785584    11367.
+##  2 Canada  Americas   1957    70.0 17010154    12490.
+##  3 Canada  Americas   1962    71.3 18985849    13462.
+##  4 Canada  Americas   1967    72.1 20819767    16077.
+##  5 Canada  Americas   1972    72.9 22284500    18971.
+##  6 Canada  Americas   1977    74.2 23796400    22091.
+##  7 Canada  Americas   1982    75.8 25201900    22899.
+##  8 Canada  Americas   1987    76.9 26549700    26627.
+##  9 Canada  Americas   1992    78.0 28523502    26343.
+## 10 Canada  Americas   1997    78.6 30305843    28955.
+## 11 Canada  Americas   2002    79.8 31902268    33329.
+## 12 Canada  Americas   2007    80.7 33390141    36319.</code></pre>
+<p>… versus when we assign the output to a new variable, or overwritting one that already exists.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="co">## store the output as an R object</span></a>
+<a class="sourceLine" id="cb349-2" data-line-number="2">my_precious &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>)</a></code></pre></div>
+</div>
+</div>
+<div id="use-mutate-to-add-new-variables" class="section level2">
+<h2><span class="header-section-number">4.2</span> Use mutate() to add new variables</h2>
+<p>Imagine we wanted to recover each country’s GDP. After all, the Gapminder data has a variable for population and GDP per capita. Let’s multiply them together to get the GDP of the whole country.</p>
+<p><code>mutate()</code> is a function that defines and inserts new variables into a tibble. You can refer to existing variables by name.</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1">my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">gdp =</span> pop <span class="op">*</span><span class="st"> </span>gdpPercap)</a></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp      pop gdpPercap          gdp
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.  7585448670.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.  8758855797.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.  9648014150.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.  9678553274.
+##  6 Afghanistan Asia       1977    38.4 14880372      786. 11697659231.
+##  7 Afghanistan Asia       1982    39.9 12881816      978. 12598563401.
+##  8 Afghanistan Asia       1987    40.8 13867957      852. 11820990309.
+##  9 Afghanistan Asia       1992    41.7 16317921      649. 10595901589.
+## 10 Afghanistan Asia       1997    41.8 22227415      635. 14121995875.
+## # … with 1,694 more rows</code></pre>
+<p>If you don’t want to add a new column to your tibble, you can use <code>transmute()</code>. It works just like <code>mutate()</code> except it only keeps the columns you specify. Let’s save this output in a new tibble called <code>gap_gdp</code>. Recall that saving the return of functions generally suppresses printing to the console, If you want to see the output, simply type or print the variable.</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1">gap_gdp &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(country, <span class="dt">gdp =</span> pop <span class="op">*</span><span class="st"> </span>gdpPercap)</a>
+<a class="sourceLine" id="cb352-2" data-line-number="2">gap_gdp  <span class="co"># or use print(gap_gdp)</span></a></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 2
+##    country              gdp
+##    &lt;fct&gt;              &lt;dbl&gt;
+##  1 Afghanistan  6567086330.
+##  2 Afghanistan  7585448670.
+##  3 Afghanistan  8758855797.
+##  4 Afghanistan  9648014150.
+##  5 Afghanistan  9678553274.
+##  6 Afghanistan 11697659231.
+##  7 Afghanistan 12598563401.
+##  8 Afghanistan 11820990309.
+##  9 Afghanistan 10595901589.
+## 10 Afghanistan 14121995875.
+## # … with 1,694 more rows</code></pre>
+<p>Hmmm… those GDP numbers are almost uselessly large and abstract. Consider the <a href="http://fivethirtyeight.com/datalab/xkcd-randall-munroe-qanda-what-if/">advice of Randall Munroe of xkcd</a>:</p>
+<blockquote>
+<p>One thing that bothers me is large numbers presented without context… ‘If I added a zero to this number, would the sentence containing it mean something different to me?’ If the answer is ‘no,’ maybe the number has no business being in the sentence in the first place.&quot;</p>
+</blockquote>
+<p>Maybe it would be more meaningful to consumers of my tables and figures to stick with GDP per capita. But what if I reported GDP per capita, <em>relative to some benchmark country</em>. Since Canada is my adopted home, I’ll go with that.</p>
+<p>I need to create a new variable that is <code>gdpPercap</code> divided by Canadian <code>gdpPercap</code>, taking care that I always divide two numbers that pertain to the same year.</p>
+<p>Here is what we need to do:</p>
+<ul>
+<li>Filter down to the rows for Canada.</li>
+<li>Create a new temporary variable in <code>my_gap</code>:
+<ul>
+<li>Extract the <code>gdpPercap</code> variable from the Canadian data.</li>
+<li>Replicate it once per country in the dataset, so it has the right length.</li>
+</ul></li>
+<li>Divide raw <code>gdpPercap</code> by this Canadian figure.</li>
+<li>Discard the temporary variable of replicated Canadian <code>gdpPercap</code>.</li>
+</ul>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1">ctib &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>)</a>
+<a class="sourceLine" id="cb354-2" data-line-number="2"><span class="co">## this is a semi-dangerous way to add this variable</span></a>
+<a class="sourceLine" id="cb354-3" data-line-number="3"><span class="co">## I&#39;d prefer to join on year, but we haven&#39;t covered joins yet</span></a>
+<a class="sourceLine" id="cb354-4" data-line-number="4">my_gap &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb354-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tmp =</span> <span class="kw">rep</span>(ctib<span class="op">$</span>gdpPercap, <span class="kw">nlevels</span>(country)),</a>
+<a class="sourceLine" id="cb354-6" data-line-number="6">         <span class="dt">gdpPercapRel =</span> gdpPercap <span class="op">/</span><span class="st"> </span>tmp,</a>
+<a class="sourceLine" id="cb354-7" data-line-number="7">         <span class="dt">tmp =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<p>Note that, <code>mutate()</code> builds new variables sequentially so you can reference earlier ones (like <code>tmp</code>) when defining later ones (like <code>gdpPercapRel</code>). Also, you can get rid of a variable by setting it to <code>NULL</code>.</p>
+<p>How could we sanity check that this worked? The Canadian values for <code>gdpPercapRel</code> better all be 1!</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1">my_gap <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb355-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb355-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(country, year, gdpPercapRel)</a></code></pre></div>
+<pre><code>## # A tibble: 12 x 3
+##    country  year gdpPercapRel
+##    &lt;fct&gt;   &lt;int&gt;        &lt;dbl&gt;
+##  1 Canada   1952            1
+##  2 Canada   1957            1
+##  3 Canada   1962            1
+##  4 Canada   1967            1
+##  5 Canada   1972            1
+##  6 Canada   1977            1
+##  7 Canada   1982            1
+##  8 Canada   1987            1
+##  9 Canada   1992            1
+## 10 Canada   1997            1
+## 11 Canada   2002            1
+## 12 Canada   2007            1</code></pre>
+<p>I perceive Canada to be a “high GDP” country, so I predict that the distribution of <code>gdpPercapRel</code> is located below 1, possibly even well below. Check your intuition!</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="kw">summary</span>(my_gap<span class="op">$</span>gdpPercapRel)</a></code></pre></div>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 0.007236 0.061648 0.171521 0.326659 0.446564 9.534690</code></pre>
+<p>The relative GDP per capita numbers are, in general, well below 1. We see that most of the countries covered by this dataset have substantially lower GDP per capita, relative to Canada, across the entire time period.</p>
+<p>Remember: Trust No One. Including (especially?) yourself. Always try to find a way to check that you’ve done what meant to. Prepare to be horrified.</p>
+</div>
+<div id="use-arrange-to-row-order-data" class="section level2">
+<h2><span class="header-section-number">4.3</span> Use arrange() to row-order data</h2>
+<p><code>arrange()</code> reorders the rows in a data frame. Imagine you wanted this data ordered by year then country, as opposed to by country then year. Remember, to save the output, you must assign it to a variable.</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1">my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(year, country)</a></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp      pop gdpPercap gdpPercapRel
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.       0.0686
+##  2 Albania     Europe     1952    55.2  1282697     1601.       0.141 
+##  3 Algeria     Africa     1952    43.1  9279525     2449.       0.215 
+##  4 Angola      Africa     1952    30.0  4232095     3521.       0.310 
+##  5 Argentina   Americas   1952    62.5 17876956     5911.       0.520 
+##  6 Australia   Oceania    1952    69.1  8691212    10040.       0.883 
+##  7 Austria     Europe     1952    66.8  6927772     6137.       0.540 
+##  8 Bahrain     Asia       1952    50.9   120447     9867.       0.868 
+##  9 Bangladesh  Asia       1952    37.5 46886859      684.       0.0602
+## 10 Belgium     Europe     1952    68    8730405     8343.       0.734 
+## # … with 1,694 more rows</code></pre>
+<p>Or maybe you want just the data from 2007, sorted on life expectancy?</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb361-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb361-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(lifeExp)</a></code></pre></div>
+<pre><code>## # A tibble: 142 x 7
+##    country                continent  year lifeExp     pop gdpPercap gdpPercapRel
+##    &lt;fct&gt;                  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Swaziland              Africa     2007    39.6  1.13e6     4513.       0.124 
+##  2 Mozambique             Africa     2007    42.1  2.00e7      824.       0.0227
+##  3 Zambia                 Africa     2007    42.4  1.17e7     1271.       0.0350
+##  4 Sierra Leone           Africa     2007    42.6  6.14e6      863.       0.0237
+##  5 Lesotho                Africa     2007    42.6  2.01e6     1569.       0.0432
+##  6 Angola                 Africa     2007    42.7  1.24e7     4797.       0.132 
+##  7 Zimbabwe               Africa     2007    43.5  1.23e7      470.       0.0129
+##  8 Afghanistan            Asia       2007    43.8  3.19e7      975.       0.0268
+##  9 Central African Repub… Africa     2007    44.7  4.37e6      706.       0.0194
+## 10 Liberia                Africa     2007    45.7  3.19e6      415.       0.0114
+## # … with 132 more rows</code></pre>
+<p>Oh, you’d like to sort on life expectancy in <strong>desc</strong>ending order? Then use <code>desc()</code>.</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb363-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb363-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(lifeExp))</a></code></pre></div>
+<pre><code>## # A tibble: 142 x 7
+##    country          continent  year lifeExp       pop gdpPercap gdpPercapRel
+##    &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Japan            Asia       2007    82.6 127467972    31656.        0.872
+##  2 Hong Kong, China Asia       2007    82.2   6980412    39725.        1.09 
+##  3 Iceland          Europe     2007    81.8    301931    36181.        0.996
+##  4 Switzerland      Europe     2007    81.7   7554661    37506.        1.03 
+##  5 Australia        Oceania    2007    81.2  20434176    34435.        0.948
+##  6 Spain            Europe     2007    80.9  40448191    28821.        0.794
+##  7 Sweden           Europe     2007    80.9   9031088    33860.        0.932
+##  8 Israel           Asia       2007    80.7   6426679    25523.        0.703
+##  9 France           Europe     2007    80.7  61083916    30470.        0.839
+## 10 Canada           Americas   2007    80.7  33390141    36319.        1    
+## # … with 132 more rows</code></pre>
+<p>I advise that your analyses NEVER rely on rows or variables being in a specific order. But it’s still true that human beings write the code and the interactive development process can be much nicer if you reorder the rows of your data as you go along. Also, once you are preparing tables for human eyeballs, it is imperative that you step up and take control of row order.</p>
+</div>
+<div id="use-rename-to-rename-variables" class="section level2">
+<h2><span class="header-section-number">4.4</span> Use rename() to rename variables</h2>
+<p>When I first cleaned this Gapminder excerpt, I was a <a href="http://en.wikipedia.org/wiki/CamelCase"><code>camelCase</code></a> person, but now I’m all about <a href="http://en.wikipedia.org/wiki/Snake_case"><code>snake_case</code></a>. Let’s rename some variables!</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb365-2" data-line-number="2"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">life_exp =</span> lifeExp,</a>
+<a class="sourceLine" id="cb365-3" data-line-number="3">         <span class="dt">gdp_percap =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb365-4" data-line-number="4">         <span class="dt">gdp_percap_rel =</span> gdpPercapRel)</a></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 7
+##    country     continent  year life_exp      pop gdp_percap gdp_percap_rel
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;    &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Afghanistan Asia       1952     28.8  8425333       779.         0.0686
+##  2 Afghanistan Asia       1957     30.3  9240934       821.         0.0657
+##  3 Afghanistan Asia       1962     32.0 10267083       853.         0.0634
+##  4 Afghanistan Asia       1967     34.0 11537966       836.         0.0520
+##  5 Afghanistan Asia       1972     36.1 13079460       740.         0.0390
+##  6 Afghanistan Asia       1977     38.4 14880372       786.         0.0356
+##  7 Afghanistan Asia       1982     39.9 12881816       978.         0.0427
+##  8 Afghanistan Asia       1987     40.8 13867957       852.         0.0320
+##  9 Afghanistan Asia       1992     41.7 16317921       649.         0.0246
+## 10 Afghanistan Asia       1997     41.8 22227415       635.         0.0219
+## # … with 1,694 more rows</code></pre>
+<p>I did NOT assign the post-rename object back to <code>my_gap</code> because that would make the chunks in this tutorial harder to copy/paste and run out of order. In real life, I would probably assign this back to <code>my_gap</code>, in a data preparation script, and proceed with the new variable names.</p>
+<div id="select-can-rename-and-reposition-variables" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> <code>select()</code> Can Rename and Reposition Variables</h3>
+<p>You’ve seen simple use of <code>select()</code>. There are two tricks you might enjoy:</p>
+<ol style="list-style-type: decimal">
+<li><code>select()</code> can rename the variables you request to keep.</li>
+<li><code>select()</code> can be used with <code>everything()</code> to hoist a variable up to the front of the tibble.</li>
+</ol>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb367-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Burundi&quot;</span>, year <span class="op">&gt;</span><span class="st"> </span><span class="dv">1996</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb367-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(<span class="dt">yr =</span> year, lifeExp, gdpPercap) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb367-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(gdpPercap, <span class="kw">everything</span>())</a></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   gdpPercap    yr lifeExp
+##       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
+## 1      463.  1997    45.3
+## 2      446.  2002    47.4
+## 3      430.  2007    49.6</code></pre>
+<p><code>everything()</code> is one of several helpers for variable selection. Read the documentation to see the rest.</p>
+</div>
+</div>
+<div id="perform-tasks-on-subsets-with-group_by" class="section level2">
+<h2><span class="header-section-number">4.5</span> Perform tasks on subsets with <code>group_by()</code></h2>
+<p>I have found collaborators love to ask seemingly innocuous questions like, “which country experienced the sharpest 5-year drop in life expectancy?”. In fact, that is a totally natural question to ask. But if you are using a language that doesn’t know about data, it’s an incredibly annoying question to answer.</p>
+<p><code>dplyr</code> offers powerful tools to solve this class of problem.</p>
+<ul>
+<li><code>group_by()</code> adds extra structure to your dataset – grouping information – which lays the groundwork for computations within the groups.</li>
+<li><code>summarize()</code> takes a dataset with <span class="math inline">\(n\)</span> observations, computes requested summaries, and returns a dataset with 1 observation.</li>
+<li>Window functions take a dataset with <span class="math inline">\(n\)</span> observations and return a dataset with <span class="math inline">\(n\)</span> observations.</li>
+<li>You can also do very general computations on your groups with <code>do()</code>.</li>
+</ul>
+<p>Combined with the verbs you already know, these new tools allow you to solve an extremely diverse set of problems with relative ease.</p>
+<div id="counting" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Counting</h3>
+<p>Let’s start with simple counting. How many observations do we have per continent? The <code>n()</code> function counts the number of observations in a particular group.</p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb369-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb369-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   continent     n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 Africa      624
+## 2 Americas    300
+## 3 Asia        396
+## 4 Europe      360
+## 5 Oceania      24</code></pre>
+<p>Let us pause here to think about the <code>tidyverse</code>. You could get these same frequencies using <code>table()</code> from base R.</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" data-line-number="1"><span class="kw">table</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<pre><code>## 
+##   Africa Americas     Asia   Europe  Oceania 
+##      624      300      396      360       24</code></pre>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" data-line-number="1"><span class="kw">str</span>(<span class="kw">table</span>(gapminder<span class="op">$</span>continent))</a></code></pre></div>
+<pre><code>##  &#39;table&#39; int [1:5(1d)] 624 300 396 360 24
+##  - attr(*, &quot;dimnames&quot;)=List of 1
+##   ..$ : chr [1:5] &quot;Africa&quot; &quot;Americas&quot; &quot;Asia&quot; &quot;Europe&quot; ...</code></pre>
+<p>But the object of class <code>table</code> that is returned makes downstream computation a bit fiddlier than you’d like. For example, it’s too bad the continent levels come back only as <em>names</em> and not as a proper factor, with the original set of levels. Recall that levels are the unique row entries per column. Also recall that <code>factor()</code> is a function that encodes a vectr using numbers. This is commonly used for categorical variables. For example:</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" data-line-number="1">sexes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;female&#39;</span>, <span class="st">&#39;male&#39;</span>, <span class="st">&#39;female&#39;</span>)</a>
+<a class="sourceLine" id="cb376-2" data-line-number="2"><span class="kw">names</span>(sexes)</a></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" data-line-number="1"><span class="co"># now look</span></a>
+<a class="sourceLine" id="cb378-2" data-line-number="2">sexes &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;female&#39;</span>, <span class="st">&#39;male&#39;</span>, <span class="st">&#39;female&#39;</span>))</a>
+<a class="sourceLine" id="cb378-3" data-line-number="3"><span class="kw">names</span>(sexes)</a></code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>The <code>tally()</code> function is a convenience function that knows to count rows.</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-3" data-line-number="3"><span class="st">  </span><span class="kw">tally</span>()</a></code></pre></div>
+<pre><code>## # A tibble: 5 x 2
+##   continent     n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 Africa      624
+## 2 Americas    300
+## 3 Asia        396
+## 4 Europe      360
+## 5 Oceania      24</code></pre>
+<p>The <code>count()</code> function is an even more convenient function that does both grouping and counting.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" data-line-number="1">my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(continent)</a></code></pre></div>
+<pre><code>## # A tibble: 5 x 2
+##   continent     n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 Africa      624
+## 2 Americas    300
+## 3 Asia        396
+## 4 Europe      360
+## 5 Oceania      24</code></pre>
+<p>What if we wanted to add the number of unique countries for each continent? You can compute multiple summaries inside <code>summarize()</code>. Use the <code>n_distinct()</code> function to count the number of distinct countries within each continent.</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb384-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb384-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb384-4" data-line-number="4">            <span class="dt">n_countries =</span> <span class="kw">n_distinct</span>(country))</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 5 x 3
+##   continent     n n_countries
+##   &lt;fct&gt;     &lt;int&gt;       &lt;int&gt;
+## 1 Africa      624          52
+## 2 Americas    300          25
+## 3 Asia        396          33
+## 4 Europe      360          30
+## 5 Oceania      24           2</code></pre>
+</div>
+<div id="general-summarization" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> General summarization</h3>
+<p>The functions you’ll apply within <code>summarize()</code> include classical statistical summaries, like <code>mean()</code>, <code>median()</code>, <code>var()</code>, <code>sd()</code>, <code>mad()</code>, <code>IQR()</code>, <code>min()</code>, and <code>max()</code>. Remember they are functions that take <span class="math inline">\(n\)</span> inputs and distill them down into 1 output.</p>
+<p>Although this may be statistically ill-advised, let’s compute the average life expectancy by continent.</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb387-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb387-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">avg_lifeExp =</span> <span class="kw">mean</span>(lifeExp))</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   continent avg_lifeExp
+##   &lt;fct&gt;           &lt;dbl&gt;
+## 1 Africa           48.9
+## 2 Americas         64.7
+## 3 Asia             60.1
+## 4 Europe           71.9
+## 5 Oceania          74.3</code></pre>
+<p><code>summarize_at()</code> applies the same summary function(s) to multiple variables. Let’s compute average and median life expectancy and GDP per capita by continent by year … but only for 1952 and 2007.</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb390-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1952</span>, <span class="dv">2007</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb390-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb390-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize_at</span>(<span class="kw">vars</span>(lifeExp, gdpPercap), <span class="kw">funs</span>(mean, median))</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 6
+## # Groups:   continent [5]
+##    continent  year lifeExp_mean gdpPercap_mean lifeExp_median gdpPercap_median
+##    &lt;fct&gt;     &lt;int&gt;        &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Africa     1952         39.1          1253.           38.8             987.
+##  2 Africa     2007         54.8          3089.           52.9            1452.
+##  3 Americas   1952         53.3          4079.           54.7            3048.
+##  4 Americas   2007         73.6         11003.           72.9            8948.
+##  5 Asia       1952         46.3          5195.           44.9            1207.
+##  6 Asia       2007         70.7         12473.           72.4            4471.
+##  7 Europe     1952         64.4          5661.           65.9            5142.
+##  8 Europe     2007         77.6         25054.           78.6           28054.
+##  9 Oceania    1952         69.3         10298.           69.3           10298.
+## 10 Oceania    2007         80.7         29810.           80.7           29810.</code></pre>
+<p>Let’s focus just on Asia. What are the minimum and maximum life expectancies seen by year?</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb392-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb392-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb392-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">min_lifeExp =</span> <span class="kw">min</span>(lifeExp), <span class="dt">max_lifeExp =</span> <span class="kw">max</span>(lifeExp))</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 12 x 3
+##     year min_lifeExp max_lifeExp
+##    &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1  1952        28.8        65.4
+##  2  1957        30.3        67.8
+##  3  1962        32.0        69.4
+##  4  1967        34.0        71.4
+##  5  1972        36.1        73.4
+##  6  1977        31.2        75.4
+##  7  1982        39.9        77.1
+##  8  1987        40.8        78.7
+##  9  1992        41.7        79.4
+## 10  1997        41.8        80.7
+## 11  2002        42.1        82  
+## 12  2007        43.8        82.6</code></pre>
+<p>Of course it would be much more interesting to see <em>which</em> country contributed these extreme observations. Is the minimum (maximum) always coming from the same country?We will tackle this with window functions shortly.</p>
+</div>
+<div id="computing-with-group-wise-summaries" class="section level3">
+<h3><span class="header-section-number">4.5.3</span> Computing with group-wise summaries</h3>
+<p>Don’t worry too much about this section if all the data wrangling is starting to become overwhelming – it’s mainly here for the curious.</p>
+<p>Let’s make a new variable that is the years of life expectancy gained (lost) relative to 1952, for each individual country. We group by country and use <code>mutate()</code> to make a new variable. The <code>first()</code> function extracts the first value from a vector. Notice that <code>first()</code> is operating on the vector of life expectancies <em>within each country group</em>.</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1">new_var &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb395-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(country) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb395-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb395-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lifeExp_gain =</span> lifeExp <span class="op">-</span><span class="st"> </span><span class="kw">first</span>(lifeExp)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb395-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">1963</span>)</a>
+<a class="sourceLine" id="cb395-6" data-line-number="6">new_var</a></code></pre></div>
+<pre><code>## # A tibble: 426 x 4
+## # Groups:   country [142]
+##    country      year lifeExp lifeExp_gain
+##    &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Afghanistan  1952    28.8         0   
+##  2 Afghanistan  1957    30.3         1.53
+##  3 Afghanistan  1962    32.0         3.20
+##  4 Albania      1952    55.2         0   
+##  5 Albania      1957    59.3         4.05
+##  6 Albania      1962    64.8         9.59
+##  7 Algeria      1952    43.1         0   
+##  8 Algeria      1957    45.7         2.61
+##  9 Algeria      1962    48.3         5.23
+## 10 Angola       1952    30.0         0   
+## # … with 416 more rows</code></pre>
+<p>Within country, we take the difference between life expectancy in year <span class="math inline">\(i\)</span> and life expectancy in 1952. Therefore we always see zeroes for 1952 and, for most countries, a sequence of positive and increasing numbers.</p>
+</div>
+<div id="window-functions-optional" class="section level3">
+<h3><span class="header-section-number">4.5.4</span> Window functions (OPTIONAL)</h3>
+<p>Window functions take <span class="math inline">\(n\)</span> inputs and give back <span class="math inline">\(n\)</span> outputs. Furthermore, the output depends on all the values. So <code>rank()</code> is a window function but <code>sum()</code> is not. Here we use window functions based on ranks and offsets.</p>
+<p>Let’s revisit the worst and best life expectancies in Asia over time, but retaining info about <em>which</em> country contributes these extreme values.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(year, country, lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">min_rank</span>(<span class="kw">desc</span>(lifeExp)) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span><span class="kw">min_rank</span>(lifeExp) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb397-6" data-line-number="6"><span class="st">  </span><span class="kw">arrange</span>(year)</a></code></pre></div>
+<pre><code>## # A tibble: 24 x 3
+## # Groups:   year [12]
+##     year country     lifeExp
+##    &lt;int&gt; &lt;fct&gt;         &lt;dbl&gt;
+##  1  1952 Afghanistan    28.8
+##  2  1952 Israel         65.4
+##  3  1957 Afghanistan    30.3
+##  4  1957 Israel         67.8
+##  5  1962 Afghanistan    32.0
+##  6  1962 Israel         69.4
+##  7  1967 Afghanistan    34.0
+##  8  1967 Japan          71.4
+##  9  1972 Afghanistan    36.1
+## 10  1972 Japan          73.4
+## # … with 14 more rows</code></pre>
+<p>We see that (min = Afghanistan, max = Japan) is the most frequent result, but Cambodia and Israel pop up at least once each as the min or max, respectively. That table should make you impatient for our upcoming work on tidying and reshaping data! Wouldn’t it be nice to have one row per year?</p>
+<p>How did that actually work? First, I store and view a partial that leaves off the <code>filter()</code> statement. All of these operations should be familiar.</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1">asia &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb399-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb399-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(year, country, lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb399-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(year)</a>
+<a class="sourceLine" id="cb399-5" data-line-number="5">asia</a></code></pre></div>
+<pre><code>## # A tibble: 396 x 3
+## # Groups:   year [12]
+##     year country     lifeExp
+##    &lt;int&gt; &lt;fct&gt;         &lt;dbl&gt;
+##  1  1952 Afghanistan    28.8
+##  2  1957 Afghanistan    30.3
+##  3  1962 Afghanistan    32.0
+##  4  1967 Afghanistan    34.0
+##  5  1972 Afghanistan    36.1
+##  6  1977 Afghanistan    38.4
+##  7  1982 Afghanistan    39.9
+##  8  1987 Afghanistan    40.8
+##  9  1992 Afghanistan    41.7
+## 10  1997 Afghanistan    41.8
+## # … with 386 more rows</code></pre>
+<p>Now we apply a window function: <code>min_rank()</code>. Since <code>asia</code> is grouped by year, <code>min_rank()</code> operates within mini-datasets, each for a specific year. Applied to the variable <code>lifeExp</code>, <code>min_rank()</code> returns the rank of each country’s observed life expectancy.</p>
+<p>FYI, the <code>min</code> part just specifies how ties are broken. Here is an explicit peek at these within-year life expectancy ranks, in both the (default) ascending and descending order. If you specify <code>rank()</code>, ties will be denoted by .5. For instance:</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb401-2" data-line-number="2"><span class="kw">min_rank</span>(x)</a></code></pre></div>
+<pre><code>## [1] 1 2 3 3 5</code></pre>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1"><span class="kw">rank</span>(x)</a></code></pre></div>
+<pre><code>## [1] 1.0 2.0 3.5 3.5 5.0</code></pre>
+<p>For concreteness, I use <code>mutate()</code> to actually create these variables, even though I dropped this in the solution above. Let’s look at a bit of that.</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1">asia <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb405-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">le_rank =</span> <span class="kw">min_rank</span>(lifeExp),</a>
+<a class="sourceLine" id="cb405-3" data-line-number="3">         <span class="dt">le_desc_rank =</span> <span class="kw">min_rank</span>(<span class="kw">desc</span>(lifeExp))) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb405-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Afghanistan&quot;</span>, <span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;Thailand&quot;</span>), year <span class="op">&gt;</span><span class="st"> </span><span class="dv">1995</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 9 x 5
+## # Groups:   year [3]
+##    year country     lifeExp le_rank le_desc_rank
+##   &lt;int&gt; &lt;fct&gt;         &lt;dbl&gt;   &lt;int&gt;        &lt;int&gt;
+## 1  1997 Afghanistan    41.8       1           33
+## 2  2002 Afghanistan    42.1       1           33
+## 3  2007 Afghanistan    43.8       1           33
+## 4  1997 Japan          80.7      33            1
+## 5  2002 Japan          82        33            1
+## 6  2007 Japan          82.6      33            1
+## 7  1997 Thailand       67.5      12           22
+## 8  2002 Thailand       68.6      12           22
+## 9  2007 Thailand       70.6      12           22</code></pre>
+<p>Afghanistan tends to present 1’s in the <code>le_rank</code> variable, Japan tends to present 1’s in the <code>le_desc_rank</code> variable and other countries, like Thailand, present less extreme ranks.</p>
+<p>You can understand the original <code>filter()</code> statement now:</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1"><span class="kw">filter</span>(<span class="kw">min_rank</span>(<span class="kw">desc</span>(lifeExp)) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span><span class="kw">min_rank</span>(lifeExp) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
+<p>These two sets of ranks are formed on-the-fly, within year group, and <code>filter()</code> retains rows with rank less than 2, which means … the row with rank = 1. Since we do for ascending and descending ranks, we get both the min and the max.</p>
+<p>If we had wanted just the min OR the max, an alternative approach using <code>top_n()</code> would have worked.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(year, country, lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-6" data-line-number="6"><span class="st">  </span><span class="co">#top_n(1, wt = lifeExp)       ## gets the max</span></a>
+<a class="sourceLine" id="cb408-7" data-line-number="7"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">1</span>, <span class="dt">wt =</span> <span class="kw">desc</span>(lifeExp))  <span class="co">## gets the min</span></a></code></pre></div>
+<pre><code>## # A tibble: 12 x 3
+## # Groups:   year [12]
+##     year country     lifeExp
+##    &lt;int&gt; &lt;fct&gt;         &lt;dbl&gt;
+##  1  1952 Afghanistan    28.8
+##  2  1957 Afghanistan    30.3
+##  3  1962 Afghanistan    32.0
+##  4  1967 Afghanistan    34.0
+##  5  1972 Afghanistan    36.1
+##  6  1977 Cambodia       31.2
+##  7  1982 Afghanistan    39.9
+##  8  1987 Afghanistan    40.8
+##  9  1992 Afghanistan    41.7
+## 10  1997 Afghanistan    41.8
+## 11  2002 Afghanistan    42.1
+## 12  2007 Afghanistan    43.8</code></pre>
+</div>
+</div>
+<div id="introduction-to-visualization-optional" class="section level2">
+<h2><span class="header-section-number">4.6</span> Introduction to visualization (OPTIONAL)</h2>
+<p>Although we will get into more serious plotting later on, I would like to get our feet wet with <code>ggplot2</code>.</p>
+<p><code>ggplot2</code> can generate many types of graphs. A great summary can be found on the R studio <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot2 cheat sheet</a>.</p>
+<p>Let’s looks at a few basic examples here.</p>
+<p>If you want to compare continuous data with a few categories, bar plot / box plot would be good start points. We can take a look at the data in 1952. For group data, we could use box plot or bar plot.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1">dat<span class="fl">.1952</span> &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</a>
+<a class="sourceLine" id="cb410-2" data-line-number="2">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.1952</span>, <span class="kw">aes</span>(<span class="dt">x=</span>continent, <span class="dt">y=</span>lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb410-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">stackdir =</span> <span class="st">&quot;center&quot;</span>, <span class="dt">dotsize =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb410-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb410-5" data-line-number="5"><span class="kw">show</span>(p)</a></code></pre></div>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-157-1.png" width="672" /></p>
+<p>Look at this figure, what would you comment on the mean and variation of the data? Have you identified any outliers?</p>
+<p>Note that many peer-reviewed journals prefer both the raw data (the dots here) and the summary (boxplot, showing median and IQR).</p>
+<p>If we were to look at 2 continuous variables, before we have any intuitive idea about it, we can graph a scatter plot for them.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">p_scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.1952</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb412-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a>
+<a class="sourceLine" id="cb412-3" data-line-number="3"><span class="kw">show</span>(p_scatter)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
+<p>Seems like an upgoing relationship - You probably would want to calculate the correlation between them, which we will introduce in a later session.</p>
+<p>To make <code>gdpPercap</code> spread out better, you can plot it in log10 scale using <code>scale_x_log10()</code>. You can also add colours to label different continents.</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">p_scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.1952</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb413-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb413-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a>
+<a class="sourceLine" id="cb413-4" data-line-number="4"><span class="kw">show</span>(p_scatter)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-159-1.png" width="672" /></p>
+<p>We can also remove the grey background for clarity by setting the theme:</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">p_scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.1952</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_classic</span>()</a>
+<a class="sourceLine" id="cb414-5" data-line-number="5"><span class="kw">show</span>(p_scatter)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-160-1.png" width="672" /></p>
+<p>Don’t worry too much about formatting figures right now. We will cover this much more in depth in another lab.</p>
+</div>
+<div id="comprehensive-practice-optional" class="section level2">
+<h2><span class="header-section-number">4.7</span> Comprehensive practice (OPTIONAL)</h2>
+<p>So let’s answer that “simple” question: which country experienced the sharpest 5-year drop in life expectancy (<code>le</code>)? Recall that this excerpt of the Gapminder data only has data every five years, e.g. for 1952, 1957, etc. So this really means looking at life expectancy changes between adjacent timepoints.</p>
+<p>At this point, that’s just too easy, so let’s do it by continent while we’re at it.</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb415-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, year, continent, lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb415-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent, country) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb415-4" data-line-number="4"><span class="st">  </span><span class="co"># within country, take (lifeExp in year i) - (lifeExp in year i - 1)</span></a>
+<a class="sourceLine" id="cb415-5" data-line-number="5"><span class="st">  </span><span class="co"># positive means lifeExp went up, negative means it went down</span></a>
+<a class="sourceLine" id="cb415-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">le_delta =</span> lifeExp <span class="op">-</span><span class="st"> </span><span class="kw">lag</span>(lifeExp)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-7" data-line-number="7"><span class="st">  </span><span class="co"># within country, retain the worst lifeExp change = smallest or most negative</span></a>
+<a class="sourceLine" id="cb415-8" data-line-number="8"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">worst_le_delta =</span> <span class="kw">min</span>(le_delta, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-9" data-line-number="9"><span class="st">  </span><span class="co"># within continent, retain the row with the lowest worst_le_delta</span></a>
+<a class="sourceLine" id="cb415-10" data-line-number="10"><span class="st">  </span><span class="kw">top_n</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dt">wt =</span> worst_le_delta) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-11" data-line-number="11"><span class="st">  </span><span class="kw">arrange</span>(worst_le_delta)</a></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;continent&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 5 x 3
+## # Groups:   continent [5]
+##   continent country     worst_le_delta
+##   &lt;fct&gt;     &lt;fct&gt;                &lt;dbl&gt;
+## 1 Africa    Rwanda             -20.4  
+## 2 Asia      Cambodia            -9.10 
+## 3 Americas  El Salvador         -1.51 
+## 4 Europe    Montenegro          -1.46 
+## 5 Oceania   Australia            0.170</code></pre>
+<p>Now this data is interesting. Take a look at the life expectancy in Rwanda from 1987 to 1992.</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1">gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb418-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb418-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1987</span>, country <span class="op">==</span><span class="st"> &#39;Rwanda&#39;</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 3
+##   country  year lifeExp
+##   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;
+## 1 Rwanda   1987    44.0</code></pre>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" data-line-number="1">gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1992</span>, country <span class="op">==</span><span class="st"> &#39;Rwanda&#39;</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 3
+##   country  year lifeExp
+##   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;
+## 1 Rwanda   1992    23.6</code></pre>
+<p>Ponder this data for a while. Think about the real-life implications and the code. What you’re seeing is genocide in dry statistics on average life expectancy.</p>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">4.8</span> Summary</h2>
+<p>Wow, we covered <em>a lot</em> of data wrangling! Don’t wory if you don’t understand everything the first time around. Programming takes practice, and practice makes perfect. Here are some general remarks:</p>
+<ol style="list-style-type: decimal">
+<li>Break your code into pieces starting at the top, and inspect the intermediate results. That’s certainly how I was able to <em>write</em> such a thing.</li>
+<li>The commands presented in this lab do not <a href="http://tinyurl.com/athenaforehead">leap fully formed out of anyone’s forehead</a>—they are built up gradually, with lots of errors and refinements along the way.</li>
+<li>If your statements are difficult to read, by all means break it into pieces and make some intermediate objects. Your code should be easy to read and write when you’re done.</li>
+</ol>
+<p>The functions presented here should cover most of your basic data wrangling needs. If you ever need to do something more complicated, search it up! Although I have programmed for many years, I still need to do a quick Google search for documentation and StackOverflow solutions.</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-frames.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="central-limit-theorem.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

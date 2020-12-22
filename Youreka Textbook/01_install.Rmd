@@ -1,0 +1,7 @@
+# (PART) Prerequisites {-}
+
+# Install R and RStudio {#install}
+
+## R and RStudio
+
+Here's some dummy text.

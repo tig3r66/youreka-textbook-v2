@@ -1,0 +1,80 @@
+---
+title: "A Gentle Introduction to Data Science with R"
+subtitle: "Explore, visualize, and analyze data"
+author: "Youreka Canada"
+github-repo: tig3r66/youreka-textbook
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Description here"
+output: bookdown::gitbook
+site: bookdown::bookdown_site
+bookdown::gitbook:
+  toc_depth: 4
+  config:
+    collapse: section
+    scroll_highlight: yes
+---
+
+```{r include = FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+# Welcome to Youreka Canada {-}
+
+Welcome to the Youreka Canada textbook! In this course, you will learn how to wrangle data, perform statistical tests, and visualize data with R. The purpose of this textbook is to provide a companion to the [Youreka Canada program](https://yourekacanada.org/), which teaches introductory statistics, data science, and research methods. This textbook does not assume you have any prior knowledge other than basic arithmetic.
+
+
+## How to use this textbook {-}
+
+Please note that this text goes into additional detail---all optional material is marked as OPTIONAL in the headings. Again, please note that this text is a *complements* the Youreka program. THESE NOTES ARE NOT A SUBSTITUTE FOR ATTENDING THE YOUREKA SESSIONS!
+
+This text primarily focuses on how the material taught in-session can be applied using the R programming language. As with all programming languages, the best way to learn is to actively code. That is, when you read this textbook, open up R Studio and write the code verbatim. Soon enough, you will be confident to code on your own!
+
+
+## Contributors {-}
+
+This textbook was written by Eddie Guo, Pouria Torabi, Shuce Zhang, and Devin Aggarwal. A special thanks goes to Matthew Pietrosanu for his critical statistical review of this textbook.
+
+
+## Credit {-}
+
+This material was adapted from:
+
+1. Jennifer Bryan STAT 545 at UBC https://stat545.com/
+
+2. Jennifer Bryan (2017). gapminder: Data from Gapminder. R package version 0.3.0. https://CRAN.R-project.org/package=gapminder
+
+
+## License {-}
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+
+<center>
+  <i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
+</center>
+
+*This is a human-readable summary of (and not a substitute for) the license. Please see <https://creativecommons.org/licenses/by-sa/4.0/legalcode> for the full legal text.*
+
+**You are free to:**
+
+- **Share**---copy and redistribute the material in any medium or format
+
+- **Remix**---remix, transform, and build upon the material for any purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+**Under the following terms:**
+
+- **Attribution**---You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+  
+- **ShareAlike**---If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original. 
+
+- **No additional restrictions**---You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+**Notices:**
+
+You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.
+
+No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
+

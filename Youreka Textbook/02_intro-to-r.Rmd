@@ -1,0 +1,1117 @@
+# Basics of R and RStudio
+
+Launch RStudio.
+
+Notice the default panes:
+
+* Console (entire left)
+* Environment/History (upper right)
+* Files/Plots/Packages/Help (lower right)
+
+You can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
+
+For now, go to the Console so we can begin our journey with R!
+
+
+## Objects
+
+Make an assignment and inspect the object you just created:
+
+```{r}
+x <- 5*10
+x
+```
+
+In plain English, the above snippet tells us that "five times ten is assigned to `x`".
+
+Every value you assign to an object will be in this form:
+
+```{r eval=F}
+objectName <- value
+```
+
+Don't be lazy and use `=` to assign variables. Although this works, it will just sow confusion later. Instead, utilize RStudio's keyboard shortcut: Alt + - (the minus sign). Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
+
+RStudio offers many handy keyboard shortcuts. Alt+Shift+K brings up a keyboard shortcut reference card.
+
+Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a convention for demarcating words in names.
+
+```
+this_is_snake_case
+other.people.use.periods
+evenOthersUseCamelCase
+```
+
+Make another assignment:
+
+```{r}
+this_is_a_really_long_name <- 2.5
+```
+
+To inspect the object we just created, try out RStudio's completion facility: type the first few characters, press TAB, add characters until you get what you want, then press return.
+
+As a general rule of thumb, object names should be short and meaningful. Misleading or overly long object names will make it a pain to debug your code.
+
+Let's make another assignment:
+
+```{r}
+jennys_age <- 2 ^ 5
+```
+
+Now inspect the variable `jennys-age`:
+
+```{r}
+jennys_age
+```
+
+
+## Functions
+
+Functions are always followed by a pair of brackets `()`.
+
+R has a mind-blowing collection of built-in functions that are accessed like so:
+
+```{r eval = FALSE}
+functionName(arg1 = val1, arg2 = val2, ...)
+```
+
+Notice that we should use `=` instead of `->` within a function. Here, `arg1` and `arg2` are called the __arguments__ of the function `functionName()`. Likewise, `val1` and `val2` are called the __parameters__ of `arg1` and `arg2` respectively.
+
+Let's try using `seq()` which makes regular sequences of numbers and, while we're at it, demo more helpful features of RStudio.
+
+Type `se` and hit TAB. A pop up shows you possible completions. Select `seq()` by using the up/down arrows to select. Notice the floating tool-tip-type help that pops up reminding you of a function's arguments.
+
+If you want even more help, press F1 as directed to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle. Type the arguments `1, 10` and hit return. RStudio also exits the parenthetical expression for you.
+
+```{r}
+seq(1, 10)
+```
+
+The above also demonstrates something about how R resolves function arguments. You can always specify in `name = value` form. But if you don't, R attempts to resolve by position. So above, it is assumed that we want a sequence `from = 1` that goes `to = 10`. Since we didn't specify step size, the default value of `by` in the function definition is used, which ends up being 1 in this case. For functions I call often, I might use this resolve by position for the first
+argument or maybe the first two. After that, I always use `name = value`.
+
+```{r}
+seq(from = 1, to = 10, by = 2)
+```
+
+Make this assignment and notice similar help with quotation marks.
+
+```{r}
+greeting <- "hello world"
+```
+
+If you just make an assignment, you don't see the assigned value. To show the assigned value, just call the variable.
+
+```{r}
+y <- seq(1, 10)
+y
+```
+
+This common action can be shortened by surrounding the assignment with parentheses, which causes assignment and "print to screen" to happen.
+
+```{r}
+(y <- seq(1, 10))
+```
+
+Not all functions have (or require) arguments:
+```{r}
+date()
+```
+
+Now look at your workspace -- in the upper right pane. The workspace is where user-defined objects accumulate. You can also get a listing of these objects with commands:
+
+```{r}
+objects()
+ls()
+```
+
+If you want to remove the object named `y`, you can do this:
+
+```{r}
+rm(y)
+```
+
+To remove everything:
+
+```{r}
+rm(list = ls())
+```
+
+or click the broom in RStudio's Environment pane.
+
+## Working directory
+
+Any process running on your computer has a notion of its "working directory". By default in R, a working directory is where R will look for files you ask it to load. It is also where any files you write to disk will go. Chances are your current working directory is the directory we inspected above, i.e. the one where RStudio wanted to save the workspace.
+
+You can explicitly check your working directory with:
+
+```{r eval = FALSE}
+getwd()
+```
+
+It is also displayed at the top of the RStudio console. Notice that `getwd()` looks a lot like "get working directory".
+
+As a beginning R user, it's OK let your home directory or any other weird directory on your computer be R's working directory. _Very soon_, I urge you to evolve to the next level, where you organize your analytical projects into directories and, when working on project A, set R's working directory to the associated directory.
+
+__Although I do not recommend it__, in case you're curious, you can set R's working directory at the command line like so:
+
+```{r eval=F}
+setwd("~/myCoolProject")
+```
+
+Let's enter a few commands in the Console, as if we are just beginning a project:
+
+```{r toy-line}
+a <- 2
+b <- -3
+sig_sq <- 0.5
+x <- runif(40)
+y <- a + b * x + rnorm(40, sd = sqrt(sig_sq))
+(avg_x <- mean(x))
+plot(x, y)
+```
+
+Let's say this is a good start of an analysis and your ready to start preserving the logic and code. Visit the History tab of the upper right pane. Select these commands. Click "To Source". Now you have a new pane containing a new R script. Click on the floppy disk to save. Give it a name ending in `.R` or `.r`. Note that, by default, it will go in the directory associated with your project.
+
+Quit RStudio.
+
+Restart RStudio. Notice that things, by default, restore to where we were earlier (e.g. objects in the workspace, the command history, which files are open for editing, where we are in the file system browser, the working directory for the R process, etc.)
+
+Change some things about your code. Top priority would be to set a sample size `n` at the top (e.g. `n <- 40`), and then replace all the hard-coded 40's with `n`. Change some other minor-but-detectable stuff, e.g. alter the sample size `n`, the slope of the line `b`,the color of the line ... whatever. Practice the different ways to re-run the code:
+
+* Walk through line by line by keyboard shortcut (Command+Enter) or mouse (click "Run" in the upper right corner of editor pane).
+  
+* Source the entire document -- equivalent to entering `source('toy-line.r')` in the Console -- by keyboard shortcut (Shift+Command+S) or mouse (click "Source" in the upper right corner of editor pane or select from the mini-menu accessible from the associated down triangle).
+
+Visit your figure in an external viewer to verify that the PDF is changing as you expect.
+
+In your favorite OS-specific way, search your files for `toy_line_plot.pdf` and presumably you will find the PDF itself (no surprise) but _also the script that created it (`toy-line.r`)_. This latter phenomenon is a huge win. One day you will want to remake a figure or just simply understand where it came from. If you rigorously save figures to file __with R code and not ever ever ever the mouse or the clipboard__, you will sing my praises one day. Trust me.
+
+
+### Other important things
+
+R scripts are usually saved with a `.R` or `.r` suffix. Follow this convention unless you have some extraordinary reason not to.
+
+Comments start with one or more `#` symbols. Use them. RStudio helps you (de)comment selected lines with Ctrl+Shift+C (Windows and Linux) or Command+Shift+C (Mac).
+
+Clean out the workspace, i.e. pretend like you've just revisited this project after a long absence.  The broom icon or `rm(list = ls())`. Good idea to do this, restart R (available from the Session menu), re-run your analysis to truly check that the code you're saving is complete and correct (or at least rule out obvious problems!).
+
+This workflow will serve you well in the future:
+
+* Create an RStudio project for an analytical project
+* Keep inputs there (we'll soon talk about importing)
+* Keep scripts there; edit them, run them in bits or as a whole from there
+* Keep outputs there (like the PDF written above)
+
+Avoid using the mouse for pieces of your analytical workflow, such as loading a dataset or saving a figure. This is terribly important for reproducibility and for making it possible to retrospectively determine how a numerical table or PDF was actually produced (searching on local disk on filename, among `.R` files, will lead to the relevant script).
+
+Many experienced users never save the workspace, never save `.RData` files (I'm one of them), never save or consult the history. Once/if you get to that point, there are options available in RStudio to disable the loading of `.RData` and permanently suppress the prompt on exit to save the workspace (go to *Tools > Options > General*).
+
+
+## Basic math in R
+
+Here are some basic math operations you can do in R:
+
+```{r}
+1 + 2  # addition
+5 * 4  # multiplication
+10 / 3  # division
+6 ^ 2  # exponentiation
+sqrt(5)  # square root
+exp(1)  # Euler's number
+pi
+log(exp(1))  # base e logarithm
+log10(100)  # base 10 logarithm
+5 %% 2  # modular operation
+round(1.5579, digits = 2)  # rounding
+round(15.632, 2)  # wihtout the `digits` argument
+```
+
+
+## Data structures in R
+
+Data structures determines what operations/methods/functions are available for this object. For example, you can do +/-/*// for numbers, but these operations will not be available for strings. What operations do you imagine would be useful for strings?
+
+```{r}
+paste("hello", "world", sep = ",")
+```
+
+
+### Vectors
+
+* A sequence of values with the __same type__
+* Create using `c()`, which stands for "combine"
+
+```{R}
+(sites <- c("a", "a", "b", "c"))
+```
+
+	
+* Slicing:
+    * Use `[]`
+    * In general `[]` in R means, "give me a piece of something"
+    * `sites[1]` 
+    * `sites[1:3]`
+        * `1:3` makes a vector.
+        * You can use a vector to get any subset or order you want.
+
+```{r}
+sites[1:3]
+sites[4]
+```
+
+
+Here are some additional useful functions:
+
+```{R}
+length(sites)
+density_ha <- c(2.8, 3.2, 1.5, 3.8)
+mean(density_ha)
+max(density_ha)
+min(density_ha)
+sum(density_ha)
+```
+
+
+### Missing values (NA)
+
+* So far we've worked with data with no missing values
+* How many of you have missing values in your data?
+
+```{R}
+density_ha <- c(2.8, 3.2, 1.5, NA)
+mean(density_ha)
+```
+
+Please note that `N/A` is different from `NULL`. Please look at the following example.
+
+```{r}
+c <- c(1,2,3,NA)
+d <- c(1,2,3,NULL)
+# Let's take a look at what they are.
+c
+d
+# Do they work with a function such as mean()?
+mean(c)
+mean(d)
+```
+
+
+* Why did we get `NA`?
+    * Hard to say what a calculation including `NA` should be
+    * So most calculations return `NA` when `NA` is in the data
+* Can tell many functions to remove the `NA` before calculating
+
+```{R}
+mean(density_ha, na.rm = TRUE)
+```
+
+### Working with multiple vectors
+
+* Vector math combines values in the same position
+* Element-wise: operating on one element at a time
+
+```{R}
+density_ha <- c(2.8, 3.2, 1.5, 3.8)
+area_ha <- c(3, 5, 1.9, 2.7)
+(total_number <- density_ha * area_ha)
+```
+
+* Subsetting is done using `[]`, like slicing
+
+```{R}
+# recall: sites <- c("a", "a", "b", "c")
+# recall: area_ha <- c(3, 5, 1.9, 2.7)
+area_ha[sites == 'a']
+```
+
+The above statement means you want to select all members of `area_ha` in all indices where `sites == 'a'`.
+
+* `==` means "equal to" in most languages.
+* Not `=`. `=` is used for assignment.
+
+* Can also do "not equal to"
+
+```{R}
+# sites <- c("a", "a", "b", "c")
+# area_ha <- c(3, 5, 1.9, 2.7)
+area_ha[sites != 'a']
+```
+
+* Greater or less than
+
+```{R}
+# sites <- c("a", "a", "b", "c")
+# area_ha <- c(3, 5, 1.9, 2.7)
+sites[area_ha > 3]
+sites[area_ha >= 3]
+sites[area_ha < 3]
+```
+
+* And we can subset a vector based on itself
+
+```{R}
+sites[sites != 'a']
+```
+
+
+### Data frames
+
+Data frames is where things get really exciting! We will use these data structures extensively in the upcoming labs, so it's important to pay attention here.
+
+A data frame (`data.frame()`) is a list of equal length vectors grouped together. Importantly, a data frame can contain both categorical and numerical values, whereas a vector can only contain variables of the same type (i.e., all numerical, all categorical, etc.).
+
+```{R}
+surveys <- data.frame(sites, density_ha, area_ha)
+surveys
+```
+
+* Useful commands: 
+    * `str(surveys)`
+    * `length(surveys)`
+    * `nrow(surveys)`, `ncol(surveys)`
+    
+```{r}
+# structure of data frame
+str(surveys)
+#length (# of records)
+length(surveys)
+# number of rows, same as length
+nrow(surveys)
+# number of columns
+ncol(surveys)
+```
+    
+* Subsetting:
+    * [row, column]
+    * `surveys[1, 2]`
+    * `surveys[1:2, 2:3]`
+    * `surveys[, 3]`
+    * `surveys["area_ha"]`
+    * `surveys[c("area_ha", "sites")]`
+    * `surveys$area_ha`
+    * `surveys[["area_ha"]]`
+
+```{r}
+# visit one cell by row and column
+surveys[1, 2]
+
+# visit a range of rows and columns
+surveys[1:2, 2:3]
+
+# every row on the third column
+surveys[, 3]
+
+# visit column by name
+surveys["area_ha"]
+
+# This way of calling columns is useful when working with >1 columns
+surveys[c("area_ha", "sites")]
+
+# visit column by name. Preferred way. Cannot be used for multiple columns.
+surveys$area_ha
+
+# visit column by name
+surveys[["area_ha"]]
+```
+
+
+### Reading in external data
+
+`read.csv()`: main argument is the location of the data, which is either a url or a path on your computer.
+
+```{R}
+shrub_data <- read.csv('https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv')
+```
+
+### Factors
+
+Let's use the `str()` function to get more information about our variable `shrub_data`.
+
+```{R}
+str(shrub_data)
+```
+
+Notice that the `shrubID` column has type `Factor`. A factor is a special data type in R for categorical data. Factor:
+
+  1. Are useful for statistics, but can mess up some aspects of computation; and
+  2. Can eliminate during imports with `stringsAsFactors`
+
+```{R}
+shrub_data <- read.csv('https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv', stringsAsFactors = FALSE)
+str(shrub_data)
+```
+
+
+### Lists
+
+Lists are a vector-like structure that can store other objects/data structures. It's sort of like a vector that holds vectors.
+
+```{R}
+sites <- c("a", "b", "c")
+notes <- "It was a good day in the field today. Warm, sunny, lots of gators."
+helpers <- 4
+field_notes <- list(sites, notes, helpers)
+field_notes[1]
+field_notes[[1]]
+```
+
+We can also give the values names and access them using the `$` symbol (preferred) or via `["variable_name"]` with subsetting.
+
+```{R}
+field_notes <- list(sites=sites, notes=notes, helpers=helpers)
+field_notes$sites
+field_notes[["sites"]]
+```
+
+
+## Conditionals
+
+### Conditional basics
+
+Conditional statements are when we check to see if some condition is true or not. Forr example:
+
+```r
+weight > 50
+species == "DM"
+```
+
+* These statements generate a value is of type `"logical"`
+* The value is `TRUE` (shorthand: `T`) if the condition is satisfied 
+* The value is `FALSE` (shorthand: `F`) if the condition is not satisfied
+* These aren't the strings "TRUE" and "FALSE"
+* They are a special type of value
+  
+Conditional statements are made with a range of logical operators (operators that return `TRUE` or `FALSE`). So far, We've seen:
+  * `==` for equals
+  * `!=` for no equals
+  * `<`, `>` for less than and greater than
+  * `<=`, `>=` for less than or equal to and greater than or equal to
+  * `is.na()` for is this value null
+* There are others, including `%in%`, which checks to see if a value is present in a vector of possible values
+
+```{R}
+"aang" == "aang"
+"aang" != "kora"
+10 < 5
+10 >= 5
+is.na("toph")
+"zuko" %in% c("aang", "toph", "katara")
+```
+
+* We can combine conditions using `and` and `or`
+* We use the `&` for "and"
+* Which means if both conditions are `TRUE` return `TRUE` 
+* If one of the contions is `FALSE` then return `FALSE`
+
+```{R}
+5 > 2 & 6 >=10
+```
+
+* We use the `|` for "or"
+* Which means if either or both of the conditions are `TRUE` return `TRUE`
+
+```{R}
+5 > 2 | 6 >=10
+```
+
+* Vectors of values compared to a single value return one logical per value
+
+```{R}
+c(1, 1, 2, 3, 1) == 1
+```
+
+* Checks each value to see if equal to 1
+* This is what subsetting approaches use to subset
+* They keep the values where the value in this condition vector is equal to `TRUE`
+* Let's look at an example where we have a vector of sites and a vector the the states they occur in
+
+```{R}
+site = c('a', 'b', 'c', 'd')
+state = c('FL', 'FL', 'GA', 'AL')
+```
+
+* A conditional statement checking if the state is `'FL'` returns a vector of `TRUE`'s and `FALSE`s
+
+```{R}
+state == 'FL'
+```
+
+* So when we filter the `site` vector to only return values where the `state` is equal to `'FL'`
+
+```{R}
+site[state == 'FL']
+```
+
+* It is the same as pass a vector of `TRUE` and `FALSE` values inside the square brackets
+
+```{R}
+site[c(TRUE, TRUE, FALSE, FALSE)]
+```
+
+* This keeps the first and second values in `site` because the values in the vector are `TRUE`
+* This is how `dplyr::filter()` and other methods for subsetting data work
+
+
+### `if` statements
+
+* Conditional statements generate logical values to filter inputs.
+* `if` statements use conditional statements to control flow of the program.
+
+```r
+if (the conditional statement is TRUE) {
+  do something
+}
+```
+
+* Example
+
+```{R}
+x <- 6
+if (x > 5) {
+  x = x^2
+}
+x
+```
+
+* `x > 5` is `TRUE`, so the code in the `if` runs
+* `x` is now 6^2 or 36
+* Change `x` to 4
+
+```{R}
+x = 4
+if (x > 5) {
+  x = x^2
+}
+x
+```
+
+* `x > 5` is `FALSE`, so the code in the `if` doesn't run
+* `x` is still 4
+* This is *not* a function, so everything that happens in the if statement
+  influences the global environment
+
+Here's a slightly more applied example:
+
+```{R}
+veg_type <- "tree"
+volume <- 16.08
+if (veg_type == "tree") {
+  mass <- 2.65 * volume^0.9
+}
+mass
+```
+
+* We often want to chose one of several options.
+* We can add more conditions and associated actions with `else if`
+ 
+```{R}
+veg_type <- "grass"
+volume <- 16.08
+if (veg_type == "tree") {
+  mass <- 2.65 * volume^0.9
+} else if (veg_type == "grass") {
+  mass <- 0.65 * volume^1.2
+}
+mass
+```
+
+Here, our script:
+  1. Checks the first condition
+  2. If `TRUE` runs that condition's code and skips the rest
+  3. If not it checks the next one until it runs out of conditions
+
+We can specify what to do if none of the conditions are `TRUE` by using `else` on its own
+
+```{R}
+veg_type <- "shrub"
+volume <- 16.08
+if (veg_type == "tree") {
+  mass <- 2.65 * volume^0.9
+} else if (veg_type == "grass") {
+  mass <- 0.65 * volume^1.2
+} else {
+  mass <- NA
+}
+mass
+```
+
+
+### Multiple `if`s vs `else if`
+
+Multiple ifs check each conditional separately, which is very inefficient. That is, R executes code for all conditions that are `TRUE`.
+
+```{R}
+x <- 5
+if (x > 2) {
+  x * 2
+}
+if (x > 4) {
+  x * 4
+}
+```
+
+`else if` checks each condition sequentially, and ONLY executes code for the first condition that is `TRUE`
+
+```{R}
+x <- 5
+if (x > 2) {
+  x * 2
+} else if (x > 4) {
+  x * 4
+}
+```
+
+
+## `for` loops
+### Basic `for` loop
+
+* Fundamental structure for repetition in programming
+* Do same action to each item in a list of things
+
+```r
+for (item in list_of_items) {
+  do_something(item)
+}
+```
+
+* Need `print()` to display values inside a loop or function.
+
+```{R}
+volumes = c(1.6, 3, 8)
+for (volume in volumes){
+  print(2.65 * volume^0.9)
+}
+```
+
+* This does the same exact thing as
+
+```{R}
+volume <- volumes[1]
+print(2.65 * volume ^ 0.9)
+volume <- volumes[2]
+print(2.65 * volume ^ 0.9)
+volume <- volumes[3]
+print(2.65 * volume ^ 0.9)
+```
+
+* Can have many rows in a loop body
+
+```{R}
+for (volume in volumes){
+   mass <- 2.65 * volume ^ 0.9
+   mass_lb <- mass * 2.2
+   print(mass_lb)
+}
+```
+
+
+### Looping with an index & storing results
+
+* Loops over integers and uses these integers to access the vector the associated positions
+
+```{R}
+for (i in 1:length(volumes)){
+   mass <- 2.65 * volumes[i] ^ 0.9
+   print(mass)
+}
+```
+
+* Use this "index" to get the values at that position
+* Can use the "index" for multiple vectors
+
+* Looping with an index allows us to store results calculated in the loop
+* First create an empty vector the length of the results
+* `mode` is the type of data we are going to store
+* `length` is the length of the vector
+
+```{R}
+masses <- vector(mode = "numeric", length = length(volumes))
+masses
+```
+
+* Then add each result in the right position
+* For each trip through the loop put the output into the empty vector at the ith position
+
+```{R}
+for (i in 1:length(volumes)){
+   mass <- 2.65 * volumes[i] ^ 0.9
+   masses[i] <- mass
+}
+masses
+```
+
+* Walk through iteration in debugger
+
+
+* Looping with an index also allows us to access values from multiple vectors
+
+
+```{R}
+b0 <- c(2.65, 1.28, 3.29)
+b1 <- c(0.9, 1.1, 1.2)
+masses <- vector(mode="numeric", length=length(volumes))
+for (i in seq_along(volumes)){
+   mass <- b0[i] * volumes[i] ^ b1[i]
+   masses[i] <- mass
+}
+```
+
+### Looping over files (OPTIONAL)
+
+* Repeat same actions on many similar files
+* Get names of satellite collar location files
+
+```{R}
+data_files = list.files(path = "data/02_intro-to-r", pattern = "locations-.*.txt", 
+                        full.names = TRUE)
+```
+
+* Calculate the number of observations in each file
+
+```{R}
+results <- vector(mode = "integer", length = length(data_files))
+for (i in 1:length(data_files)){
+  data <- read.csv(data_files[i])
+  count <- nrow(data)
+  results[i] <- count
+}
+```
+
+* Store output in a data frame instead of a vector
+* Associate the file name with the count
+
+```{R}
+results <- data.frame(file_name = character(length(data_files)),
+                      count = integer(length(data_files)),
+                      stringsAsFactors = FALSE)
+for (i in 1:length(data_files)){
+  data <- read.csv(data_files[i])
+  count <- nrow(data)
+  results$file_name[i] <- data_files[i]
+  results$count[i] <- count
+}
+results
+```
+
+
+* With `apply`
+
+```{R}
+get_counts <- function(data_file_name){
+  file <- read.csv(data_file_name)
+  count <- nrow(file)
+  return(count)
+}
+
+results <- unlist(lapply(data_files, get_counts))
+
+results
+```
+
+* How to choose when there are many ways to do the same thing?
+  * Speed
+    * Matters in few cases
+    * Hard to identify bottlenecks
+  * Readability
+    * Easy to understand
+  * Personal preference
+* There is no “right” way to do anything
+
+### Subsetting data (OPTIONAL)
+
+* Loops can subset in ways that are difficult with things like `group_by`
+* Look at some data on trees from the National Ecological Observatory Network
+
+```{R}
+library(ggplot2)
+library(dplyr)
+
+neon_trees <- read.csv('data/02_intro-to-r/HARV_034subplt.csv')
+ggplot(neon_trees, aes(x = easting, y = northing)) +
+  geom_point()
+```
+
+* Look at a north-south gradient in number of trees
+* Need to know number of trees in each band of y values
+* Start by defining the size of the window we want to use
+  * Use the grid lines which are 2.5 m
+
+```{R}
+window_size <- 2.5
+```
+
+* Then figure out the edges for each window
+
+```{R}
+south_edges <- seq(4713095, 4713117.5, by = window_size)
+north_edges <- south_edges + window_size
+```
+
+* But we don't want to go all the way to the far edge
+
+```{R}
+south_edges <- seq(4713095, 4713117.5 - window_size, by = window_size)
+north_edges <- south_edges + window_size
+```
+
+* Set up an empty data frame to store the output
+
+```{R}
+counts <- vector(mode = "numeric", length = length(south_edges))
+```
+
+* Look over the left edges and subset the data occurring within each window
+
+```{R}
+for (i in 1:length(south_edges)) {
+  data_in_window <- filter(neon_trees, northing >= south_edges[i], northing < north_edges[i])
+  counts[i] <- nrow(data_in_window)
+}
+counts
+```
+
+### Nested loops (OPTIONAL)
+
+* Sometimes need to loop over multiple things in a coordinate fashion
+* Pass a window over some spatial data
+* Look at full spatial pattern not just east-west gradient
+
+* Basic nested loops work by putting one loop inside another one
+
+```{R}
+for (i in 1:10) {
+  for (j in 1:5) {
+    print(paste("i = " , i, "; j = ", j))
+  }
+}
+```
+
+* Loop over x and y coordinates to create boxes
+* Need top and bottom edges
+
+```{R}
+west_edges <- seq(731752.5, 731772.5 - window_size, by = window_size)
+east_edges <- west_edges + window_size
+
+```
+
+* Redefine out storage
+
+```{R}
+output <- matrix(nrow = length(south_edges), ncol = length(east_edges))
+```
+
+```{R}
+for (i in 1:length(south_edges)) {
+  for (j in 1:length(east_edges)) {
+    data_in_window <- filter(neon_trees,
+                            northing >= south_edges[i], northing < north_edges[i],
+                            easting >= west_edges[j], easting < east_edges[j],)
+    output[i, j] <- nrow(data_in_window)
+  }
+}
+output
+```
+
+
+## Functions
+
+### Function basics
+
+Sometimes, we wish to define our own functions. For example, we usually create functions if we need to do similar tasks more than once. Below is a basic format to write a function.
+
+```{r eval=F}
+function_name <- function(arguments) {
+  output_value <- do_something(inputs)
+  return(output_value)
+}
+```
+
+The braces (`{` and `}`) indicate that the lines of code are a group that gets run together. For example:
+
+```{R}
+{a = 2
+b = 3
+a + b}
+```
+
+* Pressing run anywhere in this group runs all the lines in that group.
+* A function runs all of the lines of code in the braces using the arguments provided then returns the output
+
+```{R}
+calc_shrub_vol <- function(length, width, height) {
+  area <- length * width
+  volume <- area * height
+  return(volume)
+}
+```
+
+*Creating a function does not run it.* A function is meant to be used: call the function with some arguments.
+
+```{R}
+calc_shrub_vol(0.8, 1.6, 2.0)
+```
+
+* Store the output to use it later in the program
+
+```{R}
+shrub_vol <- calc_shrub_vol(0.8, 1.6, 2.0)
+```
+
+Treat functions like a black box
+  * *Draw a box on board showing inputs->function->outputs*
+  * The only things the function knows about are the inputs we pass it
+  * The only thing the program knows about the function is the output it
+    produces
+
+Let's walk through `calc_shrub_vol()`s  execution:
+  1. Call function
+	2. Assign 0.8 to length, 1.6 to width, and 2.0 to height inside function
+  3. Calculate the area and assign it to `area`
+	4. Calculate volume and assign it to `volume`
+	5. Send `volume` back as output
+	6. Store it in `shrub_vol`
+
+Once again, treat functions like a black box.
+    * You can't access a variable that was created in a function. You **must** save the output of a function (to a variable) to use it later.
+        * `> volume`
+        * `Error: object 'width' not found`
+    * Or an argument by name
+        * `> width`
+        * `Error: object 'width' not found`
+
+
+### Conditionals within functions
+
+Recall that we used a conditional to estimate mass differently for different types of vegetation. Since this is the kind of code we are going to want to reuse, so let's move it into a function.
+
+```{R}
+est_mass <- function(volume, veg_type) {
+  if (veg_type == "tree") {
+    mass <- 2.65 * volume^0.9
+  } else if (veg_type == "grass") {
+    mass <- 0.65 * volume^1.2
+  } else {
+    mass <- NA
+  }
+  return(mass)
+}
+```
+
+We can then run this function with different vegetation types and get different estimates for mass
+
+```{R}
+est_mass(1.6, "tree")
+est_mass(1.6, "grass")
+est_mass(1.6, "shrub")
+```
+
+Let's walk through how this code executes:
+  1. When we call the function the first thing that happens is that 1.6 gets assigned to `volume` and `"shrub"` gets assigned to `veg_type`
+  2. The code then checks to see if `veg_type` is equal to `"tree"`
+  3. It isn't so the code then checks to see if `veg_type` is equal to `"grass"`
+  4. It is so the code then hits the `else` statement and executes the code in the `else` block
+  5. It assigns `NA` to mass
+  6. It then finishes the if/else if/else statement and returns the value for `mass`, which is `NA` to the global environment
+
+
+### Nested conditionals (OPTIONAL)
+
+* Sometimes decisions are more complicated
+* For example we might have different equations for some vegetation types based on the age of the plant
+* Can "nest" conditionals inside of one another
+
+```{R}
+est_mass <- function(volume, veg_type, age){ 
+  if (veg_type == "tree") {
+    if (age < 5) {
+      mass <- 1.6 * volume^0.8
+    } else {
+      mass <- 2.65 * volume^0.9
+  }
+  } else if (veg_type == "grass" | veg_type == "shrub") {
+    mass <- 0.65 * volume^1.2
+  } else {
+    mass <- NA
+  }
+  return(mass)
+}
+
+est_mass(1.6, "tree", age = 2)
+est_mass(1.6, "shrub", age = 5)
+```
+
+Here's how the function executes:
+  1. First checks if the vegetation type is "tree"
+  2. If it is checks to see if it is < 5 years old
+  3. If so does one calculation, if not does another.
+
+Note that nesting can be difficult to read so try to minimize it when possible.
+
+
+### Default arguments and unnamed arguments
+
+* Defaults can be set for common inputs.
+* For example, many of our shrubs are the same height so for those shrubs we only measure the `length` and `width`.
+* So we want a default value for the `height` for cases where we don't measure it
+
+```{R}
+calc_shrub_vol <- function(length, width, height = 1) {
+  area <- length * width
+  volume <- area * height
+  return(volume)
+}
+
+calc_shrub_vol(0.8, 1.6)  # default argument for height
+calc_shrub_vol(0.8, 1.6, 2.0)  # default argument is overridden by 2,0
+calc_shrub_vol(length = 0.8, width = 1.6, height = 2.0)
+```
+
+As you could tell from the last two examples, you can specify the arguments (parameters) with or without their names.
+
+* You can always use names to assign a parameter to an argument.
+* If not, using names then order is determined by parameter order. For example,
+    * First value is `length`, second value is `width`, third value is `height`.
+* In many cases there are *a lot* of optional arguments. In this case, we can specify an argument by name to avoid confusion.
+* Oftentimes, only the optional arguments are specified (i.e., those without a default value).
+* In our case, we would write:
+
+```{R}
+calc_shrub_vol(0.8, 1.6, height = 2.0)
+```
+
+### Combining functions (OPTIONAL)
+
+Here are some guidelines for creating functions:
+* Each function should be single conceptual chunk of code
+* Functions can be combined to do larger tasks
+
+```{R}
+est_shrub_mass <- function(volume) {
+  mass <- 2.65 * volume^0.9
+}
+
+shrub_volume <- calc_shrub_vol(0.8, 1.6, 2.0)
+shrub_mass <- est_shrub_mass(shrub_volume)
+```
+
+We can nest functions. Below, the inner function executes before the outer function executes.
+
+```{R}
+shrub_mass <- est_shrub_mass(calc_shrub_vol(0.8, 1.6, 2.0))
+```
+
+We careful with this because it can make code difficult to read. As a general rule of thumb, don't nest more than two functions.
+
+We can also call functions from inside other functions. This allows us to organize function calls into logical groups.
+
+```{R}
+est_shrub_mass_dim <- function(length, width, height) {
+  volume = calc_shrub_vol(length, width, height)
+  mass <- est_shrub_mass(volume)
+  return(mass)
+}
+
+est_shrub_mass_dim(0.8, 1.6, 2.0)
+```
