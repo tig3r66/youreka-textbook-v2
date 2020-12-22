@@ -31,7 +31,7 @@ This text focuses on how the material taught in-session can be applied using the
 
 ## Contributors {-}
 
-This textbook was written by Eddie Guo, Pouria Torabi, Shuce Zhang, and Devin Aggarwal. A special thanks goes to Matthew Pietrosanu for his critical statistical review of the Youreka program.
+This textbook was written by Eddie Guo, Pouria Torabi, Shuce Zhang, and Devin Aggarwal, who are part of the Youreka Canada Programs Team. A special thanks goes to Matthew Pietrosanu for his critical statistical review of the Youreka program.
 
 
 ## Credit {-}
