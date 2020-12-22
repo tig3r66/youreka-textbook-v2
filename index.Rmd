@@ -26,7 +26,7 @@ Welcome to the Youreka Canada program! In this course, you will learn how to wra
 
 Please note that this text goes into additional detail not covered in session---all optional material is marked as OPTIONAL in the headings. Again, please note that this text is a *complements* the Youreka program. *These notes are not a substitute for attending the Youreka sessions!*
 
-This text focuses on how the material taught in-session can be applied using the R programming language. As with all programming languages, the best way to learn is to actively code. That is, when you read this textbook, open up R Studio and copy the code verbatim. Then, play around with the code---try to find alternative solutions, or even break the code. Don't be afraid to make mistakes, and soon enough, you will be confident to code on your own!
+This text focuses on how the material taught in-session can be applied using the R programming language. As with all programming languages, the best way to learn is to actively code. That is, when you read this textbook, open up RStudio and copy the code verbatim. Then, play around with the code---try to find alternative solutions, or even break the code. Don't be afraid to make mistakes, and soon enough, you will be confident to code on your own!
 
 
 ## Contributors {-}
