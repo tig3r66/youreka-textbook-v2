@@ -3,17 +3,12 @@ title: "A Gentle Introduction to Data Science with R"
 subtitle: "Explore, visualize, and analyze data"
 author: "Youreka Canada"
 github-repo: tig3r66/youreka-textbook
+cover-image: assets/youreka-logo.png
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-description: "Description here"
 output: bookdown::gitbook
 site: bookdown::bookdown_site
-bookdown::gitbook:
-  toc_depth: 4
-  config:
-    collapse: section
-    scroll_highlight: yes
 ---
 
 ```{r include = FALSE}
@@ -27,14 +22,14 @@ Welcome to the Youreka Canada textbook! In this course, you will learn how to wr
 
 ## How to use this textbook {-}
 
-Please note that this text goes into additional detail---all optional material is marked as OPTIONAL in the headings. Again, please note that this text is a *complements* the Youreka program. THESE NOTES ARE NOT A SUBSTITUTE FOR ATTENDING THE YOUREKA SESSIONS!
+Please note that this text goes into additional detail not covered in session---all optional material is marked as OPTIONAL in the headings. Again, please note that this text is a *complements* the Youreka program. *These notes are not a substitute for attending the Youreka sessions!*
 
-This text primarily focuses on how the material taught in-session can be applied using the R programming language. As with all programming languages, the best way to learn is to actively code. That is, when you read this textbook, open up R Studio and write the code verbatim. Soon enough, you will be confident to code on your own!
+This text focuses on how the material taught in-session can be applied using the R programming language. As with all programming languages, the best way to learn is to actively code. That is, when you read this textbook, open up R Studio and write the code verbatim. Soon enough, you will be confident to code on your own!
 
 
 ## Contributors {-}
 
-This textbook was written by Eddie Guo, Pouria Torabi, Shuce Zhang, and Devin Aggarwal. A special thanks goes to Matthew Pietrosanu for his critical statistical review of this textbook.
+This textbook was written by Eddie Guo, Pouria Torabi, Shuce Zhang, and Devin Aggarwal. A special thanks goes to Matthew Pietrosanu for his critical statistical review of the Youreka program.
 
 
 ## Credit {-}
