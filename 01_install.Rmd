@@ -23,14 +23,14 @@ If you have a pre-existing installation of R and/or RStudio, we **highly recomme
 update.packages(ask = FALSE, checkBuilt = TRUE)
 ```
 
-Once you've installed and/or updated R and RStudio, open up RStudio. You should get a window similar to this [screenshot](https://rstudio.com/wp-content/uploads/2014/04/rstudio-workbench.png), but yours will be more boring because you haven’t written any code or made any figures yet!
+Once you've installed and/or updated R and RStudio, open RStudio. You should get a window similar to this [screenshot](https://rstudio.com/wp-content/uploads/2014/04/rstudio-workbench.png), but yours will be more boring because you haven’t written any code or made any figures yet!
 
-Place your cursor in the pane called "Console", which is where you interact with R. Write `print('Hello World!')` in the console and hit the enter or return key. You should see "Hello World!" print to the screen. If yes, you've succeeded in installing R and RStudio.
+Place your cursor in the pane called "Console", which is where you interact with R. Type `print('Hello World!')` in the console and hit the enter or return key. You should see "Hello World!" print to the screen. If you do, you've succeeded in installing R and RStudio.
 
 
 ## Add-on packages
 
-R contains a huge number of packages that enhance its function. People often share useful code they have developed as a package via CRAN and GitHub. To install a package from CRAN (e.g., the [tidyverse](https://www.tidyverse.org/)), type this into the R console.
+R contains a huge number of packages that enhances its functionality. People often share useful code they have developed as a package via CRAN and GitHub. To install a package from CRAN (e.g., the [tidyverse](https://www.tidyverse.org/)), type this into the R console:
 
 ```{r eval=F}
 install.packages('tidyverse', dependencies = TRUE)
@@ -38,9 +38,7 @@ install.packages('tidyverse', dependencies = TRUE)
 
 By including `dependencies = TRUE`, we are including any additional packages our target package requires. Please also install the followng packages using the method above:
 
-1. ggsignif
-  - This package extends the ggplot2 package. It adds additional statistical visualization func- tions. Read more [here](https://cran.r-project.org/web/packages/ggsignif/vignettes/intro.html).
-2. ggpubr
-  - As the name suggests, ggpubr creates publication-quality graphs. Read more [here](https://github.com/kassambara/ggpubr).
+1. **ggsignif**: This package extends the ggplot2 package. It adds additional statistical visualization func- tions. Read more [here](https://cran.r-project.org/web/packages/ggsignif/vignettes/intro.html).
+2. **ggpubr**: As the name suggests, ggpubr creates publication-quality graphs. Read more [here](https://github.com/kassambara/ggpubr).
   
 Without further ado, let's jump into our adventure with R!

@@ -1,6 +1,6 @@
 # (PART) Data Wrangling {-}
 
-# Data frames
+# More data frames
 
 Whenever you have rectangular, "spreadsheetey" data, your default data structure in R should be a data frame. Do not depart from this without good reason. Data frames are awesome because...
 
