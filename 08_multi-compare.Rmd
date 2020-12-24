@@ -1,0 +1,454 @@
+# Comparing multiple means
+
+Throughout this lab, we will provide a pipeline to help you wrangle data, perform statistical analyses, and (perhaps most importantly) visualize data in R. Here, we will learn how to compare the means using parametric tests and medians using non-parametric tests of multiple groups.
+
+## Loading packages
+
+Let's load the usual packages.
+
+```{r, message=F, warning=F}
+library(gapminder)
+library(car)       # car stands for Companion to Applied Regression
+library(tidyverse)
+```
+
+## Merging datasets
+
+In this section, we will learn how to merge datasets. We will use something called [democracy index (democracy score)](https://www.eiu.com/topic/democracy-index) and convert it into categorical data. As the name suggests, democracy index measures the degree of democracy of a country on a scale from 0 to 10, with higher scores being correlated with greater democracy. In our dataset, however, the scale is from -10 to 10. This data set has been pre-cleaned and made available on [gapminder](https://www.gapminder.org/data/).
+
+Let's load our dataset.
+
+```{r}
+democracy.raw <- read.csv(file = "data/07_multi-compare/democracy_score_use_as_color.csv", header = TRUE)
+```
+
+The first thing you should do with new data is explore it. Since the output is quite large, we'll only show the first row, but you should definitely take a deeper look.
+
+```{r}
+head(democracy.raw, n=1)
+```
+
+Don't forget about `str()` and `summary()`!
+
+```{r, eval = F}
+str(democracy.raw)
+summary(democracy.raw)
+```
+
+As you can see, there is a lot of missing data (denoted by NA). NA values are often problematic for analyses, so we would like to either remove them or impute (estimate) them. In our case, let's get rid of the rws with missing data for the year 2007 (the `X2007` column).
+
+```{r}
+dem07 <- democracy.raw %>%
+  select(country, X2007) %>%  # choose
+  filter(!is.na(X2007))       # selecting all non-NA rows
+```
+
+Here, `is.na()` will return TRUE for missing data. Recall that `!` is the NOT logical operator (i.e., `!TRUE` is equivalent to `FALSE` and vice versa. It follows that `!is.na()` returns true for non-empty data.
+
+Let's take a looks at how the democracy score is distributed. Here, I'd like to treat each democracy score as a factor (discrete value).
+
+```{r}
+ggplot(dem07, aes(as.factor(X2007))) +
+  geom_bar()  # this is NOT a histogram
+```
+
+Before we do anything, let's look at some potentially interesting counts. First, we'll look at two ways to count "low-level" countries. To do so, we will arbitrarily define any democracy score $\leq$ -3 as low-level. Now, we will count the number of countries in each group.
+
+```{r}
+nrow(dem07[dem07$X2007 <= -3,])  # base R
+dem07 %>% filter(X2007 <= -3) %>% nrow()  # with dplyr pipe operator
+```
+
+Let's define medium-level countries as having a democracy score betwen -2 and 5 inclusive.
+
+```{r}
+nrow(dem07[dem07$X2007 >= -2 & dem07$X2007 <= 5,])
+dem07 %>% filter(X2007 >= -2 & X2007 <= 5) %>% nrow()
+```
+
+**Exercise:** count the number of high-level countries using both base R and dplyr. High-level countries will be defined as those with democracy score greater or equal to 6.
+
+Now let's actually assign a new categorical variable to each country (row) using the `cut()` function. Let's call the new row `demLev` (our shorthand for democracy level).
+
+```{r}
+tempDemLev <- cut(dem07$X2007,
+        c(-Inf, -2.5, 4.5, Inf),
+        c("LowDem", "MidDem", "HighDem"))
+
+dem07$demLev <- tempDemLev  # base R method
+# dem07 <- dem07 %>% mutate(demLev = tempDemLev)  # dplyr method
+head(dem07)
+```
+ 
+**Note:** The first argument for `cut()` takes a vector, the second takes the vector for cutoff thresholds, and the third are names of the bins defined by the cutoffs.
+
+We can now merge this new data with gapminder. The main idea of merging is to add the new variables as columns. The identifier of our observations will be `country`. Since we are taking data from different sources, a given country might exist in one data frame but not the other. Furthermore, the two data sets might use different names for the countries. Before merging, let's check the data we want to merge. Note that `str_detect()` finds all instances where a particular string is in a column.
+
+```{r}
+# let's check how they name Korea
+dem07 %>% filter(str_detect(country, 'Korea'))
+gapminder %>% filter(str_detect(country, 'Korea'))
+```
+
+Now that we have a clear idea of which each looks like, we need to determine the potential differences between them. For example, you can't merge `'Korea, Dem. Rep.'` with `'Korea'` since the two strings are not exactly equal.
+
+```{r}
+# setdiff() finds the differences between values in each dataset
+# unique() ensures that there are no duplicate values
+setdiff(unique(dem07$country), unique(gapminder$country))
+setdiff(unique(gapminder$country), unique(dem07$country))
+```
+
+It looks like we need to change "South Korea" to "Korea, Rep.", and "Yemen" to "Yemen, Rep.". We can do this using the factor recode function: `fct_recode()`
+
+```{r}
+dem07 <- dem07 %>%
+  mutate(country = fct_recode(country,
+                              'Korea, Rep.' = 'South Korea',
+                              'Yemen, Rep.' = 'Yemen'))
+```
+
+Finally, let's can merge the two data frames using a left join. There are many types of joins (right join, inner join, etc.), and you can check them out [here](https://dplyr.tidyverse.org/reference/join.html).
+
+```{r}
+# need to filter out missing data!
+my_gap <- gapminder %>%
+  left_join(dem07, by = "country") %>%
+  filter(!is.na(demLev)) %>%
+  filter(!is.na(lifeExp))
+
+# let's see what the data looks like now
+head(my_gap)
+```
+
+Please note that `demLev` was based on the score of 2007. We don't do that here, but you could also include the levels based on the scores from different years.
+
+
+## One-way ANOVA
+
+### The iris dataset
+
+The iris dataset contains information about three species of flowers: setosa, veriscolor, and virginia. Iris is a built-in dataset, meaning we can call it without reading it in.
+
++ `iris$Species` refers to one column in `iris`. That is, the column with the name of the species (setosa, versicolor, or virginica).
++ We can see how many rows and columns are in a `data.frame` with the `dim` command. `dim(iris)` prints out the number of rows (`r nrow(iris)`) and the number of columns (`r ncol(iris)`):
+
+```{r}
+head(iris)
+summary(iris)
+```
+
+Analysis of Variance (ANOVA) allows us to test whether there are differences in the mean between multiple samples. The question we will address is:
+
+**Are there differences in average sepal width among the three species?**
+
+To run an ANOVA, we need to check if
+
+  1.  The variance is is equal for *each group*.
+  2. The data distributes normally within *each group*, and
+
+Let's address the first point.
+
+```{r}
+leveneTest(Sepal.Width ~ Species, data = iris)
+```
+
+A p-value of 0.5555 suggested that the variances are not significantly different. This means we should proceed with a parametric test like ANOVA (otherwise, use the Kruskal-Wallis test). Keep in mind we haven't yet checked the normality. We will do it after running ANOVA.
+
+We start by building an analysis of variance model with the `aov()` function:
+
+In this case, we pass _two_ arguments to the `aov()` function:
+
+1. For the `formula` parameter, we pass `Sepal.Width ~ Species`. This format is used throughout R for describing relationships we are testing. The format is `y ~ x`, where the response variables (e.g. `y`) are to the left of the tilde (~) and the predictor variables (e.g. `x`) are to the right of the tilde. In this example, we are asking if petal length is significantly different among the three species.
+2. We also need to tell R where to find the `Sepal.Width` and `Species` data, so we pass the variable name of the `iris data.frame` to the `data` parameter.  
+
+But we want to store the model, not just print it to the screen, so we use the assignment operator `<-` to store the product of the `aov` function in a variable of our choice
+
+```{r}
+Sepal.Width.aov <- aov(formula = Sepal.Width ~ Species, data = iris)
+```
+
+Notice how when we execute this command, nothing printed in the console. This is because we instead sent the output of the `aov` call to a variable. If you just type the variable name, you will see the familiar output from the `aov` function:  
+
+```{r}
+Sepal.Width.aov
+```
+
+To see the results of the ANOVA, we call the `summary` function:
+
+```{r}
+summary(object = Sepal.Width.aov)
+```
+
+The species _do_ have significantly different sepal width (P < 0.001). However, ANOVA does not tell us _which_ species are different. We can run a _post hoc_ test to assess _how_ the species are different. A Tukey test comparing means would be one option. We will do the Tukey test after determining normality.
+
+Now, let's take a look at the normality. First, we will plot the diagnostic figures.
+
+```{r}
+plot(Sepal.Width.aov)
+```
+
+Most importantly, the dots in Q-Q plot (upper right) should align with the line pretty well. This figure is acceptable. If the dots deviate from the line too much, the data would not be considered normal. If you still perform the ANOVA, you should view your results critically (or ignore them, at worst).
+
+Please do not include such diagnostic figures in the main text of your manuscripts. This might qualify for a supplementary figure at most.
+
+Although we've also examined residuals with the QQ plot, we can also use a formal test:
+
+```{r}
+residuals_Sepal_Width <- residuals(object = Sepal.Width.aov)
+shapiro.test(x = residuals_Sepal_Width)
+```
+
+A p-value of 0.323 suggested that the assumption of normality is reasonable.
+
+Recall that a residual is an "error" in result. More specifically, a residual is the difference of a given data point from the mean ($r = x - \mu$).
+
+So far, we have demonstrated
+
+  1. Normality in distribution.
+  2. Homogeneity variance, and
+
+These two justified our choice for one-way ANOVA. The result of ANOVA also indicated that at least one species of the 3 has significantly different sepal width from others. Which one?
+
+To do this, we need to run "Post-Hoc" test. Let's do Tukey Honest Significant Differences (HSD). The nice thing is that `TukeyHSD()` can directly take the result of ANOVA as the argument.
+
+```{r}
+TukeyHSD(Sepal.Width.aov)
+```
+
+The difference between every pair are significant ($p < 0.05$).
+
+
+### Non-parametric alternatives to ANOVA
+
+In reality, your data usually wouldn't be as perfect as above.
+
+In case of a non-normal sample, there are two ways to address the problem:
+
+  1. Apply appropriate [data transformations techniques](https://fmwww.bc.edu/repec/bocode/t/transint.html), or
+  2. Use a non-parametric test
+
+I highly recommend you to explore the tricks of data transformation. If you can rescue it back to normal distribution, parametric tests usually can allow you to do more powerful analysis. 
+
+If you have exhausted your attempts to data transformation, you may then use non-parametric tests. A note for [Kruskal-Wallis H-test](http://www.biostathandbook.com/kruskalwallis.html).
+
+When your data doesn't satisfy the normality or equal variance assumption, ANOVA does not strictly apply. However, one-way ANOVA is not very sensitive to deviations from normality. Kruskal-Wallis doesn't assume normality, but it does assume same distribution (equal variance). If your data do not meet either assumption, you would want to use Welch's One-way Test. Now, let's get back to gapminder data.
+
+Let's add another categorical variable calle `Income_Level`. This time we will split by the quartiles.
+
+```{r}
+dat.1952 <- my_gap %>% filter(year == 1952)
+border_1952 <- quantile(dat.1952$gdpPercap, c(.25, .50, .75))
+dat.1952$Income_Level_1952 <- cut(dat.1952$gdpPercap,
+                                  c(0, border_1952[1],
+                                    border_1952[2], border_1952[3], Inf),
+                                  c('Low', 'Low Middle', 'High Middle', 'High'))
+head(dat.1952)
+
+dat.2007 <- my_gap %>% filter(year == 2007)
+border_2007 <- quantile(dat.2007$gdpPercap, c(.25, .50, .75))
+dat.2007$Income_Level_2007 <- cut(dat.2007$gdpPercap,
+                                  c(0, border_2007[1],
+                                    border_2007[2], border_2007[3], Inf),
+                                  c('Low', 'Low Middle', 'High Middle', 'High'))
+head(dat.2007)
+```
+
+For now, let's focus on the data of in 1952.
+
+```{r}
+ggplot(data = dat.1952, aes(x = Income_Level_1952, y = lifeExp)) +
+  geom_boxplot() +
+  theme_classic()
+```
+
+We can also visualize life expectancy for each democracy level:
+
+```{r}
+ggplot(data = dat.1952, aes(x = demLev, y = lifeExp)) +
+  geom_boxplot() +
+  theme_classic()
+```
+
+Let's check the variance. 
+
+```{r}
+leveneTest(lifeExp ~ Income_Level_1952, data = dat.1952)
+```
+
+A p-value of 0.0047 suggested that the variances are significantly different. Therefore, we shoud not run ANOVA or Kruskal-Wallis. Let's run Welch's one-way test.
+
+```{r}
+result <- oneway.test(lifeExp ~ Income_Level_1952, data = dat.1952)
+result
+```
+
+A p-value of 2.2e-16 suggested that at least one category of `Income_Level_1952` had values of `lifeExp` that are significantly different from others. Let's run a Post-Hoc test to find out.
+
+Since we are running a non-parametric test, the appropriate test would be Games-Howell post-hoc test. Unfortunately, R does not have a built-in function for Games-Howell. Let's define a function to do this task.
+
+**Note**: you don't need to know how the code below works.
+
+```{r}
+games.howell <- function(grp, obs) {
+  #Create combinations
+  combs <- combn(unique(grp), 2)
+  
+  # Statistics that will be used throughout the calculations:
+  # n = sample size of each group
+  # groups = number of groups in data
+  # Mean = means of each group sample
+  # std = variance of each group sample
+  n <- tapply(obs, grp, length)
+  groups <- length(tapply(obs, grp, length))
+  Mean <- tapply(obs, grp, mean)
+  std <- tapply(obs, grp, var)
+  
+  statistics <- lapply(1:ncol(combs), function(x) {
+    mean.diff <- Mean[combs[2,x]] - Mean[combs[1,x]]
+    # t-values
+    t <- abs(Mean[combs[1,x]] - Mean[combs[2,x]]) / sqrt((std[combs[1,x]] / n[combs[1,x]]) + (std[combs[2,x]] / n[combs[2,x]]))
+    # Degrees of Freedom
+    df <- (std[combs[1,x]] / n[combs[1,x]] + std[combs[2,x]] / n[combs[2,x]])^2 / # numerator dof
+      ((std[combs[1,x]] / n[combs[1,x]])^2 / (n[combs[1,x]] - 1) + # Part 1 of denominator dof
+         (std[combs[2,x]] / n[combs[2,x]])^2 / (n[combs[2,x]] - 1)) # Part 2 of denominator dof
+    # p-values
+    p <- ptukey(t * sqrt(2), groups, df, lower.tail = FALSE)
+    # sigma standard error
+    se <- sqrt(0.5 * (std[combs[1,x]] / n[combs[1,x]] + std[combs[2,x]] / n[combs[2,x]]))
+    # Upper Confidence Limit
+    upper.conf <- lapply(1:ncol(combs), function(x) {
+      mean.diff + qtukey(p = 0.95, nmeans = groups, df = df) * se
+    })[[1]]
+    # Lower Confidence Limit
+    lower.conf <- lapply(1:ncol(combs), function(x) {
+      mean.diff - qtukey(p = 0.95, nmeans = groups, df = df) * se
+    })[[1]]
+    # Group Combinations
+    grp.comb <- paste(combs[1,x], ':', combs[2,x])
+    # Collect all statistics into list
+    stats <- list(grp.comb, mean.diff, se, t, df, p, upper.conf, lower.conf)
+  })
+  
+  # Unlist statistics collected earlier
+  stats.unlisted <- lapply(statistics, function(x) {
+    unlist(x)
+  })
+  
+  # Create dataframe from flattened list
+  results <- data.frame(matrix(unlist(stats.unlisted), nrow = length(stats.unlisted), byrow=TRUE))
+  # Select columns set as factors that should be numeric and change with as.numeric
+  results[c(2, 3:ncol(results))] <- round(as.numeric(as.matrix(results[c(2, 3:ncol(results))])), digits = 3)
+  # Rename data frame columns
+  colnames(results) <- c('groups', 'Mean Difference', 'Standard Error', 't', 'df', 'p', 'upper limit', 'lower limit')
+  return(results)
+}
+```
+
+After defining the function, we can use it. If you decide to use the Games-Howell function, you can simply copy-and-paste it. Since this function is open-source code, citation is not necessary.
+
+```{r}
+games.howell(grp = dat.1952$Income_Level_1952,  # Groups, the categorical variable
+             obs = dat.1952$lifeExp)            # Observations, the continuous variable
+```
+
+
+### Two-way ANOVA
+
+We can also look at 2 independent categorical variables together with a two-way ANOVA. This is as easy as calling `aov()` with an additional variable on the right side of the `y ~ x` formula. For example, we can take a look at both `Income_Level_2007` and `demLevel` as explanatory variables to the response variable `lifeExp`.
+
+```{r}
+two_way_plus <- aov(lifeExp ~ Income_Level_2007 + demLev, data = dat.2007)
+two_way_star <- aov(lifeExp ~ Income_Level_2007 * demLev, data = dat.2007)
+```
+
+You might have noticed that I used `+` to connect the 2 explanatory variables in the first line and `*` for the second line. How are they different? Take a look at the results below.
+
+```{r}
+two_way_plus
+two_way_star
+summary(two_way_plus)
+summary(two_way_star)
+```
+
+In the test with `*`, there is one more term `Income_Level_2007:demLev`. This is the interaction between the two variables. In this case, the interaction of of the two variables also contribute significantly to the difference in `lifeExp`.
+
+
+## Linear regression
+
+### Basic concepts
+
+We have discussed extensively for the scenario where you have a continuous variable and a categorical variable. Now we will talk about what you do if both variables are continuous.
+
+For this final section, we will test for a relationship between life expectancy and per capita [gross domestic product](https://en.wikipedia.org/wiki/Gross_domestic_product) (GDP). 
+
+As we did for the ANOVA analyses, it is usually a good idea to visually inspect the data when possible. Here we can use the `plot` function to create a scatterplot of the two columns of interest, `lifeExp` and `gdpPercap`.
+
+```{r}
+ggplot(data = dat.2007, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+```
+  
+We can see immediately that this is unlikely a linear relationship. In this case, we will need to log-transform the GDP data to obtain a linear relationship.
+
+```{r}
+ggplot(data = dat.2007, aes(x = log(gdpPercap), y = lifeExp)) +
+  geom_point()
+```
+
+Now that the data are properly transformed, we can create the linear model for the predictability of life expectancy based on gross domestic product. Before we do that let's make it clear:
+
+1. From the scatter plot we can identify a positive relationship -- when log(GDP per capita) increases, the life expectancy also tends to be higher. The tendency of one variable going up or down *linearly* with the increase of another variable is called "correlation". The more consistent the points are with a LINEAR trend, the higher the closer the correlation is to -1 (for negative relationships) or +1 (for positive relationships).
+
+2. How fast one variable increases or decreases with the increase of another variable can be described by the slope of the fitting line. To estimate the slope, we need a linear model.
+
+3. We can only discuss strength of correlation with these linear regression, but NOT the causation. That is, correlation does NOT imply causation.
+
+### Pearson correlation
+
+Let's look at the correlation. For normal distributed data, we calculate the Pearson correlation for the log-transformed variable.
+
+```{r}
+dat.2007$log_GDP <- log(dat.2007$gdpPercap)   # add new variable
+cor.test(~ log_GDP + lifeExp, data = dat.2007, method = 'pearson')  # method options: pearson, kendall, spearman
+```
+
+The p-value suggests the correlation is significant. The coefficient of 0.8 suggests a positive correation (y increases as x increases). In case you see a negative value, the correlation if negative (one variable going up while the other going down).
+
+Next we can construct a linear model.
+
+```{r}
+# Run a linear model
+lifeExp.v.gdp <- lm(formula = lifeExp ~ log_GDP, data = dat.2007)
+# Investigate results of the model
+summary(lifeExp.v.gdp)
+```
+  
+The linear equation is: lifeExp = 7.19 $\cdot$ log_GDP + 4.7738.
+
+For our question, the relationship between life expectancy and GDP, focus on the *coefficients* section, specifically the line for *log_GDP*:
+
+First of all, there *is* a significant relationship between these two variables (p < 2 x 10^-16^, or, as R reports in the `Pr>(|t|)` column, p < 2e-16). The `Estimate` column of the results lists a value of `lifeExp.v.gdp$coefficients['log_GDP']`. For every 10-fold increase in per capita GDP (remember we log~10~-transformed GDP), life expectancy increases by almost 7 years.
+  
+The linear model relies assumes that your data is normally distributed. We can generate a diagnostic plot in the same way as one-way ANOVA.
+
+```{r}
+plot(lifeExp.v.gdp)
+```
+
+Q-Q plot suggested this data deviates from normality. Let's also take a look at the residues of the linear model:
+
+```{r}
+residuals_lm <- residuals(object = lifeExp.v.gdp)
+shapiro.test(x = residuals_lm)
+```
+
+Indeed, Shapiro test also suggests the data deviates from normality. In this case, we should use the Spearman (or Kendall) correlation.
+
+### Spearman correlation
+
+If your variables are not normally distributed, you can use the non-parametric Spearman correlation as alternative. Instead of Pearson's R, the Spearman test outputs rho ($\rho$),
+
+```{r}
+cor.test(~ lifeExp + log_GDP, data = dat.2007, method = 'spearman')
+```

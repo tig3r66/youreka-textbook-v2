@@ -1,0 +1,559 @@
+# Basics of R (Part 2)
+
+In this chapter, we will learn powerful tools invaluable to our data science workflow. For instance, we will create our very own functions, which will allow us to solve increasingly complex problems.
+
+
+## Data structures
+
+Data structures determine the operations/methods/functions are available for each object. For example, you can do +/-/*// for numbers, but these operations will not be available for strings. What operations do you imagine would be useful for strings?
+
+```{r}
+paste("hello", "world", sep = ",")
+```
+
+Notice that single and double quotes can be used interchangeably, but double quotes are preferred. Single quotes are normally used to delimit characters within double quotes.
+
+### Vectors
+
+Vectors are a sequence of values with the **same type**. We can create vectors using `c()`, which stands for "combine".
+
+```{R}
+(sites <- c("a", "a", "b", "c"))
+```
+
+To access the elements inside a vector, we can do something called "slicing". To access a single item or multiple items, use the square bracket operator `[]`. In general `[]` in R means, "give me a piece of something". For example:
+
+```{r}
+sites[4]
+sites[1:3]
+```
+
+In `sites[1:3]`, the `1:3` creates a vector from 1 to 3, which is then used to subset multiple items in a vector. Here are some additional useful functions:
+
+```{R}
+length(sites)
+density_ha <- c(2.8, 3.2, 1.5, 3.8)
+mean(density_ha)
+max(density_ha)
+min(density_ha)
+sum(density_ha)
+```
+
+Now we turn our attention to multiple vectors. If our vectors are the same length, we can use math operations to combine each index element-wise.
+
+```{R}
+density_ha <- c(2.8, 3.2, 1.5, 3.8)
+area_ha <- c(3, 5, 1.9, 2.7)
+(total_number <- density_ha * area_ha)
+```
+
+Subsetting across multiple vectors is the same as that for a single vector:
+
+```{R}
+# recall: sites <- c("a", "a", "b", "c")
+# recall: area_ha <- c(3, 5, 1.9, 2.7)
+area_ha[sites == "a"]
+```
+
+The above code snippet selects all members of `area_ha` at the indices where `sites == 'a'`. This brings us to another important concept:
+
+  * `==` means "does it equal to?" in most programming languages.
+  * `==` **is not** the same as `=`. This is why we use `<-` to assign things instead of `=`.
+
+We can also ask the question of "does it not equal to?"
+
+```{R}
+area_ha[sites != "a"]
+```
+
+Likewise, we can check "is it greater or less than?"
+
+```{R}
+sites[area_ha > 3]
+sites[area_ha >= 3]
+sites[area_ha < 3]
+```
+
+Notice that all the questions we ask have a "yes" (True) or "no" (False) answer. The operators associated with these questions are called **Boolean operators**.
+
+Finally, we can subset a vector based on itself.
+
+```{R}
+sites[sites != "a"]
+```
+
+
+### Missing values
+
+So far we've worked with data with no missing values. In real life, however, we often have missing values (`NA` values). Unfortunately for us, R does not get along with `NA` values.
+
+```{R}
+density_ha <- c(2.8, 3.2, 1.5, NA)
+mean(density_ha)
+```
+
+Please note that `NA` is different from `NULL`. Take a look at the following example.
+
+```{r}
+na_vector <- c(1, 2, 3, NA)
+null_vector <- c(1, 2, 3, NULL)
+# look at the NA vector...
+na_vector
+# ... now look at the NULL vector
+null_vector
+# do the vectors work with a function such as mean()?
+mean(na_vector)
+mean(null_vector)
+```
+
+Why did we get `NA`? Well, it's hard to say what a calculation including `NA` should be, so most calculations return `NA` when `NA` is in the data. One way to resolve this issue is to tell our function to remove the `NA` before executing:
+
+```{R}
+mean(density_ha, na.rm = TRUE)
+```
+
+
+### Data frames
+
+This is where things get really exciting! We will use these data structures extensively in the upcoming labs, so it's important to pay attention here.
+
+A data frame is a list of equal length vectors grouped together. More importantly, a data frame can contain both categorical and numerical values, whereas a vector can only contain variables of the same type (i.e., all numerical, all categorical, etc.).
+
+```{R}
+surveys <- data.frame(sites, density_ha, area_ha)
+surveys
+```
+
+Here are some useful commands to investigate a data frame:
+
+  * `str()` returns the structure of a data frame.
+  * `length()` returns the length of a data frame.
+  * `nrow()` returns the number of rows of a data frame (same as `length()`)
+  * `ncol()` returns the number of columns of a data frame.
+    
+```{r}
+str(surveys)
+length(surveys)
+nrow(surveys)
+ncol(surveys)
+```
+
+Subsetting data frames is extremely similar to that for vectors. This time, however, we need to consider both rows and columns. We can access a specific member like this: `my_data_frame[row, column]`
+
+```{r}
+# visit one cell by row and column
+surveys[1, 2]
+
+# visit a range of rows and columns
+surveys[1:2, 2:3]
+
+# every row on the third column
+surveys[, 3]
+
+# visit column by name
+surveys['area_ha']
+
+# visit column by name (preferred method)
+surveys$area_ha
+
+# visit column by name
+surveys[['area_ha']]
+
+# visit multiple columns (preferred method)
+surveys[c('area_ha', 'sites')]
+```
+
+
+### External data
+
+We can read in external data using the`read.csv()` function. The main argument is the location of the data, which is either a url or a path on your computer.
+
+```{r}
+shrub_data <- read.csv('https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv')
+```
+
+### Factors
+
+Let's use the `str()` function to get more information about our variable `shrub_data`.
+
+```{r}
+str(shrub_data)
+```
+
+Notice that the `shrubID` column has type `Factor`. A factor is a special data type in R for categorical data. Factors are useful for statistics, but can mess up some aspects of computation as we'll see in future chapters.
+
+```{r}
+shrub_data <- read.csv('https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv', stringsAsFactors = FALSE)
+str(shrub_data)
+```
+
+
+### Lists
+
+Lists are a vector-like structure that can store other objects/data structures. It's sort of like a vector that holds vectors. The main difference between a list and data frame is that lists can have elements with an unequal length.
+
+```{R}
+sites <- c("a", "b", "c")
+notes <- "It was a good day in the field today. Warm, sunny, lots of gators."
+helpers <- 4
+field_notes <- list(sites, notes, helpers)
+field_notes[1]
+field_notes[[1]]
+```
+
+We can also give the values names and access them using the `$` symbol (preferred) or via `["variable_name"]` with subsetting.
+
+```{R}
+field_notes <- list(my_sites = sites, notes = notes, my_helpers = helpers)
+field_notes$my_sites
+field_notes[["my_sites"]]
+```
+
+
+## For loops
+
+Loops are fundamental a programming concept as they get a lot of repetitive stuff done in very few lines of code. You can think of loops as something that performs the same operation on a lot of things. Here's what the syntax of a loop looks like:
+
+```r
+for (item in list_of_items) {
+  do_something(item)
+}
+```
+
+And here is an example:
+
+```{r good-loop}
+for (i in 1:5) {
+  print(i)
+}
+```
+
+The above snippet is equivalent to this:
+
+```{r redundant-loop, eval=F}
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+```
+
+You can also have multiple lines of code in the body of a loop.
+
+```{r  multi-line-loop}
+for (number in 1:5) {
+   i <- i*2
+   print(i)
+}
+```
+
+In the previous examples, we used the dummy variables `i` and `number` to take on some range of values. Notice that `i` can be called anything you want.
+
+To contexualize this, let's look at an example that calculates mass using the following fomula: $\text{mass} = \text{density} \times \text{volume}$
+
+```{r mass-calc}
+density <- 2.65
+volumes <- c(1.6, 3, 8)
+for (i in 1:length(volumes)) {
+   mass <- density * volumes[i]
+   print(mass)
+}
+```
+
+Looping with an index allows us to store results calculated in the loop. In the following snippet, we are going to create an empty vector with sthe length of our `volumes` vector.
+
+```{r mass-to-num}
+( masses <- vector(mode = "numeric", length = length(volumes)) )
+```
+
+Note that `"numeric"` is the type of data we are going to store and `length(volumes)` is the desired length of our vector.
+
+Now, add each result in the correct position---for each **iteration** through the loop, save the output in the empty vector (`masses`) at the i'th position.
+
+```{r mass-vector}
+for (i in 1:length(volumes)){
+   mass <- 2.65 * volumes[i]
+   masses[i] <- mass
+}
+masses
+```
+
+
+### Looping over multiple files
+
+We now turn our attention to a (slightly more) useful example: how do we analyze multiple files with similar contents?
+
+In this hypothetical example, we have 5 datasets with satellite coodinates at specific points orbiting the Earth. Suppose the files are similarly named:
+
+  * locations-2016-01-01.txt
+  * locations-2016-01-02.txt
+  * locations-2016-01-03.txt
+  * locations-2016-01-04.txt
+  * locations-2016-01-05.txt
+
+First, we will retrieve the names of each files.
+
+```{r external-files}
+data_files <- list.files(path = "data/02_intro-to-r/", pattern = "locations-.*.txt", 
+                        full.names = TRUE)
+```
+
+Note that the asterisk in `"*.txt*"` refers to "any name in this directory" whereas the `".txt"` part ensures we are only selecting .txt files.
+
+Next, we will determine the number of observations in each file.
+
+```{R}
+results <- vector(mode = "integer", length = length(data_files))
+for (i in 1:length(data_files)) {
+  data <- read.csv(data_files[i])
+  count <- nrow(data)
+  results[i] <- count
+}
+```
+
+Now, let's store the output in a data frame and associate the file name with the count
+
+```{R}
+results <- data.frame(file_name = character(length(data_files)),
+                      count = integer(length(data_files)),
+                      stringsAsFactors = FALSE)
+
+for (i in 1:length(data_files)){
+  data <- read.csv(data_files[i])
+  count <- nrow(data)
+  results$file_name[i] <- data_files[i]
+  results$count[i] <- count
+}
+results
+```
+
+
+### Nested loops (OPTIONAL)
+
+Sometimes, we need to loop over more than a single range of numbers. For example, what if we want to select all pixels on a 3x4 rectangular screen? Here, we need to cover both the "x" and "y" pixel coodinates:
+
+```{R}
+for (i in 1:3) {
+  for (j in 1:4) {
+    print(paste("i = " , i, "; j = ", j))
+  }
+}
+```
+
+Here's a slightly more complex example that finds all prime numbers from 1 to 25:
+
+```{r is-prime}
+for (i in 2:25) {
+  # assume each number is prime by default
+  prime <- TRUE
+  for (j in 2:(i-1)) {
+    # if i is divisible by any number from 2 to i-1, it is not a prime
+    if (i%%j == 0) {
+      prime <- FALSE
+    }
+  }
+  if (prime == TRUE | i == 2) {
+    print(paste(i, "is prime"))
+  }
+}
+```
+
+
+## Functions
+
+Sometimes, we wish to define our own functions. For example, we usually create functions if we need to do similar tasks more than once. Below is a basic format to write a function.
+
+```{r eval=F}
+function_name <- function(arguments) {
+  output_value <- do_something(inputs)
+  return(output_value)
+}
+```
+
+The braces (`{` and `}`) indicate that the lines of code are a group that gets run together. For example:
+
+```{R}
+{a = 2
+b = 3
+a + b}
+```
+
+* Pressing run anywhere in this group runs all the lines in that group.
+* A function runs all of the lines of code in the braces using the arguments provided then returns the output
+
+```{R}
+calc_shrub_vol <- function(length, width, height) {
+  area <- length * width
+  volume <- area * height
+  return(volume)
+}
+```
+
+*Creating a function does not run it.* A function is meant to be used: call the function with some arguments.
+
+```{R}
+calc_shrub_vol(0.8, 1.6, 2.0)
+```
+
+* Store the output to use it later in the program
+
+```{R}
+shrub_vol <- calc_shrub_vol(0.8, 1.6, 2.0)
+```
+
+Treat functions like a black box
+  * *Draw a box on board showing inputs->function->outputs*
+  * The only things the function knows about are the inputs we pass it
+  * The only thing the program knows about the function is the output it
+    produces
+
+Let's walk through `calc_shrub_vol()`s  execution:
+  1. Call function
+	2. Assign 0.8 to length, 1.6 to width, and 2.0 to height inside function
+  3. Calculate the area and assign it to `area`
+	4. Calculate volume and assign it to `volume`
+	5. Send `volume` back as output
+	6. Store it in `shrub_vol`
+
+Once again, treat functions like a black box.
+    * You can't access a variable that was created in a function. You **must** save the output of a function (to a variable) to use it later.
+        * `> volume`
+        * `Error: object 'width' not found`
+    * Or an argument by name
+        * `> width`
+        * `Error: object 'width' not found`
+
+
+### Conditionals within functions
+
+Recall that we used a conditional to estimate mass differently for different types of vegetation. Since this is the kind of code we are going to want to reuse, so let's move it into a function.
+
+```{R}
+est_mass <- function(volume, veg_type) {
+  if (veg_type == "tree") {
+    mass <- 2.65 * volume^0.9
+  } else if (veg_type == "grass") {
+    mass <- 0.65 * volume^1.2
+  } else {
+    mass <- NA
+  }
+  return(mass)
+}
+```
+
+We can then run this function with different vegetation types and get different estimates for mass
+
+```{R}
+est_mass(1.6, "tree")
+est_mass(1.6, "grass")
+est_mass(1.6, "shrub")
+```
+
+Let's walk through how this code executes:
+  1. When we call the function the first thing that happens is that 1.6 gets assigned to `volume` and `"shrub"` gets assigned to `veg_type`
+  2. The code then checks to see if `veg_type` is equal to `"tree"`
+  3. It isn't so the code then checks to see if `veg_type` is equal to `"grass"`
+  4. It is so the code then hits the `else` statement and executes the code in the `else` block
+  5. It assigns `NA` to mass
+  6. It then finishes the if/else if/else statement and returns the value for `mass`, which is `NA` to the global environment
+
+
+### Nested conditionals
+
+* Sometimes decisions are more complicated
+* For example we might have different equations for some vegetation types based on the age of the plant
+* Can "nest" conditionals inside of one another
+
+```{R}
+est_mass <- function(volume, veg_type, age){ 
+  if (veg_type == "tree") {
+    if (age < 5) {
+      mass <- 1.6 * volume^0.8
+    } else {
+      mass <- 2.65 * volume^0.9
+  }
+  } else if (veg_type == "grass" | veg_type == "shrub") {
+    mass <- 0.65 * volume^1.2
+  } else {
+    mass <- NA
+  }
+  return(mass)
+}
+
+est_mass(1.6, "tree", age = 2)
+est_mass(1.6, "shrub", age = 5)
+```
+
+Here's how the function executes:
+  1. First checks if the vegetation type is "tree"
+  2. If it is checks to see if it is < 5 years old
+  3. If so does one calculation, if not does another.
+
+Note that nesting can be difficult to read so try to minimize it when possible.
+
+
+### Default arguments and unnamed arguments
+
+* Defaults can be set for common inputs.
+* For example, many of our shrubs are the same height so for those shrubs we only measure the `length` and `width`.
+* So we want a default value for the `height` for cases where we don't measure it
+
+```{R}
+calc_shrub_vol <- function(length, width, height = 1) {
+  area <- length * width
+  volume <- area * height
+  return(volume)
+}
+
+calc_shrub_vol(0.8, 1.6)  # default argument for height
+calc_shrub_vol(0.8, 1.6, 2.0)  # default argument is overridden by 2,0
+calc_shrub_vol(length = 0.8, width = 1.6, height = 2.0)
+```
+
+As you could tell from the last two examples, you can specify the arguments (parameters) with or without their names.
+
+* You can always use names to assign a parameter to an argument.
+* If not, using names then order is determined by parameter order. For example,
+    * First value is `length`, second value is `width`, third value is `height`.
+* In many cases there are *a lot* of optional arguments. In this case, we can specify an argument by name to avoid confusion.
+* Oftentimes, only the optional arguments are specified (i.e., those without a default value).
+* In our case, we would write:
+
+```{R}
+calc_shrub_vol(0.8, 1.6, height = 2.0)
+```
+
+### Combining functions
+
+Here are some guidelines for creating functions:
+* Each function should be single conceptual chunk of code
+* Functions can be combined to do larger tasks
+
+```{R}
+est_shrub_mass <- function(volume) {
+  mass <- 2.65 * volume^0.9
+}
+
+shrub_volume <- calc_shrub_vol(0.8, 1.6, 2.0)
+shrub_mass <- est_shrub_mass(shrub_volume)
+```
+
+We can nest functions. Below, the inner function executes before the outer function executes.
+
+```{R}
+shrub_mass <- est_shrub_mass(calc_shrub_vol(0.8, 1.6, 2.0))
+```
+
+We careful with this because it can make code difficult to read. As a general rule of thumb, don't nest more than two functions.
+
+We can also call functions from inside other functions. This allows us to organize function calls into logical groups.
+
+```{R}
+est_shrub_mass_dim <- function(length, width, height) {
+  volume = calc_shrub_vol(length, width, height)
+  mass <- est_shrub_mass(volume)
+  return(mass)
+}
+
+est_shrub_mass_dim(0.8, 1.6, 2.0)
+```
