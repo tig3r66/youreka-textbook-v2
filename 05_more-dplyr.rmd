@@ -147,7 +147,7 @@ my_gap %>%
 
 I did NOT assign the post-rename object back to `my_gap` because that would make the chunks in this tutorial harder to copy/paste and run out of order. In real life, I would probably assign this back to `my_gap`, in a data preparation script, and proceed with the new variable names.
 
-### `select()` Can Rename and Reposition Variables
+### Use select() to rename and reposition variables
 
 You've seen simple use of `select()`. There are two tricks you might enjoy:
 
@@ -347,62 +347,55 @@ my_gap %>%
 
 ## Introduction to visualization (OPTIONAL)
 
-Although we will get into more serious plotting later on, I would like to get our feet wet with `ggplot2`.
+Although we will get into more serious plotting in future chapters, I want to give you a taste of the excitement to come.
 
-`ggplot2` can generate many types of graphs. A great summary can be found on the R studio [ggplot2 cheat sheet](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf).
+Here, we will get sampling of the almighty `ggplot2` package. Let's look at a few basic examples. 
 
-Let's looks at a few basic examples here. 
-
-If you want to compare continuous data with a few categories, bar plot / box plot would be good start points. We can take a look at the data in 1952. For group data, we could use box plot or bar plot.
+If you want to compare continuous data with a few categories, either a bar plot or box plot would be a good bet. Let's look at the 1952 gapminder data.
 
 ```{r}
 dat.1952 <- my_gap %>% filter(year == 1952)
-p <- ggplot(data = dat.1952, aes(x=continent, y=lifeExp)) +
+ggplot(data = dat.1952, aes(x=continent, y=lifeExp)) +
   geom_dotplot(binaxis = "y", stackdir = "center", dotsize = 0.5) +
   geom_boxplot(alpha=0.3)
-show(p)
 ```
 
-Look at this figure, what would you comment on the mean and variation of the data? Have you identified any outliers?
+Look at this figure, what would you comment on the mean and variance of the data? Have you identified any outliers?
 
-Note that many peer-reviewed journals prefer both the raw data (the dots here) and the summary (boxplot, showing median and IQR).
-
-If we were to look at 2 continuous variables, before we have any intuitive idea about it, we can graph a scatter plot for them.
+Now suppose we had no idea about what our data looks like, but we want to check the relationship between 2 continuous variables. A great place to start would be a scatter plot:
 
 ```{r}
-p_scatter <- ggplot(data = dat.1952, aes(x = gdpPercap, y = lifeExp)) +
+ggplot(data = dat.1952, aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
-show(p_scatter)
 ```
 
-Seems like an upgoing relationship - You probably would want to calculate the correlation between them, which we will introduce in a later session.
+The scatter plot shows an upwards relationship---we will quantify this correlation in a future chapter.
 
-To make `gdpPercap` spread out better, you can plot it in log10 scale using `scale_x_log10()`. You can also add colours to label different continents.
+To make `gdpPercap` look more like a straight line, we can plot it in a base 10 log scale using the function `scale_x_log10()`. While we're at it, let's also add colours to label different continents.
 
 ```{r}
-p_scatter <- ggplot(data = dat.1952, aes(x = gdpPercap, y = lifeExp)) +
+ggplot(data = dat.1952, aes(x = gdpPercap, y = lifeExp)) +
   geom_point(aes(color = continent)) +
   scale_x_log10()
-show(p_scatter)
 ```
 
-We can also remove the grey background for clarity by setting the theme:
+We can also remove the grey background by setting the theme:
 
 ```{r}
-p_scatter <- ggplot(data = dat.1952, aes(x = gdpPercap, y = lifeExp)) +
+ggplot(data = dat.1952, aes(x = gdpPercap, y = lifeExp)) +
   geom_point(aes(color = continent)) +
   scale_x_log10() +
   theme_classic()
-show(p_scatter)
 ```
 
-Don't worry too much about formatting figures right now. We will cover this much more in depth in another lab.
+Don't worry too much about figures right now. We will cover data visualization in much more depth in future lessons.
 
-## Comprehensive practice (OPTIONAL)
 
-So let's answer that "simple" question: which country experienced the sharpest 5-year drop in life expectancy (`le`)? Recall that this excerpt of the Gapminder data only has data every five years, e.g. for 1952, 1957, etc. So this really means looking at life expectancy changes between adjacent timepoints.
+## Comprehensive practice
 
-At this point, that's just too easy, so let's do it by continent while we're at it.
+So let's answer a "simple" question: which country experienced the sharpest 5-year drop in life expectancy (`le`)? Recall that this excerpt of the gapminder data only has data every five years, e.g. for 1952, 1957, etc. So this really means looking at life expectancy changes between adjacent timepoints.
+
+At this point, the question is just too easy to answer, so find life expectancy by continent while we're at it.
 
 ```{r}
 my_gap %>%
@@ -418,19 +411,16 @@ my_gap %>%
   arrange(worst_le_delta)
 ```
 
-Now this data is interesting. Take a look at the life expectancy in Rwanda from 1987 to 1992.
+Now this data is interesting. Take a look at the life expectancy in Rwanda in 1987 and in 1992.
 
 ```{r}
 gapminder %>%
   select(country, year, lifeExp) %>%
-  filter(year == 1987, country == 'Rwanda')
-
-gapminder %>%
-  select(country, year, lifeExp) %>%
-  filter(year == 1992, country == 'Rwanda')
+  filter(year == 1987 | year == 1992, country == 'Rwanda')
 ```
 
-Ponder this data for a while. Think about the real-life implications and the code. What you're seeing is genocide in dry statistics on average life expectancy.
+Ponder the real-life implications of this output for a while. What you're seeing here is genocide in dry statistics on average life expectancy.
+
 
 ## Summary
 
