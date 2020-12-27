@@ -300,7 +300,7 @@ data_files <- list.files(path = "data/02_intro-to-r/", pattern = "locations-.*.t
                         full.names = TRUE)
 ```
 
-Note that the asterisk in `"*.txt*"` refers to "any name in this directory" whereas the `".txt"` part ensures we are only selecting .txt files.
+Note that the asterisk in `"*.txt"` refers to "any name in this directory" whereas the `".txt"` part ensures we are only selecting .txt files.
 
 Next, determine the number of observations in each file. We will assume that each row corresponds to a single coordinate.
 
@@ -329,7 +329,7 @@ for (i in 1:length(data_files)){
 results
 ```
 
-Voila! With the knowledge in this chapter, you are ready to solve some real-world problems :).
+Voila! With the knowledge in this chapter, you are ready to solve some real-world problems `r emo::ji("smile")`
 
 
 ### Nested loops (OPTIONAL)

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Comparing multiple means | A Gentle Introduction to Data Science with R</title>
   <meta name="description" content="8 Comparing multiple means | A Gentle Introduction to Data Science with R" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Comparing multiple means | A Gentle Introduction to Data Science with R" />
   <meta property="og:type" content="book" />
@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a><ul>
 <li class="chapter" data-level="5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>5.1</b> Review and preparation</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="more-data-frames.html"><a href="more-data-frames.html#load-dplyr-and-gapminder"><i class="fa fa-check"></i><b>5.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
+<li class="chapter" data-level="5.1.1" data-path="more-dplyr.html"><a href="more-dplyr.html#load-dplyr-and-gapminder-1"><i class="fa fa-check"></i><b>5.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>5.2</b> Use mutate() to add new variables</a></li>
 <li class="chapter" data-level="5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>5.3</b> Use arrange() to row-order data</a></li>
@@ -217,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Statistics</b></span></li>
 <li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a><ul>
 <li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>6.1</b> Central limit theorem for means</a></li>
-<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability-optional"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability (OPTIONAL)</a></li>
+<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a><ul>
 <li class="chapter" data-level="7.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#getting-ready"><i class="fa fa-check"></i><b>7.1</b> Getting ready</a></li>
@@ -265,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.9.1" data-path="data-visualization.html"><a href="data-visualization.html#choropleth"><i class="fa fa-check"></i><b>9.9.1</b> Choropleth</a></li>
 <li class="chapter" data-level="9.9.2" data-path="data-visualization.html"><a href="data-visualization.html#animations"><i class="fa fa-check"></i><b>9.9.2</b> Animations</a></li>
 </ul></li>
-<li class="chapter" data-level="9.10" data-path="more-data-frames.html"><a href="more-data-frames.html#additional-resources"><i class="fa fa-check"></i><b>9.10</b> Additional resources</a></li>
+<li class="chapter" data-level="9.10" data-path="data-visualization.html"><a href="data-visualization.html#additional-resources-1"><i class="fa fa-check"></i><b>9.10</b> Additional resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><center>
@@ -533,7 +533,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" data-line-number="1">residuals_Sepal_Width &lt;-<span class="st"> </span><span class="kw">residuals</span>(<span class="dt">object =</span> Sepal.Width.aov)</a>
 <a class="sourceLine" id="cb499-2" data-line-number="2"><span class="kw">shapiro.test</span>(<span class="dt">x =</span> residuals_Sepal_Width)</a></code></pre></div>
 <pre><code>## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  residuals_Sepal_Width
 ## W = 0.98948, p-value = 0.323</code></pre>
@@ -625,7 +625,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">oneway.test</span>(lifeExp <span class="op">~</span><span class="st"> </span>Income_Level_<span class="dv">1952</span>, <span class="dt">data =</span> dat<span class="fl">.1952</span>)</a>
 <a class="sourceLine" id="cb511-2" data-line-number="2">result</a></code></pre></div>
 <pre><code>## 
-## 	One-way analysis of means (not assuming equal variances)
+##  One-way analysis of means (not assuming equal variances)
 ## 
 ## data:  lifeExp and Income_Level_1952
 ## F = 63.15, num df = 3.000, denom df = 68.584, p-value &lt; 2.2e-16</code></pre>
@@ -776,7 +776,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" data-line-number="1">dat<span class="fl">.2007</span><span class="op">$</span>log_GDP &lt;-<span class="st"> </span><span class="kw">log</span>(dat<span class="fl">.2007</span><span class="op">$</span>gdpPercap)   <span class="co"># add new variable</span></a>
 <a class="sourceLine" id="cb527-2" data-line-number="2"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_GDP <span class="op">+</span><span class="st"> </span>lifeExp, <span class="dt">data =</span> dat<span class="fl">.2007</span>, <span class="dt">method =</span> <span class="st">&#39;pearson&#39;</span>)  <span class="co"># method options: pearson, kendall, spearman</span></a></code></pre></div>
 <pre><code>## 
-## 	Pearson&#39;s product-moment correlation
+##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  log_GDP and lifeExp
 ## t = 15.626, df = 130, p-value &lt; 2.2e-16
@@ -808,7 +808,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 7.142 on 130 degrees of freedom
-## Multiple R-squared:  0.6526,	Adjusted R-squared:  0.6499 
+## Multiple R-squared:  0.6526, Adjusted R-squared:  0.6499 
 ## F-statistic: 244.2 on 1 and 130 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>The linear equation is: lifeExp = 7.19 <span class="math inline">\(\cdot\)</span> log_GDP + 4.7738.</p>
 <p>For our question, the relationship between life expectancy and GDP, focus on the <em>coefficients</em> section, specifically the line for <em>log_GDP</em>:</p>
@@ -820,7 +820,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" data-line-number="1">residuals_lm &lt;-<span class="st"> </span><span class="kw">residuals</span>(<span class="dt">object =</span> lifeExp.v.gdp)</a>
 <a class="sourceLine" id="cb532-2" data-line-number="2"><span class="kw">shapiro.test</span>(<span class="dt">x =</span> residuals_lm)</a></code></pre></div>
 <pre><code>## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  residuals_lm
 ## W = 0.89588, p-value = 3.911e-08</code></pre>
@@ -831,7 +831,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If your variables are not normally distributed, you can use the non-parametric Spearman correlation as alternative. Instead of Pearson’s R, the Spearman test outputs rho (<span class="math inline">\(\rho\)</span>),</p>
 <div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb534-1" data-line-number="1"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>log_GDP, <span class="dt">data =</span> dat<span class="fl">.2007</span>, <span class="dt">method =</span> <span class="st">&#39;spearman&#39;</span>)</a></code></pre></div>
 <pre><code>## 
-## 	Spearman&#39;s rank correlation rho
+##  Spearman&#39;s rank correlation rho
 ## 
 ## data:  lifeExp and log_GDP
 ## S = 57612, p-value &lt; 2.2e-16

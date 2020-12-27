@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Gentle Introduction to Data Science with R</title>
-  <meta name="description" content="A Gentle Introduction to Data Science with R" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <title>1 Install R and RStudio | A Gentle Introduction to Data Science with R</title>
+  <meta name="description" content="1 Install R and RStudio | A Gentle Introduction to Data Science with R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Gentle Introduction to Data Science with R" />
+  <meta property="og:title" content="1 Install R and RStudio | A Gentle Introduction to Data Science with R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="assets/youreka-logo.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tig3r66/youreka-textbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Gentle Introduction to Data Science with R" />
+  <meta name="twitter:title" content="1 Install R and RStudio | A Gentle Introduction to Data Science with R" />
   
   
   <meta name="twitter:image" content="assets/youreka-logo.png" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="install.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="basics-of-r-part-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -173,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#conditionals-within-functions"><i class="fa fa-check"></i><b>3.3.1</b> Conditionals within functions</a></li>
 <li class="chapter" data-level="3.3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-conditionals"><i class="fa fa-check"></i><b>3.3.2</b> Nested conditionals</a></li>
-<li class="chapter" data-level="3.3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#function-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Function arguments</a></li>
+<li class="chapter" data-level="3.3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#default-arguments-and-unnamed-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Default arguments and unnamed arguments</a></li>
 <li class="chapter" data-level="3.3.4" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#combining-functions"><i class="fa fa-check"></i><b>3.3.4</b> Combining functions</a></li>
 </ul></li>
 </ul></li>
@@ -197,12 +197,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a><ul>
 <li class="chapter" data-level="5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>5.1</b> Review and preparation</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="more-dplyr.html"><a href="more-dplyr.html#load-dplyr-and-gapminder-1"><i class="fa fa-check"></i><b>5.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
+<li class="chapter" data-level="5.1.1" data-path="more-data-frames.html"><a href="more-data-frames.html#load-dplyr-and-gapminder"><i class="fa fa-check"></i><b>5.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>5.2</b> Use mutate() to add new variables</a></li>
 <li class="chapter" data-level="5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>5.3</b> Use arrange() to row-order data</a></li>
 <li class="chapter" data-level="5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>5.4</b> Use rename() to rename variables</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#use-select-to-rename-and-reposition-variables"><i class="fa fa-check"></i><b>5.4.1</b> Use select() to rename and reposition variables</a></li>
+<li class="chapter" data-level="5.4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#select-can-rename-and-reposition-variables"><i class="fa fa-check"></i><b>5.4.1</b> <code>select()</code> Can Rename and Reposition Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>5.5</b> Perform tasks on subsets with <code>group_by()</code></a><ul>
 <li class="chapter" data-level="5.5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#counting"><i class="fa fa-check"></i><b>5.5.1</b> Counting</a></li>
@@ -211,13 +211,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#window-functions-optional"><i class="fa fa-check"></i><b>5.5.4</b> Window functions (OPTIONAL)</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-to-visualization-optional"><i class="fa fa-check"></i><b>5.6</b> Introduction to visualization (OPTIONAL)</a></li>
-<li class="chapter" data-level="5.7" data-path="more-dplyr.html"><a href="more-dplyr.html#comprehensive-practice"><i class="fa fa-check"></i><b>5.7</b> Comprehensive practice</a></li>
+<li class="chapter" data-level="5.7" data-path="more-dplyr.html"><a href="more-dplyr.html#comprehensive-practice-optional"><i class="fa fa-check"></i><b>5.7</b> Comprehensive practice (OPTIONAL)</a></li>
 <li class="chapter" data-level="5.8" data-path="more-dplyr.html"><a href="more-dplyr.html#summary"><i class="fa fa-check"></i><b>5.8</b> Summary</a></li>
 </ul></li>
 <li class="part"><span><b>III Statistics</b></span></li>
 <li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a><ul>
 <li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>6.1</b> Central limit theorem for means</a></li>
-<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability</a></li>
+<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability-optional"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability (OPTIONAL)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a><ul>
 <li class="chapter" data-level="7.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#getting-ready"><i class="fa fa-check"></i><b>7.1</b> Getting ready</a></li>
@@ -265,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.9.1" data-path="data-visualization.html"><a href="data-visualization.html#choropleth"><i class="fa fa-check"></i><b>9.9.1</b> Choropleth</a></li>
 <li class="chapter" data-level="9.9.2" data-path="data-visualization.html"><a href="data-visualization.html#animations"><i class="fa fa-check"></i><b>9.9.2</b> Animations</a></li>
 </ul></li>
-<li class="chapter" data-level="9.10" data-path="data-visualization.html"><a href="data-visualization.html#additional-resources-1"><i class="fa fa-check"></i><b>9.10</b> Additional resources</a></li>
+<li class="chapter" data-level="9.10" data-path="more-data-frames.html"><a href="more-data-frames.html#additional-resources"><i class="fa fa-check"></i><b>9.10</b> Additional resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><center>
@@ -294,67 +294,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Gentle Introduction to Data Science with R</h1>
-<h2 class="subtitle"><em>Explore, visualize, and analyze data</em></h2>
-<p class="author"><em>Eddie Guo</em></p>
-<p class="author"><em>Youreka Canada Programs Team</em></p>
-</div>
-<div id="welcome-to-youreka-canada" class="section level1 unnumbered">
-<h1>Welcome to Youreka Canada</h1>
-<p>Welcome to the Youreka Canada program! In this course, you will learn how to wrangle data, perform statistical tests, and visualize data with R. The purpose of this textbook is to provide a companion to the <a href="https://yourekacanada.org/">Youreka Canada program</a>, which teaches introductory statistics, data science, and research methods. Here, we offer an intuitive approach to data science rather than a rigorous, proof-based course. As such, this textbook does not assume you have any prior knowledge other than basic arithmetic, and it should be accessible to both high school and undergraduate students.</p>
-<div id="how-to-use-this-textbook" class="section level2 unnumbered">
-<h2>How to use this textbook</h2>
-<p>Please note that this text goes into additional detail not covered in session. All optional material is marked as OPTIONAL in the headings. Again, note that this text <em>complements</em> the Youreka program. <em>These notes are not a substitute for attending the Youreka sessions!</em></p>
-<p>This text focuses on how the material taught in-session can be applied using the R programming language. As with all things programming, the best way to learn is to actively code. That is, when you read this textbook, open RStudio and play around with the presented code—try to find alternative solutions, or even break the code. Don’t be afraid to make mistakes, and soon enough, you will be confident to code on your own!</p>
-</div>
-<div id="contributors" class="section level2 unnumbered">
-<h2>Contributors</h2>
-<p>This textbook was written by Eddie Guo, Pouria Torabi, Shuce Zhang, and Devin Aggarwal, who are part of the Youreka Canada Programs Team. A special thanks goes to Matthew Pietrosanu for his critical statistical review of the Youreka program.</p>
-</div>
-<div id="credit" class="section level2 unnumbered">
-<h2>Credit</h2>
-<p>This material was adapted from:</p>
+<div id="install" class="section level1">
+<h1><span class="header-section-number">1</span> Install R and RStudio</h1>
+<p>Why do we need to install both R and RStudio? Well, the answer is the following: R is the programming language whereas RStudio is an integrated development environment (IDE) for R. You can think of R as the thing that turns your code into commands that your computer runs and RStudio as a fancy text editor (although it is so much more than that!).</p>
+<div id="installing-r" class="section level2">
+<h2><span class="header-section-number">1.1</span> Installing R</h2>
 <ol style="list-style-type: decimal">
-<li><p>Jennifer Bryan STAT 545 at UBC <a href="https://stat545.com/" class="uri">https://stat545.com/</a></p></li>
-<li><p>Jennifer Bryan (2017). gapminder: Data from Gapminder. R package version 0.3.0. <a href="https://CRAN.R-project.org/package=gapminder" class="uri">https://CRAN.R-project.org/package=gapminder</a></p></li>
+<li>On your preferred web browser, navigate to the <a href="https://www.r-project.org/">R project website</a> to download R.</li>
+<li>On the left side bar, click on “CRAN” under “Download”. Choose the mirror you wish to download from (e.g., <a href="https://mirror.rcg.sfu.ca/mirror/CRAN/" class="uri">https://mirror.rcg.sfu.ca/mirror/CRAN/</a>)</li>
+<li>Download the correct version for your OS. Ensure to download the latest release of R.</li>
 </ol>
 </div>
-<div id="license" class="section level2 unnumbered">
-<h2>License</h2>
-<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-<center>
-<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
-</center>
-<p><em>This is a human-readable summary of (and not a substitute for) the license. Please see <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="uri">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a> for the full legal text.</em></p>
-<p><strong>You are free to:</strong></p>
-<ul>
-<li><p><strong>Share</strong>—copy and redistribute the material in any medium or format</p></li>
-<li><p><strong>Remix</strong>—remix, transform, and build upon the material for any purpose, even commercially.</p></li>
-</ul>
-<p>The licensor cannot revoke these freedoms as long as you follow the license terms.</p>
-<p><strong>Under the following terms:</strong></p>
-<ul>
-<li><p><strong>Attribution</strong>—You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</p></li>
-<li><p><strong>ShareAlike</strong>—If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</p></li>
-<li><p><strong>No additional restrictions</strong>—You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p></li>
-</ul>
-<p><strong>Notices:</strong></p>
-<p>You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.</p>
-<p>No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.</p>
+<div id="installing-rstudio" class="section level2">
+<h2><span class="header-section-number">1.2</span> Installing RStudio</h2>
+<ol style="list-style-type: decimal">
+<li>Go to the <a href="https://rstudio.com/">RStudio website</a>.</li>
+<li>Navigate to the <a href="https://rstudio.com/products/rstudio/">RStudio page</a> and download RStudio Desktop.</li>
+</ol>
+<p>If you have a pre-existing installation of R and/or RStudio, we <strong>highly recommend</strong> that you update both. If you upgrade R, you’ll need to update any packages you have installed. Type the following command into the Console in RStudio:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">update.packages</span>(<span class="dt">ask =</span> <span class="ot">FALSE</span>, <span class="dt">checkBuilt =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Once you’ve installed and/or updated R and RStudio, open RStudio. You should get a window similar to this <a href="https://rstudio.com/wp-content/uploads/2014/04/rstudio-workbench.png">screenshot</a>, but yours will be more boring because you haven’t written any code or made any figures yet!</p>
+<p>Place your cursor in the pane called “Console”, which is where you interact with R. Type <code>print('Hello World!')</code> in the console and hit the enter or return key. You should see “Hello World!” print to the screen. If you do, you’ve succeeded in installing R and RStudio.</p>
+</div>
+<div id="add-on-packages" class="section level2">
+<h2><span class="header-section-number">1.3</span> Add-on packages</h2>
+<p>R contains a huge number of packages that enhances its functionality. People often share useful code they have developed as a package via CRAN and GitHub. To install a package from CRAN (e.g., the <a href="https://www.tidyverse.org/">tidyverse</a>), type this into the R console:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>By including <code>dependencies = TRUE</code>, we are including any additional packages our target package requires. Please also install the followng packages using the method above:</p>
+<ol style="list-style-type: decimal">
+<li><strong>ggsignif</strong>: This package extends the ggplot2 package. It adds additional statistical visualization func- tions. Read more <a href="https://cran.r-project.org/web/packages/ggsignif/vignettes/intro.html">here</a>.</li>
+<li><strong>ggpubr</strong>: As the name suggests, ggpubr creates publication-quality graphs. Read more <a href="https://github.com/kassambara/ggpubr">here</a>.</li>
+</ol>
+<p>Without further ado, let’s jump into our adventure with R!</p>
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="install.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basics-of-r-part-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

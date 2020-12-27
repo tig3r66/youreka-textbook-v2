@@ -1,6 +1,6 @@
 # Basics of R (Part 1)
 
-We begin our adventure with RStudio. If this is your first time opening RStudio, you should see the following panes:
+We will begin our adventure by opening RStudio. If this is your first time opening RStudio, you should see the following panes:
 
   * Console (entire left)
   * Environment/History (upper right)
@@ -33,11 +33,11 @@ Every value you assign to an object will be in this form:
 object_name <- value
 ```
 
-By convention, we use `<-` to assign variables. Don't be lazy and use `=` to assign variables. Although this works, it will just sow confusion later. Instead, utilize RStudio's keyboard shortcut: `Alt`+`-` (the minus sign). Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
+By convention, we use `<-` to assign variables. Don't be lazy and use `=` to assign variables. Although it works, it will just sow confusion later. Instead, utilize RStudio's keyboard shortcut: `Alt`+`-` (the minus sign). Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
 
-RStudio offers many handy keyboard shortcuts. The shortcut to rule them all is `Alt`+`Shift`+`K`, which brings up a keyboard shortcut reference card.
+RStudio offers many handy keyboard shortcuts. The shortcut to rule them all is `Alt`+`Shift`+`K` (this brings up a keyboard shortcut reference card).
 
-Although object names are flexible, we do need to follow some rules:
+Although object names are flexible, we need to follow some rules:
 
   1. Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space.
   2. As a general rule of thumb, object names should be short and meaningful. Misleading or overly long object names will make it a pain to debug your code.
@@ -130,7 +130,7 @@ or click the broom icon in RStudio's Environment pane.
 
 ## Basic math operators
 
-Here are some basic math operations you can perform in R (no need to memorize this list):
+Here are some basic math operations you can perform in R (no need to memorize this list!):
 
 ```{r eval = F}
 1 + 2                      # addition

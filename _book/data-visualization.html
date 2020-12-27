@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 Data visualization | A Gentle Introduction to Data Science with R</title>
   <meta name="description" content="9 Data visualization | A Gentle Introduction to Data Science with R" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 Data visualization | A Gentle Introduction to Data Science with R" />
   <meta property="og:type" content="book" />
@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a><ul>
 <li class="chapter" data-level="5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>5.1</b> Review and preparation</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="more-data-frames.html"><a href="more-data-frames.html#load-dplyr-and-gapminder"><i class="fa fa-check"></i><b>5.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
+<li class="chapter" data-level="5.1.1" data-path="more-dplyr.html"><a href="more-dplyr.html#load-dplyr-and-gapminder-1"><i class="fa fa-check"></i><b>5.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>5.2</b> Use mutate() to add new variables</a></li>
 <li class="chapter" data-level="5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>5.3</b> Use arrange() to row-order data</a></li>
@@ -217,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Statistics</b></span></li>
 <li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a><ul>
 <li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>6.1</b> Central limit theorem for means</a></li>
-<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability-optional"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability (OPTIONAL)</a></li>
+<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a><ul>
 <li class="chapter" data-level="7.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#getting-ready"><i class="fa fa-check"></i><b>7.1</b> Getting ready</a></li>
@@ -265,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.9.1" data-path="data-visualization.html"><a href="data-visualization.html#choropleth"><i class="fa fa-check"></i><b>9.9.1</b> Choropleth</a></li>
 <li class="chapter" data-level="9.9.2" data-path="data-visualization.html"><a href="data-visualization.html#animations"><i class="fa fa-check"></i><b>9.9.2</b> Animations</a></li>
 </ul></li>
-<li class="chapter" data-level="9.10" data-path="more-data-frames.html"><a href="more-data-frames.html#additional-resources"><i class="fa fa-check"></i><b>9.10</b> Additional resources</a></li>
+<li class="chapter" data-level="9.10" data-path="data-visualization.html"><a href="data-visualization.html#additional-resources-1"><i class="fa fa-check"></i><b>9.10</b> Additional resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><center>
@@ -568,7 +568,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb581-2" data-line-number="2">africa.<span class="fl">2007.</span>lifeExp &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &#39;Africa&#39;</span>, year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(lifeExp)</a>
 <a class="sourceLine" id="cb581-3" data-line-number="3"><span class="kw">t.test</span>(africa.<span class="fl">1977.</span>lifeExp, africa.<span class="fl">2007.</span>lifeExp)</a></code></pre></div>
 <pre><code>## 
-## 	Welch Two Sample t-test
+##  Welch Two Sample t-test
 ## 
 ## data:  africa.1977.lifeExp and africa.2007.lifeExp
 ## t = -3.195, df = 91.787, p-value = 0.001917
@@ -684,34 +684,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>(Please note that this could be a very rare scenario when conducting serious research - Each subfigures may require intense computation and modelling work that are performed with several scripts. They may even come from different people - your teammates and collaborators. You don’t always have access to all te subfigures within one workspace. Most of the time you would still find yourself using graphical design softwares to assemble the figures.)</p>
 <div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" data-line-number="1"><span class="co"># install.packages(&#39;patchwork&#39;)</span></a>
 <a class="sourceLine" id="cb597-2" data-line-number="2"><span class="kw">library</span>(patchwork)</a></code></pre></div>
+<pre><code>## Warning: package &#39;patchwork&#39; was built under R version 3.6.2</code></pre>
 <p>Here is a super simple example: just add the plots together! Recall that these variables were saved throughout our lab.</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb598-1" data-line-number="1">hist.<span class="fl">07.77</span> <span class="op">+</span><span class="st"> </span>lineplot</a></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb599-1" data-line-number="1">hist.<span class="fl">07.77</span> <span class="op">+</span><span class="st"> </span>lineplot</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
 <p>We can also do something a bit more complicated:</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb600-1" data-line-number="1">(hist.<span class="fl">07.77</span> <span class="op">+</span><span class="st"> </span>lineplot) <span class="op">/</span><span class="st"> </span>offset_box</a></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb601-1" data-line-number="1">(hist.<span class="fl">07.77</span> <span class="op">+</span><span class="st"> </span>lineplot) <span class="op">/</span><span class="st"> </span>offset_box</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
 <p>We can also add spacing between plots:</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb602-1" data-line-number="1">patch &lt;-<span class="st"> </span>(hist.<span class="fl">07.77</span> <span class="op">+</span><span class="st"> </span><span class="kw">plot_spacer</span>() <span class="op">+</span><span class="st"> </span>lineplot) <span class="op">/</span></a>
-<a class="sourceLine" id="cb602-2" data-line-number="2"><span class="st">  </span>(meanLE.<span class="fl">77.07</span> <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)))</a>
-<a class="sourceLine" id="cb602-3" data-line-number="3">patch</a></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb603-1" data-line-number="1">patch &lt;-<span class="st"> </span>(hist.<span class="fl">07.77</span> <span class="op">+</span><span class="st"> </span><span class="kw">plot_spacer</span>() <span class="op">+</span><span class="st"> </span>lineplot) <span class="op">/</span></a>
+<a class="sourceLine" id="cb603-2" data-line-number="2"><span class="st">  </span>(meanLE.<span class="fl">77.07</span> <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)))</a>
+<a class="sourceLine" id="cb603-3" data-line-number="3">patch</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
 <p>Most figures in papers are annotated. We can do the same: ‘1’ for Arabic numerals, ‘A’ for uppercase Latin letters, ‘a’ for lowercase Latin letters, ‘I’ for uppercase Roman numerals, and ‘i’ for lowercase Roman numerals. Note here that the sizing</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" data-line-number="1">(hist.<span class="fl">07.77</span> <span class="op">+</span><span class="st"> </span>lineplot) <span class="op">/</span><span class="st"> </span>(meanLE.<span class="fl">77.07</span> <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb604-2" data-line-number="2"><span class="st">  </span><span class="kw">plot_annotation</span>(<span class="dt">tag_levels =</span> <span class="st">&#39;A&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb605-1" data-line-number="1">(hist.<span class="fl">07.77</span> <span class="op">+</span><span class="st"> </span>lineplot) <span class="op">/</span><span class="st"> </span>(meanLE.<span class="fl">77.07</span> <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb605-2" data-line-number="2"><span class="st">  </span><span class="kw">plot_annotation</span>(<span class="dt">tag_levels =</span> <span class="st">&#39;A&#39;</span>)</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
 <p>More often than not, we want all of our figures to have the same dimensions. <code>patchwork</code> makes it easy for us to do so:</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" data-line-number="1">aligned_plots &lt;-<span class="st"> </span><span class="kw">align_patches</span>(lineplot, scatter_trend, meanLE.<span class="fl">77.07</span>, offset_box)</a>
-<a class="sourceLine" id="cb606-2" data-line-number="2"><span class="cf">for</span> (p <span class="cf">in</span> aligned_plots) {</a>
-<a class="sourceLine" id="cb606-3" data-line-number="3">  <span class="kw">plot</span>(p)</a>
-<a class="sourceLine" id="cb606-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" data-line-number="1">aligned_plots &lt;-<span class="st"> </span><span class="kw">align_patches</span>(lineplot, scatter_trend, meanLE.<span class="fl">77.07</span>, offset_box)</a>
+<a class="sourceLine" id="cb607-2" data-line-number="2"><span class="cf">for</span> (p <span class="cf">in</span> aligned_plots) {</a>
+<a class="sourceLine" id="cb607-3" data-line-number="3">  <span class="kw">plot</span>(p)</a>
+<a class="sourceLine" id="cb607-4" data-line-number="4">}</a></code></pre></div>
 <p>That’s all there is to it! If you want more customization options, read the official documentation: <a href="https://patchwork.data-imaginist.com/articles/patchwork.html" class="uri">https://patchwork.data-imaginist.com/articles/patchwork.html</a>.</p>
 </div>
 <div id="extras-optional" class="section level2">
@@ -722,14 +723,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>“The greatest value of a picture is when it forces us to notice what we never expected to see.” –John Tukey</p>
 </blockquote>
 <p><a href="https://datavizcatalogue.com/methods/choropleth.html">The choropleth</a> is used to display differences in geographical regions using different colours/shades/patterns. To use map data, we need to install <code>maps</code> package.</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;maps&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;maps&quot;</span>)</a></code></pre></div>
 <p>First, let’s load <code>maps</code> and retrieve all of the data from the year 2007.</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" data-line-number="1"><span class="kw">library</span>(maps)</a>
-<a class="sourceLine" id="cb608-2" data-line-number="2">dat2007 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>)</a>
-<a class="sourceLine" id="cb608-3" data-line-number="3">dat2007 &lt;-<span class="st"> </span>dat2007 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="st">&#39;region&#39;</span> =<span class="st"> &#39;country&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1"><span class="kw">library</span>(maps)</a>
+<a class="sourceLine" id="cb609-2" data-line-number="2">dat2007 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>)</a>
+<a class="sourceLine" id="cb609-3" data-line-number="3">dat2007 &lt;-<span class="st"> </span>dat2007 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="st">&#39;region&#39;</span> =<span class="st"> &#39;country&#39;</span>)</a></code></pre></div>
 <p>Now let’s get the world map data. This is necessary because it contains the longitude and latitudes we need to draw the map</p>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1">world_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;world&quot;</span>)</a>
-<a class="sourceLine" id="cb609-2" data-line-number="2"><span class="kw">head</span>(world_map)</a></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" data-line-number="1">world_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;world&quot;</span>)</a>
+<a class="sourceLine" id="cb610-2" data-line-number="2"><span class="kw">head</span>(world_map)</a></code></pre></div>
 <pre><code>##        long      lat group order region subregion
 ## 1 -69.89912 12.45200     1     1  Aruba      &lt;NA&gt;
 ## 2 -69.89571 12.42300     1     2  Aruba      &lt;NA&gt;
@@ -738,12 +739,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 -70.06612 12.54697     1     5  Aruba      &lt;NA&gt;
 ## 6 -70.05088 12.59707     1     6  Aruba      &lt;NA&gt;</code></pre>
 <p>Whereas <code>gapminder</code> names USA and UK ‘United States’ and ‘United Kingdom’ respectively, <code>world_map</code> names them by their abbreviations. Let’s rename the <code>gapminder</code> data.</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb611-1" data-line-number="1">dat2007 &lt;-<span class="st"> </span>dat2007 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">region =</span> <span class="kw">fct_recode</span>(region,</a>
-<a class="sourceLine" id="cb611-2" data-line-number="2">                             <span class="st">&#39;USA&#39;</span> =<span class="st"> &#39;United States&#39;</span>,</a>
-<a class="sourceLine" id="cb611-3" data-line-number="3">                             <span class="st">&#39;UK&#39;</span> =<span class="st"> &#39;United Kingdom&#39;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb612-1" data-line-number="1">dat2007 &lt;-<span class="st"> </span>dat2007 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">region =</span> <span class="kw">fct_recode</span>(region,</a>
+<a class="sourceLine" id="cb612-2" data-line-number="2">                             <span class="st">&#39;USA&#39;</span> =<span class="st"> &#39;United States&#39;</span>,</a>
+<a class="sourceLine" id="cb612-3" data-line-number="3">                             <span class="st">&#39;UK&#39;</span> =<span class="st"> &#39;United Kingdom&#39;</span>))</a></code></pre></div>
 <p>We’re almost there! Now, we need to merge the data.</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb612-1" data-line-number="1">life.exp.map &lt;-<span class="st"> </span><span class="kw">left_join</span>(world_map, dat2007, <span class="dt">by =</span> <span class="st">&quot;region&quot;</span>)</a>
-<a class="sourceLine" id="cb612-2" data-line-number="2"><span class="kw">head</span>(life.exp.map)</a></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb613-1" data-line-number="1">life.exp.map &lt;-<span class="st"> </span><span class="kw">left_join</span>(world_map, dat2007, <span class="dt">by =</span> <span class="st">&quot;region&quot;</span>)</a>
+<a class="sourceLine" id="cb613-2" data-line-number="2"><span class="kw">head</span>(life.exp.map)</a></code></pre></div>
 <pre><code>##        long      lat group order region subregion continent year lifeExp pop
 ## 1 -69.89912 12.45200     1     1  Aruba      &lt;NA&gt;      &lt;NA&gt;   NA      NA  NA
 ## 2 -69.89571 12.42300     1     2  Aruba      &lt;NA&gt;      &lt;NA&gt;   NA      NA  NA
@@ -759,38 +760,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5        NA
 ## 6        NA</code></pre>
 <p>Finally, we can plot the data. We specify <code>group</code> to draw each country individually.</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb614-1" data-line-number="1"><span class="co"># grey means no gapminder data</span></a>
-<a class="sourceLine" id="cb614-2" data-line-number="2"><span class="kw">ggplot</span>(life.exp.map, <span class="kw">aes</span>(<span class="dt">x=</span>long, <span class="dt">y=</span>lat, <span class="dt">group =</span> group)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb614-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> lifeExp), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb614-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_fill_viridis_b</span>(<span class="dt">option=</span><span class="st">&#39;D&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb614-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" data-line-number="1"><span class="co"># grey means no gapminder data</span></a>
+<a class="sourceLine" id="cb615-2" data-line-number="2"><span class="kw">ggplot</span>(life.exp.map, <span class="kw">aes</span>(<span class="dt">x=</span>long, <span class="dt">y=</span>lat, <span class="dt">group =</span> group)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb615-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> lifeExp), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb615-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_fill_viridis_b</span>(<span class="dt">option=</span><span class="st">&#39;D&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb615-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
 </div>
 <div id="animations" class="section level3">
 <h3><span class="header-section-number">9.9.2</span> Animations</h3>
 <p>While we covered the most relevant data visualizations for your project, we’ve barely scratched the surface of what R can do. For example, you can create animations. Let’s install the <code>gganimate</code> package.</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</a>
-<a class="sourceLine" id="cb615-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;thomasp85/gganimate&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb616-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</a>
+<a class="sourceLine" id="cb616-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;thomasp85/gganimate&#39;</span>)</a></code></pre></div>
 <p>Next, load the package:</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb616-1" data-line-number="1"><span class="kw">library</span>(gganimate)</a></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb617-1" data-line-number="1"><span class="kw">library</span>(gganimate)</a></code></pre></div>
 <pre><code>## Warning: package &#39;gganimate&#39; was built under R version 3.6.2</code></pre>
 <p>Finally, we can create the plot! This might take a while, but I promise it will be worth the wait!</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb618-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">size =</span> pop, <span class="dt">col =</span> country)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">show.legend =</span> F) <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> country_colors) <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-4" data-line-number="4"><span class="st">    </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-5" data-line-number="5"><span class="st">    </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">12</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-6" data-line-number="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>continent) <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-7" data-line-number="7"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-8" data-line-number="8"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">panel.grid =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-9" data-line-number="9"><span class="st">    </span><span class="co"># here is the animation code</span></a>
-<a class="sourceLine" id="cb618-10" data-line-number="10"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Year: {frame_time}&#39;</span>, <span class="dt">x =</span> <span class="st">&#39;GDP per capita&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Life expectancy (years)&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-11" data-line-number="11"><span class="st">    </span><span class="kw">transition_time</span>(year) <span class="op">+</span></a>
-<a class="sourceLine" id="cb618-12" data-line-number="12"><span class="st">    </span><span class="kw">ease_aes</span>(<span class="st">&#39;linear&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb619-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder, <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">size =</span> pop, <span class="dt">col =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">show.legend =</span> F) <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> country_colors) <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-4" data-line-number="4"><span class="st">    </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-5" data-line-number="5"><span class="st">    </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">12</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-6" data-line-number="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>continent) <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-7" data-line-number="7"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-8" data-line-number="8"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">panel.grid =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-9" data-line-number="9"><span class="st">    </span><span class="co"># here is the animation code</span></a>
+<a class="sourceLine" id="cb619-10" data-line-number="10"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Year: {frame_time}&#39;</span>, <span class="dt">x =</span> <span class="st">&#39;GDP per capita&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Life expectancy (years)&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-11" data-line-number="11"><span class="st">    </span><span class="kw">transition_time</span>(year) <span class="op">+</span></a>
+<a class="sourceLine" id="cb619-12" data-line-number="12"><span class="st">    </span><span class="kw">ease_aes</span>(<span class="st">&#39;linear&#39;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-280-1.gif" /><!-- --></p>
 </div>
 </div>
-<div id="additional-resources" class="section level2">
+<div id="additional-resources-1" class="section level2">
 <h2><span class="header-section-number">9.10</span> Additional resources</h2>
 <p>I highly recommend you read through these websites:</p>
 <ul>

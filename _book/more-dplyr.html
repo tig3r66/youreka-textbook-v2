@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 More dplyr | A Gentle Introduction to Data Science with R</title>
   <meta name="description" content="5 More dplyr | A Gentle Introduction to Data Science with R" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 More dplyr | A Gentle Introduction to Data Science with R" />
   <meta property="og:type" content="book" />
@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a><ul>
 <li class="chapter" data-level="5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>5.1</b> Review and preparation</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="more-data-frames.html"><a href="more-data-frames.html#load-dplyr-and-gapminder"><i class="fa fa-check"></i><b>5.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
+<li class="chapter" data-level="5.1.1" data-path="more-dplyr.html"><a href="more-dplyr.html#load-dplyr-and-gapminder-1"><i class="fa fa-check"></i><b>5.1.1</b> Load <code>dplyr</code> and gapminder</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>5.2</b> Use mutate() to add new variables</a></li>
 <li class="chapter" data-level="5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>5.3</b> Use arrange() to row-order data</a></li>
@@ -217,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>III Statistics</b></span></li>
 <li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a><ul>
 <li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>6.1</b> Central limit theorem for means</a></li>
-<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability-optional"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability (OPTIONAL)</a></li>
+<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a><ul>
 <li class="chapter" data-level="7.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#getting-ready"><i class="fa fa-check"></i><b>7.1</b> Getting ready</a></li>
@@ -265,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.9.1" data-path="data-visualization.html"><a href="data-visualization.html#choropleth"><i class="fa fa-check"></i><b>9.9.1</b> Choropleth</a></li>
 <li class="chapter" data-level="9.9.2" data-path="data-visualization.html"><a href="data-visualization.html#animations"><i class="fa fa-check"></i><b>9.9.2</b> Animations</a></li>
 </ul></li>
-<li class="chapter" data-level="9.10" data-path="more-data-frames.html"><a href="more-data-frames.html#additional-resources"><i class="fa fa-check"></i><b>9.10</b> Additional resources</a></li>
+<li class="chapter" data-level="9.10" data-path="data-visualization.html"><a href="data-visualization.html#additional-resources-1"><i class="fa fa-check"></i><b>9.10</b> Additional resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><center>
@@ -309,7 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>dplyr</code> is a core package in the <a href="https://github.com/hadley/tidyverse">tidyverse</a> meta-package. Since we often make incidental usage of the others, we will load dplyr and the others via <code>library(tidyverse)</code>.</li>
 <li>The <code>tidyverse</code> embraces a special flavor of data frame, called a tibble. The <code>gapminder</code> dataset is stored as a tibble.</li>
 </ul>
-<div id="load-dplyr-and-gapminder" class="section level3">
+<div id="load-dplyr-and-gapminder-1" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Load <code>dplyr</code> and gapminder</h3>
 <p>I choose to load the tidyverse, which will load <code>dplyr</code>, among other packages we use incidentally below. Let’s also load gapminder.</p>
 <div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
@@ -846,7 +846,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 Americas  El Salvador         -1.51 
 ## 4 Europe    Montenegro          -1.46 
 ## 5 Oceania   Australia            0.170</code></pre>
-<p>Now this data is interesting. Take a look at the life expectancy in Rwanda from 1987 to 1992.</p>
+<p>Now this data is interesting. Take a look at the life expectancy in Rwanda in 1987 and in 1992.</p>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1">gapminder <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb360-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb360-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1987</span> <span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> </span><span class="dv">1992</span>, country <span class="op">==</span><span class="st"> &#39;Rwanda&#39;</span>)</a></code></pre></div>

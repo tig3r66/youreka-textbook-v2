@@ -2,7 +2,7 @@
 
 # Install R and RStudio {#install}
 
-Why do we need to install both R and RStudio? Well, the answer is the following: R is the programming language whereas RStudio is an integrated development environment (IDE) for R. You can think of R as the thing that turns your code into commands that your computer runs and RStudio as a fancy text editor (although it is so much more than that!).
+Why do we need to install both R and RStudio? Well, the answer is the following: R is the programming language whereas RStudio is the integrated development environment (IDE) for R. You can think of R as the thing that turns your code into commands that your computer runs and RStudio as a fancy text editor (although it is so much more than that!).
 
 
 ## Installing R
