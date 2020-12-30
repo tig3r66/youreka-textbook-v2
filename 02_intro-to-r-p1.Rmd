@@ -25,7 +25,7 @@ my_object <- 5*10
 my_object
 ```
 
-In plain English, the above snippet tells us that "five times ten is assigned to myObject".
+In plain English, the above snippet tells us that "five times ten is assigned to my_object".
 
 Every value you assign to an object will be in this form:
 
@@ -56,7 +56,7 @@ Let's make another assignment:
 this_is_a_really_long_name <- 2.5
 ```
 
-To inspect the object we've just created, try out RStudio's auto-complete feature: type the first few characters, press `TAB`, add characters until you get what you want, then press return.
+To inspect the object we've just created, try out RStudio's auto-complete feature: type the first few characters, press `TAB`, add characters until you get what you want, then press return/enter.
 
 
 ## Function Basics
@@ -73,7 +73,7 @@ Let's try using `seq()` which makes regular sequences of numbers and, while we'r
 
 Type `se` and hit `TAB`. A pop up shows you possible completions. Select `seq()` by using the up/down arrows to select. Notice the floating tool-tip-type help that pops up to remind you of a function's arguments.
 
-If you want even more help, press `F1` to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle. Type the arguments `1, 10` and hit return. RStudio also exits the parenthetical expression for you.
+If you want even more help, press `F1` to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle. Type the arguments `1, 10` and hit return/enter. RStudio also exits the parenthetical expression for you.
 
 ```{r}
 seq(1, 10)

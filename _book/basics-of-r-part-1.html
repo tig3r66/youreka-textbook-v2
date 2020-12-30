@@ -315,7 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">my_object &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">*</span><span class="dv">10</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">my_object</a></code></pre></div>
 <pre><code>## [1] 50</code></pre>
-<p>In plain English, the above snippet tells us that “five times ten is assigned to myObject”.</p>
+<p>In plain English, the above snippet tells us that “five times ten is assigned to my_object”.</p>
 <p>Every value you assign to an object will be in this form:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">object_name &lt;-<span class="st"> </span>value</a></code></pre></div>
 <p>By convention, we use <code>&lt;-</code> to assign variables. Don’t be lazy and use <code>=</code> to assign variables. Although it works, it will just sow confusion later. Instead, utilize RStudio’s keyboard shortcut: <code>Alt</code>+<code>-</code> (the minus sign). Notice that RStudio automagically surrounds <code>&lt;-</code> with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.</p>
@@ -331,7 +331,7 @@ other.people.use.periods
 evenOthersUseCamelCase</code></pre>
 <p>Let’s make another assignment:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">this_is_a_really_long_name &lt;-<span class="st"> </span><span class="fl">2.5</span></a></code></pre></div>
-<p>To inspect the object we’ve just created, try out RStudio’s auto-complete feature: type the first few characters, press <code>TAB</code>, add characters until you get what you want, then press return.</p>
+<p>To inspect the object we’ve just created, try out RStudio’s auto-complete feature: type the first few characters, press <code>TAB</code>, add characters until you get what you want, then press return/enter.</p>
 </div>
 <div id="function-basics" class="section level2">
 <h2><span class="header-section-number">2.2</span> Function Basics</h2>
@@ -340,7 +340,7 @@ evenOthersUseCamelCase</code></pre>
 <p>Notice that we use <code>=</code> instead of <code>&lt;-</code> <em>within a function</em>. Here, <code>arg1</code> and <code>arg2</code> are called the <strong>arguments</strong> of the function <code>functionName()</code>. Likewise, <code>val1</code> and <code>val2</code> are called the <strong>parameters</strong> of <code>arg1</code> and <code>arg2</code>.</p>
 <p>Let’s try using <code>seq()</code> which makes regular sequences of numbers and, while we’re at it, demo more helpful features of RStudio.</p>
 <p>Type <code>se</code> and hit <code>TAB</code>. A pop up shows you possible completions. Select <code>seq()</code> by using the up/down arrows to select. Notice the floating tool-tip-type help that pops up to remind you of a function’s arguments.</p>
-<p>If you want even more help, press <code>F1</code> to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle. Type the arguments <code>1, 10</code> and hit return. RStudio also exits the parenthetical expression for you.</p>
+<p>If you want even more help, press <code>F1</code> to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle. Type the arguments <code>1, 10</code> and hit return/enter. RStudio also exits the parenthetical expression for you.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>The above snippet also demonstrates something about how R resolves function arguments. You can always specify <code>name = value</code> if you’re unsure. If you don’t, R attempts to resolve by position. In the above snippet, R assumed we wanted a sequence <code>from = 1</code> that goes <code>to = 10</code>.</p>
@@ -356,7 +356,7 @@ evenOthersUseCamelCase</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>Not all functions have (or require) arguments:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">date</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;Sun Dec 27 12:49:42 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Wed Dec 30 11:12:44 2020&quot;</code></pre>
 <p>Now look at your workspace – in the upper right pane. The workspace is where user-defined objects accumulate. You can also get a listing of these objects with commands:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">objects</span>()</a></code></pre></div>
 <pre><code>## [1] &quot;my_object&quot;                  &quot;this_is_a_really_long_name&quot;
@@ -596,7 +596,7 @@ influences the global environment</li>
 <a class="sourceLine" id="cb63-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>)</a>
 <a class="sourceLine" id="cb63-5" data-line-number="5">y &lt;-<span class="st"> </span>a <span class="op">+</span><span class="st"> </span>b<span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dt">sd =</span> <span class="kw">sqrt</span>(sig_sq))</a>
 <a class="sourceLine" id="cb63-6" data-line-number="6">(avg_x &lt;-<span class="st"> </span><span class="kw">mean</span>(x))</a></code></pre></div>
-<pre><code>## [1] 0.543056</code></pre>
+<pre><code>## [1] 0.531297</code></pre>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">plot</span>(x, y)</a>
 <a class="sourceLine" id="cb65-2" data-line-number="2"><span class="kw">abline</span>(a, b, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/toy-line-1.png" width="672" /></p>
