@@ -9,7 +9,6 @@ We will again work with the gapminder dataset. Let's load the usual packages.
 ```{r, message = F, warning = F}
 library(gapminder)
 library(tidyverse)
-library(reshape2)  # needed for the melt() function
 ```
 
 Now that we've loaded our packages, let's briefly re-explore gapminder.
