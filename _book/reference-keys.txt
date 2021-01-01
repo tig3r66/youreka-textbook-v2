@@ -79,12 +79,13 @@ linear-regression
 basic-concepts
 pearson-correlation
 spearman-correlation
-data-visualization
+data-visualization-basics
 a-graphing-template
 scatter-plot
 trend-lines
 facets
 aesthetic-mappings
+getting-publication-ready
 line-plot
 bar-plot
 basics
