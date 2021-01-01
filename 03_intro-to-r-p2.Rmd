@@ -283,13 +283,13 @@ masses
 
 We turn our attention now to a (slightly more) useful example: how do we analyze multiple files with similar contents?
 
-In this hypothetical example, we have 5 datasets with satellite coodinates at specific points orbiting the Earth. Suppose the files are similarly named:
+In this hypothetical example, we have 5 datasets with satellite coodinates at specific points orbiting the Earth. Suppose the files are similarly named (click on the files to download them):
 
-  * locations-2016-01-01.txt
-  * locations-2016-01-02.txt
-  * locations-2016-01-03.txt
-  * locations-2016-01-04.txt
-  * locations-2016-01-05.txt
+  * [locations-2016-01-01.txt](./data/02_intro-to-r/locations-2016-01-01.txt)
+  * [locations-2016-01-02.txt](./data/02_intro-to-r/locations-2016-01-02.txt)
+  * [locations-2016-01-03.txt](./data/02_intro-to-r/locations-2016-01-03.txt)
+  * [locations-2016-01-04.txt](./data/02_intro-to-r/locations-2016-01-04.txt)
+  * [locations-2016-01-05.txt](./data/02_intro-to-r/locations-2016-01-05.txt)
 
 Our goal is to determine the number of satellite coordinates per file.
 

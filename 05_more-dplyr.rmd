@@ -2,7 +2,7 @@
 
 ## Review and preparation
 
-In the previous chapter, we introduced three important concepts:
+In the previous chapter, we introduced three important data wrangling  concepts:
 
   1. `filter()` for subsetting rows
   2. `select()` for subsetting columns (i.e., variables)
@@ -11,25 +11,22 @@ In the previous chapter, we introduced three important concepts:
 We also discussed dplyr's role inside the tidyverse and tibbles:
 
   * `dplyr` is a core package in the [tidyverse](https://github.com/hadley/tidyverse) meta-package. Since we often make incidental usage of the others, we will load dplyr and the others via `library(tidyverse)`.
-  * The `tidyverse` embraces a special flavor of data frame, called a tibble. The `gapminder` dataset is stored as a tibble.  
+  * The `tidyverse` embraces a special flavor of data frame, called a tibble. The `gapminder` dataset is stored as a tibble.
 
-
-### Load `dplyr` and gapminder
-
-I choose to load the tidyverse, which will load `dplyr`, among other packages we use incidentally below. Let's also load gapminder.
+Let's load the tidyverse and gapminder.
 
 ```{r, message = F, warning = F}
 library(tidyverse)
 library(gapminder)
 ```
 
-We're going to make changes to the `gapminder` tibble. To eliminate any fear that you're damaging the data that comes with the package, let's create an explicit copy of `gapminder` for our experiments.
+We're going to make changes to the `gapminder` tibble. To eliminate any fear that you're damaging the data that comes with the package, let's create an explicit copy of `gapminder` for our experiments. Don't worry if you modify the gapminder package, since your changes are temporary (i.e., you can reload the gapminder to get a fresh dataset).
 
 ```{r}
 my_gap <- gapminder
 ```
 
-**Pay close attention** to when we evaluate statements but let the output just print to screen...
+**Pay close attention** when we evaluate statements but let the output just print to screen...
 
 ```{r}
 ## let output print to screen, but do not store
@@ -48,13 +45,15 @@ my_precious <- my_gap %>% filter(country == "Canada")
 
 Imagine we wanted to recover each country's GDP. After all, the Gapminder data has a variable for population and GDP per capita. Let’s multiply them together to get the GDP of the whole country.
 
-`mutate()` is a function that defines and inserts new variables into a tibble. You can refer to existing variables by name.
+The `mutate()` function defines and inserts new variables into a data frame/tibble. You can refer to existing variables by name.
 
 ```{r}
 my_gap %>% mutate(gdp = pop * gdpPercap)
 ```
 
-If you don't want to add a new column to your tibble, you can use `transmute()`. It works just like `mutate()` except it only keeps the columns you specify. Let's save this output in a new tibble called `gap_gdp`. Recall that saving the return of functions generally suppresses printing to the console, If you want to see the output, simply type or print the variable.
+If you don't want to add a new column to your tibble, you can use `transmute()`. It works just like `mutate()` except it only keeps the column(s) you specify.
+
+Let's save our output in a new tibble called `gap_gdp`. Recall that saving the return of functions generally suppresses printing to the console. If you want to see the output, either type or print the variable.
 
 ```{r}
 gap_gdp <- my_gap %>% transmute(country, gdp = pop * gdpPercap)
@@ -65,18 +64,18 @@ Hmmm... those GDP numbers are almost uselessly large and abstract. Consider the 
 
 >One thing that bothers me is large numbers presented without context... 'If I added a zero to this number, would the sentence containing it mean something different to me?' If the answer is 'no,' maybe the number has no business being in the sentence in the first place."
 
-Maybe it would be more meaningful to consumers of my tables and figures to stick with GDP per capita. But what if I reported GDP per capita, *relative to some benchmark country*. Since Canada is my adopted home, I'll go with that. 
+Maybe it would be more meaningful to consumers of my tables and figures to stick with GDP per capita. But what if I reported GDP per capita, *relative to some benchmark country*. Since Canada is my home country, I'll go with that.
 
 I need to create a new variable that is `gdpPercap` divided by Canadian `gdpPercap`, taking care that I always divide two numbers that pertain to the same year.
 
 Here is what we need to do:
 
-  * Filter down to the rows for Canada.
-  * Create a new temporary variable in `my_gap`:
-    - Extract the `gdpPercap` variable from the Canadian data.
-    - Replicate it once per country in the dataset, so it has the right length.
-  * Divide raw `gdpPercap` by this Canadian figure.
-  * Discard the temporary variable of replicated Canadian `gdpPercap`.
+  1. Filter down to the rows for Canada.
+  2. Create a new temporary variable in `my_gap`:
+      a. Extract the `gdpPercap` variable from the Canadian data.
+      b. Replicate it once per country in the dataset, so it has the right length.
+  3. Divide raw `gdpPercap` by this Canadian figure.
+  4. Discard the temporary variable of replicated Canadian `gdpPercap`.
 
 ```{r}
 ctib <- my_gap %>% filter(country == "Canada")
@@ -110,7 +109,7 @@ Remember: Trust No One. Including (especially?) yourself. Always try to find a w
 
 ## Use arrange() to row-order data
 
-`arrange()` reorders the rows in a data frame. Imagine you wanted this data ordered by year then country, as opposed to by country then year. Remember, to save the output, you must assign it to a variable.
+The `arrange()` function reorders rows in a data frame/tibble. Imagine you wanted this data ordered by year then country, as opposed to by country then year. Remember, to save the output, you must assign it to a variable.
 
 ```{r}
 my_gap %>% arrange(year, country)
@@ -136,7 +135,7 @@ I advise that your analyses NEVER rely on rows or variables being in a specific 
 
 ## Use rename() to rename variables
 
-When I first cleaned this Gapminder excerpt, I was a [`camelCase`](http://en.wikipedia.org/wiki/CamelCase) person, but now I'm all about [`snake_case`](http://en.wikipedia.org/wiki/Snake_case). Let's rename some variables!
+When I started programming, I was a [camelCase](http://en.wikipedia.org/wiki/CamelCase) person, but now I'm all about [snake_case](http://en.wikipedia.org/wiki/Snake_case). Let's rename some variables!
 
 ```{r}
 my_gap %>%
@@ -149,11 +148,11 @@ I did NOT assign the post-rename object back to `my_gap` because that would make
 
 ### Use select() to rename and reposition variables
 
-You've seen simple use of `select()`. There are two tricks you might enjoy:
+You've seen simple uses of `select()`. There are two tricks you might enjoy:
 
   1. `select()` can rename the variables you request to keep.
-  1. `select()` can be used with `everything()` to hoist a variable up to the front of the tibble.
-  
+  2. `select()` can be used with `everything()` to hoist a variable up to the front of the tibble.
+
 ```{r}
 my_gap %>%
   filter(country == "Burundi", year > 1996) %>% 
@@ -193,17 +192,9 @@ table(gapminder$continent)
 str(table(gapminder$continent))
 ```
 
-But the object of class `table` that is returned makes downstream computation a bit fiddlier than you'd like. For example, it's too bad the continent levels come back only as *names* and not as a proper factor, with the original set of levels. Recall that levels are the unique row entries per column. Also recall that `factor()` is a function that encodes a vectr using numbers. This is commonly used for categorical variables. For example:
+But the object of class `table` that is returned makes downstream computation a bit fiddlier than we would like. For example, it's too bad the continent levels come back only as *names* and not as a proper factor, with the original set of levels.
 
-```{r}
-sexes <- c('female', 'male', 'female')
-names(sexes)
-# now look
-sexes <- factor(c('female', 'male', 'female'))
-names(sexes)
-```
-
-The `tally()` function is a convenience function that knows to count rows.
+The `tally()` function is a convenient function that counts rows.
 
 ```{r}
 my_gap %>%
@@ -422,7 +413,7 @@ gapminder %>%
 Ponder the real-life implications of this output for a while. What you're seeing here is genocide in dry statistics on average life expectancy.
 
 
-## Summary
+## Data wrangling summary
 
 Wow, we covered *a lot* of data wrangling! Don't wory if you don't understand everything the first time around. Programming takes practice, and practice makes perfect. Here are some general remarks:
 

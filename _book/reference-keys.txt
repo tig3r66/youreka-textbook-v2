@@ -32,11 +32,9 @@ get-the-gapminder-data
 explore-gapminder
 importing-and-exporting-data
 exploring-variables-in-a-data-frame
-plotting-variables-with-r-optional
 data-frame-summary
 data-frames-with-dplyr
-load-dplyr-and-gapminder
-subsetting-the-data
+subsetting-data
 filter-rows-with-filter
 pipe-operator
 select-columns-with-select
@@ -44,7 +42,6 @@ pure-predictable-pipeable-optional
 additional-resources
 more-dplyr
 review-and-preparation
-load-dplyr-and-gapminder-1
 use-mutate-to-add-new-variables
 use-arrange-to-row-order-data
 use-rename-to-rename-variables
@@ -56,7 +53,7 @@ computing-with-group-wise-summaries
 window-functions-optional
 introduction-to-visualization-optional
 comprehensive-practice
-summary
+data-wrangling-summary
 central-limit-theorem
 central-limit-theorem-for-means
 central-limit-theorem-for-probability
