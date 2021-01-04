@@ -221,7 +221,7 @@ Now, let's focus on Mendel's data from his original paper: [Mendel, Gregor. 1866
 
 In his experiment for seed color, the F2 generation produced 6022 yellow, and 2001 green seeds. Thus, the ratio of yellow:green was 3.01:1. Obviously, this ratio is not the exact theoretical ratio of 3:1. A meaningful question would be this: Is the discrepancy appeared because of random fluctuation, or is the observed ratio significantly different from 3:1?
 
-To examine whether the observed count **fits a theoretical ratio**, we will uses the $\chi%2$ test for goodness-of-fit.
+To examine whether the observed count **fits a theoretical ratio**, we will uses the $\chi^2$ test for goodness-of-fit.
 
 ```{r}
 chisq.test(x = c(6022, 2001),  # the observed data
@@ -340,7 +340,7 @@ What does this result mean?
 
 If the count in any cell of our contigency table is less than 5, the $\chi^2$ test will not be useful because of its probability distribution assumption. In this case, we will use Fisher's exact test.
 
-*The hypotheses of Fisher's exact same as that of the $\chi2$ test.* Fisher's exact test can be used for either homogeneity or independence, depending on your experimental design.
+*The hypotheses of Fisher's exact same as that of the $\chi^2$ test.* Fisher's exact test can be used for either homogeneity or independence, depending on your experimental design.
 
 Suppose we have a sample 10 times smaller for the Remdesivir trial:
 

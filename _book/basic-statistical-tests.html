@@ -561,7 +561,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now, let’s focus on Mendel’s data from his original paper: <a href="http://www.mendelweb.org/">Mendel, Gregor. 1866. Versuche über Plflanzenhybriden. Verhandlungen des naturforschenden Vereines in Brünn, Bd. IV für das Jahr
 1865, Abhandlungen, 3–47.</a></p>
 <p>In his experiment for seed color, the F2 generation produced 6022 yellow, and 2001 green seeds. Thus, the ratio of yellow:green was 3.01:1. Obviously, this ratio is not the exact theoretical ratio of 3:1. A meaningful question would be this: Is the discrepancy appeared because of random fluctuation, or is the observed ratio significantly different from 3:1?</p>
-<p>To examine whether the observed count <strong>fits a theoretical ratio</strong>, we will uses the <span class="math inline">\(\chi%2\)</span> test for goodness-of-fit.</p>
+<p>To examine whether the observed count <strong>fits a theoretical ratio</strong>, we will uses the <span class="math inline">\(\chi^2\)</span> test for goodness-of-fit.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">chisq.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">6022</span>, <span class="dv">2001</span>),  <span class="co"># the observed data</span></a>
 <a class="sourceLine" id="cb45-2" data-line-number="2">           <span class="dt">p =</span> <span class="kw">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>))  <span class="co"># the theoretical probability</span></a></code></pre></div>
 <pre><code>## 
@@ -670,7 +670,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="fishers-exact-test-optional" class="section level3">
 <h3><span class="header-section-number">7.3.4</span> Fisher’s exact test (OPTIONAL)</h3>
 <p>If the count in any cell of our contigency table is less than 5, the <span class="math inline">\(\chi^2\)</span> test will not be useful because of its probability distribution assumption. In this case, we will use Fisher’s exact test.</p>
-<p><em>The hypotheses of Fisher’s exact same as that of the <span class="math inline">\(\chi2\)</span> test.</em> Fisher’s exact test can be used for either homogeneity or independence, depending on your experimental design.</p>
+<p><em>The hypotheses of Fisher’s exact same as that of the <span class="math inline">\(\chi^2\)</span> test.</em> Fisher’s exact test can be used for either homogeneity or independence, depending on your experimental design.</p>
 <p>Suppose we have a sample 10 times smaller for the Remdesivir trial:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">small_rem &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">treatment =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">16-10</span>),</a>
 <a class="sourceLine" id="cb59-2" data-line-number="2">                       <span class="dt">placebo =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">8-4</span>))</a>
