@@ -161,7 +161,7 @@ These statements return a value is of type `"logical"`, which is either `TRUE`(s
 Conditional statements are made with a range of logical operators. So far, We've seen:
 
 | Operator     | Plain English                                           |
-|--------------|---------------------------------------------------------|
+|:-------------|:--------------------------------------------------------|
 | `==`         | is equal to                                             |
 | `!=`         | is not equal to                                         |
 | `<` or `>`   | is less than OR is greater than                         |
