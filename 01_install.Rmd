@@ -38,7 +38,7 @@ install.packages('tidyverse', dependencies = TRUE)
 
 By including `dependencies = TRUE`, we are including any additional packages our target package requires. Please also install the followng packages using the method above:
 
-1. **ggsignif**: This package extends the ggplot2 package. It adds additional statistical visualization func- tions. Read more [here](https://cran.r-project.org/web/packages/ggsignif/vignettes/intro.html).
+1. **ggsignif**: This package extends the ggplot2 package. It adds additional statistical visualization functions. Read more [here](https://cran.r-project.org/web/packages/ggsignif/vignettes/intro.html).
 2. **ggpubr**: As the name suggests, ggpubr creates publication-quality graphs. Read more [here](https://github.com/kassambara/ggpubr).
   
 Without further ado, let's jump into our adventure with R!
