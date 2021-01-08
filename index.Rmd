@@ -1,6 +1,6 @@
 ---
 title: "A Gentle Introduction to Data Science with R"
-subtitle: "Explore, visualize, and analyze data"
+subtitle: "Explore, analyze, and visualize data"
 author:
   - Eddie Guo
   - Youreka Canada Programs Team
