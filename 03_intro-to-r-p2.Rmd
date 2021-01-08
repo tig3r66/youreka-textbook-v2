@@ -39,6 +39,39 @@ min(density_ha)
 sum(density_ha)
 ```
 
+We can also use logical operators on vectors. In the next example, we compare a vector to a single value, and operator returns one logical per value.
+
+```{R}
+c(1, 1, 2, 3, 1) == 1
+```
+
+In English, the above snippet checks if each value in the vector is equal to 1. This is essentially what goes on behind the scenes when we try to subset a vector, except subsetting only returns where the subset condition is `TRUE`.
+
+Let's look at an example where we have a vector of sites and a vector of US states they occur in.
+
+```{R}
+site <- c('a', 'b', 'c', 'd')
+state <- c('FL', 'FL', 'GA', 'AL')
+```
+
+Now, let's check if the state is `'FL'`. This should return a vector of `TRUE` and `FALSE`.
+
+```{R}
+state == 'FL'
+```
+
+Now, let's filter the `site` vector to return values where the `state` is equal to `'FL'`.
+
+```{R}
+site[state == 'FL']
+```
+
+The above snippet is the equivalent to passing a vector of `TRUE` and `FALSE` values inside the square brackets:
+
+```{R}
+site[c(TRUE, TRUE, FALSE, FALSE)]
+```
+
 Now we turn our attention to multiple vectors. If our vectors are the same length, we can use math operations to combine each index element-wise.
 
 ```{R}
@@ -57,7 +90,7 @@ area_ha[sites == "a"]
 
 The above code snippet selects all members of `area_ha` at the indices where `sites == 'a'`. This brings us to another important concept:
 
-  * `==` means "does it equal to?" in most programming languages.
+  * `==` asks "does it equal to?" in most programming languages.
   * `==` **is not** the same as `=`. This is why we use `<-` to assign things instead of `=`.
 
 We can also ask the question of "does it not equal to?"

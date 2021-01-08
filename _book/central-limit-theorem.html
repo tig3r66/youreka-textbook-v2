@@ -305,10 +305,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this example, we will use <code>rnorm</code>, a random number generate for this simulation. <code>rnorm</code> returns a vector of random numbers from the specifies distribution.</p>
 <div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1">samp10 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean=</span><span class="dv">10</span>, <span class="dt">sd=</span><span class="dv">2</span>)  <span class="co"># generate 10 random numbers</span></a>
 <a class="sourceLine" id="cb344-2" data-line-number="2">samp10</a></code></pre></div>
-<pre><code>##  [1]  8.805365 11.543652 11.889048  7.774336 11.093240 11.276026 14.532219
-##  [8] 10.942818 13.907498  7.841026</code></pre>
+<pre><code>##  [1]  9.774363 10.056925  6.563955 10.120634  8.115766 11.198256  9.893164
+##  [8] 10.880555  5.463204 11.780233</code></pre>
 <div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1"><span class="kw">mean</span>(samp10)</a></code></pre></div>
-<pre><code>## [1] 10.96052</code></pre>
+<pre><code>## [1] 9.384705</code></pre>
 <p>Apparently the mean is not 10, but it is pretty close. This should make sense; when we draw a sample to estimate the mean, we may get very close to the desired “true mean”, but we also expect some error. What if I repeat the estimation above with 10 samples? That is, what if each time I use 10 randomly generated numbers to estimate the mean, and I do this for many times?</p>
 <div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1">means10 &lt;-<span class="st"> </span><span class="kw">as.vector</span>(<span class="ot">NA</span>)</a>
 <a class="sourceLine" id="cb348-2" data-line-number="2"><span class="co"># Doing experiments for 10000 times</span></a>

@@ -300,31 +300,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-structures" class="section level2">
 <h2><span class="header-section-number">3.1</span> Data structures</h2>
 <p>Data structures determine the operations/methods/functions are available for each object. For example, you can do +/-/*// for numbers, but these operations will not be available for strings. What operations do you imagine would be useful for strings?</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="kw">paste</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">paste</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;hello,world&quot;</code></pre>
 <p>Notice that single and double quotes can be used interchangeably, but double quotes are preferred. Single quotes are normally used to delimit characters within double quotes.</p>
 <div id="vectors" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Vectors</h3>
 <p>Vectors are a sequence of values with the <strong>same type</strong>. We can create vectors using <code>c()</code>, which stands for “combine”.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">(sites &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">(sites &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 <p>To access the elements inside a vector, we can do something called “slicing”. To access a single item or multiple items, use the square bracket operator <code>[]</code>. In general <code>[]</code> in R means, “give me a piece of something”. For example:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">sites[<span class="dv">4</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">sites[<span class="dv">4</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;c&quot;</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">sites[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">sites[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;b&quot;</code></pre>
 <p>In <code>sites[1:3]</code>, the <code>1:3</code> creates a vector from 1 to 3, which is then used to subset multiple items in a vector. Here are some additional useful functions:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">length</span>(sites)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">length</span>(sites)</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="fl">3.8</span>)</a>
-<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="kw">mean</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="fl">3.8</span>)</a>
+<a class="sourceLine" id="cb68-2" data-line-number="2"><span class="kw">mean</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] 2.825</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">max</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="kw">max</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] 3.8</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">min</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="kw">min</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">sum</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">sum</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] 11.3</code></pre>
+<p>We can also use logical operators on vectors. In the next example, we compare a vector to a single value, and operator returns one logical per value.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE FALSE  TRUE</code></pre>
+<p>In English, the above snippet checks if each value in the vector is equal to 1. This is essentially what goes on behind the scenes when we try to subset a vector, except subsetting only returns where the subset condition is <code>TRUE</code>.</p>
+<p>Let’s look at an example where we have a vector of sites and a vector of US states they occur in.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">site &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>)</a>
+<a class="sourceLine" id="cb78-2" data-line-number="2">state &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;FL&#39;</span>, <span class="st">&#39;FL&#39;</span>, <span class="st">&#39;GA&#39;</span>, <span class="st">&#39;AL&#39;</span>)</a></code></pre></div>
+<p>Now, let’s check if the state is <code>'FL'</code>. This should return a vector of <code>TRUE</code> and <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">state <span class="op">==</span><span class="st"> &#39;FL&#39;</span></a></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
+<p>Now, let’s filter the <code>site</code> vector to return values where the <code>state</code> is equal to <code>'FL'</code>.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">site[state <span class="op">==</span><span class="st"> &#39;FL&#39;</span>]</a></code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
+<p>The above snippet is the equivalent to passing a vector of <code>TRUE</code> and <code>FALSE</code> values inside the square brackets:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">site[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)]</a></code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
 <p>Now we turn our attention to multiple vectors. If our vectors are the same length, we can use math operations to combine each index element-wise.</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="fl">3.8</span>)</a>
 <a class="sourceLine" id="cb85-2" data-line-number="2">area_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">1.9</span>, <span class="fl">2.7</span>)</a>
@@ -337,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 3 5</code></pre>
 <p>The above code snippet selects all members of <code>area_ha</code> at the indices where <code>sites == 'a'</code>. This brings us to another important concept:</p>
 <ul>
-<li><code>==</code> means “does it equal to?” in most programming languages.</li>
+<li><code>==</code> asks “does it equal to?” in most programming languages.</li>
 <li><code>==</code> <strong>is not</strong> the same as <code>=</code>. This is why we use <code>&lt;-</code> to assign things instead of <code>=</code>.</li>
 </ul>
 <p>We can also ask the question of “does it not equal to?”</p>

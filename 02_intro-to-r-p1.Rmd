@@ -180,6 +180,8 @@ is.na(NA)
 "zuko" %in% c("aang", "toph", "katara")
 ```
 
+If you're keen, you'll notice in the last line that we use `c()` to group objects together. This *data structure* is called a **vector**. As a brief introduction, vectors <u>**c**</u>ombine objects of the same type. Don't worry too much about the specifics of vectors, as we will cover it in much greater depth in the next chapter.
+
 We can also combine conditions using the logical and (`&`) along with the logical or (`|`). The logical `&` returns `TRUE` if and only if both conditions are true, and it returns `FALSE` otherwise. Below is a truth table (don't worry about memorizing it):
 
 |   P   |   Q   | P & Q | P | Q |
@@ -194,39 +196,6 @@ To contexualize this table, let's look at the following examples:
 ```{r}
 (5 > 2) & (6 >= 10)
 (5 > 2) | (6 >= 10)
-```
-
-We can also use logical operators on vectors. In the next example,we compare a vector to a single value, and operator returns one logical per value.
-
-```{R}
-c(1, 1, 2, 3, 1) == 1
-```
-
-In English, the above snippet checks if each value in the vector is equal to 1. This is essentially what goes on behind the scenes when we try to subset a vector, except subsetting only returns where the subset condition is `TRUE`.
-
-Let's look at an example where we have a vector of sites and a vector of US states they occur in.
-
-```{R}
-site <- c('a', 'b', 'c', 'd')
-state <- c('FL', 'FL', 'GA', 'AL')
-```
-
-Now, let's check if the state is `'FL'`. This should return a vector of `TRUE` and `FALSE`.
-
-```{R}
-state == 'FL'
-```
-
-Now, let's filter the `site` vector to return values where the `state` is equal to `'FL'`.
-
-```{R}
-site[state == 'FL']
-```
-
-The above snippet is the equivalent to passing a vector of `TRUE` and `FALSE` values inside the square brackets:
-
-```{R}
-site[c(TRUE, TRUE, FALSE, FALSE)]
 ```
 
 

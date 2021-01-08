@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -298,11 +300,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="getting-ready" class="section level2">
 <h2><span class="header-section-number">7.1</span> Getting ready</h2>
 <p>We will again work with the gapminder dataset. Let’s load the usual packages.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb352-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Now that we’ve loaded our packages, let’s briefly re-explore gapminder.</p>
 <p>When you get a new dataset, your first action as a good data scientist should be to explore it.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">str</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" data-line-number="1"><span class="kw">str</span>(gapminder)</a></code></pre></div>
 <pre><code>## tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
 ##  $ country  : Factor w/ 142 levels &quot;Afghanistan&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ continent: Factor w/ 5 levels &quot;Africa&quot;,&quot;Americas&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -310,9 +312,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ lifeExp  : num [1:1704] 28.8 30.3 32 34 36.1 ...
 ##  $ pop      : int [1:1704] 8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
 ##  $ gdpPercap: num [1:1704] 779 821 853 836 740 ...</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">names</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1"><span class="kw">names</span>(gapminder)</a></code></pre></div>
 <pre><code>## [1] &quot;country&quot;   &quot;continent&quot; &quot;year&quot;      &quot;lifeExp&quot;   &quot;pop&quot;       &quot;gdpPercap&quot;</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">head</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="kw">head</span>(gapminder)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   country     continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -323,20 +325,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Afghanistan Asia       1972    36.1 13079460      740.
 ## 6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
 <p>Note that we have 1,704 observations (rows). The variables <code>country</code> and <code>continent</code> are considered as “factor”, which is a catagorical data. “factor” is useful in that you can deal with a finite number of discrete values. We can use <code>levels()</code> to ask what catagories there are.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># there are 142 countries, but for the sake of space, we&#39;re only checking the first 5</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">head</span>(<span class="kw">levels</span>(gapminder<span class="op">$</span>country))</a></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1"><span class="co"># there are 142 countries, but for the sake of space, we&#39;re only checking the first 5</span></a>
+<a class="sourceLine" id="cb359-2" data-line-number="2"><span class="kw">head</span>(<span class="kw">levels</span>(gapminder<span class="op">$</span>country))</a></code></pre></div>
 <pre><code>## [1] &quot;Afghanistan&quot; &quot;Albania&quot;     &quot;Algeria&quot;     &quot;Angola&quot;      &quot;Argentina&quot;  
 ## [6] &quot;Australia&quot;</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">levels</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1"><span class="kw">levels</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
 <pre><code>## [1] &quot;Africa&quot;   &quot;Americas&quot; &quot;Asia&quot;     &quot;Europe&quot;   &quot;Oceania&quot;</code></pre>
 </div>
 <div id="students-t-test" class="section level2">
 <h2><span class="header-section-number">7.2</span> Student’s t-test</h2>
 <p>Let’s start by asking the mean life expectancy of the continents in 1952.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="kw">mean</span>(lifeExp))</a></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb363-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb363-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb363-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="kw">mean</span>(lifeExp))</a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 5 x 2
 ##   continent `mean(lifeExp)`
@@ -348,17 +350,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Oceania              69.3</code></pre>
 <p>The life expectancy of Europe is about 64.4 years. It seems close to 65, the standard age often associated with retirement in Canada (and when full pension benefits become available!). Is this statistically significantly different from 65 years?</p>
 <p>To answer this question, we can use a one-sample t-test. We will test the sample (life expectancy measured in Europe in 1952) against our null hypothesis that there is no significant difference between the life expectancy in Europe (64.4 years) and 65 years.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># selection method 1: base R</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">method1 &lt;-<span class="st"> </span>gapminder<span class="op">$</span>lifeExp[gapminder<span class="op">$</span>continent<span class="op">==</span><span class="st">&#39;Europe&#39;</span> <span class="op">&amp;</span><span class="st"> </span>gapminder<span class="op">$</span>year<span class="op">==</span><span class="dv">1952</span>]</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co"># selection method 2: use dplyr</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">method2 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &#39;Europe&#39;</span>, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(lifeExp)</a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co"># checking if these two methods give identical outputs</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="kw">identical</span>(method1, method2<span class="op">$</span>lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1"><span class="co"># selection method 1: base R</span></a>
+<a class="sourceLine" id="cb366-2" data-line-number="2">method1 &lt;-<span class="st"> </span>gapminder<span class="op">$</span>lifeExp[gapminder<span class="op">$</span>continent<span class="op">==</span><span class="st">&#39;Europe&#39;</span> <span class="op">&amp;</span><span class="st"> </span>gapminder<span class="op">$</span>year<span class="op">==</span><span class="dv">1952</span>]</a>
+<a class="sourceLine" id="cb366-3" data-line-number="3"><span class="co"># selection method 2: use dplyr</span></a>
+<a class="sourceLine" id="cb366-4" data-line-number="4">method2 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &#39;Europe&#39;</span>, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(lifeExp)</a>
+<a class="sourceLine" id="cb366-5" data-line-number="5"><span class="co"># checking if these two methods give identical outputs</span></a>
+<a class="sourceLine" id="cb366-6" data-line-number="6"><span class="kw">identical</span>(method1, method2<span class="op">$</span>lifeExp)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># let&#39;s rename the variable for interpretability</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">Euro.life<span class="fl">.1952</span> &lt;-<span class="st"> </span>method1</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="kw">t.test</span>(Euro.life<span class="fl">.1952</span>, <span class="dt">mu =</span> <span class="dv">65</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1"><span class="co"># let&#39;s rename the variable for interpretability</span></a>
+<a class="sourceLine" id="cb368-2" data-line-number="2">Euro.life<span class="fl">.1952</span> &lt;-<span class="st"> </span>method1</a>
+<a class="sourceLine" id="cb368-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb368-4" data-line-number="4"><span class="kw">t.test</span>(Euro.life<span class="fl">.1952</span>, <span class="dt">mu =</span> <span class="dv">65</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -372,13 +374,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   64.4085</code></pre>
 <p>Notice that p-value is 0.6144. Usually, we choose the alpha (<span class="math inline">\(\alpha\)</span>) to be 0.05. Since p &lt; <span class="math inline">\(\alpha\)</span>, we conclude that the life expectancy of Europeans in 1952 doesn’t give us evidence indicating a difference in life expectancy from 65.</p>
 <p>We can also plot this:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(Euro.life<span class="fl">.1952</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">65</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb370-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(Euro.life<span class="fl">.1952</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb370-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">65</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-145-1.png" width="672" /></p>
 <p><strong>Note:</strong> This is NOT a figure you would include in an academic paper as the quality is quite low. We’re visualizing this just so we have a better idea of what’s going on with the data.</p>
 <p>The non-parametric test alternative to one-sample t-test is Wilcoxon signed-rank test.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">wilcox.test</span>(Euro.life<span class="fl">.1952</span>, <span class="dt">mu=</span><span class="dv">65</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1"><span class="kw">wilcox.test</span>(Euro.life<span class="fl">.1952</span>, <span class="dt">mu=</span><span class="dv">65</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test
 ## 
@@ -388,10 +390,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The non-parametric test gave us the same conclusion.</p>
 <p><strong>CAUTION:</strong> although we obtained the same results with both the parametric t-test and non-parametric signed-rank test, their use cases are VERY different. We prefer to use parametric tests because they give us more statistical power. Only use non-parametric tests with sample sizes less than 30 and if the data is not normally distributed.</p>
 <p>Does Asia and Africa differ in life expectancy in 1952? To compare two groups of data, we need a two-sample t-test.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">As.Af &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Africa&quot;</span>, <span class="st">&quot;Asia&quot;</span>))</a>
-<a class="sourceLine" id="cb22-4" data-line-number="4">As.Af</a></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1">As.Af &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb373-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb373-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Africa&quot;</span>, <span class="st">&quot;Asia&quot;</span>))</a>
+<a class="sourceLine" id="cb373-4" data-line-number="4">As.Af</a></code></pre></div>
 <pre><code>## # A tibble: 85 x 6
 ##    country      continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;        &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -407,23 +409,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Cambodia     Asia       1952    39.4  4693836      368.
 ## # … with 75 more rows</code></pre>
 <p>We can plot this:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># you don&#39;t need to explicitly declare data = As.Af and aes(x=continent, y=lifeExp)</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="co"># just make sure your variables are in the correct order</span></a>
-<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="kw">ggplot</span>(As.Af, <span class="kw">aes</span>(continent, lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">dotsize=</span><span class="fl">0.65</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb24-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Continent&#39;</span>, <span class="dt">y=</span><span class="st">&#39;Life expectancy (yrs)&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb24-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" data-line-number="1"><span class="co"># you don&#39;t need to explicitly declare data = As.Af and aes(x=continent, y=lifeExp)</span></a>
+<a class="sourceLine" id="cb375-2" data-line-number="2"><span class="co"># just make sure your variables are in the correct order</span></a>
+<a class="sourceLine" id="cb375-3" data-line-number="3"><span class="kw">ggplot</span>(As.Af, <span class="kw">aes</span>(continent, lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb375-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">dotsize=</span><span class="fl">0.65</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb375-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb375-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Continent&#39;</span>, <span class="dt">y=</span><span class="st">&#39;Life expectancy (yrs)&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb375-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
 <pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
 <p>Here we want to run a two-sample t-test. Before we do that, we’ll need to check if the 2 samples have the same variance. Recall that different t-tests assume different variances:</p>
 <ul>
 <li>If you assume equal variance, you would use Student’s t-test.</li>
 <li>If variances are unequal, use Welch’s t-test.</li>
 </ul>
 <p>A good rule of thumb is if the larger standard deviation (SD) divded by the smaller SD is less than 2 (SD(larger)/SD(smaller) &lt; 2), then you can assume equal variance. Alternatively, you can test for equal variances:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">library</span>(car)  <span class="co"># for Levene&#39;s test</span></a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">leveneTest</span>(<span class="dt">y =</span> As.Af<span class="op">$</span>lifeExp, <span class="dt">group =</span> As.Af<span class="op">$</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1"><span class="kw">library</span>(car)  <span class="co"># for Levene&#39;s test</span></a>
+<a class="sourceLine" id="cb377-2" data-line-number="2"><span class="kw">leveneTest</span>(<span class="dt">y =</span> As.Af<span class="op">$</span>lifeExp, <span class="dt">group =</span> As.Af<span class="op">$</span>continent)</a></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##       Df F value    Pr(&gt;F)    
 ## group  1  12.514 0.0006644 ***
@@ -432,7 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Since <span class="math inline">\(p = 0.0006644 &lt; 0.05\)</span>, the two samples have significantly different variances. Indeed, the width of the boxplots in the figure above suggested this difference.</p>
 <p>Because we have different variances, we need to use Welch’s t-test. By default, <code>t.test()</code> assumes unequal variance. If this wasn’t the case, we would add an additional argument called <code>var.equal = FALSE</code> to <code>t.test()</code>.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">t.test</span>(lifeExp <span class="op">~</span><span class="st"> </span>continent, As.Af, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1"><span class="kw">t.test</span>(lifeExp <span class="op">~</span><span class="st"> </span>continent, As.Af, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -445,7 +447,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## mean in group Africa   mean in group Asia 
 ##             39.13550             46.31439</code></pre>
 <p>The non-parametric test in this case would be the independent 2-group Mann-Whitney U Test.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">wilcox.test</span>(lifeExp <span class="op">~</span><span class="st"> </span>continent, As.Af)</a></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1"><span class="kw">wilcox.test</span>(lifeExp <span class="op">~</span><span class="st"> </span>continent, As.Af)</a></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
@@ -453,10 +455,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## W = 443, p-value = 0.0001857
 ## alternative hypothesis: true location shift is not equal to 0</code></pre>
 <p>Next, let’s take a look at life expectancy in 2007:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">meanlife =</span> <span class="kw">mean</span>(lifeExp))</a></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb383-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb383-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb383-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">meanlife =</span> <span class="kw">mean</span>(lifeExp))</a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 5 x 2
 ##   continent meanlife
@@ -468,10 +470,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Oceania       80.7</code></pre>
 <p>Has the life expectancy in Africa changed to that in 1952? We can answer this question with a two-sample t-test. This time, we would like to match the countries.</p>
 <p>First, let’s generate a long data frame.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">Africa &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent<span class="op">==</span><span class="st">&quot;Africa&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb35-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp)</a>
-<a class="sourceLine" id="cb35-4" data-line-number="4"><span class="kw">head</span>(Africa)</a></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" data-line-number="1">Africa &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb386-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent<span class="op">==</span><span class="st">&quot;Africa&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb386-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp)</a>
+<a class="sourceLine" id="cb386-4" data-line-number="4"><span class="kw">head</span>(Africa)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   country  year lifeExp
 ##   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;
@@ -482,24 +484,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Algeria  1972    54.5
 ## 6 Algeria  1977    58.0</code></pre>
 <p>Second, let’s look at how the life expectancy changed over the years.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> Africa, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> country)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> country, <span class="dt">color=</span>country))</a>
-<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="kw">show</span>(p)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> Africa, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb388-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb388-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> country, <span class="dt">color=</span>country))</a>
+<a class="sourceLine" id="cb388-4" data-line-number="4"><span class="kw">show</span>(p)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
 <p>Since the life expectancy in 1952 and 2007 look interesting, let’s visualize it:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># selecting rows with years 1952 and 2007</span></a>
-<a class="sourceLine" id="cb38-2" data-line-number="2">Africa.<span class="fl">1952.2007</span> &lt;-<span class="st"> </span>Africa <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1952</span>, <span class="dv">2007</span>))</a>
-<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co"># plotting</span></a>
-<a class="sourceLine" id="cb38-4" data-line-number="4">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> Africa.<span class="fl">1952.2007</span>, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">as.factor</span>(year), <span class="dt">y=</span>lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>country)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> country, <span class="dt">color=</span>country))</a>
-<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="kw">show</span>(p)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" data-line-number="1"><span class="co"># selecting rows with years 1952 and 2007</span></a>
+<a class="sourceLine" id="cb389-2" data-line-number="2">Africa.<span class="fl">1952.2007</span> &lt;-<span class="st"> </span>Africa <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1952</span>, <span class="dv">2007</span>))</a>
+<a class="sourceLine" id="cb389-3" data-line-number="3"><span class="co"># plotting</span></a>
+<a class="sourceLine" id="cb389-4" data-line-number="4">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> Africa.<span class="fl">1952.2007</span>, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">as.factor</span>(year), <span class="dt">y=</span>lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb389-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb389-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> country, <span class="dt">color=</span>country))</a>
+<a class="sourceLine" id="cb389-7" data-line-number="7"><span class="kw">show</span>(p)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-155-1.png" width="672" /></p>
 <p>Most of the countries have improved, while a few have decreased life expectancy.</p>
 <p>Before testing this observation, we should reorganize our data into a nice (wide) shape.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">Africa.wide &lt;-<span class="st"> </span><span class="kw">spread</span>(Africa, year, lifeExp)</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2">Africa.wide</a></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" data-line-number="1">Africa.wide &lt;-<span class="st"> </span><span class="kw">spread</span>(Africa, year, lifeExp)</a>
+<a class="sourceLine" id="cb390-2" data-line-number="2">Africa.wide</a></code></pre></div>
 <pre><code>## # A tibble: 52 x 13
 ##    country `1952` `1957` `1962` `1967` `1972` `1977` `1982` `1987` `1992` `1997`
 ##    &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -516,7 +518,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 42 more rows, and 2 more variables: `2002` &lt;dbl&gt;, `2007` &lt;dbl&gt;</code></pre>
 <p>The wide data frame is to align the data from the same country to the same row, so that they have the same index when we call different columns.</p>
 <p>Now, we can run a paired t-test. Think about what we are testing in the code below.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">t.test</span>(Africa.wide<span class="op">$</span><span class="st">&#39;2007&#39;</span>, Africa.wide<span class="op">$</span><span class="st">&#39;1952&#39;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">paired=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" data-line-number="1"><span class="kw">t.test</span>(Africa.wide<span class="op">$</span><span class="st">&#39;2007&#39;</span>, Africa.wide<span class="op">$</span><span class="st">&#39;1952&#39;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">paired=</span>T)</a></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -530,7 +532,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                15.67054</code></pre>
 <p>Note in this process we didn’t check the variance. Is this a problem? Why or why not? Recall that the paired t-test is actually a one-sample t-test on paired differences.</p>
 <p>Similarly, we could again call <code>wilcox.test</code> to run the paired version.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">wilcox.test</span>(Africa.wide<span class="op">$</span><span class="st">&#39;2007&#39;</span>, Africa.wide<span class="op">$</span><span class="st">&#39;1952&#39;</span>, <span class="dt">paired=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" data-line-number="1"><span class="kw">wilcox.test</span>(Africa.wide<span class="op">$</span><span class="st">&#39;2007&#39;</span>, Africa.wide<span class="op">$</span><span class="st">&#39;1952&#39;</span>, <span class="dt">paired=</span>T)</a></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
 ## 
@@ -562,8 +564,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 1865, Abhandlungen, 3–47.</a></p>
 <p>In his experiment for seed color, the F2 generation produced 6022 yellow, and 2001 green seeds. Thus, the ratio of yellow:green was 3.01:1. Obviously, this ratio is not the exact theoretical ratio of 3:1. A meaningful question would be this: Is the discrepancy appeared because of random fluctuation, or is the observed ratio significantly different from 3:1?</p>
 <p>To examine whether the observed count <strong>fits a theoretical ratio</strong>, we will uses the <span class="math inline">\(\chi^2\)</span> test for goodness-of-fit.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">chisq.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">6022</span>, <span class="dv">2001</span>),  <span class="co"># the observed data</span></a>
-<a class="sourceLine" id="cb45-2" data-line-number="2">           <span class="dt">p =</span> <span class="kw">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>))  <span class="co"># the theoretical probability</span></a></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" data-line-number="1"><span class="kw">chisq.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">6022</span>, <span class="dv">2001</span>),  <span class="co"># the observed data</span></a>
+<a class="sourceLine" id="cb396-2" data-line-number="2">           <span class="dt">p =</span> <span class="kw">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>))  <span class="co"># the theoretical probability</span></a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
@@ -571,8 +573,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## X-squared = 0.014999, df = 1, p-value = 0.9025</code></pre>
 <p>A p-value of 0.9025 suggested a good match of observed data with the theoretical values. That is, the differences are not significant.</p>
 <p>Let’s assume Mendel had observed a 1000 times larger number of seeds, with the same proportion. That is, 6,022,000 yellow and 2,001,000 green. Obviously this ratio is still 3.01:1. Would it still be a good fit for the theoretical value?</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">chisq.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">6022000</span>, <span class="dv">2001000</span>),   <span class="co"># The observed data, 1000 times larger</span></a>
-<a class="sourceLine" id="cb47-2" data-line-number="2">           <span class="dt">p =</span> <span class="kw">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>))         <span class="co"># The theoretical probability</span></a></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" data-line-number="1"><span class="kw">chisq.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">6022000</span>, <span class="dv">2001000</span>),   <span class="co"># The observed data, 1000 times larger</span></a>
+<a class="sourceLine" id="cb398-2" data-line-number="2">           <span class="dt">p =</span> <span class="kw">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>))         <span class="co"># The theoretical probability</span></a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
@@ -591,20 +593,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Before we examine the 9:3:3:1 ratio, we want to ask if the two loci are independent of each other. That is, will being yellow increase or decrease the chance of being round (and vice versa)?</p>
 <p>To run the <span class="math inline">\(\chi^2\)</span> test for independence, we will first need a contingency table. This time we will manually build a data frame for this purpose.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">Mendel2loci &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb49-2" data-line-number="2">  <span class="dt">yellow =</span> <span class="kw">c</span>(<span class="dv">315</span>, <span class="dv">101</span>),</a>
-<a class="sourceLine" id="cb49-3" data-line-number="3">  <span class="dt">green =</span> <span class="kw">c</span>(<span class="dv">108</span>, <span class="dv">32</span>)</a>
-<a class="sourceLine" id="cb49-4" data-line-number="4">)</a>
-<a class="sourceLine" id="cb49-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb49-6" data-line-number="6"><span class="co"># adding rownames</span></a>
-<a class="sourceLine" id="cb49-7" data-line-number="7"><span class="kw">rownames</span>(Mendel2loci) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;round&quot;</span>, <span class="st">&quot;wrinkled&quot;</span>)</a>
-<a class="sourceLine" id="cb49-8" data-line-number="8"><span class="co"># printing the data frame</span></a>
-<a class="sourceLine" id="cb49-9" data-line-number="9">Mendel2loci</a></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1">Mendel2loci &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb400-2" data-line-number="2">  <span class="dt">yellow =</span> <span class="kw">c</span>(<span class="dv">315</span>, <span class="dv">101</span>),</a>
+<a class="sourceLine" id="cb400-3" data-line-number="3">  <span class="dt">green =</span> <span class="kw">c</span>(<span class="dv">108</span>, <span class="dv">32</span>)</a>
+<a class="sourceLine" id="cb400-4" data-line-number="4">)</a>
+<a class="sourceLine" id="cb400-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb400-6" data-line-number="6"><span class="co"># adding rownames</span></a>
+<a class="sourceLine" id="cb400-7" data-line-number="7"><span class="kw">rownames</span>(Mendel2loci) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;round&quot;</span>, <span class="st">&quot;wrinkled&quot;</span>)</a>
+<a class="sourceLine" id="cb400-8" data-line-number="8"><span class="co"># printing the data frame</span></a>
+<a class="sourceLine" id="cb400-9" data-line-number="9">Mendel2loci</a></code></pre></div>
 <pre><code>##          yellow green
 ## round       315   108
 ## wrinkled    101    32</code></pre>
 <p>Next we will run the <span class="math inline">\(\chi^2\)</span> test. The null hypothesis is that the distribution is independent of the groups.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="kw">chisq.test</span>(Mendel2loci)</a></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1"><span class="kw">chisq.test</span>(Mendel2loci)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
@@ -612,8 +614,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## X-squared = 0.051332, df = 1, p-value = 0.8208</code></pre>
 <p>The p-value of 0.8208, so we cannot reject the null hypothesis. Therefore, we should consider the two traits as independent.</p>
 <p>Again, we could try to test for its goodness-of-fit. This time we will not need a contingency table.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">chisq.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">315</span>, <span class="dv">101</span>, <span class="dv">108</span>, <span class="dv">32</span>),</a>
-<a class="sourceLine" id="cb53-2" data-line-number="2">           <span class="dt">p =</span> <span class="kw">c</span>(<span class="dv">9</span><span class="op">/</span><span class="dv">16</span>, <span class="dv">3</span><span class="op">/</span><span class="dv">16</span>, <span class="dv">3</span><span class="op">/</span><span class="dv">16</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">16</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1"><span class="kw">chisq.test</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">315</span>, <span class="dv">101</span>, <span class="dv">108</span>, <span class="dv">32</span>),</a>
+<a class="sourceLine" id="cb404-2" data-line-number="2">           <span class="dt">p =</span> <span class="kw">c</span>(<span class="dv">9</span><span class="op">/</span><span class="dv">16</span>, <span class="dv">3</span><span class="op">/</span><span class="dv">16</span>, <span class="dv">3</span><span class="op">/</span><span class="dv">16</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">16</span>))</a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
@@ -647,10 +649,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><br></p>
 <p>If we consider the treatment and the placebo group as two subgroups of the population, we would expect the ratios of clinical improvement to be different. Let’s do a <span class="math inline">\(\chi^2\)</span> test for homogeneity. We will start with a contingency table.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">rem_cont &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">treatment =</span> <span class="kw">c</span>(<span class="dv">103</span>, <span class="dv">158-103</span>),</a>
-<a class="sourceLine" id="cb55-2" data-line-number="2">                       <span class="dt">placebo =</span> <span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">78-45</span>))</a>
-<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="kw">rownames</span>(rem_cont) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;improvement&quot;</span>, <span class="st">&quot;no improvement&quot;</span>)</a>
-<a class="sourceLine" id="cb55-4" data-line-number="4">rem_cont</a></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1">rem_cont &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">treatment =</span> <span class="kw">c</span>(<span class="dv">103</span>, <span class="dv">158-103</span>),</a>
+<a class="sourceLine" id="cb406-2" data-line-number="2">                       <span class="dt">placebo =</span> <span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">78-45</span>))</a>
+<a class="sourceLine" id="cb406-3" data-line-number="3"><span class="kw">rownames</span>(rem_cont) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;improvement&quot;</span>, <span class="st">&quot;no improvement&quot;</span>)</a>
+<a class="sourceLine" id="cb406-4" data-line-number="4">rem_cont</a></code></pre></div>
 <pre><code>##                treatment placebo
 ## improvement          103      45
 ## no improvement        55      33</code></pre>
@@ -659,7 +661,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>What is our null hypothesis?</li>
 <li>What is our alternative hypothesis?</li>
 </ul>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="kw">chisq.test</span>(rem_cont)</a></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1"><span class="kw">chisq.test</span>(rem_cont)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
@@ -672,15 +674,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If the count in any cell of our contigency table is less than 5, the <span class="math inline">\(\chi^2\)</span> test will not be useful because of its probability distribution assumption. In this case, we will use Fisher’s exact test.</p>
 <p><em>The hypotheses of Fisher’s exact same as that of the <span class="math inline">\(\chi^2\)</span> test.</em> Fisher’s exact test can be used for either homogeneity or independence, depending on your experimental design.</p>
 <p>Suppose we have a sample 10 times smaller for the Remdesivir trial:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">small_rem &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">treatment =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">16-10</span>),</a>
-<a class="sourceLine" id="cb59-2" data-line-number="2">                       <span class="dt">placebo =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">8-4</span>))</a>
-<a class="sourceLine" id="cb59-3" data-line-number="3"><span class="kw">rownames</span>(rem_cont) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;improvement&quot;</span>, <span class="st">&quot;no improvement&quot;</span>)</a>
-<a class="sourceLine" id="cb59-4" data-line-number="4">small_rem</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1">small_rem &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">treatment =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">16-10</span>),</a>
+<a class="sourceLine" id="cb410-2" data-line-number="2">                       <span class="dt">placebo =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">8-4</span>))</a>
+<a class="sourceLine" id="cb410-3" data-line-number="3"><span class="kw">rownames</span>(rem_cont) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;improvement&quot;</span>, <span class="st">&quot;no improvement&quot;</span>)</a>
+<a class="sourceLine" id="cb410-4" data-line-number="4">small_rem</a></code></pre></div>
 <pre><code>##   treatment placebo
 ## 1        10       4
 ## 2         6       4</code></pre>
 <p>We have many cells with &lt;5 observations. In this case let’s run Fisher’s exact test.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">fisher.test</span>(small_rem)</a></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1"><span class="kw">fisher.test</span>(small_rem)</a></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 
@@ -711,24 +713,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To check success-failure in the context of hypothesis testing, check that <span class="math inline">\(\hat{p}n_1\)</span> and <span class="math inline">\(\hat{p}n_2\)</span> are both <span class="math inline">\(\geq 10\)</span>.</p>
 <p>In this case, let’s calculate the The pooled proportion <span class="math inline">\(\hat{p}\)</span>:
 <span class="math display">\[\hat{p} = \dfrac{x_1 + x_2}{n_1 + n_2} = 0.627\]</span></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">103</span>, <span class="dv">45</span>)</a>
-<a class="sourceLine" id="cb63-2" data-line-number="2">n =<span class="st"> </span><span class="kw">c</span>(<span class="dv">158</span>, <span class="dv">78</span>)</a>
-<a class="sourceLine" id="cb63-3" data-line-number="3">p.hat.vector =<span class="st"> </span>x<span class="op">/</span>n</a>
-<a class="sourceLine" id="cb63-4" data-line-number="4">p.hat.vector</a></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">103</span>, <span class="dv">45</span>)</a>
+<a class="sourceLine" id="cb414-2" data-line-number="2">n =<span class="st"> </span><span class="kw">c</span>(<span class="dv">158</span>, <span class="dv">78</span>)</a>
+<a class="sourceLine" id="cb414-3" data-line-number="3">p.hat.vector =<span class="st"> </span>x<span class="op">/</span>n</a>
+<a class="sourceLine" id="cb414-4" data-line-number="4">p.hat.vector</a></code></pre></div>
 <pre><code>## [1] 0.6518987 0.5769231</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co">#use r as a calculator</span></a>
-<a class="sourceLine" id="cb65-2" data-line-number="2">p.hat.pooled =<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">sum</span>(n)</a>
-<a class="sourceLine" id="cb65-3" data-line-number="3">p.hat.pooled</a></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1"><span class="co">#use r as a calculator</span></a>
+<a class="sourceLine" id="cb416-2" data-line-number="2">p.hat.pooled =<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">sum</span>(n)</a>
+<a class="sourceLine" id="cb416-3" data-line-number="3">p.hat.pooled</a></code></pre></div>
 <pre><code>## [1] 0.6271186</code></pre>
 <p>Next we will check the success-failure condition, which is, <span class="math inline">\(\hat{p}n_1\)</span> and <span class="math inline">\(\hat{p}n_2\)</span> are both <span class="math inline">\(\geq 10\)</span>.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="co">#check success-failure</span></a>
-<a class="sourceLine" id="cb67-2" data-line-number="2">n<span class="op">*</span>p.hat.pooled</a></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1"><span class="co">#check success-failure</span></a>
+<a class="sourceLine" id="cb418-2" data-line-number="2">n<span class="op">*</span>p.hat.pooled</a></code></pre></div>
 <pre><code>## [1] 99.08475 48.91525</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">n<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p.hat.pooled)</a></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" data-line-number="1">n<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p.hat.pooled)</a></code></pre></div>
 <pre><code>## [1] 58.91525 29.08475</code></pre>
 <p>The success-failure condition is met; the expected number of successes and failures are all larger than 10.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="co">#conduct inference</span></a>
-<a class="sourceLine" id="cb71-2" data-line-number="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> x, <span class="dt">n =</span> n)</a></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" data-line-number="1"><span class="co">#conduct inference</span></a>
+<a class="sourceLine" id="cb422-2" data-line-number="2"><span class="kw">prop.test</span>(<span class="dt">x =</span> x, <span class="dt">n =</span> n)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -751,7 +753,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="contingency-tables" class="section level3">
 <h3><span class="header-section-number">7.3.6</span> Contingency tables</h3>
 <p>Let’s come back to the data of Asia and Africa in 1952. Take a look at the distribution of the life expectancy for all countries in both continents.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">summary</span>(As.Af)</a></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" data-line-number="1"><span class="kw">summary</span>(As.Af)</a></code></pre></div>
 <pre><code>##         country      continent       year         lifeExp     
 ##  Afghanistan: 1   Africa  :52   Min.   :1952   Min.   :28.80  
 ##  Algeria    : 1   Americas: 0   1st Qu.:1952   1st Qu.:37.00  
@@ -770,20 +772,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## </code></pre>
 <p>Notice that the median of life expectancy is 40.54. That is, half of the countries had life expectancy greater than 40.54, and the other half less than 40.54.</p>
 <p>Let’s define a catagorical variable: the countries with life expectancy &gt; 40.54 years are “longer_lived”, and the others are “shorter_lived”.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">As.Af[<span class="st">&quot;long_short&quot;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb75-2" data-line-number="2">As.Af<span class="op">$</span>long_short[As.Af<span class="op">$</span>lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="fl">40.54</span>] &lt;-<span class="st"> &quot;longer_lived&quot;</span></a>
-<a class="sourceLine" id="cb75-3" data-line-number="3">As.Af<span class="op">$</span>long_short[<span class="kw">is.na</span>(As.Af<span class="op">$</span>long_short)] &lt;-<span class="st"> &quot;shorter_lived&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" data-line-number="1">As.Af[<span class="st">&quot;long_short&quot;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb426-2" data-line-number="2">As.Af<span class="op">$</span>long_short[As.Af<span class="op">$</span>lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="fl">40.54</span>] &lt;-<span class="st"> &quot;longer_lived&quot;</span></a>
+<a class="sourceLine" id="cb426-3" data-line-number="3">As.Af<span class="op">$</span>long_short[<span class="kw">is.na</span>(As.Af<span class="op">$</span>long_short)] &lt;-<span class="st"> &quot;shorter_lived&quot;</span></a></code></pre></div>
 <p>Now let’s see if the longer lived or shorter lived variable is independent of the continent variable. We realize that both variables are categorical. In this case, we will use chi-squared test.</p>
 <p>First, we will make a contingency table of the two variables.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">As.Af &lt;-<span class="st"> </span><span class="kw">droplevels</span>(As.Af)</a>
-<a class="sourceLine" id="cb76-2" data-line-number="2">cont &lt;-<span class="st"> </span><span class="kw">table</span>(As.Af<span class="op">$</span>continent, As.Af<span class="op">$</span>long_short)</a>
-<a class="sourceLine" id="cb76-3" data-line-number="3">cont</a></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1">As.Af &lt;-<span class="st"> </span><span class="kw">droplevels</span>(As.Af)</a>
+<a class="sourceLine" id="cb427-2" data-line-number="2">cont &lt;-<span class="st"> </span><span class="kw">table</span>(As.Af<span class="op">$</span>continent, As.Af<span class="op">$</span>long_short)</a>
+<a class="sourceLine" id="cb427-3" data-line-number="3">cont</a></code></pre></div>
 <pre><code>##         
 ##          longer_lived shorter_lived
 ##   Africa           21            31
 ##   Asia             22            11</code></pre>
 <p>Here, our null hypothesis is that countries <strong>are independent</strong> of the continent it’s a part of. Likewise, our alternative hypothesis is that countries <strong>are dependent</strong> (not independent) of the continent it’s a part of.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">chisq.test</span>(cont)</a></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1"><span class="kw">chisq.test</span>(cont)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
@@ -797,28 +799,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.4</span> Visualizing data distributions (OPTIONAL)</h2>
 <p>Knowing the properties of the normal distribution is essential in understanding the normal distribution. The position of the peak indicates the mean, whereas the spread of the curve indicates the variance.</p>
 <p>Although you might not think your data follows a bell curve, let’s take a look at this example for our exercise. Let’s first install a package that helps us create <a href="https://www.data-to-viz.com/graph/ridgeline.html">ridgeline plots</a>.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggridges&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggridges&quot;</span>)</a></code></pre></div>
 <p>Here we will plot the distribution of the life expectancy of African countries in different years. For each year, distributions are sectioned into quartiles. What could you say about the trend over the years? Please discuss both the mean and variance. What does it mean?</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">library</span>(ggridges)</a>
-<a class="sourceLine" id="cb81-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb81-3" data-line-number="3"><span class="co"># getting all rows with Africa as the continent</span></a>
-<a class="sourceLine" id="cb81-4" data-line-number="4">Africa.all &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>, year <span class="op">&gt;</span><span class="st"> </span><span class="dv">1990</span>)</a>
-<a class="sourceLine" id="cb81-5" data-line-number="5"><span class="co"># plotting</span></a>
-<a class="sourceLine" id="cb81-6" data-line-number="6">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(Africa.all, <span class="kw">aes</span>(lifeExp, <span class="kw">as.factor</span>(year), <span class="dt">fill=</span><span class="kw">factor</span>(<span class="kw">stat</span>(quantile)))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-7" data-line-number="7"><span class="st">  </span><span class="kw">stat_density_ridges</span>(<span class="dt">quantiles=</span><span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb81-8" data-line-number="8">                      <span class="dt">quantile_lines=</span>T,</a>
-<a class="sourceLine" id="cb81-9" data-line-number="9">                      <span class="dt">geom =</span> <span class="st">&#39;density_ridges_gradient&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>(<span class="dt">name=</span><span class="st">&#39;Quartile&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-11" data-line-number="11"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Life expectancy (yrs)&#39;</span>, <span class="dt">y=</span><span class="st">&#39;Year&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-12" data-line-number="12"><span class="st">  </span><span class="kw">theme_classic</span>()</a>
-<a class="sourceLine" id="cb81-13" data-line-number="13"><span class="kw">show</span>(p)</a></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" data-line-number="1"><span class="kw">library</span>(ggridges)</a>
+<a class="sourceLine" id="cb432-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb432-3" data-line-number="3"><span class="co"># getting all rows with Africa as the continent</span></a>
+<a class="sourceLine" id="cb432-4" data-line-number="4">Africa.all &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>, year <span class="op">&gt;</span><span class="st"> </span><span class="dv">1990</span>)</a>
+<a class="sourceLine" id="cb432-5" data-line-number="5"><span class="co"># plotting</span></a>
+<a class="sourceLine" id="cb432-6" data-line-number="6">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(Africa.all, <span class="kw">aes</span>(lifeExp, <span class="kw">as.factor</span>(year), <span class="dt">fill=</span><span class="kw">factor</span>(<span class="kw">stat</span>(quantile)))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb432-7" data-line-number="7"><span class="st">  </span><span class="kw">stat_density_ridges</span>(<span class="dt">quantiles=</span><span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb432-8" data-line-number="8">                      <span class="dt">quantile_lines=</span>T,</a>
+<a class="sourceLine" id="cb432-9" data-line-number="9">                      <span class="dt">geom =</span> <span class="st">&#39;density_ridges_gradient&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb432-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>(<span class="dt">name=</span><span class="st">&#39;Quartile&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb432-11" data-line-number="11"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Life expectancy (yrs)&#39;</span>, <span class="dt">y=</span><span class="st">&#39;Year&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb432-12" data-line-number="12"><span class="st">  </span><span class="kw">theme_classic</span>()</a>
+<a class="sourceLine" id="cb432-13" data-line-number="13"><span class="kw">show</span>(p)</a></code></pre></div>
 <pre><code>## Picking joint bandwidth of 3.6</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
 <p>Let’s take a look at the mean and standard deviation to see if your guess is correct.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">Africa.all <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="kw">c</span>(year, lifeExp)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(<span class="kw">as.factor</span>(year)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb83-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_life =</span> <span class="kw">mean</span>(lifeExp), <span class="dt">sd_life =</span> <span class="kw">sd</span>(lifeExp))</a></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" data-line-number="1">Africa.all <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb434-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="kw">c</span>(year, lifeExp)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb434-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(<span class="kw">as.factor</span>(year)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb434-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_life =</span> <span class="kw">mean</span>(lifeExp), <span class="dt">sd_life =</span> <span class="kw">sd</span>(lifeExp))</a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 4 x 3
 ##   `as.factor(year)` mean_life sd_life
@@ -828,22 +830,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 2002                   53.3    9.59
 ## 4 2007                   54.8    9.63</code></pre>
 <p>This visualization shows the same information as that in with the density plots, but in a more digestible manner.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> Africa.all, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">as.factor</span>(year), <span class="dt">y=</span>lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb86-4" data-line-number="4"><span class="kw">show</span>(p)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> Africa.all, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">as.factor</span>(year), <span class="dt">y=</span>lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb437-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb437-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb437-4" data-line-number="4"><span class="kw">show</span>(p)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
 <p>You may want to remove the gray background and decrease dot size. This is as easy as specifying the <code>dotsize</code> parameter and adding <code>theme_classic()</code>. There a lot more themes out there! Check them out <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">here</a>.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> Africa.all, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">as.factor</span>(year), <span class="dt">y=</span>lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb87-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">dotsize =</span> <span class="fl">0.65</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb87-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb87-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_classic</span>()</a>
-<a class="sourceLine" id="cb87-5" data-line-number="5"><span class="kw">show</span>(p)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> Africa.all, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">as.factor</span>(year), <span class="dt">y=</span>lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb438-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">dotsize =</span> <span class="fl">0.65</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb438-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb438-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_classic</span>()</a>
+<a class="sourceLine" id="cb438-5" data-line-number="5"><span class="kw">show</span>(p)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
 <p>While we’re at it, let’s also rename the x- and y-axis. Since we’ve saved the plot already, let’s add a label layer to the plot.</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Year&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Life expectancy (yrs)&#39;</span>)</a>
-<a class="sourceLine" id="cb88-2" data-line-number="2"><span class="kw">show</span>(p)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb439-1" data-line-number="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Year&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Life expectancy (yrs)&#39;</span>)</a>
+<a class="sourceLine" id="cb439-2" data-line-number="2"><span class="kw">show</span>(p)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
 <p>Now this figure is publication-ready.</p>
 
 </div>
