@@ -14,7 +14,7 @@ library(tidyverse)
 
 ## Merging datasets
 
-In this section, we will learn how to merge datasets. We will use something called [democracy index (democracy score)](https://www.eiu.com/topic/democracy-index) and convert it into categorical data. As the name suggests, democracy index measures the degree of democracy of a country on a scale from 0 to 10, with higher scores being correlated with greater democracy. In our dataset, however, the scale is from -10 to 10. This data set has been pre-cleaned and made available on [gapminder](https://www.gapminder.org/data/).
+In this section, we will learn how to merge datasets. We will use something called [democracy index (democracy score)](https://www.eiu.com/topic/democracy-index) and convert it into categorical data. As the name suggests, democracy index measures the degree of democracy of a country on a scale from 0 to 10, with higher scores being correlated with greater democracy. In our dataset, however, the scale is from -10 to 10. This data set has been pre-cleaned and made available on [gapminder](https://www.gapminder.org/data/). Alternatively, download the file by [clicking here](./data/07_multi-compare/democracy_score_use_as_color.csv).
 
 Let's load our dataset.
 
@@ -45,11 +45,11 @@ dem07 <- democracy.raw %>%
 
 Here, `is.na()` will return TRUE for missing data. Recall that `!` is the NOT logical operator (i.e., `!TRUE` is equivalent to `FALSE` and vice versa. It follows that `!is.na()` returns true for non-empty data.
 
-Let's take a looks at how the democracy score is distributed. Here, I'd like to treat each democracy score as a factor (discrete value).
+Let's take a looks at how the democracy score is distributed. Here, I'd like to treat each democracy score as a factor.
 
 ```{r}
 ggplot(dem07, aes(as.factor(X2007))) +
-  geom_bar()  # this is NOT a histogram
+  geom_bar()
 ```
 
 Before we do anything, let's look at some potentially interesting counts. First, we'll look at two ways to count "low-level" countries. To do so, we will arbitrarily define any democracy score $\leq$ -3 as low-level. Now, we will count the number of countries in each group.
@@ -62,8 +62,8 @@ dem07 %>% filter(X2007 <= -3) %>% nrow()  # with dplyr pipe operator
 Let's define medium-level countries as having a democracy score betwen -2 and 5 inclusive.
 
 ```{r}
-nrow(dem07[dem07$X2007 >= -2 & dem07$X2007 <= 5,])
-dem07 %>% filter(X2007 >= -2 & X2007 <= 5) %>% nrow()
+nrow(dem07[dem07$X2007 >= -2 & dem07$X2007 <= 5,])  # base R
+dem07 %>% filter(X2007 >= -2 & X2007 <= 5) %>% nrow()  # with dplyr pipe operator
 ```
 
 **Exercise:** count the number of high-level countries using both base R and dplyr. High-level countries will be defined as those with democracy score greater or equal to 6.
@@ -144,8 +144,8 @@ Analysis of Variance (ANOVA) allows us to test whether there are differences in 
 
 To run an ANOVA, we need to check if
 
-  1.  The variance is is equal for *each group*.
-  2. The data distributes normally within *each group*, and
+  1. The variance is is equal for *each group*, and
+  2. The data distributes normally within *each group*.
 
 Let's address the first point.
 
@@ -174,7 +174,7 @@ Notice how when we execute this command, nothing printed in the console. This is
 Sepal.Width.aov
 ```
 
-To see the results of the ANOVA, we call the `summary` function:
+To see the results of the ANOVA, we call the `summary()` function:
 
 ```{r}
 summary(object = Sepal.Width.aov)
@@ -371,7 +371,7 @@ summary(two_way_plus)
 summary(two_way_star)
 ```
 
-In the test with `*`, there is one more term `Income_Level_2007:demLev`. This is the interaction between the two variables. In this case, the interaction of of the two variables also contribute significantly to the difference in `lifeExp`.
+In the test with `*`, there is one more term `Income_Level_2007:demLev`. This is the interaction between the two variables. In this case, the interaction of of the two variables also contribute significantly to the difference in `lifeExp`. For the purposes of the Youreka program, it doesn't matter which method you use.
 
 
 ## Linear regression
@@ -392,8 +392,9 @@ ggplot(data = dat.2007, aes(x = gdpPercap, y = lifeExp)) +
 We can see immediately that this is unlikely a linear relationship. In this case, we will need to log-transform the GDP data to obtain a linear relationship.
 
 ```{r}
-ggplot(data = dat.2007, aes(x = log(gdpPercap), y = lifeExp)) +
-  geom_point()
+ggplot(data = dat.2007, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  scale_x_log10()
 ```
 
 Now that the data are properly transformed, we can create the linear model for the predictability of life expectancy based on gross domestic product. Before we do that let's make it clear:
@@ -404,16 +405,38 @@ Now that the data are properly transformed, we can create the linear model for t
 
 3. We can only discuss strength of correlation with these linear regression, but NOT the causation. That is, correlation does NOT imply causation.
 
+We can plot the linear model easily:
+
+```{r lm-method}
+ggplot(data = dat.2007, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")  # lm = linear model
+```
+
+To get rid of the confidence band around the line, pass `le = FALSE` into `geom_smooth()`.
+
+```{r lm-method-sefalse}
+ggplot(data = dat.2007, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm", se = FALSE)  # lm = linear model
+```
+
+You can also customize the colour and thickness of the line. As always, use the `?` operator to get the full documentation.
+
+
+
 ### Pearson correlation
 
 Let's look at the correlation. For normal distributed data, we calculate the Pearson correlation for the log-transformed variable.
 
-```{r}
+```{r pearson-test}
 dat.2007$log_GDP <- log(dat.2007$gdpPercap)   # add new variable
-cor.test(~ log_GDP + lifeExp, data = dat.2007, method = 'pearson')  # method options: pearson, kendall, spearman
+cor.test(x = dat.2007$log_GDP, y = dat.2007$lifeExp, method = "pearson")  # method options: pearson, kendall, spearman
 ```
 
-The p-value suggests the correlation is significant. The coefficient of 0.8 suggests a positive correation (y increases as x increases). In case you see a negative value, the correlation if negative (one variable going up while the other going down).
+The p-value suggests the correlation is significant. The correlation coefficient of 0.8 suggests a positive correation (y increases as x increases). In case you see a negative value, the correlation if negative (one variable going up while the other going down).
 
 Next we can construct a linear model.
 
@@ -424,9 +447,9 @@ lifeExp.v.gdp <- lm(formula = lifeExp ~ log_GDP, data = dat.2007)
 summary(lifeExp.v.gdp)
 ```
   
-The linear equation is: lifeExp = 7.19 $\cdot$ log_GDP + 4.7738.
+The linear equation is: $\text{lifeExp} = (7.1909 \pm 0.4602) \times \text{log_GDP} + (4.7951 \pm 4.0045)$. Also notice that the correlation coefficient is $R^2 = 0.6526 \Rightarrow R = \sqrt{0.6526} = 0.8078$, the same value returned by `cor.test()`.
 
-For our question, the relationship between life expectancy and GDP, focus on the *coefficients* section, specifically the line for *log_GDP*:
+For our question, the relationship between life expectancy and GDP, focus on the *coefficients* section, specifically the line for `log_GDP`.
 
 First of all, there *is* a significant relationship between these two variables (p < 2 x 10^-16^, or, as R reports in the `Pr>(|t|)` column, p < 2e-16). The `Estimate` column of the results lists a value of `lifeExp.v.gdp$coefficients['log_GDP']`. For every 10-fold increase in per capita GDP (remember we log~10~-transformed GDP), life expectancy increases by almost 7 years.
   
@@ -450,5 +473,5 @@ Indeed, Shapiro test also suggests the data deviates from normality. In this cas
 If your variables are not normally distributed, you can use the non-parametric Spearman correlation as alternative. Instead of Pearson's R, the Spearman test outputs rho ($\rho$),
 
 ```{r}
-cor.test(~ lifeExp + log_GDP, data = dat.2007, method = 'spearman')
+cor.test(dat.2007$lifeExp, dat.2007$log_GDP, method = "spearman")
 ```

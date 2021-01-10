@@ -306,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="merging-datasets" class="section level2">
 <h2><span class="header-section-number">8.2</span> Merging datasets</h2>
-<p>In this section, we will learn how to merge datasets. We will use something called <a href="https://www.eiu.com/topic/democracy-index">democracy index (democracy score)</a> and convert it into categorical data. As the name suggests, democracy index measures the degree of democracy of a country on a scale from 0 to 10, with higher scores being correlated with greater democracy. In our dataset, however, the scale is from -10 to 10. This data set has been pre-cleaned and made available on <a href="https://www.gapminder.org/data/">gapminder</a>.</p>
+<p>In this section, we will learn how to merge datasets. We will use something called <a href="https://www.eiu.com/topic/democracy-index">democracy index (democracy score)</a> and convert it into categorical data. As the name suggests, democracy index measures the degree of democracy of a country on a scale from 0 to 10, with higher scores being correlated with greater democracy. In our dataset, however, the scale is from -10 to 10. This data set has been pre-cleaned and made available on <a href="https://www.gapminder.org/data/">gapminder</a>. Alternatively, download the file by <a href="./data/07_multi-compare/democracy_score_use_as_color.csv">clicking here</a>.</p>
 <p>Let’s load our dataset.</p>
 <div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" data-line-number="1">democracy.raw &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/07_multi-compare/democracy_score_use_as_color.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>The first thing you should do with new data is explore it. Since the output is quite large, we’ll only show the first row, but you should definitely take a deeper look.</p>
@@ -353,9 +353,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb445-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, X2007) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># choose</span></a>
 <a class="sourceLine" id="cb445-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(X2007))       <span class="co"># selecting all non-NA rows</span></a></code></pre></div>
 <p>Here, <code>is.na()</code> will return TRUE for missing data. Recall that <code>!</code> is the NOT logical operator (i.e., <code>!TRUE</code> is equivalent to <code>FALSE</code> and vice versa. It follows that <code>!is.na()</code> returns true for non-empty data.</p>
-<p>Let’s take a looks at how the democracy score is distributed. Here, I’d like to treat each democracy score as a factor (discrete value).</p>
+<p>Let’s take a looks at how the democracy score is distributed. Here, I’d like to treat each democracy score as a factor.</p>
 <div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1"><span class="kw">ggplot</span>(dem07, <span class="kw">aes</span>(<span class="kw">as.factor</span>(X2007))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>()  <span class="co"># this is NOT a histogram</span></a></code></pre></div>
+<a class="sourceLine" id="cb446-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
 <p>Before we do anything, let’s look at some potentially interesting counts. First, we’ll look at two ways to count “low-level” countries. To do so, we will arbitrarily define any democracy score <span class="math inline">\(\leq\)</span> -3 as low-level. Now, we will count the number of countries in each group.</p>
 <div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" data-line-number="1"><span class="kw">nrow</span>(dem07[dem07<span class="op">$</span>X2007 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">-3</span>,])  <span class="co"># base R</span></a></code></pre></div>
@@ -363,9 +363,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" data-line-number="1">dem07 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(X2007 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">-3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">nrow</span>()  <span class="co"># with dplyr pipe operator</span></a></code></pre></div>
 <pre><code>## [1] 39</code></pre>
 <p>Let’s define medium-level countries as having a democracy score betwen -2 and 5 inclusive.</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1"><span class="kw">nrow</span>(dem07[dem07<span class="op">$</span>X2007 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">-2</span> <span class="op">&amp;</span><span class="st"> </span>dem07<span class="op">$</span>X2007 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>,])</a></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1"><span class="kw">nrow</span>(dem07[dem07<span class="op">$</span>X2007 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">-2</span> <span class="op">&amp;</span><span class="st"> </span>dem07<span class="op">$</span>X2007 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>,])  <span class="co"># base R</span></a></code></pre></div>
 <pre><code>## [1] 32</code></pre>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1">dem07 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(X2007 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">-2</span> <span class="op">&amp;</span><span class="st"> </span>X2007 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">nrow</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1">dem07 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(X2007 <span class="op">&gt;=</span><span class="st"> </span><span class="dv">-2</span> <span class="op">&amp;</span><span class="st"> </span>X2007 <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">nrow</span>()  <span class="co"># with dplyr pipe operator</span></a></code></pre></div>
 <pre><code>## [1] 32</code></pre>
 <p><strong>Exercise:</strong> count the number of high-level countries using both base R and dplyr. High-level countries will be defined as those with democracy score greater or equal to 6.</p>
 <p>Now let’s actually assign a new categorical variable to each country (row) using the <code>cut()</code> function. Let’s call the new row <code>demLev</code> (our shorthand for democracy level).</p>
@@ -486,8 +486,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Are there differences in average sepal width among the three species?</strong></p>
 <p>To run an ANOVA, we need to check if</p>
 <ol style="list-style-type: decimal">
-<li>The variance is is equal for <em>each group</em>.</li>
-<li>The data distributes normally within <em>each group</em>, and</li>
+<li>The variance is is equal for <em>each group</em>, and</li>
+<li>The data distributes normally within <em>each group</em>.</li>
 </ol>
 <p>Let’s address the first point.</p>
 <div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1"><span class="kw">leveneTest</span>(Sepal.Width <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris)</a></code></pre></div>
@@ -516,7 +516,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Residual standard error: 0.3396877
 ## Estimated effects may be unbalanced</code></pre>
-<p>To see the results of the ANOVA, we call the <code>summary</code> function:</p>
+<p>To see the results of the ANOVA, we call the <code>summary()</code> function:</p>
 <div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" data-line-number="1"><span class="kw">summary</span>(<span class="dt">object =</span> Sepal.Width.aov)</a></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## Species       2  11.35   5.672   49.16 &lt;2e-16 ***
@@ -746,7 +746,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residuals                120   5784      48                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>In the test with <code>*</code>, there is one more term <code>Income_Level_2007:demLev</code>. This is the interaction between the two variables. In this case, the interaction of of the two variables also contribute significantly to the difference in <code>lifeExp</code>.</p>
+<p>In the test with <code>*</code>, there is one more term <code>Income_Level_2007:demLev</code>. This is the interaction between the two variables. In this case, the interaction of of the two variables also contribute significantly to the difference in <code>lifeExp</code>. For the purposes of the Youreka program, it doesn’t matter which method you use.</p>
 </div>
 </div>
 <div id="linear-regression" class="section level2">
@@ -760,8 +760,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb506-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
 <p>We can see immediately that this is unlikely a linear relationship. In this case, we will need to log-transform the GDP data to obtain a linear relationship.</p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(gdpPercap), <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb507-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb507-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb507-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-212-1.png" width="672" /></p>
 <p>Now that the data are properly transformed, we can create the linear model for the predictability of life expectancy based on gross domestic product. Before we do that let’s make it clear:</p>
 <ol style="list-style-type: decimal">
@@ -769,16 +770,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>How fast one variable increases or decreases with the increase of another variable can be described by the slope of the fitting line. To estimate the slope, we need a linear model.</p></li>
 <li><p>We can only discuss strength of correlation with these linear regression, but NOT the causation. That is, correlation does NOT imply causation.</p></li>
 </ol>
+<p>We can plot the linear model easily:</p>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb508-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb508-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb508-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb508-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)  <span class="co"># lm = linear model</span></a></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/lm-method-1.png" width="672" /></p>
+<p>To get rid of the confidence band around the line, pass <code>le = FALSE</code> into <code>geom_smooth()</code>.</p>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb510-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb510-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb510-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)  <span class="co"># lm = linear model</span></a></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/lm-method-sefalse-1.png" width="672" /></p>
+<p>You can also customize the colour and thickness of the line. As always, use the <code>?</code> operator to get the full documentation.</p>
 </div>
 <div id="pearson-correlation" class="section level3">
 <h3><span class="header-section-number">8.4.2</span> Pearson correlation</h3>
 <p>Let’s look at the correlation. For normal distributed data, we calculate the Pearson correlation for the log-transformed variable.</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb508-1" data-line-number="1">dat<span class="fl">.2007</span><span class="op">$</span>log_GDP &lt;-<span class="st"> </span><span class="kw">log</span>(dat<span class="fl">.2007</span><span class="op">$</span>gdpPercap)   <span class="co"># add new variable</span></a>
-<a class="sourceLine" id="cb508-2" data-line-number="2"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>log_GDP <span class="op">+</span><span class="st"> </span>lifeExp, <span class="dt">data =</span> dat<span class="fl">.2007</span>, <span class="dt">method =</span> <span class="st">&#39;pearson&#39;</span>)  <span class="co"># method options: pearson, kendall, spearman</span></a></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb512-1" data-line-number="1">dat<span class="fl">.2007</span><span class="op">$</span>log_GDP &lt;-<span class="st"> </span><span class="kw">log</span>(dat<span class="fl">.2007</span><span class="op">$</span>gdpPercap)   <span class="co"># add new variable</span></a>
+<a class="sourceLine" id="cb512-2" data-line-number="2"><span class="kw">cor.test</span>(<span class="dt">x =</span> dat<span class="fl">.2007</span><span class="op">$</span>log_GDP, <span class="dt">y =</span> dat<span class="fl">.2007</span><span class="op">$</span>lifeExp, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)  <span class="co"># method options: pearson, kendall, spearman</span></a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
-## data:  log_GDP and lifeExp
+## data:  dat.2007$log_GDP and dat.2007$lifeExp
 ## t = 15.626, df = 130, p-value &lt; 2.2e-16
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
@@ -786,12 +802,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ##       cor 
 ## 0.8078163</code></pre>
-<p>The p-value suggests the correlation is significant. The coefficient of 0.8 suggests a positive correation (y increases as x increases). In case you see a negative value, the correlation if negative (one variable going up while the other going down).</p>
+<p>The p-value suggests the correlation is significant. The correlation coefficient of 0.8 suggests a positive correation (y increases as x increases). In case you see a negative value, the correlation if negative (one variable going up while the other going down).</p>
 <p>Next we can construct a linear model.</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" data-line-number="1"><span class="co"># Run a linear model</span></a>
-<a class="sourceLine" id="cb510-2" data-line-number="2">lifeExp.v.gdp &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> lifeExp <span class="op">~</span><span class="st"> </span>log_GDP, <span class="dt">data =</span> dat<span class="fl">.2007</span>)</a>
-<a class="sourceLine" id="cb510-3" data-line-number="3"><span class="co"># Investigate results of the model</span></a>
-<a class="sourceLine" id="cb510-4" data-line-number="4"><span class="kw">summary</span>(lifeExp.v.gdp)</a></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb514-1" data-line-number="1"><span class="co"># Run a linear model</span></a>
+<a class="sourceLine" id="cb514-2" data-line-number="2">lifeExp.v.gdp &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> lifeExp <span class="op">~</span><span class="st"> </span>log_GDP, <span class="dt">data =</span> dat<span class="fl">.2007</span>)</a>
+<a class="sourceLine" id="cb514-3" data-line-number="3"><span class="co"># Investigate results of the model</span></a>
+<a class="sourceLine" id="cb514-4" data-line-number="4"><span class="kw">summary</span>(lifeExp.v.gdp)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = lifeExp ~ log_GDP, data = dat.2007)
@@ -810,15 +826,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 7.142 on 130 degrees of freedom
 ## Multiple R-squared:  0.6526, Adjusted R-squared:  0.6499 
 ## F-statistic: 244.2 on 1 and 130 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p>The linear equation is: lifeExp = 7.19 <span class="math inline">\(\cdot\)</span> log_GDP + 4.7738.</p>
-<p>For our question, the relationship between life expectancy and GDP, focus on the <em>coefficients</em> section, specifically the line for <em>log_GDP</em>:</p>
+<p>The linear equation is: <span class="math inline">\(\text{lifeExp} = (7.1909 \pm 0.4602) \times \text{log_GDP} + (4.7951 \pm 4.0045)\)</span>. Also notice that the correlation coefficient is <span class="math inline">\(R^2 = 0.6526 \Rightarrow R = \sqrt{0.6526} = 0.8078\)</span>, the same value returned by <code>cor.test()</code>.</p>
+<p>For our question, the relationship between life expectancy and GDP, focus on the <em>coefficients</em> section, specifically the line for <code>log_GDP</code>.</p>
 <p>First of all, there <em>is</em> a significant relationship between these two variables (p &lt; 2 x 10<sup>-16</sup>, or, as R reports in the <code>Pr&gt;(|t|)</code> column, p &lt; 2e-16). The <code>Estimate</code> column of the results lists a value of <code>lifeExp.v.gdp$coefficients['log_GDP']</code>. For every 10-fold increase in per capita GDP (remember we log<sub>10</sub>-transformed GDP), life expectancy increases by almost 7 years.</p>
 <p>The linear model relies assumes that your data is normally distributed. We can generate a diagnostic plot in the same way as one-way ANOVA.</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb512-1" data-line-number="1"><span class="kw">plot</span>(lifeExp.v.gdp)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-215-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-215-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-215-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-215-4.png" width="672" /></p>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb516-1" data-line-number="1"><span class="kw">plot</span>(lifeExp.v.gdp)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-214-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-214-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-214-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-214-4.png" width="672" /></p>
 <p>Q-Q plot suggested this data deviates from normality. Let’s also take a look at the residues of the linear model:</p>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" data-line-number="1">residuals_lm &lt;-<span class="st"> </span><span class="kw">residuals</span>(<span class="dt">object =</span> lifeExp.v.gdp)</a>
-<a class="sourceLine" id="cb513-2" data-line-number="2"><span class="kw">shapiro.test</span>(<span class="dt">x =</span> residuals_lm)</a></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" data-line-number="1">residuals_lm &lt;-<span class="st"> </span><span class="kw">residuals</span>(<span class="dt">object =</span> lifeExp.v.gdp)</a>
+<a class="sourceLine" id="cb517-2" data-line-number="2"><span class="kw">shapiro.test</span>(<span class="dt">x =</span> residuals_lm)</a></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -829,11 +845,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="spearman-correlation" class="section level3">
 <h3><span class="header-section-number">8.4.3</span> Spearman correlation</h3>
 <p>If your variables are not normally distributed, you can use the non-parametric Spearman correlation as alternative. Instead of Pearson’s R, the Spearman test outputs rho (<span class="math inline">\(\rho\)</span>),</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" data-line-number="1"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>log_GDP, <span class="dt">data =</span> dat<span class="fl">.2007</span>, <span class="dt">method =</span> <span class="st">&#39;spearman&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb519-1" data-line-number="1"><span class="kw">cor.test</span>(dat<span class="fl">.2007</span><span class="op">$</span>lifeExp, dat<span class="fl">.2007</span><span class="op">$</span>log_GDP, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Spearman&#39;s rank correlation rho
 ## 
-## data:  lifeExp and log_GDP
+## data:  dat.2007$lifeExp and dat.2007$log_GDP
 ## S = 57612, p-value &lt; 2.2e-16
 ## alternative hypothesis: true rho is not equal to 0
 ## sample estimates:
