@@ -50,8 +50,6 @@
 
 
 
-<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -300,56 +298,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-structures" class="section level2">
 <h2><span class="header-section-number">3.1</span> Data structures</h2>
 <p>Data structures determine the operations/methods/functions are available for each object. For example, you can do +/-/*// for numbers, but these operations will not be available for strings. What operations do you imagine would be useful for strings?</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">paste</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">paste</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;hello,world&quot;</code></pre>
 <p>Notice that single and double quotes can be used interchangeably, but double quotes are preferred. Single quotes are normally used to delimit characters within double quotes.</p>
 <div id="vectors" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Vectors</h3>
 <p>Vectors are a sequence of values with the <strong>same type</strong>. We can create vectors using <code>c()</code>, which stands for “combine”.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">(sites &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">(sites &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 <p>To access the elements inside a vector, we can do something called “slicing”. To access a single item or multiple items, use the square bracket operator <code>[]</code>. In general <code>[]</code> in R means, “give me a piece of something”. For example:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">sites[<span class="dv">4</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">sites[<span class="dv">4</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;c&quot;</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">sites[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">sites[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;b&quot;</code></pre>
 <p>In <code>sites[1:3]</code>, the <code>1:3</code> creates a vector from 1 to 3, which is then used to subset multiple items in a vector. Here are some additional useful functions:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">length</span>(sites)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">length</span>(sites)</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="fl">3.8</span>)</a>
-<a class="sourceLine" id="cb68-2" data-line-number="2"><span class="kw">mean</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="fl">3.8</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">mean</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] 2.825</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="kw">max</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">max</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] 3.8</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="kw">min</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">min</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">sum</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">sum</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] 11.3</code></pre>
 <p>We can also use logical operators on vectors. In the next example, we compare a vector to a single value, and operator returns one logical per value.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE  TRUE</code></pre>
 <p>In English, the above snippet checks if each value in the vector is equal to 1. This is essentially what goes on behind the scenes when we try to subset a vector, except subsetting only returns where the subset condition is <code>TRUE</code>.</p>
 <p>Let’s look at an example where we have a vector of sites and a vector of US states they occur in.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">site &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>)</a>
-<a class="sourceLine" id="cb78-2" data-line-number="2">state &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;FL&#39;</span>, <span class="st">&#39;FL&#39;</span>, <span class="st">&#39;GA&#39;</span>, <span class="st">&#39;AL&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">site &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>)</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">state &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;FL&#39;</span>, <span class="st">&#39;FL&#39;</span>, <span class="st">&#39;GA&#39;</span>, <span class="st">&#39;AL&#39;</span>)</a></code></pre></div>
 <p>Now, let’s check if the state is <code>'FL'</code>. This should return a vector of <code>TRUE</code> and <code>FALSE</code>.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">state <span class="op">==</span><span class="st"> &#39;FL&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">state <span class="op">==</span><span class="st"> &#39;FL&#39;</span></a></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
 <p>Now, let’s filter the <code>site</code> vector to return values where the <code>state</code> is equal to <code>'FL'</code>.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">site[state <span class="op">==</span><span class="st"> &#39;FL&#39;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">site[state <span class="op">==</span><span class="st"> &#39;FL&#39;</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
 <p>The above snippet is the equivalent to passing a vector of <code>TRUE</code> and <code>FALSE</code> values inside the square brackets:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">site[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)]</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">site[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)]</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
 <p>Now we turn our attention to multiple vectors. If our vectors are the same length, we can use math operations to combine each index element-wise.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="fl">3.8</span>)</a>
-<a class="sourceLine" id="cb85-2" data-line-number="2">area_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">1.9</span>, <span class="fl">2.7</span>)</a>
-<a class="sourceLine" id="cb85-3" data-line-number="3">(total_number &lt;-<span class="st"> </span>density_ha <span class="op">*</span><span class="st"> </span>area_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="fl">3.8</span>)</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">area_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">1.9</span>, <span class="fl">2.7</span>)</a>
+<a class="sourceLine" id="cb28-3" data-line-number="3">(total_number &lt;-<span class="st"> </span>density_ha <span class="op">*</span><span class="st"> </span>area_ha)</a></code></pre></div>
 <pre><code>## [1]  8.40 16.00  2.85 10.26</code></pre>
 <p>Subsetting across multiple vectors is the same as that for a single vector:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="co"># recall: sites &lt;- c(&quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</span></a>
-<a class="sourceLine" id="cb87-2" data-line-number="2"><span class="co"># recall: area_ha &lt;- c(3, 5, 1.9, 2.7)</span></a>
-<a class="sourceLine" id="cb87-3" data-line-number="3">area_ha[sites <span class="op">==</span><span class="st"> &quot;a&quot;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co"># recall: sites &lt;- c(&quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co"># recall: area_ha &lt;- c(3, 5, 1.9, 2.7)</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3">area_ha[sites <span class="op">==</span><span class="st"> &quot;a&quot;</span>]</a></code></pre></div>
 <pre><code>## [1] 3 5</code></pre>
 <p>The above code snippet selects all members of <code>area_ha</code> at the indices where <code>sites == 'a'</code>. This brings us to another important concept:</p>
 <ul>
@@ -357,50 +355,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>==</code> <strong>is not</strong> the same as <code>=</code>. This is why we use <code>&lt;-</code> to assign things instead of <code>=</code>.</li>
 </ul>
 <p>We can also ask the question of “does it not equal to?”</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">area_ha[sites <span class="op">!=</span><span class="st"> &quot;a&quot;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">area_ha[sites <span class="op">!=</span><span class="st"> &quot;a&quot;</span>]</a></code></pre></div>
 <pre><code>## [1] 1.9 2.7</code></pre>
 <p>Likewise, we can check “is it greater or less than?”</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">sites[area_ha <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">sites[area_ha <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot;</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">sites[area_ha <span class="op">&gt;=</span><span class="st"> </span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">sites[area_ha <span class="op">&gt;=</span><span class="st"> </span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;a&quot;</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">sites[area_ha <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">sites[area_ha <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;b&quot; &quot;c&quot;</code></pre>
 <p>Notice that all the questions we ask have a “yes” (True) or “no” (False) answer. The operators associated with these questions are called <strong>Boolean operators</strong>.</p>
 <p>Finally, we can subset a vector based on itself.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">sites[sites <span class="op">!=</span><span class="st"> &quot;a&quot;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">sites[sites <span class="op">!=</span><span class="st"> &quot;a&quot;</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;b&quot; &quot;c&quot;</code></pre>
 </div>
 <div id="missing-values" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> Missing values</h3>
 <p>So far we’ve worked with data with no missing values. In real life, however, we often have missing values (<code>NA</code> values). Unfortunately for us, R does not get along with <code>NA</code> values.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="kw">mean</span>(density_ha)</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">density_ha &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">3.2</span>, <span class="fl">1.5</span>, <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="kw">mean</span>(density_ha)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Please note that <code>NA</code> is different from <code>NULL</code>. Take a look at the following example.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1">na_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb101-2" data-line-number="2">null_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">NULL</span>)</a>
-<a class="sourceLine" id="cb101-3" data-line-number="3"><span class="co"># look at the NA vector...</span></a>
-<a class="sourceLine" id="cb101-4" data-line-number="4">na_vector</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">na_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb44-2" data-line-number="2">null_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb44-3" data-line-number="3"><span class="co"># look at the NA vector...</span></a>
+<a class="sourceLine" id="cb44-4" data-line-number="4">na_vector</a></code></pre></div>
 <pre><code>## [1]  1  2  3 NA</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co"># ... now look at the NULL vector</span></a>
-<a class="sourceLine" id="cb103-2" data-line-number="2">null_vector</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="co"># ... now look at the NULL vector</span></a>
+<a class="sourceLine" id="cb46-2" data-line-number="2">null_vector</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># do the vectors work with a function such as mean()?</span></a>
-<a class="sourceLine" id="cb105-2" data-line-number="2"><span class="kw">mean</span>(na_vector)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># do the vectors work with a function such as mean()?</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">mean</span>(na_vector)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">mean</span>(null_vector)</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">mean</span>(null_vector)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Why did we get <code>NA</code>? Well, it’s hard to say what a calculation including <code>NA</code> should be, so most calculations return <code>NA</code> when <code>NA</code> is in the data. One way to resolve this issue is to tell our function to remove the <code>NA</code> before executing:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">mean</span>(density_ha, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">mean</span>(density_ha, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 2.5</code></pre>
 </div>
 <div id="data-frames" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Data frames</h3>
 <p>This is where things get really exciting! We will use these data structures extensively in the upcoming labs, so it’s important to pay attention here.</p>
 <p>A data frame is a list of equal length vectors grouped together. More importantly, a data frame can contain both categorical and numerical values, whereas a vector can only contain variables of the same type (i.e., all numerical, all categorical, etc.).</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">surveys &lt;-<span class="st"> </span><span class="kw">data.frame</span>(sites, density_ha, area_ha)</a>
-<a class="sourceLine" id="cb111-2" data-line-number="2">surveys</a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">surveys &lt;-<span class="st"> </span><span class="kw">data.frame</span>(sites, density_ha, area_ha)</a>
+<a class="sourceLine" id="cb54-2" data-line-number="2">surveys</a></code></pre></div>
 <pre><code>##   sites density_ha area_ha
 ## 1     a        2.8     3.0
 ## 2     a        3.2     5.0
@@ -410,47 +408,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>str()</code> returns the structure of a data frame.</li>
 <li><code>length()</code> returns the length of a data frame.</li>
-<li><code>nrow()</code> returns the number of rows of a data frame (same as <code>length()</code>)</li>
-<li><code>ncol()</code> returns the number of columns of a data frame.</li>
+<li><code>ncol()</code> returns the number of columns of a data frame (same as <code>length()</code>)</li>
+<li><code>nrow()</code> returns the number of rows of a data frame.</li>
 </ul>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">str</span>(surveys)</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">str</span>(surveys)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    4 obs. of  3 variables:
 ##  $ sites     : Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 1 1 2 3
 ##  $ density_ha: num  2.8 3.2 1.5 NA
 ##  $ area_ha   : num  3 5 1.9 2.7</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="kw">length</span>(surveys)</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">length</span>(surveys)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">nrow</span>(surveys)</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">ncol</span>(surveys)</a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">nrow</span>(surveys)</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="kw">ncol</span>(surveys)</a></code></pre></div>
-<pre><code>## [1] 3</code></pre>
 <p>Subsetting data frames is extremely similar to that for vectors. This time, however, we need to consider both rows and columns. We can access a specific member like this: <code>my_data_frame[row, column]</code></p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="co"># visit one cell by row and column</span></a>
-<a class="sourceLine" id="cb121-2" data-line-number="2">surveys[<span class="dv">1</span>, <span class="dv">2</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co"># visit one cell by row and column</span></a>
+<a class="sourceLine" id="cb64-2" data-line-number="2">surveys[<span class="dv">1</span>, <span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] 2.8</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="co"># visit a range of rows and columns</span></a>
-<a class="sourceLine" id="cb123-2" data-line-number="2">surveys[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># visit a range of rows and columns</span></a>
+<a class="sourceLine" id="cb66-2" data-line-number="2">surveys[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>##   density_ha area_ha
 ## 1        2.8       3
 ## 2        3.2       5</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="co"># every row on the third column</span></a>
-<a class="sourceLine" id="cb125-2" data-line-number="2">surveys[, <span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="co"># every row on the third column</span></a>
+<a class="sourceLine" id="cb68-2" data-line-number="2">surveys[, <span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] 3.0 5.0 1.9 2.7</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="co"># visit column by name</span></a>
-<a class="sourceLine" id="cb127-2" data-line-number="2">surveys[<span class="st">&#39;area_ha&#39;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="co"># visit column by name</span></a>
+<a class="sourceLine" id="cb70-2" data-line-number="2">surveys[<span class="st">&#39;area_ha&#39;</span>]</a></code></pre></div>
 <pre><code>##   area_ha
 ## 1     3.0
 ## 2     5.0
 ## 3     1.9
 ## 4     2.7</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="co"># visit column by name (preferred method)</span></a>
-<a class="sourceLine" id="cb129-2" data-line-number="2">surveys<span class="op">$</span>area_ha</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="co"># visit column by name (preferred method)</span></a>
+<a class="sourceLine" id="cb72-2" data-line-number="2">surveys<span class="op">$</span>area_ha</a></code></pre></div>
 <pre><code>## [1] 3.0 5.0 1.9 2.7</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="co"># visit column by name</span></a>
-<a class="sourceLine" id="cb131-2" data-line-number="2">surveys[[<span class="st">&#39;area_ha&#39;</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="co"># visit column by name</span></a>
+<a class="sourceLine" id="cb74-2" data-line-number="2">surveys[[<span class="st">&#39;area_ha&#39;</span>]]</a></code></pre></div>
 <pre><code>## [1] 3.0 5.0 1.9 2.7</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="co"># visit multiple columns (preferred method)</span></a>
-<a class="sourceLine" id="cb133-2" data-line-number="2">surveys[<span class="kw">c</span>(<span class="st">&#39;area_ha&#39;</span>, <span class="st">&#39;sites&#39;</span>)]</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="co"># visit multiple columns (preferred method)</span></a>
+<a class="sourceLine" id="cb76-2" data-line-number="2">surveys[<span class="kw">c</span>(<span class="st">&#39;area_ha&#39;</span>, <span class="st">&#39;sites&#39;</span>)]</a></code></pre></div>
 <pre><code>##   area_ha sites
 ## 1     3.0     a
 ## 2     5.0     a
@@ -460,20 +458,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="external-data" class="section level3">
 <h3><span class="header-section-number">3.1.4</span> External data</h3>
 <p>We can read in external data using the<code>read.csv()</code> function. The main argument is the location of the data, which is either a url or a path on your computer.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1">shrub_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">shrub_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv&#39;</span>)</a></code></pre></div>
 </div>
 <div id="factors" class="section level3">
 <h3><span class="header-section-number">3.1.5</span> Factors</h3>
 <p>Let’s use the <code>str()</code> function to get more information about our variable <code>shrub_data</code>.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="kw">str</span>(shrub_data)</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">str</span>(shrub_data)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    10 obs. of  4 variables:
 ##  $ shrubID: Factor w/ 10 levels &quot;a1&quot;,&quot;a2&quot;,&quot;b1&quot;,..: 1 2 3 4 5 6 7 8 9 10
 ##  $ length : num  2.2 2.1 2.7 3 3.1 2.5 1.9 1.1 3.5 2.9
 ##  $ width  : num  1.3 2.2 1.5 4.5 3.1 2.8 1.8 0.5 2 2.7
 ##  $ height : num  9.6 7.6 2.2 1.5 4 3 4.5 2.3 7.5 3.2</code></pre>
 <p>Notice that the <code>shrubID</code> column has type <code>Factor</code>. A factor is a special data type in R for categorical data. Factors are useful for statistics, but can mess up some aspects of computation as we’ll see in future chapters.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">shrub_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv&#39;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb138-2" data-line-number="2"><span class="kw">str</span>(shrub_data)</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">shrub_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv&#39;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">str</span>(shrub_data)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    10 obs. of  4 variables:
 ##  $ shrubID: chr  &quot;a1&quot; &quot;a2&quot; &quot;b1&quot; &quot;b2&quot; ...
 ##  $ length : num  2.2 2.1 2.7 3 3.1 2.5 1.9 1.1 3.5 2.9
@@ -483,49 +481,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lists" class="section level3">
 <h3><span class="header-section-number">3.1.6</span> Lists</h3>
 <p>Lists are a vector-like structure that can store other objects/data structures. It’s sort of like a vector that holds vectors. The main difference between a list and data frame is that lists can have elements with an unequal length.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">sites &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</a>
-<a class="sourceLine" id="cb140-2" data-line-number="2">notes &lt;-<span class="st"> &quot;It was a good day in the field today. Warm, sunny, lots of gators.&quot;</span></a>
-<a class="sourceLine" id="cb140-3" data-line-number="3">helpers &lt;-<span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb140-4" data-line-number="4">field_notes &lt;-<span class="st"> </span><span class="kw">list</span>(sites, notes, helpers)</a>
-<a class="sourceLine" id="cb140-5" data-line-number="5">field_notes[<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">sites &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</a>
+<a class="sourceLine" id="cb83-2" data-line-number="2">notes &lt;-<span class="st"> &quot;It was a good day in the field today. Warm, sunny, lots of gators.&quot;</span></a>
+<a class="sourceLine" id="cb83-3" data-line-number="3">helpers &lt;-<span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb83-4" data-line-number="4">field_notes &lt;-<span class="st"> </span><span class="kw">list</span>(sites, notes, helpers)</a>
+<a class="sourceLine" id="cb83-5" data-line-number="5">field_notes[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">field_notes[[<span class="dv">1</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">field_notes[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 <p>We can also give the values names and access them using the <code>$</code> symbol (preferred) or via <code>[&quot;variable_name&quot;]</code> with subsetting.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1">field_notes &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">my_sites =</span> sites, <span class="dt">notes =</span> notes, <span class="dt">my_helpers =</span> helpers)</a>
-<a class="sourceLine" id="cb144-2" data-line-number="2">field_notes<span class="op">$</span>my_sites</a></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">field_notes &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">my_sites =</span> sites, <span class="dt">notes =</span> notes, <span class="dt">my_helpers =</span> helpers)</a>
+<a class="sourceLine" id="cb87-2" data-line-number="2">field_notes<span class="op">$</span>my_sites</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1">field_notes[[<span class="st">&quot;my_sites&quot;</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">field_notes[[<span class="st">&quot;my_sites&quot;</span>]]</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 </div>
 </div>
 <div id="for-loops" class="section level2">
 <h2><span class="header-section-number">3.2</span> For loops</h2>
 <p>Loops are fundamental a programming concept as they get a lot of repetitive stuff done in very few lines of code. You can think of loops as something that performs the same operation on a lot of things. Here’s what the syntax of a loop looks like:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="cf">for</span> (item <span class="cf">in</span> list_of_items) {</a>
-<a class="sourceLine" id="cb148-2" data-line-number="2">  <span class="kw">do_something</span>(item)</a>
-<a class="sourceLine" id="cb148-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="cf">for</span> (item <span class="cf">in</span> list_of_items) {</a>
+<a class="sourceLine" id="cb91-2" data-line-number="2">  <span class="kw">do_something</span>(item)</a>
+<a class="sourceLine" id="cb91-3" data-line-number="3">}</a></code></pre></div>
 <p>And here is an example:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb149-2" data-line-number="2">  <span class="kw">print</span>(i)</a>
-<a class="sourceLine" id="cb149-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
+<a class="sourceLine" id="cb92-2" data-line-number="2">  <span class="kw">print</span>(i)</a>
+<a class="sourceLine" id="cb92-3" data-line-number="3">}</a></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3
 ## [1] 4
 ## [1] 5</code></pre>
 <p>The above snippet is equivalent to this:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="kw">print</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb151-2" data-line-number="2"><span class="kw">print</span>(<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb151-3" data-line-number="3"><span class="kw">print</span>(<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb151-4" data-line-number="4"><span class="kw">print</span>(<span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb151-5" data-line-number="5"><span class="kw">print</span>(<span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">print</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="kw">print</span>(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb94-3" data-line-number="3"><span class="kw">print</span>(<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb94-4" data-line-number="4"><span class="kw">print</span>(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb94-5" data-line-number="5"><span class="kw">print</span>(<span class="dv">5</span>)</a></code></pre></div>
 <p>You can also have multiple lines of code in the body of a loop.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="cf">for</span> (number <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb152-2" data-line-number="2">   i &lt;-<span class="st"> </span>i<span class="op">*</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb152-3" data-line-number="3">   <span class="kw">print</span>(i)</a>
-<a class="sourceLine" id="cb152-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="cf">for</span> (number <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
+<a class="sourceLine" id="cb95-2" data-line-number="2">   i &lt;-<span class="st"> </span>i<span class="op">*</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb95-3" data-line-number="3">   <span class="kw">print</span>(i)</a>
+<a class="sourceLine" id="cb95-4" data-line-number="4">}</a></code></pre></div>
 <pre><code>## [1] 10
 ## [1] 20
 ## [1] 40
@@ -533,25 +531,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 160</code></pre>
 <p>In the previous examples, we used the dummy variables <code>i</code> and <code>number</code> to take on some range of values. Notice that <code>i</code> can be called anything you want.</p>
 <p>To contexualize this, let’s look at an example that calculates mass using the following fomula: <span class="math inline">\(\text{mass} = \text{density} \times \text{volume}\)</span></p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">density &lt;-<span class="st"> </span><span class="fl">2.65</span></a>
-<a class="sourceLine" id="cb154-2" data-line-number="2">volumes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.6</span>, <span class="dv">3</span>, <span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb154-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(volumes)) {</a>
-<a class="sourceLine" id="cb154-4" data-line-number="4">   mass &lt;-<span class="st"> </span>density <span class="op">*</span><span class="st"> </span>volumes[i]</a>
-<a class="sourceLine" id="cb154-5" data-line-number="5">   <span class="kw">print</span>(mass)</a>
-<a class="sourceLine" id="cb154-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">density &lt;-<span class="st"> </span><span class="fl">2.65</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2">volumes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.6</span>, <span class="dv">3</span>, <span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb97-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(volumes)) {</a>
+<a class="sourceLine" id="cb97-4" data-line-number="4">   mass &lt;-<span class="st"> </span>density <span class="op">*</span><span class="st"> </span>volumes[i]</a>
+<a class="sourceLine" id="cb97-5" data-line-number="5">   <span class="kw">print</span>(mass)</a>
+<a class="sourceLine" id="cb97-6" data-line-number="6">}</a></code></pre></div>
 <pre><code>## [1] 4.24
 ## [1] 7.95
 ## [1] 21.2</code></pre>
 <p>Looping with an index allows us to store results calculated in the loop. In the following snippet, we are going to create an empty vector with sthe length of our <code>volumes</code> vector.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1">( masses &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;numeric&quot;</span>, <span class="dt">length =</span> <span class="kw">length</span>(volumes)) )</a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">( masses &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;numeric&quot;</span>, <span class="dt">length =</span> <span class="kw">length</span>(volumes)) )</a></code></pre></div>
 <pre><code>## [1] 0 0 0</code></pre>
 <p>Note that <code>&quot;numeric&quot;</code> is the type of data we are going to store and <code>length(volumes)</code> is the desired length of our vector.</p>
 <p>Now, add each result in the correct position—for each <strong>iteration</strong> through the loop, save the output in the empty vector (<code>masses</code>) at the i’th position.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(volumes)){</a>
-<a class="sourceLine" id="cb158-2" data-line-number="2">   mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volumes[i]</a>
-<a class="sourceLine" id="cb158-3" data-line-number="3">   masses[i] &lt;-<span class="st"> </span>mass</a>
-<a class="sourceLine" id="cb158-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb158-5" data-line-number="5">masses</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(volumes)){</a>
+<a class="sourceLine" id="cb101-2" data-line-number="2">   mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volumes[i]</a>
+<a class="sourceLine" id="cb101-3" data-line-number="3">   masses[i] &lt;-<span class="st"> </span>mass</a>
+<a class="sourceLine" id="cb101-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb101-5" data-line-number="5">masses</a></code></pre></div>
 <pre><code>## [1]  4.24  7.95 21.20</code></pre>
 <div id="looping-over-multiple-files" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Looping over multiple files</h3>
@@ -566,28 +564,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Our goal is to determine the number of satellite coordinates per file.</p>
 <p>First, retrieve the name of each file.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1">data_files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> <span class="st">&quot;data/02_intro-to-r/&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;locations-.*.txt&quot;</span>, </a>
-<a class="sourceLine" id="cb160-2" data-line-number="2">                        <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">data_files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> <span class="st">&quot;data/02_intro-to-r/&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;locations-.*.txt&quot;</span>, </a>
+<a class="sourceLine" id="cb103-2" data-line-number="2">                        <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Note that the asterisk in <code>&quot;*.txt&quot;</code> refers to “any name in this directory” whereas the <code>&quot;.txt&quot;</code> part ensures we are only selecting .txt files.</p>
 <p>Next, determine the number of observations in each file. We will assume that each row corresponds to a single coordinate.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;integer&quot;</span>, <span class="dt">length =</span> <span class="kw">length</span>(data_files))</a>
-<a class="sourceLine" id="cb161-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(data_files)) {</a>
-<a class="sourceLine" id="cb161-3" data-line-number="3">  data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(data_files[i])</a>
-<a class="sourceLine" id="cb161-4" data-line-number="4">  count &lt;-<span class="st"> </span><span class="kw">nrow</span>(data)</a>
-<a class="sourceLine" id="cb161-5" data-line-number="5">  results[i] &lt;-<span class="st"> </span>count</a>
-<a class="sourceLine" id="cb161-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;integer&quot;</span>, <span class="dt">length =</span> <span class="kw">length</span>(data_files))</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(data_files)) {</a>
+<a class="sourceLine" id="cb104-3" data-line-number="3">  data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(data_files[i])</a>
+<a class="sourceLine" id="cb104-4" data-line-number="4">  count &lt;-<span class="st"> </span><span class="kw">nrow</span>(data)</a>
+<a class="sourceLine" id="cb104-5" data-line-number="5">  results[i] &lt;-<span class="st"> </span>count</a>
+<a class="sourceLine" id="cb104-6" data-line-number="6">}</a></code></pre></div>
 <p>Now, store the output in a data frame and associate the file name with the count.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">file_name =</span> <span class="kw">character</span>(<span class="kw">length</span>(data_files)),</a>
-<a class="sourceLine" id="cb162-2" data-line-number="2">                      <span class="dt">count =</span> <span class="kw">integer</span>(<span class="kw">length</span>(data_files)),</a>
-<a class="sourceLine" id="cb162-3" data-line-number="3">                      <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb162-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb162-5" data-line-number="5"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(data_files)){</a>
-<a class="sourceLine" id="cb162-6" data-line-number="6">  data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(data_files[i])</a>
-<a class="sourceLine" id="cb162-7" data-line-number="7">  count &lt;-<span class="st"> </span><span class="kw">nrow</span>(data)</a>
-<a class="sourceLine" id="cb162-8" data-line-number="8">  results<span class="op">$</span>file_name[i] &lt;-<span class="st"> </span>data_files[i]</a>
-<a class="sourceLine" id="cb162-9" data-line-number="9">  results<span class="op">$</span>count[i] &lt;-<span class="st"> </span>count</a>
-<a class="sourceLine" id="cb162-10" data-line-number="10">}</a>
-<a class="sourceLine" id="cb162-11" data-line-number="11">results</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">file_name =</span> <span class="kw">character</span>(<span class="kw">length</span>(data_files)),</a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">                      <span class="dt">count =</span> <span class="kw">integer</span>(<span class="kw">length</span>(data_files)),</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">                      <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb105-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb105-5" data-line-number="5"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(data_files)){</a>
+<a class="sourceLine" id="cb105-6" data-line-number="6">  data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(data_files[i])</a>
+<a class="sourceLine" id="cb105-7" data-line-number="7">  count &lt;-<span class="st"> </span><span class="kw">nrow</span>(data)</a>
+<a class="sourceLine" id="cb105-8" data-line-number="8">  results<span class="op">$</span>file_name[i] &lt;-<span class="st"> </span>data_files[i]</a>
+<a class="sourceLine" id="cb105-9" data-line-number="9">  results<span class="op">$</span>count[i] &lt;-<span class="st"> </span>count</a>
+<a class="sourceLine" id="cb105-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb105-11" data-line-number="11">results</a></code></pre></div>
 <pre><code>##                                      file_name count
 ## 1 data/02_intro-to-r//locations-2016-01-01.txt     4
 ## 2 data/02_intro-to-r//locations-2016-01-02.txt     8
@@ -599,11 +597,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="nested-loops-optional" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Nested loops (OPTIONAL)</h3>
 <p>Sometimes, we need to loop over more than a single range of numbers. For example, what if we want to select all pixels on a 3x4 rectangular screen? Here, we need to cover both the “x” and “y” pixel coodinates:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) {</a>
-<a class="sourceLine" id="cb164-2" data-line-number="2">  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {</a>
-<a class="sourceLine" id="cb164-3" data-line-number="3">    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;i = &quot;</span> , i, <span class="st">&quot;; j = &quot;</span>, j))</a>
-<a class="sourceLine" id="cb164-4" data-line-number="4">  }</a>
-<a class="sourceLine" id="cb164-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) {</a>
+<a class="sourceLine" id="cb107-2" data-line-number="2">  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {</a>
+<a class="sourceLine" id="cb107-3" data-line-number="3">    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;i = &quot;</span> , i, <span class="st">&quot;; j = &quot;</span>, j))</a>
+<a class="sourceLine" id="cb107-4" data-line-number="4">  }</a>
+<a class="sourceLine" id="cb107-5" data-line-number="5">}</a></code></pre></div>
 <pre><code>## [1] &quot;i =  1 ; j =  1&quot;
 ## [1] &quot;i =  1 ; j =  2&quot;
 ## [1] &quot;i =  1 ; j =  3&quot;
@@ -617,19 +615,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] &quot;i =  3 ; j =  3&quot;
 ## [1] &quot;i =  3 ; j =  4&quot;</code></pre>
 <p>Here’s a slightly more complex example that finds all prime numbers from 1 to 15:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">15</span>) {</a>
-<a class="sourceLine" id="cb166-2" data-line-number="2">  <span class="co"># assume each number is prime by default</span></a>
-<a class="sourceLine" id="cb166-3" data-line-number="3">  prime &lt;-<span class="st"> </span><span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb166-4" data-line-number="4">  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(i<span class="dv">-1</span>)) {</a>
-<a class="sourceLine" id="cb166-5" data-line-number="5">    <span class="co"># if i is divisible by any number from 2 to i-1, it is not a prime</span></a>
-<a class="sourceLine" id="cb166-6" data-line-number="6">    <span class="cf">if</span> (i<span class="op">%%</span>j <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb166-7" data-line-number="7">      prime &lt;-<span class="st"> </span><span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb166-8" data-line-number="8">    }</a>
-<a class="sourceLine" id="cb166-9" data-line-number="9">  }</a>
-<a class="sourceLine" id="cb166-10" data-line-number="10">  <span class="cf">if</span> (prime <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span>i <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) {</a>
-<a class="sourceLine" id="cb166-11" data-line-number="11">    <span class="kw">print</span>(<span class="kw">paste</span>(i, <span class="st">&quot;is prime&quot;</span>))</a>
-<a class="sourceLine" id="cb166-12" data-line-number="12">  }</a>
-<a class="sourceLine" id="cb166-13" data-line-number="13">}</a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">15</span>) {</a>
+<a class="sourceLine" id="cb109-2" data-line-number="2">  <span class="co"># assume each number is prime by default</span></a>
+<a class="sourceLine" id="cb109-3" data-line-number="3">  prime &lt;-<span class="st"> </span><span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb109-4" data-line-number="4">  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(i<span class="dv">-1</span>)) {</a>
+<a class="sourceLine" id="cb109-5" data-line-number="5">    <span class="co"># if i is divisible by any number from 2 to i-1, it is not a prime</span></a>
+<a class="sourceLine" id="cb109-6" data-line-number="6">    <span class="cf">if</span> (i<span class="op">%%</span>j <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb109-7" data-line-number="7">      prime &lt;-<span class="st"> </span><span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb109-8" data-line-number="8">    }</a>
+<a class="sourceLine" id="cb109-9" data-line-number="9">  }</a>
+<a class="sourceLine" id="cb109-10" data-line-number="10">  <span class="cf">if</span> (prime <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span>i <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) {</a>
+<a class="sourceLine" id="cb109-11" data-line-number="11">    <span class="kw">print</span>(<span class="kw">paste</span>(i, <span class="st">&quot;is prime&quot;</span>))</a>
+<a class="sourceLine" id="cb109-12" data-line-number="12">  }</a>
+<a class="sourceLine" id="cb109-13" data-line-number="13">}</a></code></pre></div>
 <pre><code>## [1] &quot;2 is prime&quot;
 ## [1] &quot;3 is prime&quot;
 ## [1] &quot;5 is prime&quot;
@@ -642,24 +640,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.3</span> Functions</h2>
 <p>Sometimes, R will leave us wanting for custom functions. Luckily, we can define our own functions!</p>
 <p>This is the general syntax for a function:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1">function_name &lt;-<span class="st"> </span><span class="cf">function</span>(arguments) {</a>
-<a class="sourceLine" id="cb168-2" data-line-number="2">  output_value &lt;-<span class="st"> </span><span class="kw">do_something</span>(inputs)</a>
-<a class="sourceLine" id="cb168-3" data-line-number="3">  <span class="kw">return</span>(output_value)</a>
-<a class="sourceLine" id="cb168-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">function_name &lt;-<span class="st"> </span><span class="cf">function</span>(arguments) {</a>
+<a class="sourceLine" id="cb111-2" data-line-number="2">  output_value &lt;-<span class="st"> </span><span class="kw">do_something</span>(inputs)</a>
+<a class="sourceLine" id="cb111-3" data-line-number="3">  <span class="kw">return</span>(output_value)</a>
+<a class="sourceLine" id="cb111-4" data-line-number="4">}</a></code></pre></div>
 <p><strong>Remark:</strong> every function <em>returns</em> a value. Recall from your grade-school math class that functions take an input and return an output. In R, however, a function may or may not take user-defined input.</p>
 <p>This brings me to an extremely important point: <strong>creating a function does NOT run it. You must call the function to run it.</strong></p>
 <p>A function is meant to be reusable—treat it as such.</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="co"># define the function</span></a>
-<a class="sourceLine" id="cb169-2" data-line-number="2">calc_shrub_vol &lt;-<span class="st"> </span><span class="cf">function</span>(length, width, height) {</a>
-<a class="sourceLine" id="cb169-3" data-line-number="3">  area &lt;-<span class="st"> </span>length <span class="op">*</span><span class="st"> </span>width</a>
-<a class="sourceLine" id="cb169-4" data-line-number="4">  volume &lt;-<span class="st"> </span>area <span class="op">*</span><span class="st"> </span>height</a>
-<a class="sourceLine" id="cb169-5" data-line-number="5">  <span class="kw">return</span>(volume)</a>
-<a class="sourceLine" id="cb169-6" data-line-number="6">}</a>
-<a class="sourceLine" id="cb169-7" data-line-number="7"><span class="co"># call the function</span></a>
-<a class="sourceLine" id="cb169-8" data-line-number="8"><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="co"># define the function</span></a>
+<a class="sourceLine" id="cb112-2" data-line-number="2">calc_shrub_vol &lt;-<span class="st"> </span><span class="cf">function</span>(length, width, height) {</a>
+<a class="sourceLine" id="cb112-3" data-line-number="3">  area &lt;-<span class="st"> </span>length <span class="op">*</span><span class="st"> </span>width</a>
+<a class="sourceLine" id="cb112-4" data-line-number="4">  volume &lt;-<span class="st"> </span>area <span class="op">*</span><span class="st"> </span>height</a>
+<a class="sourceLine" id="cb112-5" data-line-number="5">  <span class="kw">return</span>(volume)</a>
+<a class="sourceLine" id="cb112-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb112-7" data-line-number="7"><span class="co"># call the function</span></a>
+<a class="sourceLine" id="cb112-8" data-line-number="8"><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)</a></code></pre></div>
 <pre><code>## [1] 2.56</code></pre>
 <p>As always, to save a function’s return value, you need to store the output in an appropriate data structure.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1">shrub_vol &lt;-<span class="st"> </span><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">shrub_vol &lt;-<span class="st"> </span><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)</a></code></pre></div>
 <p>A helpful tip is to treat functions like a black box—the only things a function “knows” are the inputs we pass it. Likewise, the only thing R “knows” about a function is the output the function returns.</p>
 <p>Let’s walk through <code>calc_shrub_vol()</code>’s execution (key terms are in bold):</p>
 <ol style="list-style-type: decimal">
@@ -676,22 +674,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="conditionals-within-functions" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Conditionals within functions</h3>
 <p>Recall that we used a conditional to estimate mass differently for different types of vegetation. Since this is the kind of code we are going to want to reuse, let’s move it into a function.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">est_mass &lt;-<span class="st"> </span><span class="cf">function</span>(volume, veg_type) {</a>
-<a class="sourceLine" id="cb172-2" data-line-number="2">  <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;tree&quot;</span>) {</a>
-<a class="sourceLine" id="cb172-3" data-line-number="3">    mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
-<a class="sourceLine" id="cb172-4" data-line-number="4">  } <span class="cf">else</span> <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;grass&quot;</span>) {</a>
-<a class="sourceLine" id="cb172-5" data-line-number="5">    mass &lt;-<span class="st"> </span><span class="fl">0.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">1.2</span></a>
-<a class="sourceLine" id="cb172-6" data-line-number="6">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb172-7" data-line-number="7">    mass &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb172-8" data-line-number="8">  }</a>
-<a class="sourceLine" id="cb172-9" data-line-number="9">  <span class="kw">return</span>(mass)</a>
-<a class="sourceLine" id="cb172-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">est_mass &lt;-<span class="st"> </span><span class="cf">function</span>(volume, veg_type) {</a>
+<a class="sourceLine" id="cb115-2" data-line-number="2">  <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;tree&quot;</span>) {</a>
+<a class="sourceLine" id="cb115-3" data-line-number="3">    mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
+<a class="sourceLine" id="cb115-4" data-line-number="4">  } <span class="cf">else</span> <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;grass&quot;</span>) {</a>
+<a class="sourceLine" id="cb115-5" data-line-number="5">    mass &lt;-<span class="st"> </span><span class="fl">0.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">1.2</span></a>
+<a class="sourceLine" id="cb115-6" data-line-number="6">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb115-7" data-line-number="7">    mass &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb115-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb115-9" data-line-number="9">  <span class="kw">return</span>(mass)</a>
+<a class="sourceLine" id="cb115-10" data-line-number="10">}</a></code></pre></div>
 <p>We can then run this function with different vegetation types and get different estimates for mass.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;tree&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;tree&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] 4.045329</code></pre>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;grass&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;grass&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] 1.142503</code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;shrub&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;shrub&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Let’s walk through how <code>est_mass(1.6, &quot;shrub&quot;)</code> executes:</p>
 <ol style="list-style-type: decimal">
@@ -705,41 +703,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="nested-conditionals" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Nested conditionals</h3>
 <p>Occasionally, we need to make complex decisions that can’t be captured using a simple if/else if/else statement. For example, we might have different equations for some vegetation types based on the age of the plant. To solve this problem, we can “nest” conditionals inside of one another.</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1">est_mass &lt;-<span class="st"> </span><span class="cf">function</span>(volume, veg_type, age) {</a>
-<a class="sourceLine" id="cb179-2" data-line-number="2">  <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;tree&quot;</span>) {</a>
-<a class="sourceLine" id="cb179-3" data-line-number="3">    <span class="co"># nested condition</span></a>
-<a class="sourceLine" id="cb179-4" data-line-number="4">    <span class="cf">if</span> (age <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb179-5" data-line-number="5">      mass &lt;-<span class="st"> </span><span class="fl">1.6</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.8</span></a>
-<a class="sourceLine" id="cb179-6" data-line-number="6">    } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb179-7" data-line-number="7">      mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
-<a class="sourceLine" id="cb179-8" data-line-number="8">    }</a>
-<a class="sourceLine" id="cb179-9" data-line-number="9">  } <span class="cf">else</span> <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;grass&quot;</span> <span class="op">|</span><span class="st"> </span>veg_type <span class="op">==</span><span class="st"> &quot;shrub&quot;</span>) {</a>
-<a class="sourceLine" id="cb179-10" data-line-number="10">    mass &lt;-<span class="st"> </span><span class="fl">0.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">1.2</span></a>
-<a class="sourceLine" id="cb179-11" data-line-number="11">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb179-12" data-line-number="12">    mass &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb179-13" data-line-number="13">  }</a>
-<a class="sourceLine" id="cb179-14" data-line-number="14">  <span class="kw">return</span>(mass)</a>
-<a class="sourceLine" id="cb179-15" data-line-number="15">}</a></code></pre></div>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;tree&quot;</span>, <span class="dt">age =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">est_mass &lt;-<span class="st"> </span><span class="cf">function</span>(volume, veg_type, age) {</a>
+<a class="sourceLine" id="cb122-2" data-line-number="2">  <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;tree&quot;</span>) {</a>
+<a class="sourceLine" id="cb122-3" data-line-number="3">    <span class="co"># nested condition</span></a>
+<a class="sourceLine" id="cb122-4" data-line-number="4">    <span class="cf">if</span> (age <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) {</a>
+<a class="sourceLine" id="cb122-5" data-line-number="5">      mass &lt;-<span class="st"> </span><span class="fl">1.6</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.8</span></a>
+<a class="sourceLine" id="cb122-6" data-line-number="6">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb122-7" data-line-number="7">      mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
+<a class="sourceLine" id="cb122-8" data-line-number="8">    }</a>
+<a class="sourceLine" id="cb122-9" data-line-number="9">  } <span class="cf">else</span> <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;grass&quot;</span> <span class="op">|</span><span class="st"> </span>veg_type <span class="op">==</span><span class="st"> &quot;shrub&quot;</span>) {</a>
+<a class="sourceLine" id="cb122-10" data-line-number="10">    mass &lt;-<span class="st"> </span><span class="fl">0.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">1.2</span></a>
+<a class="sourceLine" id="cb122-11" data-line-number="11">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb122-12" data-line-number="12">    mass &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb122-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb122-14" data-line-number="14">  <span class="kw">return</span>(mass)</a>
+<a class="sourceLine" id="cb122-15" data-line-number="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;tree&quot;</span>, <span class="dt">age =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 2.330322</code></pre>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;shrub&quot;</span>, <span class="dt">age =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">est_mass</span>(<span class="fl">1.6</span>, <span class="st">&quot;shrub&quot;</span>, <span class="dt">age =</span> <span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] 1.142503</code></pre>
 <p>Try to minimize nested functions whenever possible as it can be difficult to read.</p>
 </div>
 <div id="function-arguments" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> Function arguments</h3>
 <p>As seen previously, we can use custom inputs by defining an input argument. As lazy programmers, we usually want to call a function without typing much. This is where <strong>default arguments</strong> come in handy. For example, many of our shrubs are the same height so for those shrubs we only measure the <code>length</code> and <code>width</code>. We can set a default value for shrub height for cases where we don’t measure it.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">calc_shrub_vol &lt;-<span class="st"> </span><span class="cf">function</span>(length, width, <span class="dt">height =</span> <span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb184-2" data-line-number="2">  area &lt;-<span class="st"> </span>length <span class="op">*</span><span class="st"> </span>width</a>
-<a class="sourceLine" id="cb184-3" data-line-number="3">  volume &lt;-<span class="st"> </span>area <span class="op">*</span><span class="st"> </span>height</a>
-<a class="sourceLine" id="cb184-4" data-line-number="4">  <span class="kw">return</span>(volume)</a>
-<a class="sourceLine" id="cb184-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb184-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb184-7" data-line-number="7"><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>)  <span class="co"># default argument for height</span></a></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1">calc_shrub_vol &lt;-<span class="st"> </span><span class="cf">function</span>(length, width, <span class="dt">height =</span> <span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb127-2" data-line-number="2">  area &lt;-<span class="st"> </span>length <span class="op">*</span><span class="st"> </span>width</a>
+<a class="sourceLine" id="cb127-3" data-line-number="3">  volume &lt;-<span class="st"> </span>area <span class="op">*</span><span class="st"> </span>height</a>
+<a class="sourceLine" id="cb127-4" data-line-number="4">  <span class="kw">return</span>(volume)</a>
+<a class="sourceLine" id="cb127-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb127-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb127-7" data-line-number="7"><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>)  <span class="co"># default argument for height</span></a></code></pre></div>
 <pre><code>## [1] 1.28</code></pre>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)  <span class="co"># default argument is overridden by 2,0</span></a></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)  <span class="co"># default argument is overridden by 2,0</span></a></code></pre></div>
 <pre><code>## [1] 2.56</code></pre>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="kw">calc_shrub_vol</span>(<span class="dt">length =</span> <span class="fl">0.8</span>, <span class="dt">width =</span> <span class="fl">1.6</span>, <span class="dt">height =</span> <span class="fl">2.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">calc_shrub_vol</span>(<span class="dt">length =</span> <span class="fl">0.8</span>, <span class="dt">width =</span> <span class="fl">1.6</span>, <span class="dt">height =</span> <span class="fl">2.0</span>)</a></code></pre></div>
 <pre><code>## [1] 2.56</code></pre>
 <p>As you could tell from the last two examples, you can override the default argument by providing your own value.</p>
 <p>Here are some additional points:</p>
@@ -753,7 +751,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Oftentimes, only the optional arguments are specified (i.e., those without a default value).</li>
 </ol>
 <p>In our case, we would write:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="dt">height =</span> <span class="fl">2.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="dt">height =</span> <span class="fl">2.0</span>)</a></code></pre></div>
 <pre><code>## [1] 2.56</code></pre>
 </div>
 <div id="combining-functions" class="section level3">
@@ -763,23 +761,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Each function should be single conceptual chunk of code.</li>
 <li>Functions can be combined to perform larger tasks.</li>
 </ul>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">est_shrub_mass &lt;-<span class="st"> </span><span class="cf">function</span>(volume) {</a>
-<a class="sourceLine" id="cb192-2" data-line-number="2">  mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
-<a class="sourceLine" id="cb192-3" data-line-number="3">}</a>
-<a class="sourceLine" id="cb192-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb192-5" data-line-number="5">shrub_volume &lt;-<span class="st"> </span><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)</a>
-<a class="sourceLine" id="cb192-6" data-line-number="6">shrub_mass &lt;-<span class="st"> </span><span class="kw">est_shrub_mass</span>(shrub_volume)</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1">est_shrub_mass &lt;-<span class="st"> </span><span class="cf">function</span>(volume) {</a>
+<a class="sourceLine" id="cb135-2" data-line-number="2">  mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
+<a class="sourceLine" id="cb135-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb135-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb135-5" data-line-number="5">shrub_volume &lt;-<span class="st"> </span><span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)</a>
+<a class="sourceLine" id="cb135-6" data-line-number="6">shrub_mass &lt;-<span class="st"> </span><span class="kw">est_shrub_mass</span>(shrub_volume)</a></code></pre></div>
 <p>We can nest functions. Below, the inner function executes before the outer function executes.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1">shrub_mass &lt;-<span class="st"> </span><span class="kw">est_shrub_mass</span>(<span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1">shrub_mass &lt;-<span class="st"> </span><span class="kw">est_shrub_mass</span>(<span class="kw">calc_shrub_vol</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>))</a></code></pre></div>
 <p>We need to be careful with this because nesting code can be difficult to read. As a general rule of thumb, don’t nest more than two functions.</p>
 <p>We can also call functions from inside other functions. This allows us to organize function calls into logical groups.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1">est_shrub_mass_dim &lt;-<span class="st"> </span><span class="cf">function</span>(length, width, height) {</a>
-<a class="sourceLine" id="cb194-2" data-line-number="2">  volume =<span class="st"> </span><span class="kw">calc_shrub_vol</span>(length, width, height)</a>
-<a class="sourceLine" id="cb194-3" data-line-number="3">  mass &lt;-<span class="st"> </span><span class="kw">est_shrub_mass</span>(volume)</a>
-<a class="sourceLine" id="cb194-4" data-line-number="4">  <span class="kw">return</span>(mass)</a>
-<a class="sourceLine" id="cb194-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb194-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb194-7" data-line-number="7"><span class="kw">est_shrub_mass_dim</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1">est_shrub_mass_dim &lt;-<span class="st"> </span><span class="cf">function</span>(length, width, height) {</a>
+<a class="sourceLine" id="cb137-2" data-line-number="2">  volume =<span class="st"> </span><span class="kw">calc_shrub_vol</span>(length, width, height)</a>
+<a class="sourceLine" id="cb137-3" data-line-number="3">  mass &lt;-<span class="st"> </span><span class="kw">est_shrub_mass</span>(volume)</a>
+<a class="sourceLine" id="cb137-4" data-line-number="4">  <span class="kw">return</span>(mass)</a>
+<a class="sourceLine" id="cb137-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb137-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb137-7" data-line-number="7"><span class="kw">est_shrub_mass_dim</span>(<span class="fl">0.8</span>, <span class="fl">1.6</span>, <span class="fl">2.0</span>)</a></code></pre></div>
 <pre><code>## [1] 6.175354</code></pre>
 <p>Now that we’ve got the basics of R under our belts, we can jump into the fun data science applications!</p>
 

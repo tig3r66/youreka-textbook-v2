@@ -161,14 +161,14 @@ Here are some useful commands to investigate a data frame:
 
   * `str()` returns the structure of a data frame.
   * `length()` returns the length of a data frame.
-  * `nrow()` returns the number of rows of a data frame (same as `length()`)
-  * `ncol()` returns the number of columns of a data frame.
-    
+  * `ncol()` returns the number of columns of a data frame (same as `length()`)
+  * `nrow()` returns the number of rows of a data frame.
+
 ```{r}
 str(surveys)
 length(surveys)
-nrow(surveys)
 ncol(surveys)
+nrow(surveys)
 ```
 
 Subsetting data frames is extremely similar to that for vectors. This time, however, we need to consider both rows and columns. We can access a specific member like this: `my_data_frame[row, column]`
