@@ -184,7 +184,7 @@ If you're keen, you'll notice in the last line that we use `c()` to group object
 
 We can also combine conditions using the logical and (`&`) along with the logical or (`|`). The logical `&` returns `TRUE` if and only if both conditions are true, and it returns `FALSE` otherwise. Below is a truth table (don't worry about memorizing it):
 
-|   P   |   Q   | P & Q | P | Q |
+|   P   |   Q   | P & Q | P \| Q |
 |:-----:|:-----:|:-----:|:------:|
 |  True |  True |  True |  True  |
 |  True | False | False |  True  |
