@@ -275,8 +275,8 @@ You can also have multiple lines of code in the body of a loop.
 
 ```{r  multi-line-loop}
 for (number in 1:5) {
-   i <- i*2
-   print(i)
+   number <- number*2
+   print(number)
 }
 ```
 

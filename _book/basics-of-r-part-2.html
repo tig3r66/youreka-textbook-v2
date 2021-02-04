@@ -521,14 +521,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb94-5" data-line-number="5"><span class="kw">print</span>(<span class="dv">5</span>)</a></code></pre></div>
 <p>You can also have multiple lines of code in the body of a loop.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="cf">for</span> (number <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb95-2" data-line-number="2">   i &lt;-<span class="st"> </span>i<span class="op">*</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb95-3" data-line-number="3">   <span class="kw">print</span>(i)</a>
+<a class="sourceLine" id="cb95-2" data-line-number="2">   number &lt;-<span class="st"> </span>number<span class="op">*</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb95-3" data-line-number="3">   <span class="kw">print</span>(number)</a>
 <a class="sourceLine" id="cb95-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## [1] 10
-## [1] 20
-## [1] 40
-## [1] 80
-## [1] 160</code></pre>
+<pre><code>## [1] 2
+## [1] 4
+## [1] 6
+## [1] 8
+## [1] 10</code></pre>
 <p>In the previous examples, we used the dummy variables <code>i</code> and <code>number</code> to take on some range of values. Notice that <code>i</code> can be called anything you want.</p>
 <p>To contexualize this, let’s look at an example that calculates mass using the following fomula: <span class="math inline">\(\text{mass} = \text{density} \times \text{volume}\)</span></p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">density &lt;-<span class="st"> </span><span class="fl">2.65</span></a>
