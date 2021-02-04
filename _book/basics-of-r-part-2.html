@@ -772,7 +772,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We need to be careful with this because nesting code can be difficult to read. As a general rule of thumb, don’t nest more than two functions.</p>
 <p>We can also call functions from inside other functions. This allows us to organize function calls into logical groups.</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1">est_shrub_mass_dim &lt;-<span class="st"> </span><span class="cf">function</span>(length, width, height) {</a>
-<a class="sourceLine" id="cb137-2" data-line-number="2">  volume =<span class="st"> </span><span class="kw">calc_shrub_vol</span>(length, width, height)</a>
+<a class="sourceLine" id="cb137-2" data-line-number="2">  volume &lt;-<span class="st"> </span><span class="kw">calc_shrub_vol</span>(length, width, height)</a>
 <a class="sourceLine" id="cb137-3" data-line-number="3">  mass &lt;-<span class="st"> </span><span class="kw">est_shrub_mass</span>(volume)</a>
 <a class="sourceLine" id="cb137-4" data-line-number="4">  <span class="kw">return</span>(mass)</a>
 <a class="sourceLine" id="cb137-5" data-line-number="5">}</a>

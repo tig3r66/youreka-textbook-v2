@@ -570,7 +570,7 @@ We can also call functions from inside other functions. This allows us to organi
 
 ```{R}
 est_shrub_mass_dim <- function(length, width, height) {
-  volume = calc_shrub_vol(length, width, height)
+  volume <- calc_shrub_vol(length, width, height)
   mass <- est_shrub_mass(volume)
   return(mass)
 }
