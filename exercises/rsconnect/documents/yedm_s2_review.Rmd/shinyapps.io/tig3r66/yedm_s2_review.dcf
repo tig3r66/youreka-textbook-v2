@@ -1,0 +1,13 @@
+name: yedm_s2_review
+title: yedm_s2_review
+username:
+account: tig3r66
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3594714
+bundleId: 4190303
+url: https://tig3r66.shinyapps.io/yedm_s2_review/
+when: 1612657898.78096
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: yedm_s1_review.html|yedm_s1_review.Rmd

@@ -67,7 +67,15 @@ ggplot() +
   geom_vline(xintercept = 65)
 ```
 
-**Note:** This is NOT a figure you would include in an academic paper as the quality is quite low. We're visualizing this just so we have a better idea of what's going on with the data.
+**Note 1:** If you used the dplyr method, you would need to plot the specific vector in the data frame:
+
+```{r eval=FALSE}
+ggplot() +
+  geom_density(aes(Euro.life.1952$lifeExp)) +
+  geom_vline(xintercept = 65)
+```
+
+**Note 2:** This is NOT a figure you would include in an academic paper as the quality is quite low. We're visualizing this just so we have a better idea of what's going on with the data.
 
 The non-parametric test alternative to one-sample t-test is Wilcoxon signed-rank test.
 
