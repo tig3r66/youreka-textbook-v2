@@ -171,7 +171,7 @@ ggplot(data = gap.52.77.07, aes(x = gdpPercap, y = lifeExp)) +
   scale_x_log10()
 ```
 
-Going back to our original example of lifeExp vs gdpPercap by continent, I use `stat_elipse()` to enclose the points within a 95% confidence interval.
+Going back to our original example of lifeExp vs gdpPercap by continent, I use `stat_ellipse()` to enclose the points within a 95% confidence interval.
 
 ```{r}
 ggplot(data = subset(gapminder, year == 1977), 
@@ -231,7 +231,7 @@ Finally, we can change the labels and text formats. Here, we can save the figure
 
 ```{r}
 p <- ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
-  geom_jitter(alpha=0.65, aes(size=pop, color=year)) +
+  geom_jitter(alpha=0.65, aes(size=pop, color=as.factor(year))) +
   facet_wrap(vars(continent)) +
   scale_x_log10() +
   labs(x = "GDP per capita", y = "Life Expectancy", size = "Population", color = "Year") +
