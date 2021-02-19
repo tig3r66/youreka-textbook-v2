@@ -382,10 +382,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-5"><a href="basic-statistical-tests.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># checking if these two methods give identical outputs</span></span>
 <span id="cb14-6"><a href="basic-statistical-tests.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(method1, method2<span class="sc">$</span>lifeExp)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
+<p><strong>CAUTION:</strong> <code>method2</code> is a data frame whereas <code>method1</code> is a vector. To use <code>method2</code> with the <code>t.test()</code> function, you need to specify the variable inside the data frame (e.g., <code>method2$lifeExp</code>).</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="basic-statistical-tests.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s rename the variable for interpretability</span></span>
 <span id="cb16-2"><a href="basic-statistical-tests.html#cb16-2" aria-hidden="true" tabindex="-1"></a>Euro.life<span class="fl">.1952</span> <span class="ot">&lt;-</span> method1</span>
-<span id="cb16-3"><a href="basic-statistical-tests.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="basic-statistical-tests.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Euro.life<span class="fl">.1952</span>, <span class="at">mu =</span> <span class="dv">65</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<span id="cb16-3"><a href="basic-statistical-tests.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Euro.life<span class="fl">.1952</span>, <span class="at">mu =</span> <span class="dv">65</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -402,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="basic-statistical-tests.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb18-2"><a href="basic-statistical-tests.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(Euro.life<span class="fl">.1952</span>)) <span class="sc">+</span></span>
 <span id="cb18-3"><a href="basic-statistical-tests.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">65</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p><strong>Note 1:</strong> If you used the dplyr method, you would need to plot the specific vector in the data frame:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basic-statistical-tests.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb19-2"><a href="basic-statistical-tests.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(Euro.life<span class="fl">.1952</span><span class="sc">$</span>lifeExp)) <span class="sc">+</span></span>
@@ -446,7 +446,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-6"><a href="basic-statistical-tests.html#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&#39;Continent&#39;</span>, <span class="at">y=</span><span class="st">&#39;Life expectancy (yrs)&#39;</span>) <span class="sc">+</span></span>
 <span id="cb24-7"><a href="basic-statistical-tests.html#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Here we want to run a two-sample t-test. Before we do that, we’ll need to check if the 2 samples have the same variance. Recall that different t-tests assume different variances:</p>
 <ul>
 <li>If you assume equal variance, you would use Student’s t-test.</li>
@@ -516,7 +516,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb36-2"><a href="basic-statistical-tests.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> country)) <span class="sc">+</span></span>
 <span id="cb36-3"><a href="basic-statistical-tests.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> country, <span class="at">color=</span>country))</span>
 <span id="cb36-4"><a href="basic-statistical-tests.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(p)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Since the life expectancy in 1952 and 2007 look interesting, let’s visualize it:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="basic-statistical-tests.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting rows with years 1952 and 2007</span></span>
 <span id="cb37-2"><a href="basic-statistical-tests.html#cb37-2" aria-hidden="true" tabindex="-1"></a>Africa.<span class="fl">1952.2007</span> <span class="ot">&lt;-</span> Africa <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1952</span>, <span class="dv">2007</span>))</span>
@@ -525,7 +525,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb37-5"><a href="basic-statistical-tests.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>country)) <span class="sc">+</span></span>
 <span id="cb37-6"><a href="basic-statistical-tests.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> country, <span class="at">color=</span>country))</span>
 <span id="cb37-7"><a href="basic-statistical-tests.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(p)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>Most of the countries have improved, while a few have decreased life expectancy.</p>
 <p>Before testing this observation, we should reorganize our data into a nice (wide) shape.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="basic-statistical-tests.html#cb38-1" aria-hidden="true" tabindex="-1"></a>Africa.wide <span class="ot">&lt;-</span> <span class="fu">spread</span>(Africa, year, lifeExp)</span>
@@ -843,7 +843,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb80-12"><a href="basic-statistical-tests.html#cb80-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
 <span id="cb80-13"><a href="basic-statistical-tests.html#cb80-13" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(p)</span></code></pre></div>
 <pre><code>## Picking joint bandwidth of 3.6</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 <p>Let’s take a look at the mean and standard deviation to see if your guess is correct.</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="basic-statistical-tests.html#cb82-1" aria-hidden="true" tabindex="-1"></a>Africa.all <span class="sc">%&gt;%</span> </span>
 <span id="cb82-2"><a href="basic-statistical-tests.html#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(year, lifeExp)) <span class="sc">%&gt;%</span></span>
@@ -861,18 +861,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb84-2"><a href="basic-statistical-tests.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb84-3"><a href="basic-statistical-tests.html#cb84-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.3</span>)</span>
 <span id="cb84-4"><a href="basic-statistical-tests.html#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(p)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 <p>You may want to remove the gray background and decrease dot size. This is as easy as specifying the <code>dotsize</code> parameter and adding <code>theme_classic()</code>. There a lot more themes out there! Check them out <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">here</a>.</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="basic-statistical-tests.html#cb85-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> Africa.all, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.factor</span>(year), <span class="at">y=</span>lifeExp)) <span class="sc">+</span></span>
 <span id="cb85-2"><a href="basic-statistical-tests.html#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="at">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">dotsize =</span> <span class="fl">0.65</span>) <span class="sc">+</span></span>
 <span id="cb85-3"><a href="basic-statistical-tests.html#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.3</span>) <span class="sc">+</span> </span>
 <span id="cb85-4"><a href="basic-statistical-tests.html#cb85-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
 <span id="cb85-5"><a href="basic-statistical-tests.html#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(p)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <p>While we’re at it, let’s also rename the x- and y-axis. Since we’ve saved the plot already, let’s add a label layer to the plot.</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="basic-statistical-tests.html#cb86-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Life expectancy (yrs)&#39;</span>)</span>
 <span id="cb86-2"><a href="basic-statistical-tests.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(p)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <p>Now this figure is publication-ready.</p>
 
 </div>

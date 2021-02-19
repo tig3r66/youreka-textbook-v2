@@ -51,9 +51,13 @@ method1 <- gapminder$lifeExp[gapminder$continent=='Europe' & gapminder$year==195
 method2 <- gapminder %>% filter(continent == 'Europe', year == 1952) %>% select(lifeExp)
 # checking if these two methods give identical outputs
 identical(method1, method2$lifeExp)
+```
+
+**CAUTION:** `method2` is a data frame whereas `method1` is a vector. To use `method2` with the `t.test()` function, you need to specify the variable inside the data frame (e.g., `method2$lifeExp`).
+
+```{r}
 # let's rename the variable for interpretability
 Euro.life.1952 <- method1
-
 t.test(Euro.life.1952, mu = 65, alternative = "two.sided")
 ```
 
