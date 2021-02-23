@@ -414,7 +414,7 @@ ggplot(data = dat.2007, aes(x = gdpPercap, y = lifeExp)) +
   geom_smooth(method = "lm")  # lm = linear model
 ```
 
-To get rid of the confidence band around the line, pass `le = FALSE` into `geom_smooth()`.
+To get rid of the confidence band around the line, pass `se = FALSE` into `geom_smooth()`.
 
 ```{r lm-method-sefalse}
 ggplot(data = dat.2007, aes(x = gdpPercap, y = lifeExp)) +

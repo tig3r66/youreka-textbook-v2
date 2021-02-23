@@ -20,7 +20,8 @@ Let's elaborate on the second point. In the previous case for life expectancy an
 Let's take a look at the life expectancy of Africa over the years. Let's first create a scatter plot.
 
 ```{r}
-ggplot(data = subset(gapminder, continent == "Europe"), aes(x = year, y = lifeExp)) +
+ggplot(data = subset(gapminder, continent == "Europe"),
+       aes(x = year, y = lifeExp)) +
   geom_point()
 ```
 
