@@ -4,7 +4,7 @@
 
 In this chapter, we will investigate the intuition behind the central limit theorem (CLT). In short, the CLT states that if you have a bunch of samples and plotted the distribution of means (not individual observations!), the distribution would look normal regardless of the population distribution. This theorem is incredibly powerful, and we will explore how it applies to data analysis in future labs.
 
-## Central limit theorem for means
+## CLT for means
 
 As always, let's load the tidyverse.
 
@@ -69,7 +69,7 @@ ggplot(df, aes(x = means, fill = sample_size)) +
 With a larger sample size, your estimation for the mean will have a smaller error.
 
 
-## Central limit theorem for probability
+## CLT for proportions
 
 Now I would like to estimate the probability of getting a "head" of when I flip a coin.
 
@@ -105,8 +105,8 @@ ggplot(df, aes(x = means, fill = sample_size)) +
 ```
 
 Can you explain the pattern we observed with sample size of 10? How about the height and width of other curves? What conclusion could we draw?
-  
-  This example may appear intuitive: of course when you flip the coin for many times, you will most likely get a 50% chance of "heads". How about an "uneven" coin that preferably lands with a "head" with 75% chance? In this case we change the `prob` in the `sample()` function with this new probability.
+
+This example may appear intuitive: of course when you flip the coin for many times, you will most likely get a 50% chance of "heads". How about an "uneven" coin that preferably lands with a "head" with 75% chance? In this case we change the `prob` in the `sample()` function with this new probability.
 
 ```{r}
 means10 <- as.vector(NA)

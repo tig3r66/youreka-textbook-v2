@@ -97,3 +97,6 @@ extras-optional
 choropleth
 animations
 additional-resources-1
+central-limit-theorem-for-proportions
+clt-for-means
+clt-for-proportions
