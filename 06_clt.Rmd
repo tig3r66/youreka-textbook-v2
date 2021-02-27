@@ -2,9 +2,11 @@
 
 # Central limit theorem
 
-In this chapter, we will investigate the intuition behind the central limit theorem (CLT). In short, the CLT states that if you have a bunch of samples and plotted the distribution of means (not individual observations!), the distribution would look normal regardless of the population distribution. This theorem is incredibly powerful, and we will explore how it applies to data analysis in future labs.
+In this chapter, we will investigate the intuition behind the **Central Limit Theorem** (CLT). In short, the CLT states that if you have a bunch of samples and plotted the distribution of means (not individual observations!), the distribution would look normal regardless of the population distribution. This theorem is incredibly powerful, and we will explore how it applies to data analysis in future chapters.
 
 ## CLT for means
+
+### CLT Part 1
 
 As always, let's load the tidyverse.
 
@@ -14,129 +16,144 @@ library(tidyverse)
 
 Many observed quantities follow normal distribution. Imagine we have a population following normal distribution that has a mean of 10 and standard deviation of 2. If we draw samples from it, are we able to estimate its mean?
   
-In this example, we will use `rnorm`, a random number generate for this simulation. `rnorm` returns a vector of random numbers from the specifies distribution.
+In this example, we will use `rnorm()`, a random number generator for this simulation. Here, `rnorm()` returns a vector of random numbers from a normal distribution.
 
 ```{r}
-samp10 <- rnorm(10, mean=10, sd=2)  # generate 10 random numbers
-samp10
+(samp10 <- rnorm(n=10, mean=10, sd=2))
 mean(samp10)
 ```
 
-Apparently the mean is not 10, but it is pretty close. This should make sense; when we draw a sample to estimate the mean, we may get very close to the desired "true mean", but we also expect some error. What if I repeat the estimation above with 10 samples? That is, what if each time I use 10 randomly generated numbers to estimate the mean, and I do this for many times?
+Apparently the mean is not 10, but it is pretty close. This should make sense; when we draw a sample to estimate the mean, we may get very close to the desired "true mean", but we also expect some error. What if I repeat the estimation 10000 times with 10 samples?
 
 ```{r}
 means10 <- as.vector(NA)
-# Doing experiments for 10000 times
+# doing experiments 10,000 times
 for (i in 1:10000) {
-  # Each time I draw 10 random numbers from the normal distribution
-  samp10 <- rnorm(10, mean=10, sd=2)  
+  # each iteration, I draw a sample size of 2 from a normal distribution
+  samp10 <- rnorm(10, mean=10, sd=2)
   # I calculate the mean of these 10 numbers and record it
   means10[i] <- mean(samp10)  
 }
-
-plot(density(means10))
+# let's look at the result
+ggplot(as_tibble(means10), aes(value)) +
+  geom_density(fill="#C5EBCB") +
+  theme_classic()
 ```
 
-What does this figure mean? Of the 10000 estimations that we did, most estimations were very close to 10. The probability to overestimate and underestimate decreases as the estimation deviates from 10, our "true mean". 
+What does this figure mean? Of the 10000 estimations that we did, most estimations were very close to 10. The probability to overestimate and underestimate decreases as the estimation deviates from 10, our "true mean".
 
-This time, let's make estimations with a  larger sample size, say 100 and 1000. Will a larger sample size reduce the error of estimation? Don't worry too much about what the code is doing---just focus on the figure.
+We can now conclude the following: if our population is normal, our sampling distribution is also normal. This first observation demonstrates a key part of the **CLT**.
+
+
+### CLT Part 2
+
+Now, we are going to explore another aspect of the CLT: given enough sample means, our sample distribution will look normal *regardless of the original population distribution*. This time, let's try sampling from a population that is uniformly distributed. For example, let's create a population with 10,000 completely random numbers between 0 and 20:
+
+```{r uniform-popn}
+uniform_popn <- runif(n=10000, min=0, max=20)
+ggplot(as_tibble(uniform_popn), aes(value)) +
+  geom_density(fill="#C5EBCB") +
+  theme_classic()
+```
+
+Now, we are going to repeatedly sample from `uniform_popn` and use the mean of that particular sample as our entry.
 
 ```{r}
+means10 <- as.vector(NA)
 means100 <- as.vector(NA)
 means1000 <- as.vector(NA)
-# Doing experiments for 10000 times
+# doing experiments 10,000 times
 for (i in 1:10000) {
-  # Each time I draw 10 random numbers from the normal distribution
-  samp100 <- rnorm(100, mean=10, sd=2)  
-  # I calculate the mean of these 10 numbers and record it
-  means100[i] <- mean(samp100)  
-  samp1000 <- rnorm(1000, mean=10, sd=2)  
-  # I calculate the mean of these 10 numbers and record it
-  means1000[i] <- mean(samp1000) 
+  # each iteration, I draw 10, 100, and 1000 samples from uniform_popn
+  samp10 <- sample(uniform_popn, size = 10, replace = TRUE)
+  samp100 <- sample(uniform_popn, size = 100, replace = TRUE)
+  samp1000 <- sample(uniform_popn, size = 1000, replace = TRUE)
+  # getting means of each sample
+  means10[i] <- mean(samp10)
+  means100[i] <- mean(samp100)
+  means1000[i] <- mean(samp1000)
 }
 
 df <- rbind(
-  data.frame(means = means10, sample_size = "n=10"),
-  data.frame(means = means100, sample_size = "n=100"),
-  data.frame(means = means1000, sample_size = "n=1000")
+  data.frame(means = means10, sample_size = "10"),
+  data.frame(means = means100, sample_size = "100"),
+  data.frame(means = means1000, sample_size = "1000")
 )
 
 ggplot(df, aes(x = means, fill = sample_size)) + 
   geom_density(alpha = 0.3) +
+  labs(x = "Sample means", y = "Density", fill = "Sample size") +
   theme_classic()
 ```
 
-With a larger sample size, your estimation for the mean will have a smaller error.
+Notice two things:
+
+1. With a larger sample size, your estimation for the mean will have a smaller error.
+2. Even though our *original population* was uniform (i.e., NOT normal), our *sampling distribution* looks normal. In fact, any population distribution will look normal given enough sample means. This observation is captured by the **CLT**.
+
+Pretty cool, right?
 
 
 ## CLT for proportions
 
 Now I would like to estimate the probability of getting a "head" of when I flip a coin.
 
-Each time I flip a coin, if I end up with a "head", I record it as a 1. If I get a "tail", I will record it as a 0. If I flip the coin for 10 times where I have 6 "heads" and 4 "tails", the frequency of getting "heads" would be 6/10 = 0.6. If I flip the coin for a sufficiently large amount of times, we would like to expect the frequency to approach the theoretical 0.5. Is this the case? 
+Each time I flip a coin, if I end up with a "head", I record it as a 1. If I get a "tail", I will record it as a 0. If I flip the coin for 10 times where I have 6 "heads" and 4 "tails", the proportion of getting "heads" would be 6/10 = 0.6. If I flip the coin for a sufficiently large amount of times, we would like to expect the proportion to approach the theoretical 0.5. Is this the case?
 
 ```{r}
-means10 <- as.vector(NA)
 means100 <- as.vector(NA)
 means1000 <- as.vector(NA)
 means10000 <- as.vector(NA)
 
 for (i in 1:10000) {
-  sample10 <- sample(c(1,0), prob = c(0.5, 0.5), replace = TRUE, size = 10)
-  means10[i] <- sum(sample10) / 10  
   sample100 <- sample(c(1,0), prob = c(0.5, 0.5), replace = TRUE, size = 100)
-  means100[i] <- sum(sample100) / 100
+  means100[i] <- mean(sample100)
   sample1000 <- sample(c(1,0), prob = c(0.5, 0.5), replace = TRUE, size = 1000)
-  means1000[i] <- sum(sample1000) / 1000
+  means1000[i] <- mean(sample1000)
   sample10000 <- sample(c(1,0), prob = c(0.5, 0.5), replace = TRUE, size = 10000)
-  means10000[i] <- sum(sample10000) / 10000
+  means10000[i] <- mean(sample10000)
 }
 
 df <- rbind(
-  data.frame(means = means10, sample_size = "10 trials"),
-  data.frame(means = means100, sample_size = "100 trials"),
-  data.frame(means = means1000, sample_size = "1000 trials"),
-  data.frame(means = means10000, sample_size = "10000 trials")
+  data.frame(means = means100, sample_size = "100 flips"),
+  data.frame(means = means1000, sample_size = "1000 flips"),
+  data.frame(means = means10000, sample_size = "10000 flips")
 )
 
 ggplot(df, aes(x = means, fill = sample_size)) + 
   geom_density(alpha = 0.3) +
+  labs(x = "Sample means", y = "Density", fill = "Sample size") +
   theme_classic()
 ```
 
 Can you explain the pattern we observed with sample size of 10? How about the height and width of other curves? What conclusion could we draw?
 
-This example may appear intuitive: of course when you flip the coin for many times, you will most likely get a 50% chance of "heads". How about an "uneven" coin that preferably lands with a "head" with 75% chance? In this case we change the `prob` in the `sample()` function with this new probability.
+This example may appear intuitive: when you flip the coin many times, you will likely get "heads" 50% of the time. How about an "uneven" coin that preferably lands with a "head" with 75% chance? In this case we change the `prob` in the `sample()` function with this new probability.
 
 ```{r}
-means10 <- as.vector(NA)
 means100 <- as.vector(NA)
 means1000 <- as.vector(NA)
 means10000 <- as.vector(NA)
 
 for (i in 1:10000) {
-  sample10 <- sample(c(1,0), prob = c(0.75, 0.25), replace = TRUE, size = 10)
-  means10[i] <- sum(sample10) / 10  
   sample100 <- sample(c(1,0), prob = c(0.75, 0.25), replace = TRUE, size = 100)
-  means100[i] <- sum(sample100) / 100
+  means100[i] <- mean(sample100)
   sample1000 <- sample(c(1,0), prob = c(0.75, 0.25), replace = TRUE, size = 1000)
-  means1000[i] <- sum(sample1000) / 1000
+  means1000[i] <- mean(sample1000)
   sample10000 <- sample(c(1,0), prob = c(0.75, 0.25), replace = TRUE, size = 10000)
-  means10000[i] <- sum(sample10000) / 10000
+  means10000[i] <- mean(sample10000)
 }
 
-
 df <- rbind(
-  data.frame(means = means10, sample_size = "10 numbers"),
-  data.frame(means = means100, sample_size = "100 numbers"),
-  data.frame(means = means1000, sample_size = "1000 numbers"),
-  data.frame(means = means10000, sample_size = "10000 numbers")
+  data.frame(means = means100, sample_size = "100 flips"),
+  data.frame(means = means1000, sample_size = "1000 flips"),
+  data.frame(means = means10000, sample_size = "10000 flips")
 )
 
 library(ggplot2)
-
 ggplot(df, aes(x = means, fill = sample_size)) + 
   geom_density(alpha = 0.3) +
+  labs(x = "Sample means", y = "Density", fill = "Sample size") +
   theme_classic()
 ```
 
