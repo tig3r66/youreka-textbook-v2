@@ -88,7 +88,7 @@ ggplot(df, aes(x = means, fill = sample_size)) +
 
 Notice two things:
 
-1. With a larger sample size, your estimation for the mean will have a smaller error.
+1. With a larger sample size, your estimation for the mean will have a smaller variance.
 2. Even though our *original population* was uniform (i.e., NOT normal), our *sampling distribution* looks normal. In fact, any population distribution will look normal given enough sample means. This observation is captured by the **CLT**.
 
 Pretty cool, right?
@@ -126,9 +126,9 @@ ggplot(df, aes(x = means, fill = sample_size)) +
   theme_classic()
 ```
 
-Can you explain the pattern we observed with sample size of 10? How about the height and width of other curves? What conclusion could we draw?
+Can you explain the pattern that we observe with 100 flips? How about the height and width of other curves? What conclusions can we draw?
 
-This example may appear intuitive: when you flip the coin many times, you will likely get "heads" 50% of the time. How about an "uneven" coin that preferably lands with a "head" with 75% chance? In this case we change the `prob` in the `sample()` function with this new probability.
+The answers to these questions may appear intuitive: when you flip the coin many times, you will likely get "heads" 50% of the time. The more you flip the coin, the more likely you'll get 50% heads. How about an "uneven" coin that preferably lands with a "head" with 75% chance? In this case we change the `prob` in the `sample()` function with this new probability.
 
 ```{r}
 means100 <- as.vector(NA)
