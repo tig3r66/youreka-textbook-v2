@@ -33,6 +33,7 @@
   
 <link rel="prev" href="more-data-frames.html"/>
 <link rel="next" href="central-limit-theorem.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,25 +56,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,32 +135,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="assets/youreka-logo.png" ></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-textbook"><i class="fa fa-check"></i>How to use this textbook</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i>Contributors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#credit"><i class="fa fa-check"></i>Credit</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="part"><span><b>I Prerequisites</b></span></li>
-<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Install R and RStudio</a><ul>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Install R and RStudio</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
 <li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing RStudio</a></li>
 <li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#add-on-packages"><i class="fa fa-check"></i><b>1.3</b> Add-on packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html"><i class="fa fa-check"></i><b>2</b> Basics of R (Part 1)</a><ul>
+<li class="chapter" data-level="2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html"><i class="fa fa-check"></i><b>2</b> Basics of R (Part 1)</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
 <li class="chapter" data-level="2.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#function-basics"><i class="fa fa-check"></i><b>2.2</b> Function Basics</a></li>
 <li class="chapter" data-level="2.3" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#basic-math-operators"><i class="fa fa-check"></i><b>2.3</b> Basic math operators</a></li>
-<li class="chapter" data-level="2.4" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a><ul>
+<li class="chapter" data-level="2.4" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#if-statements"><i class="fa fa-check"></i><b>2.4.1</b> If statements</a></li>
 <li class="chapter" data-level="2.4.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#multiple-ifs-vs-else-if"><i class="fa fa-check"></i><b>2.4.2</b> Multiple “if”s vs “else if”</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a><ul>
+<li class="chapter" data-level="2.5" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#other-important-things"><i class="fa fa-check"></i><b>2.5.1</b> Other important things</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html"><i class="fa fa-check"></i><b>3</b> Basics of R (Part 2)</a><ul>
-<li class="chapter" data-level="3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a><ul>
+<li class="chapter" data-level="3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html"><i class="fa fa-check"></i><b>3</b> Basics of R (Part 2)</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#vectors"><i class="fa fa-check"></i><b>3.1.1</b> Vectors</a></li>
 <li class="chapter" data-level="3.1.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#missing-values"><i class="fa fa-check"></i><b>3.1.2</b> Missing values</a></li>
 <li class="chapter" data-level="3.1.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-frames"><i class="fa fa-check"></i><b>3.1.3</b> Data frames</a></li>
@@ -166,11 +175,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.5" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#factors"><i class="fa fa-check"></i><b>3.1.5</b> Factors</a></li>
 <li class="chapter" data-level="3.1.6" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#lists"><i class="fa fa-check"></i><b>3.1.6</b> Lists</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a><ul>
+<li class="chapter" data-level="3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#looping-over-multiple-files"><i class="fa fa-check"></i><b>3.2.1</b> Looping over multiple files</a></li>
 <li class="chapter" data-level="3.2.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-loops-optional"><i class="fa fa-check"></i><b>3.2.2</b> Nested loops (OPTIONAL)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a><ul>
+<li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#conditionals-within-functions"><i class="fa fa-check"></i><b>3.3.1</b> Conditionals within functions</a></li>
 <li class="chapter" data-level="3.3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-conditionals"><i class="fa fa-check"></i><b>3.3.2</b> Nested conditionals</a></li>
 <li class="chapter" data-level="3.3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#function-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Function arguments</a></li>
@@ -178,14 +189,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Data Wrangling</b></span></li>
-<li class="chapter" data-level="4" data-path="more-data-frames.html"><a href="more-data-frames.html"><i class="fa fa-check"></i><b>4</b> More data frames</a><ul>
+<li class="chapter" data-level="4" data-path="more-data-frames.html"><a href="more-data-frames.html"><i class="fa fa-check"></i><b>4</b> More data frames</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="more-data-frames.html"><a href="more-data-frames.html#get-the-gapminder-data"><i class="fa fa-check"></i><b>4.1</b> Get the gapminder data</a></li>
-<li class="chapter" data-level="4.2" data-path="more-data-frames.html"><a href="more-data-frames.html#explore-gapminder"><i class="fa fa-check"></i><b>4.2</b> Explore gapminder</a><ul>
+<li class="chapter" data-level="4.2" data-path="more-data-frames.html"><a href="more-data-frames.html#explore-gapminder"><i class="fa fa-check"></i><b>4.2</b> Explore gapminder</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="more-data-frames.html"><a href="more-data-frames.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>4.2.1</b> Importing and exporting data</a></li>
 <li class="chapter" data-level="4.2.2" data-path="more-data-frames.html"><a href="more-data-frames.html#exploring-variables-in-a-data-frame"><i class="fa fa-check"></i><b>4.2.2</b> Exploring variables in a data frame</a></li>
 <li class="chapter" data-level="4.2.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frame-summary"><i class="fa fa-check"></i><b>4.2.3</b> Data frame summary</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frames-with-dplyr"><i class="fa fa-check"></i><b>4.3</b> Data frames with dplyr</a><ul>
+<li class="chapter" data-level="4.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frames-with-dplyr"><i class="fa fa-check"></i><b>4.3</b> Data frames with dplyr</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="more-data-frames.html"><a href="more-data-frames.html#subsetting-data"><i class="fa fa-check"></i><b>4.3.1</b> Subsetting data</a></li>
 <li class="chapter" data-level="4.3.2" data-path="more-data-frames.html"><a href="more-data-frames.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>4.3.2</b> Filter rows with <code>filter()</code></a></li>
 <li class="chapter" data-level="4.3.3" data-path="more-data-frames.html"><a href="more-data-frames.html#pipe-operator"><i class="fa fa-check"></i><b>4.3.3</b> Pipe operator <code>%&gt;%</code></a></li>
@@ -194,14 +208,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="more-data-frames.html"><a href="more-data-frames.html#additional-resources"><i class="fa fa-check"></i><b>4.3.6</b> Additional resources</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a><ul>
+<li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>5.1</b> Review and preparation</a></li>
 <li class="chapter" data-level="5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>5.2</b> Use mutate() to add new variables</a></li>
 <li class="chapter" data-level="5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>5.3</b> Use arrange() to row-order data</a></li>
-<li class="chapter" data-level="5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>5.4</b> Use rename() to rename variables</a><ul>
+<li class="chapter" data-level="5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>5.4</b> Use rename() to rename variables</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#use-select-to-rename-and-reposition-variables"><i class="fa fa-check"></i><b>5.4.1</b> Use select() to rename and reposition variables</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>5.5</b> Perform tasks on subsets with <code>group_by()</code></a><ul>
+<li class="chapter" data-level="5.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>5.5</b> Perform tasks on subsets with <code>group_by()</code></a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#counting"><i class="fa fa-check"></i><b>5.5.1</b> Counting</a></li>
 <li class="chapter" data-level="5.5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#general-summarization"><i class="fa fa-check"></i><b>5.5.2</b> General summarization</a></li>
 <li class="chapter" data-level="5.5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#computing-with-group-wise-summaries"><i class="fa fa-check"></i><b>5.5.3</b> Computing with group-wise summaries</a></li>
@@ -212,14 +229,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="more-dplyr.html"><a href="more-dplyr.html#data-wrangling-summary"><i class="fa fa-check"></i><b>5.8</b> Data wrangling summary</a></li>
 </ul></li>
 <li class="part"><span><b>III Statistics</b></span></li>
-<li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a><ul>
-<li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>6.1</b> Central limit theorem for means</a></li>
-<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability</a></li>
+<li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-for-means"><i class="fa fa-check"></i><b>6.1</b> CLT for means</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-part-1"><i class="fa fa-check"></i><b>6.1.1</b> CLT Part 1</a></li>
+<li class="chapter" data-level="6.1.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-part-2"><i class="fa fa-check"></i><b>6.1.2</b> CLT Part 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a><ul>
+<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-for-proportions"><i class="fa fa-check"></i><b>6.2</b> CLT for proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#getting-ready"><i class="fa fa-check"></i><b>7.1</b> Getting ready</a></li>
 <li class="chapter" data-level="7.2" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#students-t-test"><i class="fa fa-check"></i><b>7.2</b> Student’s t-test</a></li>
-<li class="chapter" data-level="7.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi-squared-test"><i class="fa fa-check"></i><b>7.3</b> Chi-squared test</a><ul>
+<li class="chapter" data-level="7.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi-squared-test"><i class="fa fa-check"></i><b>7.3</b> Chi-squared test</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-goodness-of-fit"><i class="fa fa-check"></i><b>7.3.1</b> <span class="math inline">\(\chi^2\)</span> test for goodness-of-fit</a></li>
 <li class="chapter" data-level="7.3.2" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-independence"><i class="fa fa-check"></i><b>7.3.2</b> <span class="math inline">\(\chi^2\)</span> test for independence</a></li>
 <li class="chapter" data-level="7.3.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-homogeneity"><i class="fa fa-check"></i><b>7.3.3</b> <span class="math inline">\(\chi^2\)</span> test for homogeneity</a></li>
@@ -229,39 +253,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#visualizing-data-distributions-optional"><i class="fa fa-check"></i><b>7.4</b> Visualizing data distributions (OPTIONAL)</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html"><i class="fa fa-check"></i><b>8</b> Comparing multiple means</a><ul>
+<li class="chapter" data-level="8" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html"><i class="fa fa-check"></i><b>8</b> Comparing multiple means</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#loading-packages"><i class="fa fa-check"></i><b>8.1</b> Loading packages</a></li>
 <li class="chapter" data-level="8.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#merging-datasets"><i class="fa fa-check"></i><b>8.2</b> Merging datasets</a></li>
-<li class="chapter" data-level="8.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#one-way-anova"><i class="fa fa-check"></i><b>8.3</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="8.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#one-way-anova"><i class="fa fa-check"></i><b>8.3</b> One-way ANOVA</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#the-iris-dataset"><i class="fa fa-check"></i><b>8.3.1</b> The iris dataset</a></li>
 <li class="chapter" data-level="8.3.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#non-parametric-alternatives-to-anova"><i class="fa fa-check"></i><b>8.3.2</b> Non-parametric alternatives to ANOVA</a></li>
 <li class="chapter" data-level="8.3.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#two-way-anova"><i class="fa fa-check"></i><b>8.3.3</b> Two-way ANOVA</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#linear-regression"><i class="fa fa-check"></i><b>8.4</b> Linear regression</a><ul>
+<li class="chapter" data-level="8.4" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#linear-regression"><i class="fa fa-check"></i><b>8.4</b> Linear regression</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#basic-concepts"><i class="fa fa-check"></i><b>8.4.1</b> Basic concepts</a></li>
 <li class="chapter" data-level="8.4.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#pearson-correlation"><i class="fa fa-check"></i><b>8.4.2</b> Pearson correlation</a></li>
 <li class="chapter" data-level="8.4.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#spearman-correlation"><i class="fa fa-check"></i><b>8.4.3</b> Spearman correlation</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Data Visualization</b></span></li>
-<li class="chapter" data-level="9" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html"><i class="fa fa-check"></i><b>9</b> Data visualization basics</a><ul>
+<li class="chapter" data-level="9" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html"><i class="fa fa-check"></i><b>9</b> Data visualization basics</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#a-graphing-template"><i class="fa fa-check"></i><b>9.1</b> A graphing template</a></li>
-<li class="chapter" data-level="9.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#scatter-plot"><i class="fa fa-check"></i><b>9.2</b> Scatter plot</a><ul>
+<li class="chapter" data-level="9.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#scatter-plot"><i class="fa fa-check"></i><b>9.2</b> Scatter plot</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#trend-lines"><i class="fa fa-check"></i><b>9.2.1</b> Trend lines</a></li>
 <li class="chapter" data-level="9.2.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#facets"><i class="fa fa-check"></i><b>9.2.2</b> Facets</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#aesthetic-mappings"><i class="fa fa-check"></i><b>9.3</b> Aesthetic mappings</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html"><i class="fa fa-check"></i><b>10</b> Getting publication-ready</a><ul>
+<li class="chapter" data-level="10" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html"><i class="fa fa-check"></i><b>10</b> Getting publication-ready</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#line-plot"><i class="fa fa-check"></i><b>10.1</b> Line plot</a></li>
-<li class="chapter" data-level="10.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#bar-plot"><i class="fa fa-check"></i><b>10.2</b> Bar plot</a><ul>
+<li class="chapter" data-level="10.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#bar-plot"><i class="fa fa-check"></i><b>10.2</b> Bar plot</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#basics"><i class="fa fa-check"></i><b>10.2.1</b> Basics</a></li>
 <li class="chapter" data-level="10.2.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#plotting-significance-optional"><i class="fa fa-check"></i><b>10.2.2</b> Plotting significance (OPTIONAL)</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#box-plot"><i class="fa fa-check"></i><b>10.3</b> Box plot</a></li>
 <li class="chapter" data-level="10.4" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#histogram-and-density-plot"><i class="fa fa-check"></i><b>10.4</b> Histogram and density plot</a></li>
 <li class="chapter" data-level="10.5" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#assembly-of-multiple-figures-optional"><i class="fa fa-check"></i><b>10.5</b> Assembly of multiple figures (OPTIONAL)</a></li>
-<li class="chapter" data-level="10.6" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#extras-optional"><i class="fa fa-check"></i><b>10.6</b> Extras (OPTIONAL)</a><ul>
+<li class="chapter" data-level="10.6" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#extras-optional"><i class="fa fa-check"></i><b>10.6</b> Extras (OPTIONAL)</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#choropleth"><i class="fa fa-check"></i><b>10.6.1</b> Choropleth</a></li>
 <li class="chapter" data-level="10.6.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#animations"><i class="fa fa-check"></i><b>10.6.2</b> Animations</a></li>
 </ul></li>
@@ -294,9 +326,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="more-dplyr" class="section level1">
+<div id="more-dplyr" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> More dplyr</h1>
-<div id="review-and-preparation" class="section level2">
+<div id="review-and-preparation" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Review and preparation</h2>
 <p>In the previous chapter, we introduced three important data wrangling concepts:</p>
 <ol style="list-style-type: decimal">
@@ -310,13 +342,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <code>tidyverse</code> embraces a special flavor of data frame, called a tibble. The <code>gapminder</code> dataset is stored as a tibble.</li>
 </ul>
 <p>Let’s load the tidyverse and gapminder.</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb272-2" data-line-number="2"><span class="kw">library</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="more-dplyr.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb272-2"><a href="more-dplyr.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
 <p>We’re going to make changes to the <code>gapminder</code> tibble. To eliminate any fear that you’re damaging the data that comes with the package, let’s create an explicit copy of <code>gapminder</code> for our experiments. Don’t worry if you modify the gapminder package, since your changes are temporary (i.e., you can reload the gapminder to get a fresh dataset).</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1">my_gap &lt;-<span class="st"> </span>gapminder</a></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="more-dplyr.html#cb273-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="ot">&lt;-</span> gapminder</span></code></pre></div>
 <p><strong>Pay close attention</strong> when we evaluate statements but let the output just print to screen…</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1"><span class="co">## let output print to screen, but do not store</span></a>
-<a class="sourceLine" id="cb274-2" data-line-number="2">my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="more-dplyr.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="do">## let output print to screen, but do not store</span></span>
+<span id="cb274-2"><a href="more-dplyr.html#cb274-2" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 6
 ##    country continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -333,14 +365,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 Canada  Americas   2002    79.8 31902268    33329.
 ## 12 Canada  Americas   2007    80.7 33390141    36319.</code></pre>
 <p>… versus when we assign the output to a new variable, or overwritting one that already exists.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" data-line-number="1"><span class="co">## store the output as an R object</span></a>
-<a class="sourceLine" id="cb276-2" data-line-number="2">my_precious &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="more-dplyr.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="do">## store the output as an R object</span></span>
+<span id="cb276-2"><a href="more-dplyr.html#cb276-2" aria-hidden="true" tabindex="-1"></a>my_precious <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>)</span></code></pre></div>
 </div>
-<div id="use-mutate-to-add-new-variables" class="section level2">
+<div id="use-mutate-to-add-new-variables" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Use mutate() to add new variables</h2>
 <p>Imagine we wanted to recover each country’s GDP. After all, the Gapminder data has a variable for population and GDP per capita. Let’s multiply them together to get the GDP of the whole country.</p>
 <p>The <code>mutate()</code> function defines and inserts new variables into a data frame/tibble. You can refer to existing variables by name.</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1">my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">gdp =</span> pop <span class="op">*</span><span class="st"> </span>gdpPercap)</a></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="more-dplyr.html#cb277-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">gdp =</span> pop <span class="sc">*</span> gdpPercap)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 7
 ##    country     continent  year lifeExp      pop gdpPercap          gdp
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
@@ -357,8 +389,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 1,694 more rows</code></pre>
 <p>If you don’t want to add a new column to your tibble, you can use <code>transmute()</code>. It works just like <code>mutate()</code> except it only keeps the column(s) you specify.</p>
 <p>Let’s save our output in a new tibble called <code>gap_gdp</code>. Recall that saving the return of functions generally suppresses printing to the console. If you want to see the output, either type or print the variable.</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" data-line-number="1">gap_gdp &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(country, <span class="dt">gdp =</span> pop <span class="op">*</span><span class="st"> </span>gdpPercap)</a>
-<a class="sourceLine" id="cb279-2" data-line-number="2">gap_gdp  <span class="co"># or use print(gap_gdp)</span></a></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="more-dplyr.html#cb279-1" aria-hidden="true" tabindex="-1"></a>gap_gdp <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span> <span class="fu">transmute</span>(country, <span class="at">gdp =</span> pop <span class="sc">*</span> gdpPercap)</span>
+<span id="cb279-2"><a href="more-dplyr.html#cb279-2" aria-hidden="true" tabindex="-1"></a>gap_gdp  <span class="co"># or use print(gap_gdp)</span></span></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 2
 ##    country              gdp
 ##    &lt;fct&gt;              &lt;dbl&gt;
@@ -375,7 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 1,694 more rows</code></pre>
 <p>Hmmm… those GDP numbers are almost uselessly large and abstract. Consider the <a href="http://fivethirtyeight.com/datalab/xkcd-randall-munroe-qanda-what-if/">advice of Randall Munroe of xkcd</a>:</p>
 <blockquote>
-<p>One thing that bothers me is large numbers presented without context… ‘If I added a zero to this number, would the sentence containing it mean something different to me?’ If the answer is ‘no,’ maybe the number has no business being in the sentence in the first place.&quot;</p>
+<p>One thing that bothers me is large numbers presented without context… ‘If I added a zero to this number, would the sentence containing it mean something different to me?’ If the answer is ‘no,’ maybe the number has no business being in the sentence in the first place."</p>
 </blockquote>
 <p>Maybe it would be more meaningful to consumers of my tables and figures to stick with GDP per capita. But what if I reported GDP per capita, <em>relative to some benchmark country</em>. Since Canada is my home country, I’ll go with that.</p>
 <p>I need to create a new variable that is <code>gdpPercap</code> divided by Canadian <code>gdpPercap</code>, taking care that I always divide two numbers that pertain to the same year.</p>
@@ -390,18 +422,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Divide raw <code>gdpPercap</code> by this Canadian figure.</li>
 <li>Discard the temporary variable of replicated Canadian <code>gdpPercap</code>.</li>
 </ol>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1">ctib &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>)</a>
-<a class="sourceLine" id="cb281-2" data-line-number="2"><span class="co">## this is a semi-dangerous way to add this variable</span></a>
-<a class="sourceLine" id="cb281-3" data-line-number="3"><span class="co">## I&#39;d prefer to join on year, but we haven&#39;t covered joins yet</span></a>
-<a class="sourceLine" id="cb281-4" data-line-number="4">my_gap &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb281-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tmp =</span> <span class="kw">rep</span>(ctib<span class="op">$</span>gdpPercap, <span class="kw">nlevels</span>(country)),</a>
-<a class="sourceLine" id="cb281-6" data-line-number="6">         <span class="dt">gdpPercapRel =</span> gdpPercap <span class="op">/</span><span class="st"> </span>tmp,</a>
-<a class="sourceLine" id="cb281-7" data-line-number="7">         <span class="dt">tmp =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="more-dplyr.html#cb281-1" aria-hidden="true" tabindex="-1"></a>ctib <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>)</span>
+<span id="cb281-2"><a href="more-dplyr.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="do">## this is a semi-dangerous way to add this variable</span></span>
+<span id="cb281-3"><a href="more-dplyr.html#cb281-3" aria-hidden="true" tabindex="-1"></a><span class="do">## I&#39;d prefer to join on year, but we haven&#39;t covered joins yet</span></span>
+<span id="cb281-4"><a href="more-dplyr.html#cb281-4" aria-hidden="true" tabindex="-1"></a>my_gap <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb281-5"><a href="more-dplyr.html#cb281-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmp =</span> <span class="fu">rep</span>(ctib<span class="sc">$</span>gdpPercap, <span class="fu">nlevels</span>(country)),</span>
+<span id="cb281-6"><a href="more-dplyr.html#cb281-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">gdpPercapRel =</span> gdpPercap <span class="sc">/</span> tmp,</span>
+<span id="cb281-7"><a href="more-dplyr.html#cb281-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">tmp =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 <p>Note that, <code>mutate()</code> builds new variables sequentially so you can reference earlier ones (like <code>tmp</code>) when defining later ones (like <code>gdpPercapRel</code>). Also, you can get rid of a variable by setting it to <code>NULL</code>.</p>
 <p>How could we sanity check that this worked? The Canadian values for <code>gdpPercapRel</code> better all be 1!</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1">my_gap <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb282-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb282-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(country, year, gdpPercapRel)</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="more-dplyr.html#cb282-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span> </span>
+<span id="cb282-2"><a href="more-dplyr.html#cb282-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb282-3"><a href="more-dplyr.html#cb282-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, gdpPercapRel)</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 3
 ##    country  year gdpPercapRel
 ##    &lt;fct&gt;   &lt;int&gt;        &lt;dbl&gt;
@@ -418,16 +450,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 Canada   2002            1
 ## 12 Canada   2007            1</code></pre>
 <p>I perceive Canada to be a “high GDP” country, so I predict that the distribution of <code>gdpPercapRel</code> is located below 1, possibly even well below. Check your intuition!</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1"><span class="kw">summary</span>(my_gap<span class="op">$</span>gdpPercapRel)</a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="more-dplyr.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_gap<span class="sc">$</span>gdpPercapRel)</span></code></pre></div>
 <pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 ## 0.007236 0.061648 0.171521 0.326659 0.446564 9.534690</code></pre>
 <p>The relative GDP per capita numbers are, in general, well below 1. We see that most of the countries covered by this dataset have substantially lower GDP per capita, relative to Canada, across the entire time period.</p>
 <p>Remember: Trust No One. Including (especially?) yourself. Always try to find a way to check that you’ve done what meant to. Prepare to be horrified.</p>
 </div>
-<div id="use-arrange-to-row-order-data" class="section level2">
+<div id="use-arrange-to-row-order-data" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Use arrange() to row-order data</h2>
 <p>The <code>arrange()</code> function reorders rows in a data frame/tibble. Imagine you wanted this data ordered by year then country, as opposed to by country then year. Remember, to save the output, you must assign it to a variable.</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1">my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(year, country)</a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="more-dplyr.html#cb286-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(year, country)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 7
 ##    country     continent  year lifeExp      pop gdpPercap gdpPercapRel
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
@@ -443,9 +475,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Belgium     Europe     1952    68    8730405     8343.       0.734 
 ## # … with 1,694 more rows</code></pre>
 <p>Or maybe you want just the data from 2007, sorted on life expectancy?</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb288-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb288-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="more-dplyr.html#cb288-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb288-2"><a href="more-dplyr.html#cb288-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb288-3"><a href="more-dplyr.html#cb288-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(lifeExp)</span></code></pre></div>
 <pre><code>## # A tibble: 142 x 7
 ##    country                continent  year lifeExp     pop gdpPercap gdpPercapRel
 ##    &lt;fct&gt;                  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
@@ -461,9 +493,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Liberia                Africa     2007    45.7  3.19e6      415.       0.0114
 ## # … with 132 more rows</code></pre>
 <p>Oh, you’d like to sort on life expectancy in <strong>desc</strong>ending order? Then use <code>desc()</code>.</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb290-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb290-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(lifeExp))</a></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="more-dplyr.html#cb290-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb290-2"><a href="more-dplyr.html#cb290-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb290-3"><a href="more-dplyr.html#cb290-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 142 x 7
 ##    country          continent  year lifeExp       pop gdpPercap gdpPercapRel
 ##    &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
@@ -480,13 +512,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 132 more rows</code></pre>
 <p>I advise that your analyses NEVER rely on rows or variables being in a specific order. But it’s still true that human beings write the code and the interactive development process can be much nicer if you reorder the rows of your data as you go along. Also, once you are preparing tables for human eyeballs, it is imperative that you step up and take control of row order.</p>
 </div>
-<div id="use-rename-to-rename-variables" class="section level2">
+<div id="use-rename-to-rename-variables" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Use rename() to rename variables</h2>
 <p>When I started programming, I was a <a href="http://en.wikipedia.org/wiki/CamelCase">camelCase</a> person, but now I’m all about <a href="http://en.wikipedia.org/wiki/Snake_case">snake_case</a>. Let’s rename some variables!</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb292-2" data-line-number="2"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">life_exp =</span> lifeExp,</a>
-<a class="sourceLine" id="cb292-3" data-line-number="3">         <span class="dt">gdp_percap =</span> gdpPercap,</a>
-<a class="sourceLine" id="cb292-4" data-line-number="4">         <span class="dt">gdp_percap_rel =</span> gdpPercapRel)</a></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="more-dplyr.html#cb292-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb292-2"><a href="more-dplyr.html#cb292-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">life_exp =</span> lifeExp,</span>
+<span id="cb292-3"><a href="more-dplyr.html#cb292-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">gdp_percap =</span> gdpPercap,</span>
+<span id="cb292-4"><a href="more-dplyr.html#cb292-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">gdp_percap_rel =</span> gdpPercapRel)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 7
 ##    country     continent  year life_exp      pop gdp_percap gdp_percap_rel
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;    &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt;
@@ -502,17 +534,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Afghanistan Asia       1997     41.8 22227415       635.         0.0219
 ## # … with 1,694 more rows</code></pre>
 <p>I did NOT assign the post-rename object back to <code>my_gap</code> because that would make the chunks in this tutorial harder to copy/paste and run out of order. In real life, I would probably assign this back to <code>my_gap</code>, in a data preparation script, and proceed with the new variable names.</p>
-<div id="use-select-to-rename-and-reposition-variables" class="section level3">
+<div id="use-select-to-rename-and-reposition-variables" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Use select() to rename and reposition variables</h3>
 <p>You’ve seen simple uses of <code>select()</code>. There are two tricks you might enjoy:</p>
 <ol style="list-style-type: decimal">
 <li><code>select()</code> can rename the variables you request to keep.</li>
 <li><code>select()</code> can be used with <code>everything()</code> to hoist a variable up to the front of the tibble.</li>
 </ol>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb294-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Burundi&quot;</span>, year <span class="op">&gt;</span><span class="st"> </span><span class="dv">1996</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb294-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(<span class="dt">yr =</span> year, lifeExp, gdpPercap) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb294-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(gdpPercap, <span class="kw">everything</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="more-dplyr.html#cb294-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb294-2"><a href="more-dplyr.html#cb294-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Burundi&quot;</span>, year <span class="sc">&gt;</span> <span class="dv">1996</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb294-3"><a href="more-dplyr.html#cb294-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">yr =</span> year, lifeExp, gdpPercap) <span class="sc">%&gt;%</span> </span>
+<span id="cb294-4"><a href="more-dplyr.html#cb294-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gdpPercap, <span class="fu">everything</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   gdpPercap    yr lifeExp
 ##       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
@@ -522,9 +554,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>everything()</code> is one of several helpers for variable selection. Read the documentation to see the rest.</p>
 </div>
 </div>
-<div id="perform-tasks-on-subsets-with-group_by" class="section level2">
+<div id="perform-tasks-on-subsets-with-group_by" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Perform tasks on subsets with <code>group_by()</code></h2>
-<p>I have found collaborators love to ask seemingly innocuous questions like, “which country experienced the sharpest 5-year drop in life expectancy?”. In fact, that is a totally natural question to ask. But if you are using a language that doesn’t know about data, it’s an incredibly annoying question to answer.</p>
+<p>I have found collaborators love to ask seemingly innocuous questions like, “which country experienced the sharpest 5-year drop in life expectancy?” In fact, that is a totally natural question to ask. But if you are using a language that doesn’t know about data, it’s an incredibly annoying question to answer.</p>
 <p><code>dplyr</code> offers powerful tools to solve this class of problem.</p>
 <ul>
 <li><code>group_by()</code> adds extra structure to your dataset – grouping information – which lays the groundwork for computations within the groups.</li>
@@ -533,89 +565,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You can also do very general computations on your groups with <code>do()</code>.</li>
 </ul>
 <p>Combined with the verbs you already know, these new tools allow you to solve an extremely diverse set of problems with relative ease.</p>
-<div id="counting" class="section level3">
+<div id="counting" class="section level3" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Counting</h3>
 <p>Let’s start with simple counting. How many observations do we have per continent? The <code>n()</code> function counts the number of observations in a particular group.</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb296-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb296-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="more-dplyr.html#cb296-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb296-2"><a href="more-dplyr.html#cb296-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb296-3"><a href="more-dplyr.html#cb296-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   continent     n
-##   &lt;fct&gt;     &lt;int&gt;
+## * &lt;fct&gt;     &lt;int&gt;
 ## 1 Africa      624
 ## 2 Americas    300
 ## 3 Asia        396
 ## 4 Europe      360
 ## 5 Oceania      24</code></pre>
 <p>Let us pause here to think about the <code>tidyverse</code>. You could get these same frequencies using <code>table()</code> from base R.</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">table</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="more-dplyr.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(gapminder<span class="sc">$</span>continent)</span></code></pre></div>
 <pre><code>## 
 ##   Africa Americas     Asia   Europe  Oceania 
 ##      624      300      396      360       24</code></pre>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">str</span>(<span class="kw">table</span>(gapminder<span class="op">$</span>continent))</a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="more-dplyr.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">table</span>(gapminder<span class="sc">$</span>continent))</span></code></pre></div>
 <pre><code>##  &#39;table&#39; int [1:5(1d)] 624 300 396 360 24
 ##  - attr(*, &quot;dimnames&quot;)=List of 1
 ##   ..$ : chr [1:5] &quot;Africa&quot; &quot;Americas&quot; &quot;Asia&quot; &quot;Europe&quot; ...</code></pre>
 <p>But the object of class <code>table</code> that is returned makes downstream computation a bit fiddlier than we would like. For example, it’s too bad the continent levels come back only as <em>names</em> and not as a proper factor, with the original set of levels.</p>
 <p>The <code>tally()</code> function is a convenient function that counts rows.</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb303-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb303-3" data-line-number="3"><span class="st">  </span><span class="kw">tally</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="more-dplyr.html#cb302-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb302-2"><a href="more-dplyr.html#cb302-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb302-3"><a href="more-dplyr.html#cb302-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   continent     n
-##   &lt;fct&gt;     &lt;int&gt;
+## * &lt;fct&gt;     &lt;int&gt;
 ## 1 Africa      624
 ## 2 Americas    300
 ## 3 Asia        396
 ## 4 Europe      360
 ## 5 Oceania      24</code></pre>
 <p>The <code>count()</code> function is an even more convenient function that does both grouping and counting.</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(continent)</a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="more-dplyr.html#cb304-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span> <span class="fu">count</span>(continent)</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   continent     n
-##   &lt;fct&gt;     &lt;int&gt;
+## * &lt;fct&gt;     &lt;int&gt;
 ## 1 Africa      624
 ## 2 Americas    300
 ## 3 Asia        396
 ## 4 Europe      360
 ## 5 Oceania      24</code></pre>
 <p>What if we wanted to add the number of unique countries for each continent? You can compute multiple summaries inside <code>summarize()</code>. Use the <code>n_distinct()</code> function to count the number of distinct countries within each continent.</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb307-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb307-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
-<a class="sourceLine" id="cb307-4" data-line-number="4">            <span class="dt">n_countries =</span> <span class="kw">n_distinct</span>(country))</a></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="more-dplyr.html#cb306-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb306-2"><a href="more-dplyr.html#cb306-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb306-3"><a href="more-dplyr.html#cb306-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb306-4"><a href="more-dplyr.html#cb306-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_countries =</span> <span class="fu">n_distinct</span>(country))</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 3
 ##   continent     n n_countries
-##   &lt;fct&gt;     &lt;int&gt;       &lt;int&gt;
+## * &lt;fct&gt;     &lt;int&gt;       &lt;int&gt;
 ## 1 Africa      624          52
 ## 2 Americas    300          25
 ## 3 Asia        396          33
 ## 4 Europe      360          30
 ## 5 Oceania      24           2</code></pre>
 </div>
-<div id="general-summarization" class="section level3">
+<div id="general-summarization" class="section level3" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> General summarization</h3>
 <p>The functions you’ll apply within <code>summarize()</code> include classical statistical summaries, like <code>mean()</code>, <code>median()</code>, <code>var()</code>, <code>sd()</code>, <code>mad()</code>, <code>IQR()</code>, <code>min()</code>, and <code>max()</code>. Remember they are functions that take <span class="math inline">\(n\)</span> inputs and distill them down into 1 output.</p>
 <p>Although this may be statistically ill-advised, let’s compute the average life expectancy by continent.</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb310-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb310-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">avg_lifeExp =</span> <span class="kw">mean</span>(lifeExp))</a></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="more-dplyr.html#cb308-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb308-2"><a href="more-dplyr.html#cb308-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb308-3"><a href="more-dplyr.html#cb308-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   continent avg_lifeExp
-##   &lt;fct&gt;           &lt;dbl&gt;
+## * &lt;fct&gt;           &lt;dbl&gt;
 ## 1 Africa           48.9
 ## 2 Americas         64.7
 ## 3 Asia             60.1
 ## 4 Europe           71.9
 ## 5 Oceania          74.3</code></pre>
 <p><code>summarize_at()</code> applies the same summary function(s) to multiple variables. Let’s compute average and median life expectancy and GDP per capita by continent by year … but only for 1952 and 2007.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1952</span>, <span class="dv">2007</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb313-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb313-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize_at</span>(<span class="kw">vars</span>(lifeExp, gdpPercap), <span class="kw">funs</span>(mean, median))</a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="more-dplyr.html#cb310-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb310-2"><a href="more-dplyr.html#cb310-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1952</span>, <span class="dv">2007</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb310-3"><a href="more-dplyr.html#cb310-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent, year) <span class="sc">%&gt;%</span></span>
+<span id="cb310-4"><a href="more-dplyr.html#cb310-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize_at</span>(<span class="fu">vars</span>(lifeExp, gdpPercap), <span class="fu">funs</span>(mean, median))</span></code></pre></div>
 <pre><code>## # A tibble: 10 x 6
 ## # Groups:   continent [5]
 ##    continent  year lifeExp_mean gdpPercap_mean lifeExp_median gdpPercap_median
@@ -631,14 +660,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Oceania    1952         69.3         10298.           69.3           10298.
 ## 10 Oceania    2007         80.7         29810.           80.7           29810.</code></pre>
 <p>Let’s focus just on Asia. What are the minimum and maximum life expectancies seen by year?</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb315-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb315-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb315-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">min_lifeExp =</span> <span class="kw">min</span>(lifeExp), <span class="dt">max_lifeExp =</span> <span class="kw">max</span>(lifeExp))</a></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="more-dplyr.html#cb312-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb312-2"><a href="more-dplyr.html#cb312-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Asia&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb312-3"><a href="more-dplyr.html#cb312-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb312-4"><a href="more-dplyr.html#cb312-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">min_lifeExp =</span> <span class="fu">min</span>(lifeExp), <span class="at">max_lifeExp =</span> <span class="fu">max</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 3
 ##     year min_lifeExp max_lifeExp
-##    &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  * &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;
 ##  1  1952        28.8        65.4
 ##  2  1957        30.3        67.8
 ##  3  1962        32.0        69.4
@@ -653,16 +681,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 12  2007        43.8        82.6</code></pre>
 <p>Of course it would be much more interesting to see <em>which</em> country contributed these extreme observations. Is the minimum (maximum) always coming from the same country?We will tackle this with window functions shortly.</p>
 </div>
-<div id="computing-with-group-wise-summaries" class="section level3">
+<div id="computing-with-group-wise-summaries" class="section level3" number="5.5.3">
 <h3><span class="header-section-number">5.5.3</span> Computing with group-wise summaries</h3>
 <p>Don’t worry too much about this section if all the data wrangling is starting to become overwhelming – it’s mainly here for the curious.</p>
 <p>Let’s make a new variable that is the years of life expectancy gained (lost) relative to 1952, for each individual country. We group by country and use <code>mutate()</code> to make a new variable. The <code>first()</code> function extracts the first value from a vector. Notice that <code>first()</code> is operating on the vector of life expectancies <em>within each country group</em>.</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1">new_var &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb318-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(country) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb318-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb318-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lifeExp_gain =</span> lifeExp <span class="op">-</span><span class="st"> </span><span class="kw">first</span>(lifeExp)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb318-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">1963</span>)</a>
-<a class="sourceLine" id="cb318-6" data-line-number="6">new_var</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="more-dplyr.html#cb314-1" aria-hidden="true" tabindex="-1"></a>new_var <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb314-2"><a href="more-dplyr.html#cb314-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb314-3"><a href="more-dplyr.html#cb314-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, lifeExp) <span class="sc">%&gt;%</span> </span>
+<span id="cb314-4"><a href="more-dplyr.html#cb314-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lifeExp_gain =</span> lifeExp <span class="sc">-</span> <span class="fu">first</span>(lifeExp)) <span class="sc">%&gt;%</span> </span>
+<span id="cb314-5"><a href="more-dplyr.html#cb314-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;</span> <span class="dv">1963</span>)</span>
+<span id="cb314-6"><a href="more-dplyr.html#cb314-6" aria-hidden="true" tabindex="-1"></a>new_var</span></code></pre></div>
 <pre><code>## # A tibble: 426 x 4
 ## # Groups:   country [142]
 ##    country      year lifeExp lifeExp_gain
@@ -680,16 +708,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 416 more rows</code></pre>
 <p>Within country, we take the difference between life expectancy in year <span class="math inline">\(i\)</span> and life expectancy in 1952. Therefore we always see zeroes for 1952 and, for most countries, a sequence of positive and increasing numbers.</p>
 </div>
-<div id="window-functions-optional" class="section level3">
+<div id="window-functions-optional" class="section level3" number="5.5.4">
 <h3><span class="header-section-number">5.5.4</span> Window functions (OPTIONAL)</h3>
 <p>Window functions take <span class="math inline">\(n\)</span> inputs and give back <span class="math inline">\(n\)</span> outputs. Furthermore, the output depends on all the values. So <code>rank()</code> is a window function but <code>sum()</code> is not. Here we use window functions based on ranks and offsets.</p>
 <p>Let’s revisit the worst and best life expectancies in Asia over time, but retaining info about <em>which</em> country contributes these extreme values.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb320-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb320-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(year, country, lifeExp) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb320-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb320-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">min_rank</span>(<span class="kw">desc</span>(lifeExp)) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span><span class="kw">min_rank</span>(lifeExp) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb320-6" data-line-number="6"><span class="st">  </span><span class="kw">arrange</span>(year)</a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="more-dplyr.html#cb316-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb316-2"><a href="more-dplyr.html#cb316-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Asia&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb316-3"><a href="more-dplyr.html#cb316-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, country, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb316-4"><a href="more-dplyr.html#cb316-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb316-5"><a href="more-dplyr.html#cb316-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">min_rank</span>(<span class="fu">desc</span>(lifeExp)) <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="fu">min_rank</span>(lifeExp) <span class="sc">&lt;</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb316-6"><a href="more-dplyr.html#cb316-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year)</span></code></pre></div>
 <pre><code>## # A tibble: 24 x 3
 ## # Groups:   year [12]
 ##     year country     lifeExp
@@ -707,11 +735,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 14 more rows</code></pre>
 <p>We see that (min = Afghanistan, max = Japan) is the most frequent result, but Cambodia and Israel pop up at least once each as the min or max, respectively. That table should make you impatient for our upcoming work on tidying and reshaping data! Wouldn’t it be nice to have one row per year?</p>
 <p>How did that actually work? First, I store and view a partial that leaves off the <code>filter()</code> statement. All of these operations should be familiar.</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1">asia &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb322-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb322-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(year, country, lifeExp) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb322-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(year)</a>
-<a class="sourceLine" id="cb322-5" data-line-number="5">asia</a></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="more-dplyr.html#cb318-1" aria-hidden="true" tabindex="-1"></a>asia <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb318-2"><a href="more-dplyr.html#cb318-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Asia&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb318-3"><a href="more-dplyr.html#cb318-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, country, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb318-4"><a href="more-dplyr.html#cb318-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)</span>
+<span id="cb318-5"><a href="more-dplyr.html#cb318-5" aria-hidden="true" tabindex="-1"></a>asia</span></code></pre></div>
 <pre><code>## # A tibble: 396 x 3
 ## # Groups:   year [12]
 ##     year country     lifeExp
@@ -729,16 +757,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 386 more rows</code></pre>
 <p>Now we apply a window function: <code>min_rank()</code>. Since <code>asia</code> is grouped by year, <code>min_rank()</code> operates within mini-datasets, each for a specific year. Applied to the variable <code>lifeExp</code>, <code>min_rank()</code> returns the rank of each country’s observed life expectancy.</p>
 <p>FYI, the <code>min</code> part just specifies how ties are broken. Here is an explicit peek at these within-year life expectancy ranks, in both the (default) ascending and descending order. If you specify <code>rank()</code>, ties will be denoted by .5. For instance:</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb324-2" data-line-number="2"><span class="kw">min_rank</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="more-dplyr.html#cb320-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb320-2"><a href="more-dplyr.html#cb320-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min_rank</span>(x)</span></code></pre></div>
 <pre><code>## [1] 1 2 3 3 5</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1"><span class="kw">rank</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="more-dplyr.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rank</span>(x)</span></code></pre></div>
 <pre><code>## [1] 1.0 2.0 3.5 3.5 5.0</code></pre>
 <p>For concreteness, I use <code>mutate()</code> to actually create these variables, even though I dropped this in the solution above. Let’s look at a bit of that.</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1">asia <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb328-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">le_rank =</span> <span class="kw">min_rank</span>(lifeExp),</a>
-<a class="sourceLine" id="cb328-3" data-line-number="3">         <span class="dt">le_desc_rank =</span> <span class="kw">min_rank</span>(<span class="kw">desc</span>(lifeExp))) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb328-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Afghanistan&quot;</span>, <span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;Thailand&quot;</span>), year <span class="op">&gt;</span><span class="st"> </span><span class="dv">1995</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="more-dplyr.html#cb324-1" aria-hidden="true" tabindex="-1"></a>asia <span class="sc">%&gt;%</span></span>
+<span id="cb324-2"><a href="more-dplyr.html#cb324-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">le_rank =</span> <span class="fu">min_rank</span>(lifeExp),</span>
+<span id="cb324-3"><a href="more-dplyr.html#cb324-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">le_desc_rank =</span> <span class="fu">min_rank</span>(<span class="fu">desc</span>(lifeExp))) <span class="sc">%&gt;%</span> </span>
+<span id="cb324-4"><a href="more-dplyr.html#cb324-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Afghanistan&quot;</span>, <span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;Thailand&quot;</span>), year <span class="sc">&gt;</span> <span class="dv">1995</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 5
 ## # Groups:   year [3]
 ##    year country     lifeExp le_rank le_desc_rank
@@ -754,16 +782,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 9  2007 Thailand       70.6      12           22</code></pre>
 <p>Afghanistan tends to present 1’s in the <code>le_rank</code> variable, Japan tends to present 1’s in the <code>le_desc_rank</code> variable and other countries, like Thailand, present less extreme ranks.</p>
 <p>You can understand the original <code>filter()</code> statement now:</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1"><span class="kw">filter</span>(<span class="kw">min_rank</span>(<span class="kw">desc</span>(lifeExp)) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span> <span class="op">|</span><span class="st"> </span><span class="kw">min_rank</span>(lifeExp) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="more-dplyr.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="fu">min_rank</span>(<span class="fu">desc</span>(lifeExp)) <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="fu">min_rank</span>(lifeExp) <span class="sc">&lt;</span> <span class="dv">2</span>)</span></code></pre></div>
 <p>These two sets of ranks are formed on-the-fly, within year group, and <code>filter()</code> retains rows with rank less than 2, which means … the row with rank = 1. Since we do for ascending and descending ranks, we get both the min and the max.</p>
 <p>If we had wanted just the min OR the max, an alternative approach using <code>top_n()</code> would have worked.</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb331-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb331-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(year, country, lifeExp) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb331-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb331-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb331-6" data-line-number="6"><span class="st">  </span><span class="co">#top_n(1, wt = lifeExp)       ## gets the max</span></a>
-<a class="sourceLine" id="cb331-7" data-line-number="7"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">1</span>, <span class="dt">wt =</span> <span class="kw">desc</span>(lifeExp))  <span class="co">## gets the min</span></a></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="more-dplyr.html#cb327-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb327-2"><a href="more-dplyr.html#cb327-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Asia&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb327-3"><a href="more-dplyr.html#cb327-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, country, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb327-4"><a href="more-dplyr.html#cb327-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb327-5"><a href="more-dplyr.html#cb327-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb327-6"><a href="more-dplyr.html#cb327-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#top_n(1, wt = lifeExp)       ## gets the max</span></span>
+<span id="cb327-7"><a href="more-dplyr.html#cb327-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">1</span>, <span class="at">wt =</span> <span class="fu">desc</span>(lifeExp))  <span class="do">## gets the min</span></span></code></pre></div>
 <pre><code>## # A tibble: 12 x 3
 ## # Groups:   year [12]
 ##     year country     lifeExp
@@ -782,52 +810,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 12  2007 Afghanistan    43.8</code></pre>
 </div>
 </div>
-<div id="introduction-to-visualization-optional" class="section level2">
+<div id="introduction-to-visualization-optional" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Introduction to visualization (OPTIONAL)</h2>
 <p>Although we will get into more serious plotting in future chapters, I want to give you a taste of the excitement to come.</p>
 <p>Here, we will get sampling of the almighty <code>ggplot2</code> package. Let’s look at a few basic examples.</p>
 <p>If you want to compare continuous data with a few categories, either a bar plot or box plot would be a good bet. Let’s look at the 1952 gapminder data.</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1">dat<span class="fl">.1952</span> &lt;-<span class="st"> </span>my_gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</a>
-<a class="sourceLine" id="cb333-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.1952</span>, <span class="kw">aes</span>(<span class="dt">x=</span>continent, <span class="dt">y=</span>lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb333-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">stackdir =</span> <span class="st">&quot;center&quot;</span>, <span class="dt">dotsize =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb333-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="more-dplyr.html#cb329-1" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.1952</span> <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>)</span>
+<span id="cb329-2"><a href="more-dplyr.html#cb329-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x=</span>continent, <span class="at">y=</span>lifeExp)) <span class="sc">+</span></span>
+<span id="cb329-3"><a href="more-dplyr.html#cb329-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">&quot;y&quot;</span>, <span class="at">stackdir =</span> <span class="st">&quot;center&quot;</span>, <span class="at">dotsize =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb329-4"><a href="more-dplyr.html#cb329-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.3</span>)</span></code></pre></div>
 <pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 <p>Look at this figure, what would you comment on the mean and variance of the data? Have you identified any outliers?</p>
 <p>Now suppose we had no idea about what our data looks like, but we want to check the relationship between 2 continuous variables. A great place to start would be a scatter plot:</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.1952</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb335-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="more-dplyr.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb331-2"><a href="more-dplyr.html#cb331-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
 <p>The scatter plot shows an upwards relationship—we will quantify this correlation in a future chapter.</p>
 <p>To make <code>gdpPercap</code> look more like a straight line, we can plot it in a base 10 log scale using the function <code>scale_x_log10()</code>. While we’re at it, let’s also add colours to label different continents.</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.1952</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb336-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> continent)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb336-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="more-dplyr.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb332-2"><a href="more-dplyr.html#cb332-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb332-3"><a href="more-dplyr.html#cb332-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
 <p>We can also remove the grey background by setting the theme:</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> dat<span class="fl">.1952</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb337-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> continent)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb337-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb337-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="more-dplyr.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb333-2"><a href="more-dplyr.html#cb333-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb333-3"><a href="more-dplyr.html#cb333-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb333-4"><a href="more-dplyr.html#cb333-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
 <p>Don’t worry too much about figures right now. We will cover data visualization in much more depth in future lessons.</p>
 </div>
-<div id="comprehensive-practice" class="section level2">
+<div id="comprehensive-practice" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Comprehensive practice</h2>
 <p>So let’s answer a “simple” question: which country experienced the sharpest 5-year drop in life expectancy (<code>le</code>)? Recall that this excerpt of the gapminder data only has data every five years, e.g. for 1952, 1957, etc. So this really means looking at life expectancy changes between adjacent timepoints.</p>
 <p>At this point, the question is just too easy to answer, so find life expectancy by continent while we’re at it.</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1">my_gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb338-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, year, continent, lifeExp) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb338-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent, country) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb338-4" data-line-number="4"><span class="st">  </span><span class="co"># within country, take (lifeExp in year i) - (lifeExp in year i - 1)</span></a>
-<a class="sourceLine" id="cb338-5" data-line-number="5"><span class="st">  </span><span class="co"># positive means lifeExp went up, negative means it went down</span></a>
-<a class="sourceLine" id="cb338-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">le_delta =</span> lifeExp <span class="op">-</span><span class="st"> </span><span class="kw">lag</span>(lifeExp)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb338-7" data-line-number="7"><span class="st">  </span><span class="co"># within country, retain the worst lifeExp change = smallest or most negative</span></a>
-<a class="sourceLine" id="cb338-8" data-line-number="8"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">worst_le_delta =</span> <span class="kw">min</span>(le_delta, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb338-9" data-line-number="9"><span class="st">  </span><span class="co"># within continent, retain the row with the lowest worst_le_delta</span></a>
-<a class="sourceLine" id="cb338-10" data-line-number="10"><span class="st">  </span><span class="kw">top_n</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dt">wt =</span> worst_le_delta) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb338-11" data-line-number="11"><span class="st">  </span><span class="kw">arrange</span>(worst_le_delta)</a></code></pre></div>
-<pre><code>## `summarise()` regrouping output by &#39;continent&#39; (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="more-dplyr.html#cb334-1" aria-hidden="true" tabindex="-1"></a>my_gap <span class="sc">%&gt;%</span></span>
+<span id="cb334-2"><a href="more-dplyr.html#cb334-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, continent, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb334-3"><a href="more-dplyr.html#cb334-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent, country) <span class="sc">%&gt;%</span></span>
+<span id="cb334-4"><a href="more-dplyr.html#cb334-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># within country, take (lifeExp in year i) - (lifeExp in year i - 1)</span></span>
+<span id="cb334-5"><a href="more-dplyr.html#cb334-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># positive means lifeExp went up, negative means it went down</span></span>
+<span id="cb334-6"><a href="more-dplyr.html#cb334-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">le_delta =</span> lifeExp <span class="sc">-</span> <span class="fu">lag</span>(lifeExp)) <span class="sc">%&gt;%</span> </span>
+<span id="cb334-7"><a href="more-dplyr.html#cb334-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># within country, retain the worst lifeExp change = smallest or most negative</span></span>
+<span id="cb334-8"><a href="more-dplyr.html#cb334-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">worst_le_delta =</span> <span class="fu">min</span>(le_delta, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb334-9"><a href="more-dplyr.html#cb334-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># within continent, retain the row with the lowest worst_le_delta</span></span>
+<span id="cb334-10"><a href="more-dplyr.html#cb334-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="at">wt =</span> worst_le_delta) <span class="sc">%&gt;%</span> </span>
+<span id="cb334-11"><a href="more-dplyr.html#cb334-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(worst_le_delta)</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;continent&#39;. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 5 x 3
 ## # Groups:   continent [5]
 ##   continent country     worst_le_delta
@@ -838,9 +866,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Europe    Montenegro          -1.46 
 ## 5 Oceania   Australia            0.170</code></pre>
 <p>Now this data is interesting. Take a look at the life expectancy in Rwanda in 1987 and in 1992.</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1">gapminder <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb341-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb341-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1987</span> <span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> </span><span class="dv">1992</span>, country <span class="op">==</span><span class="st"> &#39;Rwanda&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="more-dplyr.html#cb337-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb337-2"><a href="more-dplyr.html#cb337-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb337-3"><a href="more-dplyr.html#cb337-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1987</span> <span class="sc">|</span> year <span class="sc">==</span> <span class="dv">1992</span>, country <span class="sc">==</span> <span class="st">&#39;Rwanda&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 3
 ##   country  year lifeExp
 ##   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;
@@ -848,7 +876,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 Rwanda   1992    23.6</code></pre>
 <p>Ponder the real-life implications of this output for a while. What you’re seeing here is genocide in dry statistics on average life expectancy.</p>
 </div>
-<div id="data-wrangling-summary" class="section level2">
+<div id="data-wrangling-summary" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> Data wrangling summary</h2>
 <p>Wow, we covered <em>a lot</em> of data wrangling! Don’t wory if you don’t understand everything the first time around. Programming takes practice, and practice makes perfect. Here are some general remarks:</p>
 <ol style="list-style-type: decimal">

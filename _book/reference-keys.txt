@@ -55,8 +55,10 @@ introduction-to-visualization-optional
 comprehensive-practice
 data-wrangling-summary
 central-limit-theorem
-central-limit-theorem-for-means
-central-limit-theorem-for-probability
+clt-for-means
+clt-part-1
+clt-part-2
+clt-for-proportions
 basic-statistical-tests
 getting-ready
 students-t-test
@@ -97,10 +99,3 @@ extras-optional
 choropleth
 animations
 additional-resources-1
-central-limit-theorem-for-proportions
-clt-for-means
-clt-for-proportions
-part-1
-part-2
-clt-part-1
-clt-part-2

@@ -33,6 +33,7 @@
   
 <link rel="prev" href="basics-of-r-part-2.html"/>
 <link rel="next" href="more-dplyr.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,25 +56,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,32 +135,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="assets/youreka-logo.png" ></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-textbook"><i class="fa fa-check"></i>How to use this textbook</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i>Contributors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#credit"><i class="fa fa-check"></i>Credit</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="part"><span><b>I Prerequisites</b></span></li>
-<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Install R and RStudio</a><ul>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Install R and RStudio</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
 <li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing RStudio</a></li>
 <li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#add-on-packages"><i class="fa fa-check"></i><b>1.3</b> Add-on packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html"><i class="fa fa-check"></i><b>2</b> Basics of R (Part 1)</a><ul>
+<li class="chapter" data-level="2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html"><i class="fa fa-check"></i><b>2</b> Basics of R (Part 1)</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
 <li class="chapter" data-level="2.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#function-basics"><i class="fa fa-check"></i><b>2.2</b> Function Basics</a></li>
 <li class="chapter" data-level="2.3" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#basic-math-operators"><i class="fa fa-check"></i><b>2.3</b> Basic math operators</a></li>
-<li class="chapter" data-level="2.4" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a><ul>
+<li class="chapter" data-level="2.4" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#if-statements"><i class="fa fa-check"></i><b>2.4.1</b> If statements</a></li>
 <li class="chapter" data-level="2.4.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#multiple-ifs-vs-else-if"><i class="fa fa-check"></i><b>2.4.2</b> Multiple “if”s vs “else if”</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a><ul>
+<li class="chapter" data-level="2.5" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#other-important-things"><i class="fa fa-check"></i><b>2.5.1</b> Other important things</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html"><i class="fa fa-check"></i><b>3</b> Basics of R (Part 2)</a><ul>
-<li class="chapter" data-level="3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a><ul>
+<li class="chapter" data-level="3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html"><i class="fa fa-check"></i><b>3</b> Basics of R (Part 2)</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#vectors"><i class="fa fa-check"></i><b>3.1.1</b> Vectors</a></li>
 <li class="chapter" data-level="3.1.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#missing-values"><i class="fa fa-check"></i><b>3.1.2</b> Missing values</a></li>
 <li class="chapter" data-level="3.1.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-frames"><i class="fa fa-check"></i><b>3.1.3</b> Data frames</a></li>
@@ -166,11 +175,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.5" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#factors"><i class="fa fa-check"></i><b>3.1.5</b> Factors</a></li>
 <li class="chapter" data-level="3.1.6" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#lists"><i class="fa fa-check"></i><b>3.1.6</b> Lists</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a><ul>
+<li class="chapter" data-level="3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#looping-over-multiple-files"><i class="fa fa-check"></i><b>3.2.1</b> Looping over multiple files</a></li>
 <li class="chapter" data-level="3.2.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-loops-optional"><i class="fa fa-check"></i><b>3.2.2</b> Nested loops (OPTIONAL)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a><ul>
+<li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#conditionals-within-functions"><i class="fa fa-check"></i><b>3.3.1</b> Conditionals within functions</a></li>
 <li class="chapter" data-level="3.3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-conditionals"><i class="fa fa-check"></i><b>3.3.2</b> Nested conditionals</a></li>
 <li class="chapter" data-level="3.3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#function-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Function arguments</a></li>
@@ -178,14 +189,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Data Wrangling</b></span></li>
-<li class="chapter" data-level="4" data-path="more-data-frames.html"><a href="more-data-frames.html"><i class="fa fa-check"></i><b>4</b> More data frames</a><ul>
+<li class="chapter" data-level="4" data-path="more-data-frames.html"><a href="more-data-frames.html"><i class="fa fa-check"></i><b>4</b> More data frames</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="more-data-frames.html"><a href="more-data-frames.html#get-the-gapminder-data"><i class="fa fa-check"></i><b>4.1</b> Get the gapminder data</a></li>
-<li class="chapter" data-level="4.2" data-path="more-data-frames.html"><a href="more-data-frames.html#explore-gapminder"><i class="fa fa-check"></i><b>4.2</b> Explore gapminder</a><ul>
+<li class="chapter" data-level="4.2" data-path="more-data-frames.html"><a href="more-data-frames.html#explore-gapminder"><i class="fa fa-check"></i><b>4.2</b> Explore gapminder</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="more-data-frames.html"><a href="more-data-frames.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>4.2.1</b> Importing and exporting data</a></li>
 <li class="chapter" data-level="4.2.2" data-path="more-data-frames.html"><a href="more-data-frames.html#exploring-variables-in-a-data-frame"><i class="fa fa-check"></i><b>4.2.2</b> Exploring variables in a data frame</a></li>
 <li class="chapter" data-level="4.2.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frame-summary"><i class="fa fa-check"></i><b>4.2.3</b> Data frame summary</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frames-with-dplyr"><i class="fa fa-check"></i><b>4.3</b> Data frames with dplyr</a><ul>
+<li class="chapter" data-level="4.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frames-with-dplyr"><i class="fa fa-check"></i><b>4.3</b> Data frames with dplyr</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="more-data-frames.html"><a href="more-data-frames.html#subsetting-data"><i class="fa fa-check"></i><b>4.3.1</b> Subsetting data</a></li>
 <li class="chapter" data-level="4.3.2" data-path="more-data-frames.html"><a href="more-data-frames.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>4.3.2</b> Filter rows with <code>filter()</code></a></li>
 <li class="chapter" data-level="4.3.3" data-path="more-data-frames.html"><a href="more-data-frames.html#pipe-operator"><i class="fa fa-check"></i><b>4.3.3</b> Pipe operator <code>%&gt;%</code></a></li>
@@ -194,14 +208,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="more-data-frames.html"><a href="more-data-frames.html#additional-resources"><i class="fa fa-check"></i><b>4.3.6</b> Additional resources</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a><ul>
+<li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>5.1</b> Review and preparation</a></li>
 <li class="chapter" data-level="5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>5.2</b> Use mutate() to add new variables</a></li>
 <li class="chapter" data-level="5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>5.3</b> Use arrange() to row-order data</a></li>
-<li class="chapter" data-level="5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>5.4</b> Use rename() to rename variables</a><ul>
+<li class="chapter" data-level="5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>5.4</b> Use rename() to rename variables</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#use-select-to-rename-and-reposition-variables"><i class="fa fa-check"></i><b>5.4.1</b> Use select() to rename and reposition variables</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>5.5</b> Perform tasks on subsets with <code>group_by()</code></a><ul>
+<li class="chapter" data-level="5.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>5.5</b> Perform tasks on subsets with <code>group_by()</code></a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#counting"><i class="fa fa-check"></i><b>5.5.1</b> Counting</a></li>
 <li class="chapter" data-level="5.5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#general-summarization"><i class="fa fa-check"></i><b>5.5.2</b> General summarization</a></li>
 <li class="chapter" data-level="5.5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#computing-with-group-wise-summaries"><i class="fa fa-check"></i><b>5.5.3</b> Computing with group-wise summaries</a></li>
@@ -212,14 +229,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="more-dplyr.html"><a href="more-dplyr.html#data-wrangling-summary"><i class="fa fa-check"></i><b>5.8</b> Data wrangling summary</a></li>
 </ul></li>
 <li class="part"><span><b>III Statistics</b></span></li>
-<li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a><ul>
-<li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>6.1</b> Central limit theorem for means</a></li>
-<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability</a></li>
+<li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-for-means"><i class="fa fa-check"></i><b>6.1</b> CLT for means</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-part-1"><i class="fa fa-check"></i><b>6.1.1</b> CLT Part 1</a></li>
+<li class="chapter" data-level="6.1.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-part-2"><i class="fa fa-check"></i><b>6.1.2</b> CLT Part 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a><ul>
+<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-for-proportions"><i class="fa fa-check"></i><b>6.2</b> CLT for proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#getting-ready"><i class="fa fa-check"></i><b>7.1</b> Getting ready</a></li>
 <li class="chapter" data-level="7.2" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#students-t-test"><i class="fa fa-check"></i><b>7.2</b> Student’s t-test</a></li>
-<li class="chapter" data-level="7.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi-squared-test"><i class="fa fa-check"></i><b>7.3</b> Chi-squared test</a><ul>
+<li class="chapter" data-level="7.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi-squared-test"><i class="fa fa-check"></i><b>7.3</b> Chi-squared test</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-goodness-of-fit"><i class="fa fa-check"></i><b>7.3.1</b> <span class="math inline">\(\chi^2\)</span> test for goodness-of-fit</a></li>
 <li class="chapter" data-level="7.3.2" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-independence"><i class="fa fa-check"></i><b>7.3.2</b> <span class="math inline">\(\chi^2\)</span> test for independence</a></li>
 <li class="chapter" data-level="7.3.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-homogeneity"><i class="fa fa-check"></i><b>7.3.3</b> <span class="math inline">\(\chi^2\)</span> test for homogeneity</a></li>
@@ -229,39 +253,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#visualizing-data-distributions-optional"><i class="fa fa-check"></i><b>7.4</b> Visualizing data distributions (OPTIONAL)</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html"><i class="fa fa-check"></i><b>8</b> Comparing multiple means</a><ul>
+<li class="chapter" data-level="8" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html"><i class="fa fa-check"></i><b>8</b> Comparing multiple means</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#loading-packages"><i class="fa fa-check"></i><b>8.1</b> Loading packages</a></li>
 <li class="chapter" data-level="8.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#merging-datasets"><i class="fa fa-check"></i><b>8.2</b> Merging datasets</a></li>
-<li class="chapter" data-level="8.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#one-way-anova"><i class="fa fa-check"></i><b>8.3</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="8.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#one-way-anova"><i class="fa fa-check"></i><b>8.3</b> One-way ANOVA</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#the-iris-dataset"><i class="fa fa-check"></i><b>8.3.1</b> The iris dataset</a></li>
 <li class="chapter" data-level="8.3.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#non-parametric-alternatives-to-anova"><i class="fa fa-check"></i><b>8.3.2</b> Non-parametric alternatives to ANOVA</a></li>
 <li class="chapter" data-level="8.3.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#two-way-anova"><i class="fa fa-check"></i><b>8.3.3</b> Two-way ANOVA</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#linear-regression"><i class="fa fa-check"></i><b>8.4</b> Linear regression</a><ul>
+<li class="chapter" data-level="8.4" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#linear-regression"><i class="fa fa-check"></i><b>8.4</b> Linear regression</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#basic-concepts"><i class="fa fa-check"></i><b>8.4.1</b> Basic concepts</a></li>
 <li class="chapter" data-level="8.4.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#pearson-correlation"><i class="fa fa-check"></i><b>8.4.2</b> Pearson correlation</a></li>
 <li class="chapter" data-level="8.4.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#spearman-correlation"><i class="fa fa-check"></i><b>8.4.3</b> Spearman correlation</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Data Visualization</b></span></li>
-<li class="chapter" data-level="9" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html"><i class="fa fa-check"></i><b>9</b> Data visualization basics</a><ul>
+<li class="chapter" data-level="9" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html"><i class="fa fa-check"></i><b>9</b> Data visualization basics</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#a-graphing-template"><i class="fa fa-check"></i><b>9.1</b> A graphing template</a></li>
-<li class="chapter" data-level="9.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#scatter-plot"><i class="fa fa-check"></i><b>9.2</b> Scatter plot</a><ul>
+<li class="chapter" data-level="9.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#scatter-plot"><i class="fa fa-check"></i><b>9.2</b> Scatter plot</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#trend-lines"><i class="fa fa-check"></i><b>9.2.1</b> Trend lines</a></li>
 <li class="chapter" data-level="9.2.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#facets"><i class="fa fa-check"></i><b>9.2.2</b> Facets</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#aesthetic-mappings"><i class="fa fa-check"></i><b>9.3</b> Aesthetic mappings</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html"><i class="fa fa-check"></i><b>10</b> Getting publication-ready</a><ul>
+<li class="chapter" data-level="10" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html"><i class="fa fa-check"></i><b>10</b> Getting publication-ready</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#line-plot"><i class="fa fa-check"></i><b>10.1</b> Line plot</a></li>
-<li class="chapter" data-level="10.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#bar-plot"><i class="fa fa-check"></i><b>10.2</b> Bar plot</a><ul>
+<li class="chapter" data-level="10.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#bar-plot"><i class="fa fa-check"></i><b>10.2</b> Bar plot</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#basics"><i class="fa fa-check"></i><b>10.2.1</b> Basics</a></li>
 <li class="chapter" data-level="10.2.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#plotting-significance-optional"><i class="fa fa-check"></i><b>10.2.2</b> Plotting significance (OPTIONAL)</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#box-plot"><i class="fa fa-check"></i><b>10.3</b> Box plot</a></li>
 <li class="chapter" data-level="10.4" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#histogram-and-density-plot"><i class="fa fa-check"></i><b>10.4</b> Histogram and density plot</a></li>
 <li class="chapter" data-level="10.5" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#assembly-of-multiple-figures-optional"><i class="fa fa-check"></i><b>10.5</b> Assembly of multiple figures (OPTIONAL)</a></li>
-<li class="chapter" data-level="10.6" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#extras-optional"><i class="fa fa-check"></i><b>10.6</b> Extras (OPTIONAL)</a><ul>
+<li class="chapter" data-level="10.6" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#extras-optional"><i class="fa fa-check"></i><b>10.6</b> Extras (OPTIONAL)</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#choropleth"><i class="fa fa-check"></i><b>10.6.1</b> Choropleth</a></li>
 <li class="chapter" data-level="10.6.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#animations"><i class="fa fa-check"></i><b>10.6.2</b> Animations</a></li>
 </ul></li>
@@ -294,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="more-data-frames" class="section level1">
+<div id="more-data-frames" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> More data frames</h1>
 <p>Whenever you have rectangular, “spreadsheetey” data, your default data structure in R should be the <strong>data frame</strong>. Do not depart from this without good reason. Data frames are awesome because</p>
 <ol style="list-style-type: decimal">
@@ -304,18 +336,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Data frames, unlike general arrays or matrices in R, can hold variables of different flavours. For example, data frames can simultaneously hold <em>character data</em> (e.g., subject ID or name), <em>quantitative data</em> (e.g., white blood cell count), and <em>categorical information</em> (e.g., treated vs. untreated).</p>
 <p>If you use data structures that can only hold 1 type of data (e.g., matrices) for data analysis, you are likely to make the terrible mistake of spreading a dataset out over multiple, unlinked objects. Why? Because you can’t put character data, such as subject name, into the numeric matrix that holds white blood cell count. This fragmentation is a bad idea.</p>
-<div id="get-the-gapminder-data" class="section level2">
+<div id="get-the-gapminder-data" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Get the gapminder data</h2>
 <p>We will work with some of the data from the <a href="https://www.gapminder.org/">Gapminder project</a>. The Gapminder project contains the gapminder dataset, which summarises the progression of countries over time for statistics like life expectancy and GDP.</p>
 <p>Let’s first install the package:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;gapminder&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="more-data-frames.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;gapminder&quot;</span>)</span></code></pre></div>
 <p>Now load the package:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="more-data-frames.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
 </div>
-<div id="explore-gapminder" class="section level2">
+<div id="explore-gapminder" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Explore gapminder</h2>
 <p>By loading the gapminder package, we now have access to a data frame by the same name. Get an overview of the data frame with <code>str()</code>, which displays the structure of an object.</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="kw">str</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="more-data-frames.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gapminder)</span></code></pre></div>
 <pre><code>## tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
 ##  $ country  : Factor w/ 142 levels &quot;Afghanistan&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ continent: Factor w/ 5 levels &quot;Africa&quot;,&quot;Americas&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -326,13 +358,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>str()</code> will provide a sensible description of almost anything and, worst case, nothing bad can actually happen. When in doubt, just use <code>str()</code> on your recently created objects to get ideas about what to do next.</p>
 <p>We could print the <code>gapminder</code> object itself to screen. However, if you’ve used R before, you might be reluctant to do this, because large datasets fill your Console and provide very little insight.</p>
 <p>If you have not already done so, install the tidyverse meta-package now:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="more-data-frames.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 <p>Now load it:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb201-2" data-line-number="2"><span class="kw">class</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="more-data-frames.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb201-2"><a href="more-data-frames.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(gapminder)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <p>We can now print gapminder! Notice that the <strong>class</strong> (type of data structure) of the gapminder object is a <strong>tibble</strong>, the tidyverse’s version of R’s data frame. A tibble is also a data frame.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1">gapminder</a></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="more-data-frames.html#cb203-1" aria-hidden="true" tabindex="-1"></a>gapminder</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -360,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>head()</code> displays the first 6 rows of your data frame by default, and</li>
 <li><code>tail()</code> shows the last 6 rows.</li>
 </ol>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="kw">head</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="more-data-frames.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gapminder)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   country     continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -370,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Afghanistan Asia       1967    34.0 11537966      836.
 ## 5 Afghanistan Asia       1972    36.1 13079460      740.
 ## 6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">tail</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="more-data-frames.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(gapminder)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   country  continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -381,7 +413,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Zimbabwe Africa     2002    40.0 11926563      672.
 ## 6 Zimbabwe Africa     2007    43.5 12311143      470.</code></pre>
 <p>You can also specify the number of rows displayed by passing in a number.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="kw">head</span>(gapminder, <span class="dt">n =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="more-data-frames.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gapminder, <span class="at">n =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 6
 ##   country     continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -389,7 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 Afghanistan Asia       1957    30.3  9240934      821.
 ## 3 Afghanistan Asia       1962    32.0 10267083      853.</code></pre>
 <p>Just for your reference, if you want to change a data frame into a tibble for nicer printing, use <code>as_tibble()</code>!</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1"><span class="kw">as_tibble</span>(my_data_frame)  <span class="co"># my_data_frame is the thing we want to make a tibble</span></a></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="more-data-frames.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(my_data_frame)  <span class="co"># my_data_frame is the thing we want to make a tibble</span></span></code></pre></div>
 <p>Here are more ways to query basic info on a data frame:</p>
 <table>
 <thead>
@@ -417,16 +449,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1"><span class="kw">names</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="more-data-frames.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gapminder)</span></code></pre></div>
 <pre><code>## [1] &quot;country&quot;   &quot;continent&quot; &quot;year&quot;      &quot;lifeExp&quot;   &quot;pop&quot;       &quot;gdpPercap&quot;</code></pre>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1"><span class="kw">ncol</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="more-data-frames.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(gapminder)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1"><span class="kw">nrow</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="more-data-frames.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(gapminder)</span></code></pre></div>
 <pre><code>## [1] 1704</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="kw">dim</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="more-data-frames.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gapminder)</span></code></pre></div>
 <pre><code>## [1] 1704    6</code></pre>
 <p>A statistical summary of the data can be obtained with <code>summary()</code>. That is, each column’s statistics are shown separately.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">summary</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="more-data-frames.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder)</span></code></pre></div>
 <pre><code>##         country        continent        year         lifeExp     
 ##  Afghanistan:  12   Africa  :624   Min.   :1952   Min.   :23.60  
 ##  Albania    :  12   Americas:300   1st Qu.:1966   1st Qu.:48.20  
@@ -443,39 +475,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  3rd Qu.:1.959e+07   3rd Qu.:  9325.5  
 ##  Max.   :1.319e+09   Max.   :113523.1  
 ## </code></pre>
-<div id="importing-and-exporting-data" class="section level3">
+<div id="importing-and-exporting-data" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Importing and exporting data</h3>
 <p>We can export the data frame to a comma-separated values (.csv) file.</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1"><span class="kw">write.csv</span>(gapminder, <span class="dt">file =</span> <span class="st">&quot;data/03_data-frames/gapminder.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="more-data-frames.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(gapminder, <span class="at">file =</span> <span class="st">&quot;data/03_data-frames/gapminder.csv&quot;</span>)</span></code></pre></div>
 <p>The “.csv” extension stands for comma-separated values. This is the preferred way of importing and exporting data as it contains no formatting. You can also import a .csv file to Excel.</p>
 <p>On top of writing to a .csv file, we can also read .csv files into R. It’s as simple as <code>read.csv()</code>!</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">gapminder2 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/03_data-frames/gapminder.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb223-2" data-line-number="2"><span class="kw">class</span>(gapminder2)</a></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="more-data-frames.html#cb223-1" aria-hidden="true" tabindex="-1"></a>gapminder2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/03_data-frames/gapminder.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb223-2"><a href="more-data-frames.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(gapminder2)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <p>As you can see,<code>read.csv()</code> returns a data frame object by default.</p>
 </div>
-<div id="exploring-variables-in-a-data-frame" class="section level3">
+<div id="exploring-variables-in-a-data-frame" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Exploring variables in a data frame</h3>
 <p>To specify a single variable from a data frame, use the dollar sign <code>$</code>. Let’s explore the numeric variable for life expectancy.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="kw">head</span>(gapminder<span class="op">$</span>lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="more-data-frames.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gapminder<span class="sc">$</span>lifeExp)</span></code></pre></div>
 <pre><code>## [1] 28.801 30.332 31.997 34.020 36.088 38.438</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="kw">summary</span>(gapminder<span class="op">$</span>lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="more-data-frames.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder<span class="sc">$</span>lifeExp)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   23.60   48.20   60.71   59.47   70.85   82.60</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="kw">hist</span>(gapminder<span class="op">$</span>lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="more-data-frames.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(gapminder<span class="sc">$</span>lifeExp)</span></code></pre></div>
 <p><img src="_main_files/figure-html/histogram-lifeExp-1.png" width="672" /></p>
 <p>Don’t worry too much about the code to make the figures right now—we will learn how to visualize data in future lectures. For now, let’s continue to explore gapminder.</p>
 <p>Take a look at the <code>year</code> variable:</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="kw">class</span>(gapminder<span class="op">$</span>year)</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="more-data-frames.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(gapminder<span class="sc">$</span>year)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <p>Notice that <code>year</code> holds integers. On the other hand, <code>continent</code> holds categorical information, which is called a <strong>factor</strong> in R.</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="kw">class</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="more-data-frames.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(gapminder<span class="sc">$</span>continent)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <p>Now, I want to illustrate something important:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="kw">summary</span>(gapminder<span class="op">$</span>year)</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="more-data-frames.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder<span class="sc">$</span>year)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    1952    1966    1980    1980    1993    2007</code></pre>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="kw">summary</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="more-data-frames.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder<span class="sc">$</span>continent)</span></code></pre></div>
 <pre><code>##   Africa Americas     Asia   Europe  Oceania 
 ##      624      300      396      360       24</code></pre>
 <p>Notice that the same function returned different outputs for different variable types—forgetting this observation can lead to confusion in the future, so make sure to check your data before analysis! Let’s check out a couple more useful functions and highlight important ideas in the meantime.</p>
@@ -485,21 +517,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>levels()</code> returns unique values, and</li>
 <li><code>nlevels()</code> returns the number of unique values.</li>
 </ol>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="kw">table</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="more-data-frames.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(gapminder<span class="sc">$</span>continent)</span></code></pre></div>
 <pre><code>## 
 ##   Africa Americas     Asia   Europe  Oceania 
 ##      624      300      396      360       24</code></pre>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="kw">levels</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="more-data-frames.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gapminder<span class="sc">$</span>continent)</span></code></pre></div>
 <pre><code>## [1] &quot;Africa&quot;   &quot;Americas&quot; &quot;Asia&quot;     &quot;Europe&quot;   &quot;Oceania&quot;</code></pre>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="kw">nlevels</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="more-data-frames.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nlevels</span>(gapminder<span class="sc">$</span>continent)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<p>The <strong>levels</strong> of the factor <code>continent</code> are “Africa”, “Americas”, etc.—this is what’s usually presented to your eyeballs by R. Behind the scenes, R assigns integer values (i.e., 1, 2, 3, …) to each level. <em>Never ever ever</em> forget this fact. Look at the result from <code>str(gapminder$continent)</code> if you are skeptical:</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="kw">str</span>(gapminder<span class="op">$</span>continent)</a></code></pre></div>
+<p>The <strong>levels</strong> of the factor <code>continent</code> are “Africa,” “Americas,” etc.—this is what’s usually presented to your eyeballs by R. Behind the scenes, R assigns integer values (i.e., 1, 2, 3, …) to each level. <em>Never ever ever</em> forget this fact. Look at the result from <code>str(gapminder$continent)</code> if you are skeptical:</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="more-data-frames.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gapminder<span class="sc">$</span>continent)</span></code></pre></div>
 <pre><code>##  Factor w/ 5 levels &quot;Africa&quot;,&quot;Americas&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...</code></pre>
 <p>Specifically in modelling and figure-making, factors are anticipated and accommodated by the functions and packages you will want to exploit. Note that factors do NOT contain integers. Factors are a numerical way that R uses to represent categorical data.</p>
 <p>Tl;dr, factors are categorical variables whereas levels are unique values within a factor.</p>
 </div>
-<div id="data-frame-summary" class="section level3">
+<div id="data-frame-summary" class="section level3" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Data frame summary</h3>
 <p>Use data frames and the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>!! The <code>tidyverse</code> provides a special type of data frame called a “tibble” that has nice default printing behavior, among other benefits.</p>
 <ul>
@@ -512,14 +544,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="data-frames-with-dplyr" class="section level2">
+<div id="data-frames-with-dplyr" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Data frames with dplyr</h2>
 <p><code>dplyr</code> is a package for data manipulation developed by Hadley Wickham and Romain Francois. It is built to be fast, highly expressive, and open-minded about how your data is stored. It is installed as part of the the <a href="https://github.com/hadley/tidyverse"><code>tidyverse</code></a> meta-package and it is among the packages loaded via <code>library(tidyverse)</code>.</p>
-<p>Here’s a bit of fun trivia: <code>dplyr</code> stands for “<strong>d</strong>ata frame <strong>p</strong>liers”.</p>
-<div id="subsetting-data" class="section level3">
+<p>Here’s a bit of fun trivia: <code>dplyr</code> stands for “<strong>d</strong>ata frame <strong>p</strong>liers.”</p>
+<div id="subsetting-data" class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> Subsetting data</h3>
 <p>If you feel the urge to store a little snippet of your data:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">canada &lt;-<span class="st"> </span>gapminder[<span class="dv">241</span><span class="op">:</span><span class="dv">252</span>, ]</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="more-data-frames.html#cb246-1" aria-hidden="true" tabindex="-1"></a>canada <span class="ot">&lt;-</span> gapminder[<span class="dv">241</span><span class="sc">:</span><span class="dv">252</span>, ]</span></code></pre></div>
 <p>Stop and ask yourself …</p>
 <blockquote>
 <p>Do I want to create a separate subset of my original data?</p>
@@ -528,47 +560,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If “NO,” then don’t subset!</p>
 <p>Copies and excerpts of your data clutter your workspace, invite mistakes, and sow general confusion. Avoid whenever possible. Reality can also lie somewhere in between. You will find the workflows presented below can help you accomplish your goals with minimal creation of temporary, intermediate objects.</p>
 <p>Recall the<code>rm()</code> function, which removes unwanted variable(s).</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1">x &lt;-<span class="st"> &#39;thing to not keep&#39;</span></a>
-<a class="sourceLine" id="cb247-2" data-line-number="2"><span class="kw">print</span>(x)</a>
-<a class="sourceLine" id="cb247-3" data-line-number="3"><span class="kw">rm</span>(x)</a>
-<a class="sourceLine" id="cb247-4" data-line-number="4"><span class="co"># print(x)  # gives an error because x is deleted</span></a></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="more-data-frames.html#cb247-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&#39;thing to not keep&#39;</span></span>
+<span id="cb247-2"><a href="more-data-frames.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span>
+<span id="cb247-3"><a href="more-data-frames.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x)</span>
+<span id="cb247-4"><a href="more-data-frames.html#cb247-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print(x)  # gives an error because x is deleted</span></span></code></pre></div>
 </div>
-<div id="filter-rows-with-filter" class="section level3">
+<div id="filter-rows-with-filter" class="section level3" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Filter rows with <code>filter()</code></h3>
 <p><code>filter()</code> takes logical expressions and returns the rows for which all are <code>TRUE</code>. Use this when you want to subset observations based on values.</p>
 <p>The first argument is the name of the data frame. The subsequent arguments are the expressions that filter the dataframe. For example, let’s filter all rows from <code>gapminder</code> where life expectancy is less than 29 years.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1"><span class="kw">filter</span>(gapminder, lifeExp <span class="op">&lt;</span><span class="st"> </span><span class="dv">29</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="more-data-frames.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(gapminder, lifeExp <span class="sc">&lt;</span> <span class="dv">29</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 6
 ##   country     continent  year lifeExp     pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
 ## 1 Afghanistan Asia       1952    28.8 8425333      779.
 ## 2 Rwanda      Africa     1992    23.6 7290203      737.</code></pre>
 <p>When you run this line of code, <code>dplyr</code> filters the data and returns a new data frame. <code>dplyr</code> functions never modify their inputs, so if you want to save the result, you need to use the assignment operator, <code>&lt;-</code>. Let’s try this out! Here we filter based on <code>country</code> and <code>year</code>:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1">rwanda_gthan_<span class="dv">1979</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(gapminder, country <span class="op">==</span><span class="st"> &quot;Rwanda&quot;</span>, year <span class="op">&gt;</span><span class="st"> </span><span class="dv">1979</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="more-data-frames.html#cb250-1" aria-hidden="true" tabindex="-1"></a>rwanda_gthan_1979 <span class="ot">&lt;-</span> <span class="fu">filter</span>(gapminder, country <span class="sc">==</span> <span class="st">&quot;Rwanda&quot;</span>, year <span class="sc">&gt;</span> <span class="dv">1979</span>)</span></code></pre></div>
 <p>Compare with some base R code to accomplish the same things:</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1">gapminder[gapminder<span class="op">$</span>lifeExp <span class="op">&lt;</span><span class="st"> </span><span class="dv">29</span>, ]     <span class="co"># indexing is distracting</span></a>
-<a class="sourceLine" id="cb251-2" data-line-number="2"><span class="kw">subset</span>(gapminder, country <span class="op">==</span><span class="st"> &quot;Rwanda&quot;</span>)  <span class="co"># almost same as filter; quite nice actually</span></a></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="more-data-frames.html#cb251-1" aria-hidden="true" tabindex="-1"></a>gapminder[gapminder<span class="sc">$</span>lifeExp <span class="sc">&lt;</span> <span class="dv">29</span>, ]     <span class="co"># indexing is distracting</span></span>
+<span id="cb251-2"><a href="more-data-frames.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(gapminder, country <span class="sc">==</span> <span class="st">&quot;Rwanda&quot;</span>)  <span class="co"># almost same as filter; quite nice actually</span></span></code></pre></div>
 <p>What if you want to filter rows based on multiple values in a variable? For example, what if we want to filter all rows with either Rwanda or Afghanistan as countries?</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1"><span class="kw">filter</span>(gapminder, country <span class="op">==</span><span class="st"> &quot;Rwanda&quot;</span> <span class="op">|</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Afghanistan&quot;</span>)</a></code></pre></div>
-<p>Here we use a Boolean operator, <code>|</code>, which means “or”. Boolean operators always return either <code>TRUE</code> or <code>FALSE</code>. Some other common ones are <code>&amp;</code> (and) and <code>!</code> (not).</p>
-<p>What if we want to keep more than just 2 countries? One way would be to string Boolean operators together like so: <code>country == &quot;Canada&quot; | country == &quot;Rwanda&quot; | country == &quot;Afghanistan | ...</code> This, however, is very wordy. A useful shortcut is to use <code>x %in% y</code>. This selects every row where <code>x</code> is one of the values in <code>y</code>:</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" data-line-number="1"><span class="kw">filter</span>(gapminder, country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rwanda&quot;</span>, <span class="st">&quot;Afghanistan&quot;</span>))</a>
-<a class="sourceLine" id="cb253-2" data-line-number="2"><span class="kw">filter</span>(gapminder, country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;Rwanda&quot;</span>, <span class="st">&quot;Afghanistan&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="more-data-frames.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(gapminder, country <span class="sc">==</span> <span class="st">&quot;Rwanda&quot;</span> <span class="sc">|</span> country <span class="sc">==</span> <span class="st">&quot;Afghanistan&quot;</span>)</span></code></pre></div>
+<p>Here we use a Boolean operator, <code>|</code>, which means “or.” Boolean operators always return either <code>TRUE</code> or <code>FALSE</code>. Some other common ones are <code>&amp;</code> (and) and <code>!</code> (not).</p>
+<p>What if we want to keep more than just 2 countries? One way would be to string Boolean operators together like so: <code>country == "Canada" | country == "Rwanda" | country == "Afghanistan | ...</code> This, however, is very wordy. A useful shortcut is to use <code>x %in% y</code>. This selects every row where <code>x</code> is one of the values in <code>y</code>:</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="more-data-frames.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(gapminder, country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Rwanda&quot;</span>, <span class="st">&quot;Afghanistan&quot;</span>))</span>
+<span id="cb253-2"><a href="more-data-frames.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(gapminder, country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;Rwanda&quot;</span>, <span class="st">&quot;Afghanistan&quot;</span>))</span></code></pre></div>
 <p>Under no circumstances should you subset your data the way I did at first:</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1">excerpt &lt;-<span class="st"> </span>gapminder[<span class="dv">241</span><span class="op">:</span><span class="dv">252</span>, ]</a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="more-data-frames.html#cb254-1" aria-hidden="true" tabindex="-1"></a>excerpt <span class="ot">&lt;-</span> gapminder[<span class="dv">241</span><span class="sc">:</span><span class="dv">252</span>, ]</span></code></pre></div>
 <p>Why is this a terrible idea?</p>
 <ul>
 <li>It is not self-documenting. What is so special about rows 241 through 252?</li>
 <li>It is fragile. This line of code will produce different results if someone changes the row order of <code>gapminder</code>, e.g. sorts the data earlier in the script.</li>
 </ul>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="kw">filter</span>(gapminder, country <span class="op">==</span><span class="st"> &quot;Canada&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="more-data-frames.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(gapminder, country <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>)</span></code></pre></div>
 <p>This call explains itself and is fairly robust.</p>
 </div>
-<div id="pipe-operator" class="section level3">
+<div id="pipe-operator" class="section level3" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> Pipe operator <code>%&gt;%</code></h3>
 <p>Before we go any further, we should exploit the new pipe operator that the tidyverse imports from the <a href="https://github.com/smbache/magrittr"><code>magrittr</code></a> package by Stefan Bache. Here’s what it looks like: <code>%&gt;%</code>. The RStudio keyboard shortcut: Ctrl + Shift + M (Windows), Cmd + Shift + M (Mac).</p>
 <p>Let’s demo then I’ll explain:</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="more-data-frames.html#cb256-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   country     continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -580,7 +612,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
 <p>The above code is equivalent to <code>head(gapminder)</code>. The pipe operator takes the thing on the left-hand-side and <strong>pipes</strong> it into the function call on the right-hand-side. It literally drops it in as the first argument. You can think of an argument as your input to a function. If you remember your grade school math, functions in R do exactly what you’ve learned in school – it takes inputs (arguments/parameters) and spits an output, or a return value.</p>
 <p>Never fear, you can still specify other arguments to this function! To see the first 3 rows of Gapminder, we could say <code>head(gapminder, 3)</code> or this:</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="more-data-frames.html#cb258-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 6
 ##   country     continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -589,10 +621,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 Afghanistan Asia       1962    32.0 10267083      853.</code></pre>
 <p>You are probably not impressed yet, but the magic will happen soon.</p>
 </div>
-<div id="select-columns-with-select" class="section level3">
+<div id="select-columns-with-select" class="section level3" number="4.3.4">
 <h3><span class="header-section-number">4.3.4</span> Select Columns with <code>select()</code></h3>
 <p>Use <code>select()</code> to subset the data on variables or columns. Here’s a conventional call:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1"><span class="kw">select</span>(gapminder, year, lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="more-data-frames.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(gapminder, year, lifeExp)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 2
 ##     year lifeExp
 ##    &lt;int&gt;   &lt;dbl&gt;
@@ -608,9 +640,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10  1997    41.8
 ## # … with 1,694 more rows</code></pre>
 <p>And here’s the same operation, but written with the pipe operator and piped through <code>head()</code>:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1">gapminder <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb262-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(year, lifeExp) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb262-3" data-line-number="3"><span class="st">  </span><span class="kw">head</span>(<span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="more-data-frames.html#cb262-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb262-2"><a href="more-data-frames.html#cb262-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb262-3"><a href="more-data-frames.html#cb262-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##    year lifeExp
 ##   &lt;int&gt;   &lt;dbl&gt;
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4  1967    34.0</code></pre>
 <p>Think: “Take <code>gapminder</code>, then select the variables year and lifeExp, then show the first 4 rows.”</p>
 <p>If we didn’t have the pipe operator, this is what the above function would look like:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">select</span>(gapminder, year, lifeExp), <span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="more-data-frames.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">select</span>(gapminder, year, lifeExp), <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##    year lifeExp
 ##   &lt;int&gt;   &lt;dbl&gt;
@@ -631,7 +663,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As you can see, this is way harder to read. That’s why the pipe operator is so useful.</p>
 <p>An important note is that select does not actually filter any rows. It simply selects columns.</p>
 <p><code>select()</code> used alongisde <code>everything()</code> is also quite handy if you want to move variables within your data frame. The <code>everything()</code> function selects all variables not explicitly mentioned in <code>select()</code>. For example, let’s move <code>year</code> and <code>continent</code> to the front of the <code>gapminder</code> tibble:</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="kw">select</span>(gapminder, year, continent, <span class="kw">everything</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="more-data-frames.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(gapminder, year, continent, <span class="fu">everything</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 6
 ##     year continent country     lifeExp      pop gdpPercap
 ##    &lt;int&gt; &lt;fct&gt;     &lt;fct&gt;         &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -647,9 +679,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10  1997 Asia      Afghanistan    41.8 22227415      635.
 ## # … with 1,694 more rows</code></pre>
 <p>Here’s the data for Cambodia, but only certain variables…</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1">gapminder <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb268-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Cambodia&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb268-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(year, lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="more-data-frames.html#cb268-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb268-2"><a href="more-data-frames.html#cb268-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Cambodia&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb268-3"><a href="more-data-frames.html#cb268-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, lifeExp)</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 2
 ##     year lifeExp
 ##    &lt;int&gt;   &lt;dbl&gt;
@@ -666,7 +698,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11  2002    56.8
 ## 12  2007    59.7</code></pre>
 <p>… and what a typical base R call would look like:</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1">gapminder[gapminder<span class="op">$</span>country <span class="op">==</span><span class="st"> &quot;Cambodia&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;lifeExp&quot;</span>)]</a></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="more-data-frames.html#cb270-1" aria-hidden="true" tabindex="-1"></a>gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">&quot;Cambodia&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;lifeExp&quot;</span>)]</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 2
 ##     year lifeExp
 ##    &lt;int&gt;   &lt;dbl&gt;
@@ -683,16 +715,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11  2002    56.8
 ## 12  2007    59.7</code></pre>
 </div>
-<div id="pure-predictable-pipeable-optional" class="section level3">
+<div id="pure-predictable-pipeable-optional" class="section level3" number="4.3.5">
 <h3><span class="header-section-number">4.3.5</span> Pure, predictable, pipeable (OPTIONAL)</h3>
-<p>We’ve barely scratched the surface of <code>dplyr</code> but I want to point out key principles you may start to appreciate. If you’re new to R or “programming with data”, feel free skip this section.</p>
+<p>We’ve barely scratched the surface of <code>dplyr</code> but I want to point out key principles you may start to appreciate. If you’re new to R or “programming with data,” feel free skip this section.</p>
 <p><code>dplyr</code>’s verbs, such as <code>filter()</code> and <code>select()</code>, are what’s called <a href="http://en.wikipedia.org/wiki/Pure_function">pure functions</a>. To quote from Wickham’s <a href="http://adv-r.had.co.nz/Functions.html">Advanced R Programming book</a>:</p>
 <blockquote>
 <p>The functions that are the easiest to understand and reason about are pure functions: functions that always map the same input to the same output and have no other impact on the workspace. In other words, pure functions have no side effects: they don’t affect the state of the world in any way apart from the value they return.</p>
 </blockquote>
 <p>And finally, the data is <strong>always</strong> the very first argument of every dplyr function.</p>
 </div>
-<div id="additional-resources" class="section level3">
+<div id="additional-resources" class="section level3" number="4.3.6">
 <h3><span class="header-section-number">4.3.6</span> Additional resources</h3>
 <p><code>dplyr</code> official stuff</p>
 <ul>

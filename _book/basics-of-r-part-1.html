@@ -33,6 +33,7 @@
   
 <link rel="prev" href="install.html"/>
 <link rel="next" href="basics-of-r-part-2.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,28 +51,31 @@
 
 
 
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -131,32 +135,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="assets/youreka-logo.png" ></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Youreka Canada</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-textbook"><i class="fa fa-check"></i>How to use this textbook</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i>Contributors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#credit"><i class="fa fa-check"></i>Credit</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="part"><span><b>I Prerequisites</b></span></li>
-<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Install R and RStudio</a><ul>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Install R and RStudio</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#installing-r"><i class="fa fa-check"></i><b>1.1</b> Installing R</a></li>
 <li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing RStudio</a></li>
 <li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#add-on-packages"><i class="fa fa-check"></i><b>1.3</b> Add-on packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html"><i class="fa fa-check"></i><b>2</b> Basics of R (Part 1)</a><ul>
+<li class="chapter" data-level="2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html"><i class="fa fa-check"></i><b>2</b> Basics of R (Part 1)</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
 <li class="chapter" data-level="2.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#function-basics"><i class="fa fa-check"></i><b>2.2</b> Function Basics</a></li>
 <li class="chapter" data-level="2.3" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#basic-math-operators"><i class="fa fa-check"></i><b>2.3</b> Basic math operators</a></li>
-<li class="chapter" data-level="2.4" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a><ul>
+<li class="chapter" data-level="2.4" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#if-statements"><i class="fa fa-check"></i><b>2.4.1</b> If statements</a></li>
 <li class="chapter" data-level="2.4.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#multiple-ifs-vs-else-if"><i class="fa fa-check"></i><b>2.4.2</b> Multiple “if”s vs “else if”</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a><ul>
+<li class="chapter" data-level="2.5" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#other-important-things"><i class="fa fa-check"></i><b>2.5.1</b> Other important things</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html"><i class="fa fa-check"></i><b>3</b> Basics of R (Part 2)</a><ul>
-<li class="chapter" data-level="3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a><ul>
+<li class="chapter" data-level="3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html"><i class="fa fa-check"></i><b>3</b> Basics of R (Part 2)</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#vectors"><i class="fa fa-check"></i><b>3.1.1</b> Vectors</a></li>
 <li class="chapter" data-level="3.1.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#missing-values"><i class="fa fa-check"></i><b>3.1.2</b> Missing values</a></li>
 <li class="chapter" data-level="3.1.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-frames"><i class="fa fa-check"></i><b>3.1.3</b> Data frames</a></li>
@@ -164,11 +175,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.5" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#factors"><i class="fa fa-check"></i><b>3.1.5</b> Factors</a></li>
 <li class="chapter" data-level="3.1.6" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#lists"><i class="fa fa-check"></i><b>3.1.6</b> Lists</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a><ul>
+<li class="chapter" data-level="3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#looping-over-multiple-files"><i class="fa fa-check"></i><b>3.2.1</b> Looping over multiple files</a></li>
 <li class="chapter" data-level="3.2.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-loops-optional"><i class="fa fa-check"></i><b>3.2.2</b> Nested loops (OPTIONAL)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a><ul>
+<li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#conditionals-within-functions"><i class="fa fa-check"></i><b>3.3.1</b> Conditionals within functions</a></li>
 <li class="chapter" data-level="3.3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-conditionals"><i class="fa fa-check"></i><b>3.3.2</b> Nested conditionals</a></li>
 <li class="chapter" data-level="3.3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#function-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Function arguments</a></li>
@@ -176,14 +189,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Data Wrangling</b></span></li>
-<li class="chapter" data-level="4" data-path="more-data-frames.html"><a href="more-data-frames.html"><i class="fa fa-check"></i><b>4</b> More data frames</a><ul>
+<li class="chapter" data-level="4" data-path="more-data-frames.html"><a href="more-data-frames.html"><i class="fa fa-check"></i><b>4</b> More data frames</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="more-data-frames.html"><a href="more-data-frames.html#get-the-gapminder-data"><i class="fa fa-check"></i><b>4.1</b> Get the gapminder data</a></li>
-<li class="chapter" data-level="4.2" data-path="more-data-frames.html"><a href="more-data-frames.html#explore-gapminder"><i class="fa fa-check"></i><b>4.2</b> Explore gapminder</a><ul>
+<li class="chapter" data-level="4.2" data-path="more-data-frames.html"><a href="more-data-frames.html#explore-gapminder"><i class="fa fa-check"></i><b>4.2</b> Explore gapminder</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="more-data-frames.html"><a href="more-data-frames.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>4.2.1</b> Importing and exporting data</a></li>
 <li class="chapter" data-level="4.2.2" data-path="more-data-frames.html"><a href="more-data-frames.html#exploring-variables-in-a-data-frame"><i class="fa fa-check"></i><b>4.2.2</b> Exploring variables in a data frame</a></li>
 <li class="chapter" data-level="4.2.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frame-summary"><i class="fa fa-check"></i><b>4.2.3</b> Data frame summary</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frames-with-dplyr"><i class="fa fa-check"></i><b>4.3</b> Data frames with dplyr</a><ul>
+<li class="chapter" data-level="4.3" data-path="more-data-frames.html"><a href="more-data-frames.html#data-frames-with-dplyr"><i class="fa fa-check"></i><b>4.3</b> Data frames with dplyr</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="more-data-frames.html"><a href="more-data-frames.html#subsetting-data"><i class="fa fa-check"></i><b>4.3.1</b> Subsetting data</a></li>
 <li class="chapter" data-level="4.3.2" data-path="more-data-frames.html"><a href="more-data-frames.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>4.3.2</b> Filter rows with <code>filter()</code></a></li>
 <li class="chapter" data-level="4.3.3" data-path="more-data-frames.html"><a href="more-data-frames.html#pipe-operator"><i class="fa fa-check"></i><b>4.3.3</b> Pipe operator <code>%&gt;%</code></a></li>
@@ -192,14 +208,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="more-data-frames.html"><a href="more-data-frames.html#additional-resources"><i class="fa fa-check"></i><b>4.3.6</b> Additional resources</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a><ul>
+<li class="chapter" data-level="5" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>5</b> More dplyr</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#review-and-preparation"><i class="fa fa-check"></i><b>5.1</b> Review and preparation</a></li>
 <li class="chapter" data-level="5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#use-mutate-to-add-new-variables"><i class="fa fa-check"></i><b>5.2</b> Use mutate() to add new variables</a></li>
 <li class="chapter" data-level="5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#use-arrange-to-row-order-data"><i class="fa fa-check"></i><b>5.3</b> Use arrange() to row-order data</a></li>
-<li class="chapter" data-level="5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>5.4</b> Use rename() to rename variables</a><ul>
+<li class="chapter" data-level="5.4" data-path="more-dplyr.html"><a href="more-dplyr.html#use-rename-to-rename-variables"><i class="fa fa-check"></i><b>5.4</b> Use rename() to rename variables</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="more-dplyr.html"><a href="more-dplyr.html#use-select-to-rename-and-reposition-variables"><i class="fa fa-check"></i><b>5.4.1</b> Use select() to rename and reposition variables</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>5.5</b> Perform tasks on subsets with <code>group_by()</code></a><ul>
+<li class="chapter" data-level="5.5" data-path="more-dplyr.html"><a href="more-dplyr.html#perform-tasks-on-subsets-with-group_by"><i class="fa fa-check"></i><b>5.5</b> Perform tasks on subsets with <code>group_by()</code></a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="more-dplyr.html"><a href="more-dplyr.html#counting"><i class="fa fa-check"></i><b>5.5.1</b> Counting</a></li>
 <li class="chapter" data-level="5.5.2" data-path="more-dplyr.html"><a href="more-dplyr.html#general-summarization"><i class="fa fa-check"></i><b>5.5.2</b> General summarization</a></li>
 <li class="chapter" data-level="5.5.3" data-path="more-dplyr.html"><a href="more-dplyr.html#computing-with-group-wise-summaries"><i class="fa fa-check"></i><b>5.5.3</b> Computing with group-wise summaries</a></li>
@@ -210,14 +229,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="more-dplyr.html"><a href="more-dplyr.html#data-wrangling-summary"><i class="fa fa-check"></i><b>5.8</b> Data wrangling summary</a></li>
 </ul></li>
 <li class="part"><span><b>III Statistics</b></span></li>
-<li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a><ul>
-<li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-means"><i class="fa fa-check"></i><b>6.1</b> Central limit theorem for means</a></li>
-<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#central-limit-theorem-for-probability"><i class="fa fa-check"></i><b>6.2</b> Central limit theorem for probability</a></li>
+<li class="chapter" data-level="6" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>6</b> Central limit theorem</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-for-means"><i class="fa fa-check"></i><b>6.1</b> CLT for means</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-part-1"><i class="fa fa-check"></i><b>6.1.1</b> CLT Part 1</a></li>
+<li class="chapter" data-level="6.1.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-part-2"><i class="fa fa-check"></i><b>6.1.2</b> CLT Part 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a><ul>
+<li class="chapter" data-level="6.2" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#clt-for-proportions"><i class="fa fa-check"></i><b>6.2</b> CLT for proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Basic statistical tests</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#getting-ready"><i class="fa fa-check"></i><b>7.1</b> Getting ready</a></li>
 <li class="chapter" data-level="7.2" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#students-t-test"><i class="fa fa-check"></i><b>7.2</b> Student’s t-test</a></li>
-<li class="chapter" data-level="7.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi-squared-test"><i class="fa fa-check"></i><b>7.3</b> Chi-squared test</a><ul>
+<li class="chapter" data-level="7.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi-squared-test"><i class="fa fa-check"></i><b>7.3</b> Chi-squared test</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-goodness-of-fit"><i class="fa fa-check"></i><b>7.3.1</b> <span class="math inline">\(\chi^2\)</span> test for goodness-of-fit</a></li>
 <li class="chapter" data-level="7.3.2" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-independence"><i class="fa fa-check"></i><b>7.3.2</b> <span class="math inline">\(\chi^2\)</span> test for independence</a></li>
 <li class="chapter" data-level="7.3.3" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#chi2-test-for-homogeneity"><i class="fa fa-check"></i><b>7.3.3</b> <span class="math inline">\(\chi^2\)</span> test for homogeneity</a></li>
@@ -227,39 +253,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="basic-statistical-tests.html"><a href="basic-statistical-tests.html#visualizing-data-distributions-optional"><i class="fa fa-check"></i><b>7.4</b> Visualizing data distributions (OPTIONAL)</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html"><i class="fa fa-check"></i><b>8</b> Comparing multiple means</a><ul>
+<li class="chapter" data-level="8" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html"><i class="fa fa-check"></i><b>8</b> Comparing multiple means</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#loading-packages"><i class="fa fa-check"></i><b>8.1</b> Loading packages</a></li>
 <li class="chapter" data-level="8.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#merging-datasets"><i class="fa fa-check"></i><b>8.2</b> Merging datasets</a></li>
-<li class="chapter" data-level="8.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#one-way-anova"><i class="fa fa-check"></i><b>8.3</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="8.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#one-way-anova"><i class="fa fa-check"></i><b>8.3</b> One-way ANOVA</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#the-iris-dataset"><i class="fa fa-check"></i><b>8.3.1</b> The iris dataset</a></li>
 <li class="chapter" data-level="8.3.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#non-parametric-alternatives-to-anova"><i class="fa fa-check"></i><b>8.3.2</b> Non-parametric alternatives to ANOVA</a></li>
 <li class="chapter" data-level="8.3.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#two-way-anova"><i class="fa fa-check"></i><b>8.3.3</b> Two-way ANOVA</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#linear-regression"><i class="fa fa-check"></i><b>8.4</b> Linear regression</a><ul>
+<li class="chapter" data-level="8.4" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#linear-regression"><i class="fa fa-check"></i><b>8.4</b> Linear regression</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#basic-concepts"><i class="fa fa-check"></i><b>8.4.1</b> Basic concepts</a></li>
 <li class="chapter" data-level="8.4.2" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#pearson-correlation"><i class="fa fa-check"></i><b>8.4.2</b> Pearson correlation</a></li>
 <li class="chapter" data-level="8.4.3" data-path="comparing-multiple-means.html"><a href="comparing-multiple-means.html#spearman-correlation"><i class="fa fa-check"></i><b>8.4.3</b> Spearman correlation</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Data Visualization</b></span></li>
-<li class="chapter" data-level="9" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html"><i class="fa fa-check"></i><b>9</b> Data visualization basics</a><ul>
+<li class="chapter" data-level="9" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html"><i class="fa fa-check"></i><b>9</b> Data visualization basics</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#a-graphing-template"><i class="fa fa-check"></i><b>9.1</b> A graphing template</a></li>
-<li class="chapter" data-level="9.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#scatter-plot"><i class="fa fa-check"></i><b>9.2</b> Scatter plot</a><ul>
+<li class="chapter" data-level="9.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#scatter-plot"><i class="fa fa-check"></i><b>9.2</b> Scatter plot</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#trend-lines"><i class="fa fa-check"></i><b>9.2.1</b> Trend lines</a></li>
 <li class="chapter" data-level="9.2.2" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#facets"><i class="fa fa-check"></i><b>9.2.2</b> Facets</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="data-visualization-basics.html"><a href="data-visualization-basics.html#aesthetic-mappings"><i class="fa fa-check"></i><b>9.3</b> Aesthetic mappings</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html"><i class="fa fa-check"></i><b>10</b> Getting publication-ready</a><ul>
+<li class="chapter" data-level="10" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html"><i class="fa fa-check"></i><b>10</b> Getting publication-ready</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#line-plot"><i class="fa fa-check"></i><b>10.1</b> Line plot</a></li>
-<li class="chapter" data-level="10.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#bar-plot"><i class="fa fa-check"></i><b>10.2</b> Bar plot</a><ul>
+<li class="chapter" data-level="10.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#bar-plot"><i class="fa fa-check"></i><b>10.2</b> Bar plot</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#basics"><i class="fa fa-check"></i><b>10.2.1</b> Basics</a></li>
 <li class="chapter" data-level="10.2.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#plotting-significance-optional"><i class="fa fa-check"></i><b>10.2.2</b> Plotting significance (OPTIONAL)</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#box-plot"><i class="fa fa-check"></i><b>10.3</b> Box plot</a></li>
 <li class="chapter" data-level="10.4" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#histogram-and-density-plot"><i class="fa fa-check"></i><b>10.4</b> Histogram and density plot</a></li>
 <li class="chapter" data-level="10.5" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#assembly-of-multiple-figures-optional"><i class="fa fa-check"></i><b>10.5</b> Assembly of multiple figures (OPTIONAL)</a></li>
-<li class="chapter" data-level="10.6" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#extras-optional"><i class="fa fa-check"></i><b>10.6</b> Extras (OPTIONAL)</a><ul>
+<li class="chapter" data-level="10.6" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#extras-optional"><i class="fa fa-check"></i><b>10.6</b> Extras (OPTIONAL)</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#choropleth"><i class="fa fa-check"></i><b>10.6.1</b> Choropleth</a></li>
 <li class="chapter" data-level="10.6.2" data-path="getting-publication-ready.html"><a href="getting-publication-ready.html#animations"><i class="fa fa-check"></i><b>10.6.2</b> Animations</a></li>
 </ul></li>
@@ -292,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="basics-of-r-part-1" class="section level1">
+<div id="basics-of-r-part-1" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Basics of R (Part 1)</h1>
 <p>We will begin our adventure by opening RStudio. If this is your first time opening RStudio, you should see the following panes:</p>
 <ul>
@@ -302,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>You can change the default location of the panes, among many other things: <a href="https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio">Customizing RStudio</a>.</p>
 <p>For now, place your cursor in the console so we can start coding with R!</p>
-<div id="objects" class="section level2">
+<div id="objects" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Objects</h2>
 <p>Here’s some basic information to get you started.</p>
 <ul>
@@ -310,12 +344,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Our first operator will be the <strong>assignment operator</strong>; either <code>&lt;-</code> (a left arrow) or <code>=</code> (the equal sign).</li>
 </ul>
 <p>Let’s make our first assignment and inspect the object we’ve just created:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">my_object &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">*</span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">my_object</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basics-of-r-part-1.html#cb3-1" aria-hidden="true" tabindex="-1"></a>my_object <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">*</span><span class="dv">10</span></span>
+<span id="cb3-2"><a href="basics-of-r-part-1.html#cb3-2" aria-hidden="true" tabindex="-1"></a>my_object</span></code></pre></div>
 <pre><code>## [1] 50</code></pre>
-<p>In plain English, the above snippet tells us that “five times ten is assigned to my_object”.</p>
+<p>In plain English, the above snippet tells us that “five times ten is assigned to my_object.”</p>
 <p>Every value you assign to an object will be in this form:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">object_name &lt;-<span class="st"> </span>value</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basics-of-r-part-1.html#cb5-1" aria-hidden="true" tabindex="-1"></a>object_name <span class="ot">&lt;-</span> value</span></code></pre></div>
 <p>By convention, we use <code>&lt;-</code> to assign variables. Don’t be lazy and use <code>=</code> to assign variables. Although it works, it will just sow confusion later. Instead, utilize RStudio’s keyboard shortcut: <code>Alt</code>+<code>-</code> (the minus sign). Notice that RStudio automagically surrounds <code>&lt;-</code> with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.</p>
 <p>RStudio offers many handy keyboard shortcuts. The shortcut to rule them all is <code>Alt</code>+<code>Shift</code>+<code>K</code> (this brings up a keyboard shortcut reference card).</p>
 <p>Although object names are flexible, we need to follow some rules:</p>
@@ -328,69 +362,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 other.people.use.periods
 evenOthersUseCamelCase</code></pre>
 <p>Let’s make another assignment:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">this_is_a_really_long_name &lt;-<span class="st"> </span><span class="fl">2.5</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basics-of-r-part-1.html#cb7-1" aria-hidden="true" tabindex="-1"></a>this_is_a_really_long_name <span class="ot">&lt;-</span> <span class="fl">2.5</span></span></code></pre></div>
 <p>To inspect the object we’ve just created, try out RStudio’s auto-complete feature: type the first few characters, press <code>TAB</code>, add characters until you get what you want, then press return/enter.</p>
 </div>
-<div id="function-basics" class="section level2">
+<div id="function-basics" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Function Basics</h2>
 <p>Functions are always followed by a pair of brackets <code>()</code>. R has a huge collection of built-in functions that can be accessed like this:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">functionName</span>(<span class="dt">arg1 =</span> val1, <span class="dt">arg2 =</span> val2, ...)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="basics-of-r-part-1.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">functionName</span>(<span class="at">arg1 =</span> val1, <span class="at">arg2 =</span> val2, ...)</span></code></pre></div>
 <p>Notice that we use <code>=</code> instead of <code>&lt;-</code> <em>within a function</em>. Here, <code>arg1</code> and <code>arg2</code> are called the <strong>arguments</strong> of the function <code>functionName()</code>. Likewise, <code>val1</code> and <code>val2</code> are called the <strong>parameters</strong> of <code>arg1</code> and <code>arg2</code>.</p>
 <p>Let’s try using <code>seq()</code> which makes regular sequences of numbers and, while we’re at it, demo more helpful features of RStudio.</p>
 <p>Type <code>se</code> and hit <code>TAB</code>. A pop up shows you possible completions. Select <code>seq()</code> by using the up/down arrows to select. Notice the floating tool-tip-type help that pops up to remind you of a function’s arguments.</p>
 <p>If you want even more help, press <code>F1</code> to get the full documentation in the help tab of the lower right pane. Now open the parentheses and notice the automatic addition of the closing parenthesis and the placement of cursor in the middle. Type the arguments <code>1, 10</code> and hit return/enter. RStudio also exits the parenthetical expression for you.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basics-of-r-part-1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>The above snippet also demonstrates something about how R resolves function arguments. You can always specify <code>name = value</code> if you’re unsure. If you don’t, R attempts to resolve by position. In the above snippet, R assumed we wanted a sequence <code>from = 1</code> that goes <code>to = 10</code>.</p>
 <p>Since we didn’t specify step size specified by the <code>by</code> argument, R uses the default value of 1 in this case. For functions I call often, I might use this resolve by position for the first argument or maybe the first two. After that, I always specify <code>name = value</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basics-of-r-part-1.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
 <p>If you just make an assignment, you don’t see the assigned value. To show the assigned value, just call the variable.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">y</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basics-of-r-part-1.html#cb13-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb13-2"><a href="basics-of-r-part-1.html#cb13-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>You can shorten this common action by surrounding the assignment with parentheses.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">(y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basics-of-r-part-1.html#cb15-1" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>))</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>Not all functions have (or require) arguments:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">date</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;Tue Feb  2 20:59:37 2021&quot;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basics-of-r-part-1.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Wed Mar  3 15:28:55 2021&quot;</code></pre>
 <p>Now look at your workspace – in the upper right pane. The workspace is where user-defined objects accumulate. You can also get a listing of these objects with commands:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">objects</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basics-of-r-part-1.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">objects</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;my_object&quot;                  &quot;this_is_a_really_long_name&quot;
 ## [3] &quot;y&quot;</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">ls</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="basics-of-r-part-1.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;my_object&quot;                  &quot;this_is_a_really_long_name&quot;
 ## [3] &quot;y&quot;</code></pre>
 <p>If you want to remove the object named <code>y</code>, you can do this:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">rm</span>(y)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="basics-of-r-part-1.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
 <p>To remove everything:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="basics-of-r-part-1.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
 <p>or click the broom icon in RStudio’s Environment pane.</p>
 </div>
-<div id="basic-math-operators" class="section level2">
+<div id="basic-math-operators" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Basic math operators</h2>
 <p>Here are some basic math operations you can perform in R (no need to memorize this list!):</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>                      <span class="co"># addition</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">4</span>                      <span class="co"># multiplication</span></a>
-<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="dv">10</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span>                     <span class="co"># division</span></a>
-<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="dv">6</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>                      <span class="co"># exponentiation</span></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="kw">sqrt</span>(<span class="dv">5</span>)                    <span class="co"># square root</span></a>
-<a class="sourceLine" id="cb23-6" data-line-number="6"><span class="kw">exp</span>(<span class="dv">1</span>)                     <span class="co"># Euler&#39;s number</span></a>
-<a class="sourceLine" id="cb23-7" data-line-number="7">pi                         <span class="co"># 3.14159...</span></a>
-<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="kw">log</span>(<span class="kw">exp</span>(<span class="dv">1</span>))                <span class="co"># base e logarithm</span></a>
-<a class="sourceLine" id="cb23-9" data-line-number="9"><span class="kw">log10</span>(<span class="dv">100</span>)                 <span class="co"># base 10 logarithm</span></a>
-<a class="sourceLine" id="cb23-10" data-line-number="10"><span class="dv">5</span> <span class="op">%%</span><span class="st"> </span><span class="dv">2</span>                     <span class="co"># modular division</span></a>
-<a class="sourceLine" id="cb23-11" data-line-number="11"><span class="kw">round</span>(<span class="fl">1.5579</span>, <span class="dt">digits =</span> <span class="dv">2</span>)  <span class="co"># rounding</span></a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="basics-of-r-part-1.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>                      <span class="co"># addition</span></span>
+<span id="cb25-2"><a href="basics-of-r-part-1.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">4</span>                      <span class="co"># multiplication</span></span>
+<span id="cb25-3"><a href="basics-of-r-part-1.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">3</span>                     <span class="co"># division</span></span>
+<span id="cb25-4"><a href="basics-of-r-part-1.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">^</span> <span class="dv">2</span>                      <span class="co"># exponentiation</span></span>
+<span id="cb25-5"><a href="basics-of-r-part-1.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">5</span>)                    <span class="co"># square root</span></span>
+<span id="cb25-6"><a href="basics-of-r-part-1.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)                     <span class="co"># Euler&#39;s number</span></span>
+<span id="cb25-7"><a href="basics-of-r-part-1.html#cb25-7" aria-hidden="true" tabindex="-1"></a>pi                         <span class="co"># 3.14159...</span></span>
+<span id="cb25-8"><a href="basics-of-r-part-1.html#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">exp</span>(<span class="dv">1</span>))                <span class="co"># base e logarithm</span></span>
+<span id="cb25-9"><a href="basics-of-r-part-1.html#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">100</span>)                 <span class="co"># base 10 logarithm</span></span>
+<span id="cb25-10"><a href="basics-of-r-part-1.html#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">%%</span> <span class="dv">2</span>                     <span class="co"># modular division</span></span>
+<span id="cb25-11"><a href="basics-of-r-part-1.html#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">1.5579</span>, <span class="at">digits =</span> <span class="dv">2</span>)  <span class="co"># rounding</span></span></code></pre></div>
 </div>
-<div id="conditionals" class="section level2">
+<div id="conditionals" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Conditionals</h2>
 <p>Conditional statements checks if some condition is true or false using <strong>logical operators</strong> (operators that return either <code>TRUE</code> or <code>FALSE</code>). For example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="dv">20</span> <span class="op">==</span><span class="st"> </span><span class="dv">10</span><span class="op">*</span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="basics-of-r-part-1.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span> <span class="sc">==</span> <span class="dv">10</span><span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="st">&quot;hello&quot;</span> <span class="op">==</span><span class="st"> &quot;goodbye&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="basics-of-r-part-1.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;hello&quot;</span> <span class="sc">==</span> <span class="st">&quot;goodbye&quot;</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<p>These statements return a value is of type <code>&quot;logical&quot;</code>, which is either <code>TRUE</code>(shorthand: <code>T</code>) if the condition is satisfied, or <code>FALSE</code> (shorthand: <code>F</code>) if the condition is not satisfied. One important note is that <code>TRUE</code> and <code>FALSE</code> are objects on their own, rather than the strings “true” and “false”.</p>
+<p>These statements return a value is of type <code>"logical"</code>, which is either <code>TRUE</code>(shorthand: <code>T</code>) if the condition is satisfied, or <code>FALSE</code> (shorthand: <code>F</code>) if the condition is not satisfied. One important note is that <code>TRUE</code> and <code>FALSE</code> are objects on their own, rather than the strings “true” and “false.”</p>
 <p>Conditional statements are made with a range of logical operators. So far, We’ve seen:</p>
 <table>
 <thead>
@@ -423,13 +457,13 @@ evenOthersUseCamelCase</code></pre>
 </tbody>
 </table>
 <p>There are other logical operators, including <code>%in%</code>, which checks if a value is present in a vector of possible values. Type the following statements into the console to see their output.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="st">&quot;aang&quot;</span> <span class="op">==</span><span class="st"> &quot;aang&quot;</span></a>
-<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="st">&quot;aang&quot;</span> <span class="op">!=</span><span class="st"> &quot;kora&quot;</span></a>
-<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="dv">10</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb28-4" data-line-number="4"><span class="dv">10</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb28-5" data-line-number="5"><span class="kw">is.na</span>(<span class="st">&quot;toph&quot;</span>)</a>
-<a class="sourceLine" id="cb28-6" data-line-number="6"><span class="kw">is.na</span>(<span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb28-7" data-line-number="7"><span class="st">&quot;zuko&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;aang&quot;</span>, <span class="st">&quot;toph&quot;</span>, <span class="st">&quot;katara&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="basics-of-r-part-1.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;aang&quot;</span> <span class="sc">==</span> <span class="st">&quot;aang&quot;</span></span>
+<span id="cb30-2"><a href="basics-of-r-part-1.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;aang&quot;</span> <span class="sc">!=</span> <span class="st">&quot;kora&quot;</span></span>
+<span id="cb30-3"><a href="basics-of-r-part-1.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">5</span></span>
+<span id="cb30-4"><a href="basics-of-r-part-1.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&gt;=</span> <span class="dv">5</span></span>
+<span id="cb30-5"><a href="basics-of-r-part-1.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="st">&quot;toph&quot;</span>)</span>
+<span id="cb30-6"><a href="basics-of-r-part-1.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)</span>
+<span id="cb30-7"><a href="basics-of-r-part-1.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;zuko&quot;</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;aang&quot;</span>, <span class="st">&quot;toph&quot;</span>, <span class="st">&quot;katara&quot;</span>)</span></code></pre></div>
 <p>If you’re keen, you’ll notice in the last line that we use <code>c()</code> to group objects together. This <em>data structure</em> is called a <strong>vector</strong>. As a brief introduction, vectors <u><strong>c</strong></u>ombine objects of the same type. Don’t worry too much about the specifics of vectors, as we will cover it in much greater depth in the next chapter.</p>
 <p>We can also combine conditions using the logical and (<code>&amp;</code>) along with the logical or (<code>|</code>). The logical <code>&amp;</code> returns <code>TRUE</code> if and only if both conditions are true, and it returns <code>FALSE</code> otherwise. Below is a truth table (don’t worry about memorizing it):</p>
 <table>
@@ -469,33 +503,33 @@ evenOthersUseCamelCase</code></pre>
 </tbody>
 </table>
 <p>To contexualize this table, let’s look at the following examples:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">(<span class="dv">5</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(<span class="dv">6</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="basics-of-r-part-1.html#cb31-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">&amp;</span> (<span class="dv">6</span> <span class="sc">&gt;=</span> <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">(<span class="dv">5</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) <span class="op">|</span><span class="st"> </span>(<span class="dv">6</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="basics-of-r-part-1.html#cb33-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">|</span> (<span class="dv">6</span> <span class="sc">&gt;=</span> <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div id="if-statements" class="section level3">
+<div id="if-statements" class="section level3" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> If statements</h3>
 <p>Conditional statements generate logical values to filter inputs. <code>if</code> statements use conditional statements to control flow of a program. Below is the general form of an <code>if</code> statement:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="cf">if</span> (the conditional statement is <span class="ot">TRUE</span>) {</a>
-<a class="sourceLine" id="cb33-2" data-line-number="2">  do something</a>
-<a class="sourceLine" id="cb33-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="basics-of-r-part-1.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (the conditional statement is <span class="cn">TRUE</span>) {</span>
+<span id="cb35-2"><a href="basics-of-r-part-1.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  do something</span>
+<span id="cb35-3"><a href="basics-of-r-part-1.html#cb35-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Let’s look at an example:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">6</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">  x &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb34-5" data-line-number="5">x</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="basics-of-r-part-1.html#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb36-2"><a href="basics-of-r-part-1.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb36-3"><a href="basics-of-r-part-1.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb36-4"><a href="basics-of-r-part-1.html#cb36-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-5"><a href="basics-of-r-part-1.html#cb36-5" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 36</code></pre>
 <ul>
 <li><code>x &gt; 5</code> is <code>TRUE</code>, so the code in the <code>if</code> runs</li>
 <li><code>x</code> is now 6^2 or 36</li>
 <li>Change <code>x</code> to 4</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb36-3" data-line-number="3">  x &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb36-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb36-5" data-line-number="5">x</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="basics-of-r-part-1.html#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb38-2"><a href="basics-of-r-part-1.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb38-3"><a href="basics-of-r-part-1.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb38-4"><a href="basics-of-r-part-1.html#cb38-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-5"><a href="basics-of-r-part-1.html#cb38-5" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <ul>
 <li><code>x &gt; 5</code> is <code>FALSE</code>, so the code in the <code>if</code> doesn’t run</li>
@@ -504,98 +538,98 @@ evenOthersUseCamelCase</code></pre>
 influences the global environment</li>
 </ul>
 <p>Here’s a slightly more applied example:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">veg_type &lt;-<span class="st"> &quot;tree&quot;</span></a>
-<a class="sourceLine" id="cb38-2" data-line-number="2">volume &lt;-<span class="st"> </span><span class="fl">16.08</span></a>
-<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;tree&quot;</span>) {</a>
-<a class="sourceLine" id="cb38-4" data-line-number="4">  mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
-<a class="sourceLine" id="cb38-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb38-6" data-line-number="6">mass</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="basics-of-r-part-1.html#cb40-1" aria-hidden="true" tabindex="-1"></a>veg_type <span class="ot">&lt;-</span> <span class="st">&quot;tree&quot;</span></span>
+<span id="cb40-2"><a href="basics-of-r-part-1.html#cb40-2" aria-hidden="true" tabindex="-1"></a>volume <span class="ot">&lt;-</span> <span class="fl">16.08</span></span>
+<span id="cb40-3"><a href="basics-of-r-part-1.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (veg_type <span class="sc">==</span> <span class="st">&quot;tree&quot;</span>) {</span>
+<span id="cb40-4"><a href="basics-of-r-part-1.html#cb40-4" aria-hidden="true" tabindex="-1"></a>  mass <span class="ot">&lt;-</span> <span class="fl">2.65</span> <span class="sc">*</span> volume<span class="sc">^</span><span class="fl">0.9</span></span>
+<span id="cb40-5"><a href="basics-of-r-part-1.html#cb40-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-6"><a href="basics-of-r-part-1.html#cb40-6" aria-hidden="true" tabindex="-1"></a>mass</span></code></pre></div>
 <pre><code>## [1] 32.27775</code></pre>
 <ul>
 <li>We often want to chose one of several options.</li>
 <li>We can add more conditions and associated actions with <code>else if</code></li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">veg_type &lt;-<span class="st"> &quot;grass&quot;</span></a>
-<a class="sourceLine" id="cb40-2" data-line-number="2">volume &lt;-<span class="st"> </span><span class="fl">16.08</span></a>
-<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;tree&quot;</span>) {</a>
-<a class="sourceLine" id="cb40-4" data-line-number="4">  mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
-<a class="sourceLine" id="cb40-5" data-line-number="5">} <span class="cf">else</span> <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;grass&quot;</span>) {</a>
-<a class="sourceLine" id="cb40-6" data-line-number="6">  mass &lt;-<span class="st"> </span><span class="fl">0.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">1.2</span></a>
-<a class="sourceLine" id="cb40-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb40-8" data-line-number="8">mass</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="basics-of-r-part-1.html#cb42-1" aria-hidden="true" tabindex="-1"></a>veg_type <span class="ot">&lt;-</span> <span class="st">&quot;grass&quot;</span></span>
+<span id="cb42-2"><a href="basics-of-r-part-1.html#cb42-2" aria-hidden="true" tabindex="-1"></a>volume <span class="ot">&lt;-</span> <span class="fl">16.08</span></span>
+<span id="cb42-3"><a href="basics-of-r-part-1.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (veg_type <span class="sc">==</span> <span class="st">&quot;tree&quot;</span>) {</span>
+<span id="cb42-4"><a href="basics-of-r-part-1.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  mass <span class="ot">&lt;-</span> <span class="fl">2.65</span> <span class="sc">*</span> volume<span class="sc">^</span><span class="fl">0.9</span></span>
+<span id="cb42-5"><a href="basics-of-r-part-1.html#cb42-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (veg_type <span class="sc">==</span> <span class="st">&quot;grass&quot;</span>) {</span>
+<span id="cb42-6"><a href="basics-of-r-part-1.html#cb42-6" aria-hidden="true" tabindex="-1"></a>  mass <span class="ot">&lt;-</span> <span class="fl">0.65</span> <span class="sc">*</span> volume<span class="sc">^</span><span class="fl">1.2</span></span>
+<span id="cb42-7"><a href="basics-of-r-part-1.html#cb42-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-8"><a href="basics-of-r-part-1.html#cb42-8" aria-hidden="true" tabindex="-1"></a>mass</span></code></pre></div>
 <pre><code>## [1] 18.21615</code></pre>
 <p>Here, our script:
 1. Checks the first condition
 2. If <code>TRUE</code> runs that condition’s code and skips the rest
 3. If not it checks the next one until it runs out of conditions</p>
 <p>We can specify what to do if none of the conditions are <code>TRUE</code> by using <code>else</code> on its own</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">veg_type &lt;-<span class="st"> &quot;shrub&quot;</span></a>
-<a class="sourceLine" id="cb42-2" data-line-number="2">volume &lt;-<span class="st"> </span><span class="fl">16.08</span></a>
-<a class="sourceLine" id="cb42-3" data-line-number="3"><span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;tree&quot;</span>) {</a>
-<a class="sourceLine" id="cb42-4" data-line-number="4">  mass &lt;-<span class="st"> </span><span class="fl">2.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">0.9</span></a>
-<a class="sourceLine" id="cb42-5" data-line-number="5">} <span class="cf">else</span> <span class="cf">if</span> (veg_type <span class="op">==</span><span class="st"> &quot;grass&quot;</span>) {</a>
-<a class="sourceLine" id="cb42-6" data-line-number="6">  mass &lt;-<span class="st"> </span><span class="fl">0.65</span> <span class="op">*</span><span class="st"> </span>volume<span class="op">^</span><span class="fl">1.2</span></a>
-<a class="sourceLine" id="cb42-7" data-line-number="7">} <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb42-8" data-line-number="8">  mass &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb42-9" data-line-number="9">}</a>
-<a class="sourceLine" id="cb42-10" data-line-number="10">mass</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="basics-of-r-part-1.html#cb44-1" aria-hidden="true" tabindex="-1"></a>veg_type <span class="ot">&lt;-</span> <span class="st">&quot;shrub&quot;</span></span>
+<span id="cb44-2"><a href="basics-of-r-part-1.html#cb44-2" aria-hidden="true" tabindex="-1"></a>volume <span class="ot">&lt;-</span> <span class="fl">16.08</span></span>
+<span id="cb44-3"><a href="basics-of-r-part-1.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (veg_type <span class="sc">==</span> <span class="st">&quot;tree&quot;</span>) {</span>
+<span id="cb44-4"><a href="basics-of-r-part-1.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  mass <span class="ot">&lt;-</span> <span class="fl">2.65</span> <span class="sc">*</span> volume<span class="sc">^</span><span class="fl">0.9</span></span>
+<span id="cb44-5"><a href="basics-of-r-part-1.html#cb44-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (veg_type <span class="sc">==</span> <span class="st">&quot;grass&quot;</span>) {</span>
+<span id="cb44-6"><a href="basics-of-r-part-1.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  mass <span class="ot">&lt;-</span> <span class="fl">0.65</span> <span class="sc">*</span> volume<span class="sc">^</span><span class="fl">1.2</span></span>
+<span id="cb44-7"><a href="basics-of-r-part-1.html#cb44-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb44-8"><a href="basics-of-r-part-1.html#cb44-8" aria-hidden="true" tabindex="-1"></a>  mass <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb44-9"><a href="basics-of-r-part-1.html#cb44-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb44-10"><a href="basics-of-r-part-1.html#cb44-10" aria-hidden="true" tabindex="-1"></a>mass</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 </div>
-<div id="multiple-ifs-vs-else-if" class="section level3">
+<div id="multiple-ifs-vs-else-if" class="section level3" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Multiple “if”s vs “else if”</h3>
 <p>Multiple ifs check each conditional separately, which is very inefficient. That is, R executes code for all conditions that are <code>TRUE</code>.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb44-2" data-line-number="2"><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) {</a>
-<a class="sourceLine" id="cb44-3" data-line-number="3">  x <span class="op">*</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb44-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="basics-of-r-part-1.html#cb46-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb46-2"><a href="basics-of-r-part-1.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">2</span>) {</span>
+<span id="cb46-3"><a href="basics-of-r-part-1.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb46-4"><a href="basics-of-r-part-1.html#cb46-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>) {</a>
-<a class="sourceLine" id="cb46-2" data-line-number="2">  x <span class="op">*</span><span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb46-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="basics-of-r-part-1.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">4</span>) {</span>
+<span id="cb48-2"><a href="basics-of-r-part-1.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">4</span></span>
+<span id="cb48-3"><a href="basics-of-r-part-1.html#cb48-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 <p><code>else if</code> checks each condition sequentially, and ONLY executes code for the first condition that is <code>TRUE</code></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) {</a>
-<a class="sourceLine" id="cb48-3" data-line-number="3">  x <span class="op">*</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb48-4" data-line-number="4">} <span class="cf">else</span> <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>) {</a>
-<a class="sourceLine" id="cb48-5" data-line-number="5">  x <span class="op">*</span><span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb48-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="basics-of-r-part-1.html#cb50-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb50-2"><a href="basics-of-r-part-1.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">2</span>) {</span>
+<span id="cb50-3"><a href="basics-of-r-part-1.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb50-4"><a href="basics-of-r-part-1.html#cb50-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">4</span>) {</span>
+<span id="cb50-5"><a href="basics-of-r-part-1.html#cb50-5" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">4</span></span>
+<span id="cb50-6"><a href="basics-of-r-part-1.html#cb50-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 </div>
 </div>
-<div id="working-directory" class="section level2">
+<div id="working-directory" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Working directory</h2>
-<p>Any process running on your computer has a notion of its “working directory”. By default in R, a working directory is where R will look for files you ask it to load. It is also where any files you write to disk will go. You can explicitly check your working directory with:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">getwd</span>()</a></code></pre></div>
-<p>The working directory is also displayed at the top of the RStudio console. Notice that <code>getwd()</code> looks a lot like “get working directory”.</p>
+<p>Any process running on your computer has a notion of its “working directory.” By default in R, a working directory is where R will look for files you ask it to load. It is also where any files you write to disk will go. You can explicitly check your working directory with:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="basics-of-r-part-1.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<p>The working directory is also displayed at the top of the RStudio console. Notice that <code>getwd()</code> looks a lot like “get working directory.”</p>
 <p>As a beginning R user, it’s OK let your home directory or any other weird directory on your computer be R’s working directory. <em>Very soon</em>, I urge you to evolve to the next level, where you organize your analytical projects into directories and, when working on project A, set R’s working directory to the associated directory.</p>
 <p>In case you’re curious, you can set R’s working directory at the command line like so:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="kw">setwd</span>(<span class="st">&quot;~/myCoolProject&quot;</span>)</a></code></pre></div>
-<p>The <code>setwd()</code> function is extremely useful for times you want to read in external data, such as a .csv file. Like <code>getwd()</code>, notice that <code>setwd()</code> looks a lot like “set working directory”.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="basics-of-r-part-1.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/myCoolProject&quot;</span>)</span></code></pre></div>
+<p>The <code>setwd()</code> function is extremely useful for times you want to read in external data, such as a .csv file. Like <code>getwd()</code>, notice that <code>setwd()</code> looks a lot like “set working directory.”</p>
 <p>Now, let’s start a mini-project!</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb52-2" data-line-number="2">b &lt;-<span class="st"> </span><span class="dv">-3</span></a>
-<a class="sourceLine" id="cb52-3" data-line-number="3">sig_sq &lt;-<span class="st"> </span><span class="fl">0.5</span></a>
-<a class="sourceLine" id="cb52-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">40</span>)</a>
-<a class="sourceLine" id="cb52-5" data-line-number="5">y &lt;-<span class="st"> </span>a <span class="op">+</span><span class="st"> </span>b<span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dt">sd =</span> <span class="kw">sqrt</span>(sig_sq))</a>
-<a class="sourceLine" id="cb52-6" data-line-number="6">(avg_x &lt;-<span class="st"> </span><span class="kw">mean</span>(x))</a></code></pre></div>
-<pre><code>## [1] 0.404889</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="kw">plot</span>(x, y)</a>
-<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="kw">abline</span>(a, b, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="basics-of-r-part-1.html#cb54-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb54-2"><a href="basics-of-r-part-1.html#cb54-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb54-3"><a href="basics-of-r-part-1.html#cb54-3" aria-hidden="true" tabindex="-1"></a>sig_sq <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb54-4"><a href="basics-of-r-part-1.html#cb54-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">40</span>)</span>
+<span id="cb54-5"><a href="basics-of-r-part-1.html#cb54-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> a <span class="sc">+</span> b<span class="sc">*</span>x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">40</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(sig_sq))</span>
+<span id="cb54-6"><a href="basics-of-r-part-1.html#cb54-6" aria-hidden="true" tabindex="-1"></a>(avg_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(x))</span></code></pre></div>
+<pre><code>## [1] 0.471172</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="basics-of-r-part-1.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb56-2"><a href="basics-of-r-part-1.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(a, b, <span class="at">col =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/toy-line-1.png" width="672" /></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="kw">dev.print</span>(pdf, <span class="st">&quot;toy_line_plot.pdf&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="basics-of-r-part-1.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.print</span>(pdf, <span class="st">&quot;toy_line_plot.pdf&quot;</span>)</span></code></pre></div>
 <p>Don’t worry if your graph doesn’t look exactly like the provided output—<code>rnorm()</code> generates random numbers (from a normal distribution).</p>
 <p>Imagine that our mini-project is the start of an analysis, and you’re ready to preserve the logic and code. Here’s what I want you to do:</p>
 <ol style="list-style-type: decimal">
 <li>Visit the History tab of the upper right pane and select the commands we just made.</li>
-<li>Click “To Source”. Now you have a new pane containing a new R script.</li>
+<li>Click “To Source.” Now you have a new pane containing a new R script.</li>
 <li>Click on the floppy disk to save. Give it a name ending in <code>.R</code> or <code>.r</code>. Note that, by default, it will go in the directory associated with your project.</li>
 <li>Quit RStudio and restart RStudio.</li>
 </ol>
 <p>Notice that things, by default, restore to where we were earlier (e.g. objects in the workspace, the command history, which files are open for editing, where we are in the file system browser, the working directory for the R process, etc.).</p>
 <p>Here is an exercise for you:</p>
 <ol style="list-style-type: decimal">
-<li>Set a sample size <code>n</code> at the top (e.g. <code>n &lt;- 40</code>), and replace all the hard-coded 40’s with <code>n</code>.</li>
+<li>Set a sample size <code>n</code> at the top (e.g. <code>n &lt;- 40</code>), and replace all the hard-coded 40’s with <code>n</code>.</li>
 <li>Change some other minor-but-detectable stuff. For example, alter the sample size <code>n</code>, the slope of the line <code>b</code>, the color of the linem … whatever.</li>
 </ol>
 <p>Practice the different ways to re-run the code:</p>
@@ -604,7 +638,7 @@ influences the global environment</li>
 <li>Source the entire document—equivalent to entering <code>source('toy-line.r')</code> in the console—using the keyboard shortcut (<code>Command</code>+<code>Shift</code>+<code>S</code>) or mouse (click “Source” in the upper right corner of editor pane or select from the mini-menu accessible from the associated down triangle).</li>
 </ul>
 <p>One day you’ll want to recreate a figure or just simply understand where it came from. If you religously save figures to a file <strong>with R code and not ever ever ever the mouse or the clipboard</strong>, you will sing my praises one day. Trust me.</p>
-<div id="other-important-things" class="section level3">
+<div id="other-important-things" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Other important things</h3>
 <p>Below is a collection of important miscellaneous items to consider.</p>
 <ul>
