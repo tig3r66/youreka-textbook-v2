@@ -12,9 +12,25 @@ description: "This is a review of R basics."
 library(learnr)
 tutorial_options(exercise.timelimit = 60)
 knitr::opts_chunk$set(error = TRUE)
+
 # loading packages
 library(gapminder)
 library(tidyverse)
+
+# saving to data frame
+df <- gapminder %>%
+  filter(grepl("Congo", country),
+         year >= 1960,
+         year <= 1970) %>%
+  select(country, year, lifeExp, gdpPercap)
+
+# for t-test
+DRCongo <- df[df$country == "Congo, Dem. Rep.",]$lifeExp
+ROCongo <- df[df$country == "Congo, Rep.",]$lifeExp
+
+# more t-tests
+temp.df <- gapminder %>%
+  filter(continent %in% c("Europe", "Americas"), year == 1952)
 ```
 
 ## Welcome
@@ -23,9 +39,10 @@ In this brief lesson, we will explore a dataset called "gapminder" and review ba
 
 At this point in our lessons, I would like to take a minute to look at the bigger picture: the R programming skills you earn in our program are designed to be *tools* that you can use for your project. That is, R will be a "means to an end" for your projects. That being said, programming is super cool, so let's continue the fun!
 
+
 ## Working with data frames
 
-When we are working with R, most of the time we will find ourselves dealing with data frames. The previous two sessions have been dedicated to the `dplyr` package. In this session we will do more exercises within the r-base.
+When we are working with R, we will often find ourselves dealing with data frames. The previous two sessions have been dedicated to the `dplyr` package. In this session we will do more exercises within the built-in functions that R provides.
 
 First of all, let's refresh ourselves with the gapminder dataset.
 
@@ -53,7 +70,7 @@ gapminder %>%
 gapminder %>% select(lifeExp)
 ```
 
-Please call this column using r-base by the name or by the column number.
+Please call this column using R by the name or by the column number.
 
 ```{r column-base, exercise=TRUE}
 gapminder$
@@ -75,7 +92,7 @@ gapminder %>%
 gapminder %>% filter(year >= 1960, year <= 1979)
 ```
 
-Let's do the same thing using r-base. Hint: the entries in the 1960s occupy only certain rows. Therefore, you will want to determine which rows contain the data we want with logical operation and then call those rows.
+Let's do the same thing without dplyr. Hint: the entries in the 1960s occupy only certain rows. Therefore, you will want to determine which rows contain the data we want with logical operation and then call those rows.
 
 ```{r row-base, exercise=TRUE}
 gapminder[ , ]
@@ -84,7 +101,8 @@ gapminder[ , ]
 gapminder[gapminder$year >= 1960 & gapminder$year <= 1979, ]
 ```
 
-Please note that "&" stands for the logical AND operation. Only TRUE & TRUE will return TRUE. Also note that we did not write anything after the comma. This means we include all the columns, rather than no columns.
+Please note that `&` is the logical `AND` operation. Only `TRUE` & `TRUE` will return `TRUE`. Also note that we did not write anything after the comma. This means we include all the columns, rather than no columns.
+
 
 ### Searching for patterns in strings
 
@@ -97,7 +115,7 @@ gapminder %>% filter(grepl( ))
 gapminder %>% filter(grepl("Congo", country))
 ```
 
-Similarly, you can also use it with the r-base.
+Similarly, you can also use it with R's built-in indexing operator.
 
 ```{r grepl-base, exercise=TRUE}
 gapminder[ , ]
@@ -107,9 +125,10 @@ gapminder[ , ]
 gapminder[grepl("Congo", gapminder$country), ]
 ```
 
+
 ### Cautions for `levels`
 
-How many countries do we have in the gapminder dataset with names containing "Congo"? Please try the following block.
+How many countries do we have in the gapminder dataset with names containing "Congo"? Please try the following block.    
 
 ```{r levels, exercise=TRUE, exercise.eval=F}
 levels(gapminder[grepl("Congo", gapminder$country), ]$country)
@@ -123,135 +142,122 @@ Wow, this result certainly does not make sense. This is because, although we sel
 unique(gapminder[grepl("Congo", gapminder$country), ]$country)
 ```
 
-<!-- ### Putting all together -->
+### Putting all together
 
-<!-- Now, please use the methods we've practiced above to make a dataset with entries from country names containing "Congo" in 1960s and 1970s with only the columns of country,year and lifeExp and gdpPercap. Save the result as a new data frame `df`. -->
+Now, please use the methods we've practiced above to make a dataset with entries from country names containing "Congo" in 1960s and 1970s with only the columns of country,year and lifeExp and gdpPercap. Save the result as a new data frame `df`.
 
-<!-- ```{r complex-base, exercise=TRUE} -->
+```{r complex-base, exercise=TRUE}
 
-<!-- ``` -->
-<!-- ```{r complex-base-solution} -->
-<!-- df <- gapminder %>% -->
-<!--   filter(grepl("Congo", country), -->
-<!--          year >= 1960, -->
-<!--          year <= 1970) %>% -->
-<!--   select(country, year, lifeExp, gdpPercap) -->
+```
+```{r complex-base-solution}
+df <- gapminder %>%
+  filter(grepl("Congo", country),
+         year >= 1960,
+         year <= 1970) %>%
+  select(country, year, lifeExp, gdpPercap)
 
-<!-- df <- gapminder[grepl("Congo", gapminder$country) & -->
-<!--             gapminder$year >= 1960 & -->
-<!--             gapminder$year <= 1979, -->
-<!--           c(1,3,4,5)] -->
+df <- gapminder[grepl("Congo", gapminder$country) &
+            gapminder$year >= 1960 &
+            gapminder$year <= 1979,
+          c(1,3,4,5)]
 
-<!-- df <- gapminder[grepl("Congo", gapminder$country) & -->
-<!--             gapminder$year >= 1960 & -->
-<!--             gapminder$year <= 1979, -->
-<!--           c("country", "year", "lifeExp", "gdpPercap")] -->
-<!-- ``` -->
+df <- gapminder[grepl("Congo", gapminder$country) &
+            gapminder$year >= 1960 &
+            gapminder$year <= 1979,
+          c("country", "year", "lifeExp", "gdpPercap")]
+```
 
-<!-- ## Performing t-test -->
+## Performing t-test
 
-<!-- ### Two ways of writing the command -->
+### Two ways of writing the command
 
-<!-- Is the life expectancy of the two countries with names containing "Congo" significantly different over 1960s and 1970s? To answer this question, we will need to use t-test. -->
+Is the life expectancy of the two countries with names containing "Congo" significantly different over 1960s and 1970s? To answer this question, we will need to use t-test.
 
-<!-- First let's save their life expectancy into two vectors. Then we can pass these two vectors into `t.test()`. Is this a paired or unpaired test? -->
+First let's save their life expectancy into two vectors. Then we can pass these two vectors into `t.test()`. Is this a paired or unpaired test?
 
-<!-- ```{r two-vec-t, exercise=TRUE} -->
-<!-- DRCongo <- -->
-<!-- ROCongo <- -->
-<!-- t.test( , ) -->
-<!-- ``` -->
-<!-- ```{r two-vec-t-solution} -->
-<!-- DRCongo <- df[df$country == "Congo, Dem. Rep.",]$lifeExp -->
-<!-- ROCongo <- df[df$country == "Congo, Rep.",]$lifeExp -->
-<!-- t.test(DRCongo, ROCongo, paired = TRUE) -->
-<!-- ``` -->
+```{r two-vec-t, exercise=TRUE}
+DRCongo <-
+ROCongo <-
+t.test( , )
+```
+```{r two-vec-t-solution}
+DRCongo <- df[df$country == "Congo, Dem. Rep.",]$lifeExp
+ROCongo <- df[df$country == "Congo, Rep.",]$lifeExp
+t.test(DRCongo, ROCongo, paired = TRUE)
+```
 
-<!-- Another way is to use the sign `~` between the response variable and the explanatory variable(s). -->
+Another way is to use the sign `~` between the response variable and the explanatory variable(s).
 
-<!-- ```{r conn-t, exercise=TRUE} -->
-<!-- t.test( ~ , ) -->
-<!-- ``` -->
-<!-- ```{r conn-t-solution} -->
-<!-- t.test(lifeExp ~ country, data = df, paired = TRUE) -->
-<!-- ``` -->
+```{r coun-t}
+t.test(lifeExp ~ country, data = df, paired = TRUE)
+```
 
-<!-- ### Paired t-test is actually a one-sample t-test -->
 
-<!-- We have mentioned in the lecture that the paired t-test is actually a one-sample t-test. The differences of the paired data points are compared with 0. Could you perform this two-sample paired t-test in the one-sample t-test manner? -->
+### Paired t-test is actually a one-sample t-test
 
-<!-- ```{r alt-paired, exercise=TRUE} -->
-<!-- t.test( ~ , ) -->
-<!-- ``` -->
-<!-- ```{r alt-paired-solution} -->
-<!-- t.test(DRCongo - ROCongo, mu=0) -->
-<!-- ``` -->
+We have mentioned in the lecture that the paired t-test is actually a one-sample t-test. The differences of the paired data points are compared with 0.
 
-<!-- Please compare the t, df and p-value with the results above. What do you find? -->
+```{r alt-paired-solution}
+t.test(DRCongo - ROCongo, mu=0)
+```
 
-<!-- ### Performing t-test in batch -->
+Please compare the t, df and p-value with the results above. What do you find?
 
-<!-- Can you compare the life expectancy of countries in Europe and Americas in 1952? Is this a paired or unpaired t-test? -->
 
-<!-- Let's create a truncated data frame with entries from 1952 and the two continents first. Then we use the wave sign for the t-test. -->
+### Performing t-test in batch
 
-<!-- ```{r unpaired, exercise=TRUE, exercise.eval=F} -->
-<!-- temp.df <- -->
-<!-- t.test( ~ , )) -->
-<!-- ``` -->
-<!-- ```{r unpaired-solution} -->
-<!-- temp.df <- gapminder %>% -->
-<!--   filter(continent %in% c("Europe", "Americas"), year == 1952) -->
-<!-- t.test(lifeExp ~ continent, data = temp.df) -->
-<!-- ``` -->
+Can you compare the life expectancy of countries in Europe and Americas in 1952? Is this a paired or unpaired t-test?
 
-<!-- we can also return the p-value and mean of difference -->
+Let's create a truncated data frame with entries from 1952 and the two continents first. Then, perform a t-test.
 
-<!-- ```{r unpaired-return, exercise=TRUE, exercise.eval=F} -->
-<!-- test <- t.test(lifeExp ~ continent, data = temp.df) -->
-<!-- test$p.value -->
-<!-- test$estimate -->
-<!-- test$estimate[1] -->
-<!-- test$estimate[2] -->
-<!-- ``` -->
+```{r unpaired-solution}
+temp.df <- gapminder %>%
+  filter(continent %in% c("Europe", "Americas"), year == 1952)
+t.test(lifeExp ~ continent, data = temp.df)
+```
 
-<!-- We would like to calculate such difference for every year, and save the results in a new data frame. -->
+we can also return the p-value and mean of difference
 
-<!-- ```{r empty, exercise=TRUE, exercise.eval=F} -->
-<!-- results.df <- data.frame() -->
-<!-- results.df <- rbind(results.df, -->
-<!--                     c(1952, test$p.value, test$estimate)) -->
-<!-- names(results.df) <- c("year", -->
-<!--                          "p.value", -->
-<!--                          "mean.Americas", -->
-<!--                          "mean.Europe") -->
-<!-- ``` -->
+```{r unpaired-return, exercise=TRUE, exercise.eval=F}
+test <- t.test(lifeExp ~ continent, data = temp.df)
+test$p.value
+test$estimate
+test$estimate[1]
+test$estimate[2]
+```
 
-<!-- Could you use a for loop to complete this task? -->
+We would like to calculate such difference for every year, and save the results in a new data frame.
 
-<!-- ```{r for, exercise=TRUE, exercise.eval=F} -->
-<!-- for (  ) { -->
+```{r empty, exercise=TRUE, exercise.eval=F}
+results.df <- data.frame()
+results.df <- rbind(results.df,
+                    c(1952, test$p.value, test$estimate))
+names(results.df) <- c("year",
+                         "p.value",
+                         "mean.Americas",
+                         "mean.Europe")
+```
 
-<!-- } -->
-<!-- ``` -->
-<!-- ```{r for-solution} -->
-<!-- for (i in levels(as.factor(gapminder$year))[-1]) { -->
-<!--   temp.df <- gapminder %>% -->
-<!--   filter(continent %in% c("Europe", "Americas"), -->
-<!--          year == i) -->
-<!--   test <- t.test(lifeExp ~ continent, data = temp.df) -->
-<!--   results.df <- rbind(results.df, -->
-<!--                     c(i, test$p.value, test$estimate)) -->
-<!-- } -->
-<!-- results.df -->
-<!-- ``` -->
+Could you use a for loop to complete this task?
 
-<!-- Now add a new column called "difference" as the difference between two mean values. -->
+```{r for-solution}
+for (i in levels(as.factor(gapminder$year))[-1]) {
+  temp.df <- gapminder %>%
+  filter(continent %in% c("Europe", "Americas"),
+         year == i)
+  test <- t.test(lifeExp ~ continent, data = temp.df)
+  results.df <- rbind(results.df,
+                    c(i, test$p.value, test$estimate))
+}
+results.df
+```
 
-<!-- ```{r difference, exercise=TRUE, exercise.eval=F} -->
-<!-- results.df <- data.frame(results.df, -->
-<!--                          difference = as.numeric(results.df$mean.Europe) - as.numeric(results.df$mean.Americas)) -->
-<!-- results.df -->
-<!-- ``` -->
+Now add a new column called "difference" as the difference between two mean values.
 
-<!-- Look at the data frame. What conclusions can you draw? -->
+```{r difference, exercise=TRUE, exercise.eval=F}
+results.df <- data.frame(results.df,
+                         difference = as.numeric(results.df$mean.Europe) - as.numeric(results.df$mean.Americas))
+results.df
+```
+
+Look at the data frame. What conclusions can you draw?
