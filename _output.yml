@@ -1,5 +1,7 @@
 bookdown::gitbook:
   css: [assets/style.css]
+  include:
+    in_header: header.html
   favicon: assets/favicon.ico
   split_by: chapter
   config:

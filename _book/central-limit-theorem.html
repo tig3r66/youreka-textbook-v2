@@ -33,7 +33,7 @@
   
 <link rel="prev" href="more-dplyr.html"/>
 <link rel="next" href="basic-statistical-tests.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,6 +53,28 @@
 
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.1/iframeResizer.min.js">
+</script>
+
+<script type="text/javascript">
+
+// Once page is loaded, override and disable popover "scroll into view"
+  $(document).ready(function() {
+    window.tutorial.scrollIntoView = function() {}
+  })
+
+// Add padding to LearnR body when popover shown
+  $(document).on("shown.bs.popover", function() {
+    var popoverHeight = document.querySelector(".popover").offsetHeight
+    document.body.style.paddingTop = popoverHeight + 10 + "px"
+  })
+
+// Set padding to 0 when popover hidden
+  $(document).on("hide.bs.popover", function() {
+    var popoverHeight = document.querySelector(".popover").offsetHeight
+    document.body.style.paddingTop = "0px"
+  })
+</script>
 
 
 <style type="text/css">
@@ -149,43 +171,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing RStudio</a></li>
 <li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#add-on-packages"><i class="fa fa-check"></i><b>1.3</b> Add-on packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html"><i class="fa fa-check"></i><b>2</b> Basics of R (Part 1)</a>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
-<li class="chapter" data-level="2.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#function-basics"><i class="fa fa-check"></i><b>2.2</b> Function Basics</a></li>
-<li class="chapter" data-level="2.3" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#basic-math-operators"><i class="fa fa-check"></i><b>2.3</b> Basic math operators</a></li>
-<li class="chapter" data-level="2.4" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a>
+<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
+<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#math-operators"><i class="fa fa-check"></i><b>2.3</b> Math operators</a></li>
+<li class="chapter" data-level="2.4" data-path="intro-to-r.html"><a href="intro-to-r.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#if-statements"><i class="fa fa-check"></i><b>2.4.1</b> If statements</a></li>
-<li class="chapter" data-level="2.4.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#multiple-ifs-vs-else-if"><i class="fa fa-check"></i><b>2.4.2</b> Multiple “if”s vs “else if”</a></li>
+<li class="chapter" data-level="2.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#if-statements"><i class="fa fa-check"></i><b>2.4.1</b> If statements</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a>
+<li class="chapter" data-level="2.5" data-path="intro-to-r.html"><a href="intro-to-r.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#other-important-things"><i class="fa fa-check"></i><b>2.5.1</b> Other important things</a></li>
+<li class="chapter" data-level="2.5.1" data-path="intro-to-r.html"><a href="intro-to-r.html#other-important-things"><i class="fa fa-check"></i><b>2.5.1</b> Other important things</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html"><i class="fa fa-check"></i><b>3</b> Basics of R (Part 2)</a>
+<li class="chapter" data-level="3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3</b> Data Structures</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a>
+<li class="chapter" data-level="3.1" data-path="data-structures.html"><a href="data-structures.html#data-structures-1"><i class="fa fa-check"></i><b>3.1</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#vectors"><i class="fa fa-check"></i><b>3.1.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.1.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#missing-values"><i class="fa fa-check"></i><b>3.1.2</b> Missing values</a></li>
-<li class="chapter" data-level="3.1.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-frames"><i class="fa fa-check"></i><b>3.1.3</b> Data frames</a></li>
-<li class="chapter" data-level="3.1.4" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#external-data"><i class="fa fa-check"></i><b>3.1.4</b> External data</a></li>
-<li class="chapter" data-level="3.1.5" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#factors"><i class="fa fa-check"></i><b>3.1.5</b> Factors</a></li>
-<li class="chapter" data-level="3.1.6" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#lists"><i class="fa fa-check"></i><b>3.1.6</b> Lists</a></li>
+<li class="chapter" data-level="3.1.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.1.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-structures.html"><a href="data-structures.html#missing-values"><i class="fa fa-check"></i><b>3.1.2</b> Missing values</a></li>
+<li class="chapter" data-level="3.1.3" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>3.1.3</b> Data frames</a></li>
+<li class="chapter" data-level="3.1.4" data-path="data-structures.html"><a href="data-structures.html#external-data"><i class="fa fa-check"></i><b>3.1.4</b> External data</a></li>
+<li class="chapter" data-level="3.1.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>3.1.5</b> Factors</a></li>
+<li class="chapter" data-level="3.1.6" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>3.1.6</b> Lists</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a>
+<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#looping-over-multiple-files"><i class="fa fa-check"></i><b>3.2.1</b> Looping over multiple files</a></li>
-<li class="chapter" data-level="3.2.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-loops-optional"><i class="fa fa-check"></i><b>3.2.2</b> Nested loops (OPTIONAL)</a></li>
+<li class="chapter" data-level="3.2.1" data-path="data-structures.html"><a href="data-structures.html#looping-over-multiple-files"><i class="fa fa-check"></i><b>3.2.1</b> Looping over multiple files</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures.html"><a href="data-structures.html#nested-loops-optional"><i class="fa fa-check"></i><b>3.2.2</b> Nested loops (OPTIONAL)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
+<li class="chapter" data-level="3.3" data-path="data-structures.html"><a href="data-structures.html#functions-1"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#conditionals-within-functions"><i class="fa fa-check"></i><b>3.3.1</b> Conditionals within functions</a></li>
-<li class="chapter" data-level="3.3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-conditionals"><i class="fa fa-check"></i><b>3.3.2</b> Nested conditionals</a></li>
-<li class="chapter" data-level="3.3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#function-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Function arguments</a></li>
-<li class="chapter" data-level="3.3.4" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#combining-functions"><i class="fa fa-check"></i><b>3.3.4</b> Combining functions</a></li>
+<li class="chapter" data-level="3.3.1" data-path="data-structures.html"><a href="data-structures.html#conditionals-within-functions"><i class="fa fa-check"></i><b>3.3.1</b> Conditionals within functions</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-structures.html"><a href="data-structures.html#nested-conditionals"><i class="fa fa-check"></i><b>3.3.2</b> Nested conditionals</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-structures.html"><a href="data-structures.html#function-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Function arguments</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-structures.html"><a href="data-structures.html#combining-functions"><i class="fa fa-check"></i><b>3.3.4</b> Combining functions</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Data Wrangling</b></span></li>
@@ -334,66 +355,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="clt-part-1" class="section level3" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> CLT Part 1</h3>
 <p>As always, let’s load the tidyverse.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="central-limit-theorem.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="central-limit-theorem.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>Many observed quantities follow normal distribution. Imagine we have a population following normal distribution that has a mean of 10 and standard deviation of 2. If we draw samples from it, are we able to estimate its mean?</p>
 <p>In this example, we will use <code>rnorm()</code>, a random number generator for this simulation. Here, <code>rnorm()</code> returns a vector of random numbers from a normal distribution.</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="central-limit-theorem.html#cb340-1" aria-hidden="true" tabindex="-1"></a>(samp10 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>))</span></code></pre></div>
-<pre><code>##  [1]  6.704922  8.948952  6.177376 10.602435  9.354789  6.321155  9.626293
-##  [8]  7.070108 12.307223 10.527370</code></pre>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="central-limit-theorem.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samp10)</span></code></pre></div>
-<pre><code>## [1] 8.764062</code></pre>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="central-limit-theorem.html#cb312-1" aria-hidden="true" tabindex="-1"></a>(samp10 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>##  [1]  9.969783  9.047687 14.203909  7.651926  9.360816  5.395995  9.073445
+##  [8]  7.733210 12.296619 10.444188</code></pre>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="central-limit-theorem.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samp10)</span></code></pre></div>
+<pre><code>## [1] 9.517758</code></pre>
 <p>Apparently the mean is not 10, but it is pretty close. This should make sense; when we draw a sample to estimate the mean, we may get very close to the desired “true mean,” but we also expect some error. What if I repeat the estimation 10000 times with 10 samples?</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="central-limit-theorem.html#cb344-1" aria-hidden="true" tabindex="-1"></a>means10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb344-2"><a href="central-limit-theorem.html#cb344-2" aria-hidden="true" tabindex="-1"></a><span class="co"># doing experiments 10,000 times</span></span>
-<span id="cb344-3"><a href="central-limit-theorem.html#cb344-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
-<span id="cb344-4"><a href="central-limit-theorem.html#cb344-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># each iteration, I draw a sample size of 2 from a normal distribution</span></span>
-<span id="cb344-5"><a href="central-limit-theorem.html#cb344-5" aria-hidden="true" tabindex="-1"></a>  samp10 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>)</span>
-<span id="cb344-6"><a href="central-limit-theorem.html#cb344-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># I calculate the mean of these 10 numbers and record it</span></span>
-<span id="cb344-7"><a href="central-limit-theorem.html#cb344-7" aria-hidden="true" tabindex="-1"></a>  means10[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(samp10)  </span>
-<span id="cb344-8"><a href="central-limit-theorem.html#cb344-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb344-9"><a href="central-limit-theorem.html#cb344-9" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s look at the result</span></span>
-<span id="cb344-10"><a href="central-limit-theorem.html#cb344-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as_tibble</span>(means10), <span class="fu">aes</span>(value)) <span class="sc">+</span></span>
-<span id="cb344-11"><a href="central-limit-theorem.html#cb344-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;#C5EBCB&quot;</span>) <span class="sc">+</span></span>
-<span id="cb344-12"><a href="central-limit-theorem.html#cb344-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="central-limit-theorem.html#cb316-1" aria-hidden="true" tabindex="-1"></a>means10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb316-2"><a href="central-limit-theorem.html#cb316-2" aria-hidden="true" tabindex="-1"></a><span class="co"># doing experiments 10,000 times</span></span>
+<span id="cb316-3"><a href="central-limit-theorem.html#cb316-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
+<span id="cb316-4"><a href="central-limit-theorem.html#cb316-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># each iteration, I draw a sample size of 2 from a normal distribution</span></span>
+<span id="cb316-5"><a href="central-limit-theorem.html#cb316-5" aria-hidden="true" tabindex="-1"></a>  samp10 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb316-6"><a href="central-limit-theorem.html#cb316-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># I calculate the mean of these 10 numbers and record it</span></span>
+<span id="cb316-7"><a href="central-limit-theorem.html#cb316-7" aria-hidden="true" tabindex="-1"></a>  means10[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(samp10)  </span>
+<span id="cb316-8"><a href="central-limit-theorem.html#cb316-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb316-9"><a href="central-limit-theorem.html#cb316-9" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s look at the result</span></span>
+<span id="cb316-10"><a href="central-limit-theorem.html#cb316-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as_tibble</span>(means10), <span class="fu">aes</span>(value)) <span class="sc">+</span></span>
+<span id="cb316-11"><a href="central-limit-theorem.html#cb316-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;#C5EBCB&quot;</span>) <span class="sc">+</span></span>
+<span id="cb316-12"><a href="central-limit-theorem.html#cb316-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
 <p>What does this figure mean? Of the 10000 estimations that we did, most estimations were very close to 10. The probability to overestimate and underestimate decreases as the estimation deviates from 10, our “true mean.”</p>
 <p>We can now conclude the following: if our population is normal, our sampling distribution is also normal. This first observation demonstrates a key part of the <strong>CLT</strong>.</p>
 </div>
 <div id="clt-part-2" class="section level3" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> CLT Part 2</h3>
 <p>Now, we are going to explore another aspect of the CLT: given enough sample means, our sample distribution will look normal <em>regardless of the original population distribution</em>. This time, let’s try sampling from a population that is uniformly distributed. For example, let’s create a population with 10,000 completely random numbers between 0 and 20:</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="central-limit-theorem.html#cb345-1" aria-hidden="true" tabindex="-1"></a>uniform_popn <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span><span class="dv">10000</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">20</span>)</span>
-<span id="cb345-2"><a href="central-limit-theorem.html#cb345-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as_tibble</span>(uniform_popn), <span class="fu">aes</span>(value)) <span class="sc">+</span></span>
-<span id="cb345-3"><a href="central-limit-theorem.html#cb345-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;#C5EBCB&quot;</span>) <span class="sc">+</span></span>
-<span id="cb345-4"><a href="central-limit-theorem.html#cb345-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="central-limit-theorem.html#cb317-1" aria-hidden="true" tabindex="-1"></a>uniform_popn <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span><span class="dv">10000</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">20</span>)</span>
+<span id="cb317-2"><a href="central-limit-theorem.html#cb317-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as_tibble</span>(uniform_popn), <span class="fu">aes</span>(value)) <span class="sc">+</span></span>
+<span id="cb317-3"><a href="central-limit-theorem.html#cb317-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;#C5EBCB&quot;</span>) <span class="sc">+</span></span>
+<span id="cb317-4"><a href="central-limit-theorem.html#cb317-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/uniform-popn-1.png" width="672" /></p>
 <p>Now, we are going to repeatedly sample from <code>uniform_popn</code> and use the mean of that particular sample as our entry.</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="central-limit-theorem.html#cb346-1" aria-hidden="true" tabindex="-1"></a>means10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb346-2"><a href="central-limit-theorem.html#cb346-2" aria-hidden="true" tabindex="-1"></a>means100 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb346-3"><a href="central-limit-theorem.html#cb346-3" aria-hidden="true" tabindex="-1"></a>means1000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb346-4"><a href="central-limit-theorem.html#cb346-4" aria-hidden="true" tabindex="-1"></a><span class="co"># doing experiments 10,000 times</span></span>
-<span id="cb346-5"><a href="central-limit-theorem.html#cb346-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
-<span id="cb346-6"><a href="central-limit-theorem.html#cb346-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># each iteration, I draw 10, 100, and 1000 samples from uniform_popn</span></span>
-<span id="cb346-7"><a href="central-limit-theorem.html#cb346-7" aria-hidden="true" tabindex="-1"></a>  samp10 <span class="ot">&lt;-</span> <span class="fu">sample</span>(uniform_popn, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb346-8"><a href="central-limit-theorem.html#cb346-8" aria-hidden="true" tabindex="-1"></a>  samp100 <span class="ot">&lt;-</span> <span class="fu">sample</span>(uniform_popn, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb346-9"><a href="central-limit-theorem.html#cb346-9" aria-hidden="true" tabindex="-1"></a>  samp1000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(uniform_popn, <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb346-10"><a href="central-limit-theorem.html#cb346-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># getting means of each sample</span></span>
-<span id="cb346-11"><a href="central-limit-theorem.html#cb346-11" aria-hidden="true" tabindex="-1"></a>  means10[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(samp10)</span>
-<span id="cb346-12"><a href="central-limit-theorem.html#cb346-12" aria-hidden="true" tabindex="-1"></a>  means100[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(samp100)</span>
-<span id="cb346-13"><a href="central-limit-theorem.html#cb346-13" aria-hidden="true" tabindex="-1"></a>  means1000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(samp1000)</span>
-<span id="cb346-14"><a href="central-limit-theorem.html#cb346-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb346-15"><a href="central-limit-theorem.html#cb346-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb346-16"><a href="central-limit-theorem.html#cb346-16" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb346-17"><a href="central-limit-theorem.html#cb346-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means10, <span class="at">sample_size =</span> <span class="st">&quot;10&quot;</span>),</span>
-<span id="cb346-18"><a href="central-limit-theorem.html#cb346-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means100, <span class="at">sample_size =</span> <span class="st">&quot;100&quot;</span>),</span>
-<span id="cb346-19"><a href="central-limit-theorem.html#cb346-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means1000, <span class="at">sample_size =</span> <span class="st">&quot;1000&quot;</span>)</span>
-<span id="cb346-20"><a href="central-limit-theorem.html#cb346-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb346-21"><a href="central-limit-theorem.html#cb346-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb346-22"><a href="central-limit-theorem.html#cb346-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> means, <span class="at">fill =</span> sample_size)) <span class="sc">+</span> </span>
-<span id="cb346-23"><a href="central-limit-theorem.html#cb346-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb346-24"><a href="central-limit-theorem.html#cb346-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sample means&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Sample size&quot;</span>) <span class="sc">+</span></span>
-<span id="cb346-25"><a href="central-limit-theorem.html#cb346-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="central-limit-theorem.html#cb318-1" aria-hidden="true" tabindex="-1"></a>means10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb318-2"><a href="central-limit-theorem.html#cb318-2" aria-hidden="true" tabindex="-1"></a>means100 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb318-3"><a href="central-limit-theorem.html#cb318-3" aria-hidden="true" tabindex="-1"></a>means1000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb318-4"><a href="central-limit-theorem.html#cb318-4" aria-hidden="true" tabindex="-1"></a><span class="co"># doing experiments 10,000 times</span></span>
+<span id="cb318-5"><a href="central-limit-theorem.html#cb318-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
+<span id="cb318-6"><a href="central-limit-theorem.html#cb318-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># each iteration, I draw 10, 100, and 1000 samples from uniform_popn</span></span>
+<span id="cb318-7"><a href="central-limit-theorem.html#cb318-7" aria-hidden="true" tabindex="-1"></a>  samp10 <span class="ot">&lt;-</span> <span class="fu">sample</span>(uniform_popn, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb318-8"><a href="central-limit-theorem.html#cb318-8" aria-hidden="true" tabindex="-1"></a>  samp100 <span class="ot">&lt;-</span> <span class="fu">sample</span>(uniform_popn, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb318-9"><a href="central-limit-theorem.html#cb318-9" aria-hidden="true" tabindex="-1"></a>  samp1000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(uniform_popn, <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb318-10"><a href="central-limit-theorem.html#cb318-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># getting means of each sample</span></span>
+<span id="cb318-11"><a href="central-limit-theorem.html#cb318-11" aria-hidden="true" tabindex="-1"></a>  means10[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(samp10)</span>
+<span id="cb318-12"><a href="central-limit-theorem.html#cb318-12" aria-hidden="true" tabindex="-1"></a>  means100[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(samp100)</span>
+<span id="cb318-13"><a href="central-limit-theorem.html#cb318-13" aria-hidden="true" tabindex="-1"></a>  means1000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(samp1000)</span>
+<span id="cb318-14"><a href="central-limit-theorem.html#cb318-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb318-15"><a href="central-limit-theorem.html#cb318-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb318-16"><a href="central-limit-theorem.html#cb318-16" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb318-17"><a href="central-limit-theorem.html#cb318-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means10, <span class="at">sample_size =</span> <span class="st">&quot;10&quot;</span>),</span>
+<span id="cb318-18"><a href="central-limit-theorem.html#cb318-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means100, <span class="at">sample_size =</span> <span class="st">&quot;100&quot;</span>),</span>
+<span id="cb318-19"><a href="central-limit-theorem.html#cb318-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means1000, <span class="at">sample_size =</span> <span class="st">&quot;1000&quot;</span>)</span>
+<span id="cb318-20"><a href="central-limit-theorem.html#cb318-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb318-21"><a href="central-limit-theorem.html#cb318-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb318-22"><a href="central-limit-theorem.html#cb318-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> means, <span class="at">fill =</span> sample_size)) <span class="sc">+</span> </span>
+<span id="cb318-23"><a href="central-limit-theorem.html#cb318-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb318-24"><a href="central-limit-theorem.html#cb318-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sample means&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Sample size&quot;</span>) <span class="sc">+</span></span>
+<span id="cb318-25"><a href="central-limit-theorem.html#cb318-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
 <p>Notice two things:</p>
 <ol style="list-style-type: decimal">
 <li>With a larger sample size, your estimation for the mean will have a smaller variance.</li>
@@ -406,57 +427,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.2</span> CLT for proportions</h2>
 <p>Now I would like to estimate the probability of getting a “head” of when I flip a coin.</p>
 <p>Each time I flip a coin, if I end up with a “head,” I record it as a 1. If I get a “tail,” I will record it as a 0. If I flip the coin for 10 times where I have 6 “heads” and 4 “tails,” the proportion of getting “heads” would be 6/10 = 0.6. If I flip the coin for a sufficiently large amount of times, we would like to expect the proportion to approach the theoretical 0.5. Is this the case?</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="central-limit-theorem.html#cb347-1" aria-hidden="true" tabindex="-1"></a>means100 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb347-2"><a href="central-limit-theorem.html#cb347-2" aria-hidden="true" tabindex="-1"></a>means1000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb347-3"><a href="central-limit-theorem.html#cb347-3" aria-hidden="true" tabindex="-1"></a>means10000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb347-4"><a href="central-limit-theorem.html#cb347-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb347-5"><a href="central-limit-theorem.html#cb347-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
-<span id="cb347-6"><a href="central-limit-theorem.html#cb347-6" aria-hidden="true" tabindex="-1"></a>  sample100 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">100</span>)</span>
-<span id="cb347-7"><a href="central-limit-theorem.html#cb347-7" aria-hidden="true" tabindex="-1"></a>  means100[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample100)</span>
-<span id="cb347-8"><a href="central-limit-theorem.html#cb347-8" aria-hidden="true" tabindex="-1"></a>  sample1000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">1000</span>)</span>
-<span id="cb347-9"><a href="central-limit-theorem.html#cb347-9" aria-hidden="true" tabindex="-1"></a>  means1000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample1000)</span>
-<span id="cb347-10"><a href="central-limit-theorem.html#cb347-10" aria-hidden="true" tabindex="-1"></a>  sample10000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">10000</span>)</span>
-<span id="cb347-11"><a href="central-limit-theorem.html#cb347-11" aria-hidden="true" tabindex="-1"></a>  means10000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample10000)</span>
-<span id="cb347-12"><a href="central-limit-theorem.html#cb347-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb347-13"><a href="central-limit-theorem.html#cb347-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb347-14"><a href="central-limit-theorem.html#cb347-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb347-15"><a href="central-limit-theorem.html#cb347-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means100, <span class="at">sample_size =</span> <span class="st">&quot;100 flips&quot;</span>),</span>
-<span id="cb347-16"><a href="central-limit-theorem.html#cb347-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means1000, <span class="at">sample_size =</span> <span class="st">&quot;1000 flips&quot;</span>),</span>
-<span id="cb347-17"><a href="central-limit-theorem.html#cb347-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means10000, <span class="at">sample_size =</span> <span class="st">&quot;10000 flips&quot;</span>)</span>
-<span id="cb347-18"><a href="central-limit-theorem.html#cb347-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb347-19"><a href="central-limit-theorem.html#cb347-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb347-20"><a href="central-limit-theorem.html#cb347-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> means, <span class="at">fill =</span> sample_size)) <span class="sc">+</span> </span>
-<span id="cb347-21"><a href="central-limit-theorem.html#cb347-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb347-22"><a href="central-limit-theorem.html#cb347-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sample means&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Sample size&quot;</span>) <span class="sc">+</span></span>
-<span id="cb347-23"><a href="central-limit-theorem.html#cb347-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="central-limit-theorem.html#cb319-1" aria-hidden="true" tabindex="-1"></a>means100 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb319-2"><a href="central-limit-theorem.html#cb319-2" aria-hidden="true" tabindex="-1"></a>means1000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb319-3"><a href="central-limit-theorem.html#cb319-3" aria-hidden="true" tabindex="-1"></a>means10000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb319-4"><a href="central-limit-theorem.html#cb319-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb319-5"><a href="central-limit-theorem.html#cb319-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
+<span id="cb319-6"><a href="central-limit-theorem.html#cb319-6" aria-hidden="true" tabindex="-1"></a>  sample100 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">100</span>)</span>
+<span id="cb319-7"><a href="central-limit-theorem.html#cb319-7" aria-hidden="true" tabindex="-1"></a>  means100[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample100)</span>
+<span id="cb319-8"><a href="central-limit-theorem.html#cb319-8" aria-hidden="true" tabindex="-1"></a>  sample1000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">1000</span>)</span>
+<span id="cb319-9"><a href="central-limit-theorem.html#cb319-9" aria-hidden="true" tabindex="-1"></a>  means1000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample1000)</span>
+<span id="cb319-10"><a href="central-limit-theorem.html#cb319-10" aria-hidden="true" tabindex="-1"></a>  sample10000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">10000</span>)</span>
+<span id="cb319-11"><a href="central-limit-theorem.html#cb319-11" aria-hidden="true" tabindex="-1"></a>  means10000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample10000)</span>
+<span id="cb319-12"><a href="central-limit-theorem.html#cb319-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb319-13"><a href="central-limit-theorem.html#cb319-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb319-14"><a href="central-limit-theorem.html#cb319-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb319-15"><a href="central-limit-theorem.html#cb319-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means100, <span class="at">sample_size =</span> <span class="st">&quot;100 flips&quot;</span>),</span>
+<span id="cb319-16"><a href="central-limit-theorem.html#cb319-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means1000, <span class="at">sample_size =</span> <span class="st">&quot;1000 flips&quot;</span>),</span>
+<span id="cb319-17"><a href="central-limit-theorem.html#cb319-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means10000, <span class="at">sample_size =</span> <span class="st">&quot;10000 flips&quot;</span>)</span>
+<span id="cb319-18"><a href="central-limit-theorem.html#cb319-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb319-19"><a href="central-limit-theorem.html#cb319-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb319-20"><a href="central-limit-theorem.html#cb319-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> means, <span class="at">fill =</span> sample_size)) <span class="sc">+</span> </span>
+<span id="cb319-21"><a href="central-limit-theorem.html#cb319-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb319-22"><a href="central-limit-theorem.html#cb319-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sample means&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Sample size&quot;</span>) <span class="sc">+</span></span>
+<span id="cb319-23"><a href="central-limit-theorem.html#cb319-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
 <p>Can you explain the pattern that we observe with 100 flips? How about the height and width of other curves? What conclusions can we draw?</p>
 <p>The answers to these questions may appear intuitive: when you flip the coin many times, you will likely get “heads” 50% of the time. The more you flip the coin, the more likely you’ll get 50% heads. How about an “uneven” coin that preferably lands with a “head” with 75% chance? In this case we change the <code>prob</code> in the <code>sample()</code> function with this new probability.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="central-limit-theorem.html#cb348-1" aria-hidden="true" tabindex="-1"></a>means100 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb348-2"><a href="central-limit-theorem.html#cb348-2" aria-hidden="true" tabindex="-1"></a>means1000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb348-3"><a href="central-limit-theorem.html#cb348-3" aria-hidden="true" tabindex="-1"></a>means10000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
-<span id="cb348-4"><a href="central-limit-theorem.html#cb348-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb348-5"><a href="central-limit-theorem.html#cb348-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
-<span id="cb348-6"><a href="central-limit-theorem.html#cb348-6" aria-hidden="true" tabindex="-1"></a>  sample100 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">100</span>)</span>
-<span id="cb348-7"><a href="central-limit-theorem.html#cb348-7" aria-hidden="true" tabindex="-1"></a>  means100[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample100)</span>
-<span id="cb348-8"><a href="central-limit-theorem.html#cb348-8" aria-hidden="true" tabindex="-1"></a>  sample1000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">1000</span>)</span>
-<span id="cb348-9"><a href="central-limit-theorem.html#cb348-9" aria-hidden="true" tabindex="-1"></a>  means1000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample1000)</span>
-<span id="cb348-10"><a href="central-limit-theorem.html#cb348-10" aria-hidden="true" tabindex="-1"></a>  sample10000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">10000</span>)</span>
-<span id="cb348-11"><a href="central-limit-theorem.html#cb348-11" aria-hidden="true" tabindex="-1"></a>  means10000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample10000)</span>
-<span id="cb348-12"><a href="central-limit-theorem.html#cb348-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb348-13"><a href="central-limit-theorem.html#cb348-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb348-14"><a href="central-limit-theorem.html#cb348-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb348-15"><a href="central-limit-theorem.html#cb348-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means100, <span class="at">sample_size =</span> <span class="st">&quot;100 flips&quot;</span>),</span>
-<span id="cb348-16"><a href="central-limit-theorem.html#cb348-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means1000, <span class="at">sample_size =</span> <span class="st">&quot;1000 flips&quot;</span>),</span>
-<span id="cb348-17"><a href="central-limit-theorem.html#cb348-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means10000, <span class="at">sample_size =</span> <span class="st">&quot;10000 flips&quot;</span>)</span>
-<span id="cb348-18"><a href="central-limit-theorem.html#cb348-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb348-19"><a href="central-limit-theorem.html#cb348-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb348-20"><a href="central-limit-theorem.html#cb348-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb348-21"><a href="central-limit-theorem.html#cb348-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> means, <span class="at">fill =</span> sample_size)) <span class="sc">+</span> </span>
-<span id="cb348-22"><a href="central-limit-theorem.html#cb348-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb348-23"><a href="central-limit-theorem.html#cb348-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sample means&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Sample size&quot;</span>) <span class="sc">+</span></span>
-<span id="cb348-24"><a href="central-limit-theorem.html#cb348-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="central-limit-theorem.html#cb320-1" aria-hidden="true" tabindex="-1"></a>means100 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb320-2"><a href="central-limit-theorem.html#cb320-2" aria-hidden="true" tabindex="-1"></a>means1000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb320-3"><a href="central-limit-theorem.html#cb320-3" aria-hidden="true" tabindex="-1"></a>means10000 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
+<span id="cb320-4"><a href="central-limit-theorem.html#cb320-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb320-5"><a href="central-limit-theorem.html#cb320-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
+<span id="cb320-6"><a href="central-limit-theorem.html#cb320-6" aria-hidden="true" tabindex="-1"></a>  sample100 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">100</span>)</span>
+<span id="cb320-7"><a href="central-limit-theorem.html#cb320-7" aria-hidden="true" tabindex="-1"></a>  means100[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample100)</span>
+<span id="cb320-8"><a href="central-limit-theorem.html#cb320-8" aria-hidden="true" tabindex="-1"></a>  sample1000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">1000</span>)</span>
+<span id="cb320-9"><a href="central-limit-theorem.html#cb320-9" aria-hidden="true" tabindex="-1"></a>  means1000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample1000)</span>
+<span id="cb320-10"><a href="central-limit-theorem.html#cb320-10" aria-hidden="true" tabindex="-1"></a>  sample10000 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">0.25</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">10000</span>)</span>
+<span id="cb320-11"><a href="central-limit-theorem.html#cb320-11" aria-hidden="true" tabindex="-1"></a>  means10000[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample10000)</span>
+<span id="cb320-12"><a href="central-limit-theorem.html#cb320-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb320-13"><a href="central-limit-theorem.html#cb320-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb320-14"><a href="central-limit-theorem.html#cb320-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb320-15"><a href="central-limit-theorem.html#cb320-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means100, <span class="at">sample_size =</span> <span class="st">&quot;100 flips&quot;</span>),</span>
+<span id="cb320-16"><a href="central-limit-theorem.html#cb320-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means1000, <span class="at">sample_size =</span> <span class="st">&quot;1000 flips&quot;</span>),</span>
+<span id="cb320-17"><a href="central-limit-theorem.html#cb320-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">means =</span> means10000, <span class="at">sample_size =</span> <span class="st">&quot;10000 flips&quot;</span>)</span>
+<span id="cb320-18"><a href="central-limit-theorem.html#cb320-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb320-19"><a href="central-limit-theorem.html#cb320-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb320-20"><a href="central-limit-theorem.html#cb320-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb320-21"><a href="central-limit-theorem.html#cb320-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> means, <span class="at">fill =</span> sample_size)) <span class="sc">+</span> </span>
+<span id="cb320-22"><a href="central-limit-theorem.html#cb320-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb320-23"><a href="central-limit-theorem.html#cb320-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sample means&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Sample size&quot;</span>) <span class="sc">+</span></span>
+<span id="cb320-24"><a href="central-limit-theorem.html#cb320-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 <p>Indeed, the peaks converged again and shifted to the new position of 0.75.</p>
 <p>As you can see, the bigger your sample size, the less variability there is, and the more the distribution looks like a normal distribution. More precisely, the bigger your sample size, the distribution of the sample means will be normally distributed, even if the population is not normally distributed. A good rule of “sufficiently large sample size” is n ≥ 30.</p>
 <p>This example shows the power of the CLT—it allows us to predict a sampling distribution regardless of the original population.</p>

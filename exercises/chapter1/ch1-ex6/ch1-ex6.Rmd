@@ -1,0 +1,36 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+
+```{r conditionals, exercise=TRUE}
+friend <- "Jane"
+if (friend == "Jason") {
+  msg <- "Hi, Jason!"
+} else if (friend == "Jasmine") {
+  msg <- "How are you, Jasmine?"
+}
+msg
+```
+```{r conditionals-solution}
+friend <- "Jane"
+if (friend == "Jason") {
+  msg <- "Hi, Jason!"
+} else if (friend == "Jasmine") {
+  msg <- "How are you, Jasmine?"
+} else {
+  msg <- "Stranger danger!"
+}
+
+msg
+```
+
+<div data-iframe-height></div>

@@ -1,0 +1,256 @@
+# Intro to R
+
+We will begin our adventure by opening RStudio. If this is your first time opening RStudio, you should see the following panes:
+
+  * Console (entire left)
+  * Environment/History (upper right)
+  * Files/Plots/Packages/Help (lower right)
+
+You can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
+
+For now, place your cursor in the console so we can start coding with R!
+
+## Objects
+
+R is an object-oriented programming language. This means R creates different types of objects that we can manipulate with functions and operators.
+
+To create an object in R, we can assign a value to an object using an **assignment operator** using either a left arrow `<-` or an equal sign `=`. Click the "Run Code" button to get started and play around with the code!
+
+<!---LEARNR EX 1-->
+
+<iframe class="interactive" id="ch1-ex1" src="https://youreka-textbook.shinyapps.io/ch1_ex1/" scrolling="no" frameborder="no"></iframe>
+
+<!------------->
+
+In plain English, the above snippet tells us that "five times ten is assigned to my_object".
+
+By convention, we use `<-` to assign variables. Don't be lazy and use `=` to assign variables. Although it will work, it will just sow confusion later. Code is miserable to read on a good day. Give your eyes a break and use `<-`.
+
+Although object names are flexible, we need to follow some rules:
+
+  1. Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space.
+  1. As a general rule of thumb, object names should be short and meaningful. Misleading or overly long object names will make it a pain to debug your code.
+
+Below are examples of various object name conventions. My best advice would be to pick one and stick with it.
+
+```
+this_is_snake_case
+other.people.use.periods
+evenOthersUseCamelCase
+```
+
+Let's make another assignment:
+
+```{r long-name}
+this_is_a_really_long_name <- 2.5
+```
+
+To inspect the object we've just created, try out RStudio's auto-complete feature: type the first few characters, press `TAB`, add characters until you get what you want, then press return/enter.
+
+
+## Functions
+
+We will use functions in most of our work with R, either pre-written or ones we write ourselves. Functions help us easily repeat instructions and carry out multiple tasks in a single step, saving us a lot of space in our code.
+
+You can call functions like this:
+
+```{r fn-template, eval = FALSE}
+functionName(arg1 = val1, arg2 = val2, ...)
+```
+
+Notice that we use `=` instead of `<-` within a function. Here, `arg1` and `arg2` are the **arguments** of the function. Likewise, `val1` and `val2` are the **parameters** of `arg1` and `arg2`.
+
+Let's try using `seq()` which makes regular sequences of numbers:
+
+```{r seq-fn}
+seq(1, 10)
+```
+
+The above snippet also demonstrates something about how R resolves function arguments. You can always specify `name = value` if you're unsure. If you don't, R attempts to resolve by position. In the above snippet, R assumed we wanted a sequence `from = 1` that goes `to = 10`.
+
+As an exercise, try creating a sequence of numbers from 1 to 10 by increments of 2:
+
+<!---LEARNR EX 2-->
+
+<iframe class="interactive" id="ch1-ex2" src="https://youreka-textbook.shinyapps.io/ch1-ex2/" scrolling="no" frameborder="no" style="z-index: 100;"></iframe>
+
+<!------------->
+
+If you just make an assignment, you don't see the assigned value. To show the assigned value, just call the variable.
+
+```{r see-var}
+one_to_ten <- seq(1, 10)
+one_to_ten
+```
+
+You can shorten this common action by surrounding the assignment with parentheses.
+
+```{r see-var-shorten}
+(one_to_ten <- seq(1, 10))
+```
+
+Not all functions have (or require) arguments:
+
+```{r date-fn}
+date()
+```
+
+If you've been following along in RStudio, look at your workspace (in the upper right pane.) The workspace is where user-defined objects accumulate. You can also get a listing of these objects with commands:
+
+```{r obj-listing, eval=F}
+objects()
+ls()
+```
+
+If you want to remove the object named `one_to_ten`, you can do this:
+
+```{r rem-obj, eval=F}
+rm(one_to_ten)
+```
+
+To remove everything:
+
+```{r rem-everything, eval=F}
+rm(list = ls())
+```
+
+or click the broom icon in RStudio's Environment pane.
+
+
+## Math operators
+
+Here are some basic math operations you can perform in R. Try playing around with them in the interactive window.
+
+<!---LEARNR EX 3-->
+
+<iframe class="interactive" id="ch1-ex3" src="https://youreka-textbook.shinyapps.io/ch1-ex3/" scrolling="no" frameborder="no" style="z-index: 100;"></iframe>
+
+<!------------->
+
+
+## Conditionals
+
+Conditional statements check if a condition is true or false using **logical operators** (operators that return either `TRUE` or `FALSE`). For example:
+
+```{r}
+20 == 10*2
+"hello" == "goodbye"
+```
+
+These statements return a value is of type `"logical"`, which is either `TRUE` if the condition is satisfied, or `FALSE` if the condition is not satisfied. One important note is that `TRUE` and `FALSE` are objects on their own, rather than the strings "true" and "false".
+
+Conditional statements are made with a range of logical operators. Here are some examples:
+
+| Operator     | Plain English                                           |
+|:-------------|:--------------------------------------------------------|
+| `==`         | is equal to                                             |
+| `!=`         | is not equal to                                         |
+| `<` or `>`   | is less than OR is greater than                         |
+| `<=` or `>=` | is less than or equal to OR is greater than or equal to |
+| `is.na()`    | is an NA value                                          |
+
+There are other logical operators, including `%in%`, which checks if a value is present in a vector of possible values. Try playing around with the following statements and checking their output by running the code.
+
+<!---LEARNR EX 4-->
+
+<iframe class="interactive" id="ch1-ex4" src="https://youreka-textbook.shinyapps.io/ch1-ex4/" scrolling="no" frameborder="no" style="z-index: 100;"></iframe>
+
+<!------------->
+
+If you're keen, you'll notice in the last line that we use `c()` to group objects together. This *data structure* is called a **vector**. As a brief introduction, vectors <u>**c**</u>ombine objects of the same type. Don't worry too much about the specifics of vectors, as we will cover it in much greater depth in the next chapter.
+
+We can also combine conditions using the logical and (`&`) along with the logical or (`|`). The logical `&` returns `TRUE` if and only if both conditions are true, and it returns `FALSE` otherwise. Let's look at the following examples:
+
+```{r}
+# is (5 greater than 2) AND (6 greater than 10)?
+(5 > 2) & (6 >= 10)
+# is (5 greater than 2) OR (6 greater than 10)?
+(5 > 2) | (6 >= 10)
+```
+
+
+### If statements
+
+Conditional statements generate logical values to filter inputs. `if` statements use conditional statements to control flow of a program. Below is the general form of an `if` statement:
+
+```r
+if (the conditional statement is TRUE) {
+  do something
+}
+```
+
+Let's look at an example:
+
+<!---LEARNR EX 5-->
+
+<iframe class="interactive" id="ch1-ex5" src="https://youreka-textbook.shinyapps.io/ch1-ex5/" scrolling="no" frameborder="no" style="z-index: 100;"></iframe>
+
+<!------------->
+
+Try assigning 6 to `x` and predict the output.
+
+Although an `if` statement alone is handy, we often want to check multiple conditions. We can add more conditions and associated actions with `else if` statements.
+
+Suppose we want to send an automated message to our friends. Here's how we can do it:
+
+```{r else-if-ex}
+friend <- "Jasmine"
+if (friend == "Jason") {
+  msg <- "Hi, Jason!"
+} else if (friend == "Jasmine") {
+  msg <- "How are you, Jasmine?"
+}
+msg
+```
+
+We can specify what to do if none of the conditions are `TRUE` by using `else` on its own. Try modifying the code below to print "Stranger danger!" if our friend's name isn't "Jason" or "Jasmine".
+
+<!---LEARNR EX 6-->
+
+<iframe class="interactive" id="ch1-ex6" src="https://tig3r66.shinyapps.io/ch1-ex6/" scrolling="no" frameborder="no" style="z-index: 100;"></iframe>
+
+<!------------->
+
+
+## Working directory
+
+Any process running on your computer has a notion of its "working directory". By default in R, a working directory is where R will look for files you ask it to load. It is also where any files you write to disk will go. You can explicitly get your working directory with the `getwd()` function:
+
+```{r eval = FALSE}
+getwd()
+```
+
+The working directory is also displayed at the top of the RStudio console.
+
+You can set your working directory at the command line like so:
+
+```{r eval=F}
+setwd("path-to-my-directory/")
+```
+
+The `setwd()` function is extremely useful for times you want to read in external data, such as a .csv file.
+
+
+### Other important things
+
+Below is a collection of important miscellaneous items to consider.
+
+* R scripts are usually saved with a `.R` or `.r` suffix.
+* Comments start with one or more `#` symbols. Use them. RStudio helps you (de)comment selected lines with `Ctrl`+`Shift`+`C` (Windows and Linux) or `Command`+`Shift`+`C` (Mac).
+* Clean out the workspace. You can do so by clicking the broom icon or by typing `rm(list = ls())` into the console.
+
+This workflow will serve you well in the future:
+
+  1. Create an RStudio project for an analytical project.
+  2. Keep inputs there (we'll soon talk about importing).
+  3. Keep scripts there; edit them, run them in bits or as a whole from there.
+  4. Keep outputs there.
+
+Avoid using your mouse for your workflow. Firstly, using the keyboard is faster. Secondly, writing code instead of clicking helps with reproducibility. That is, it will be much easier to retrospectively determine how a numerical table or PDF was actually produced.
+
+Many experienced users never save the workspace, never save `.RData` files (I'm one of them), and never save or consult the history. Once/if you get to that point, there are options available in RStudio to disable the loading of `.RData` and permanently suppress the prompt on exit to save the workspace (go to *Tools > Options > General*).
+
+
+<script>
+  iFrameResize({}, ".interactive");
+</script>

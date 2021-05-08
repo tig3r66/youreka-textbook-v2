@@ -1,0 +1,30 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+
+```{r math, exercise=TRUE}
+1 + 2                      # addition
+5 * 4                      # multiplication
+10 / 3                     # division
+6 ^ 2                      # exponentiation
+sqrt(5)                    # square root
+exp(1)                     # Euler's number
+pi                         # 3.14159...
+cos(pi)                    # cosine
+log(exp(1))                # base e logarithm
+log10(100)                 # base 10 logarithm
+5 %% 2                     # modular division
+round(1.5579, digits = 2)  # rounding
+
+```
+
+<div data-iframe-height></div>

@@ -1,0 +1,28 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+```{r ch2-ex3, exercise=TRUE}
+sites <- c("a", "a", "b", "c")
+area_ha <- c(1, 2, 3, 4)
+density_ha <- c(2.8, 3.2, 1.5, NA)
+surveys <- data.frame(sites, density_ha, area_ha)
+
+surveys[1, 2]                   # visit one cell by row and column
+surveys[1:2, 2:3]               # visit a range of rows and columns
+surveys[, 3]                    # every row on the third column
+surveys$area_ha                 # visit column by name (preferred method)
+surveys['area_ha']              # visit column by name
+surveys[['area_ha']]            # visit column by name
+surveys[c('area_ha', 'sites')]  # visit multiple columns (preferred method)
+```
+
+<div data-iframe-height></div>

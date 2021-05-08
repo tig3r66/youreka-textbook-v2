@@ -207,3 +207,11 @@ blockquote > p:last-child {
 blockquote > p:first-child {
   text-align: inherit;
 }
+
+/*------------- IFRAME --------------*/
+
+iframe.interactive {
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+}

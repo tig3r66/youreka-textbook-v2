@@ -1,0 +1,21 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+
+```{r seq, exercise=TRUE, eval=FALSE}
+seq(from = ____, to = ____, by = ____)
+```
+```{r seq-solution}
+seq(from = 1, to = 10, by = 2)
+```
+
+<div data-iframe-height></div>

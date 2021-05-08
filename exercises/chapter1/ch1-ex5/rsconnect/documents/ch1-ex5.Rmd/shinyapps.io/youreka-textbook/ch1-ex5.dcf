@@ -1,0 +1,13 @@
+name: ch1-ex5
+title: ch1-ex5
+username:
+account: youreka-textbook
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4097810
+bundleId: 4572397
+url: https://youreka-textbook.shinyapps.io/ch1-ex5/
+when: 1620433612.92384
+lastSyncTime: 1620433612.92385
+asMultiple: FALSE
+asStatic: FALSE

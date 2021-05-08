@@ -1,0 +1,25 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+
+```{r logi-comp, exercise=TRUE}
+"aang" == "aang"
+"aang" != "kora"
+10 < 5
+10 >= 5
+is.na("toph")
+is.na(NA)
+"zuko" %in% c("aang", "toph", "katara")
+
+```
+
+<div data-iframe-height></div>

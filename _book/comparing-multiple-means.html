@@ -33,7 +33,7 @@
   
 <link rel="prev" href="basic-statistical-tests.html"/>
 <link rel="next" href="data-visualization-basics.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,6 +53,28 @@
 
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.1/iframeResizer.min.js">
+</script>
+
+<script type="text/javascript">
+
+// Once page is loaded, override and disable popover "scroll into view"
+  $(document).ready(function() {
+    window.tutorial.scrollIntoView = function() {}
+  })
+
+// Add padding to LearnR body when popover shown
+  $(document).on("shown.bs.popover", function() {
+    var popoverHeight = document.querySelector(".popover").offsetHeight
+    document.body.style.paddingTop = popoverHeight + 10 + "px"
+  })
+
+// Set padding to 0 when popover hidden
+  $(document).on("hide.bs.popover", function() {
+    var popoverHeight = document.querySelector(".popover").offsetHeight
+    document.body.style.paddingTop = "0px"
+  })
+</script>
 
 
 <style type="text/css">
@@ -149,43 +171,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installing-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing RStudio</a></li>
 <li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#add-on-packages"><i class="fa fa-check"></i><b>1.3</b> Add-on packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html"><i class="fa fa-check"></i><b>2</b> Basics of R (Part 1)</a>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> Intro to R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
-<li class="chapter" data-level="2.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#function-basics"><i class="fa fa-check"></i><b>2.2</b> Function Basics</a></li>
-<li class="chapter" data-level="2.3" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#basic-math-operators"><i class="fa fa-check"></i><b>2.3</b> Basic math operators</a></li>
-<li class="chapter" data-level="2.4" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a>
+<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#objects"><i class="fa fa-check"></i><b>2.1</b> Objects</a></li>
+<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#math-operators"><i class="fa fa-check"></i><b>2.3</b> Math operators</a></li>
+<li class="chapter" data-level="2.4" data-path="intro-to-r.html"><a href="intro-to-r.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#if-statements"><i class="fa fa-check"></i><b>2.4.1</b> If statements</a></li>
-<li class="chapter" data-level="2.4.2" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#multiple-ifs-vs-else-if"><i class="fa fa-check"></i><b>2.4.2</b> Multiple “if”s vs “else if”</a></li>
+<li class="chapter" data-level="2.4.1" data-path="intro-to-r.html"><a href="intro-to-r.html#if-statements"><i class="fa fa-check"></i><b>2.4.1</b> If statements</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a>
+<li class="chapter" data-level="2.5" data-path="intro-to-r.html"><a href="intro-to-r.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="basics-of-r-part-1.html"><a href="basics-of-r-part-1.html#other-important-things"><i class="fa fa-check"></i><b>2.5.1</b> Other important things</a></li>
+<li class="chapter" data-level="2.5.1" data-path="intro-to-r.html"><a href="intro-to-r.html#other-important-things"><i class="fa fa-check"></i><b>2.5.1</b> Other important things</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html"><i class="fa fa-check"></i><b>3</b> Basics of R (Part 2)</a>
+<li class="chapter" data-level="3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3</b> Data Structures</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a>
+<li class="chapter" data-level="3.1" data-path="data-structures.html"><a href="data-structures.html#data-structures-1"><i class="fa fa-check"></i><b>3.1</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#vectors"><i class="fa fa-check"></i><b>3.1.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.1.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#missing-values"><i class="fa fa-check"></i><b>3.1.2</b> Missing values</a></li>
-<li class="chapter" data-level="3.1.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#data-frames"><i class="fa fa-check"></i><b>3.1.3</b> Data frames</a></li>
-<li class="chapter" data-level="3.1.4" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#external-data"><i class="fa fa-check"></i><b>3.1.4</b> External data</a></li>
-<li class="chapter" data-level="3.1.5" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#factors"><i class="fa fa-check"></i><b>3.1.5</b> Factors</a></li>
-<li class="chapter" data-level="3.1.6" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#lists"><i class="fa fa-check"></i><b>3.1.6</b> Lists</a></li>
+<li class="chapter" data-level="3.1.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.1.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-structures.html"><a href="data-structures.html#missing-values"><i class="fa fa-check"></i><b>3.1.2</b> Missing values</a></li>
+<li class="chapter" data-level="3.1.3" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>3.1.3</b> Data frames</a></li>
+<li class="chapter" data-level="3.1.4" data-path="data-structures.html"><a href="data-structures.html#external-data"><i class="fa fa-check"></i><b>3.1.4</b> External data</a></li>
+<li class="chapter" data-level="3.1.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>3.1.5</b> Factors</a></li>
+<li class="chapter" data-level="3.1.6" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>3.1.6</b> Lists</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a>
+<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#for-loops"><i class="fa fa-check"></i><b>3.2</b> For loops</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#looping-over-multiple-files"><i class="fa fa-check"></i><b>3.2.1</b> Looping over multiple files</a></li>
-<li class="chapter" data-level="3.2.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-loops-optional"><i class="fa fa-check"></i><b>3.2.2</b> Nested loops (OPTIONAL)</a></li>
+<li class="chapter" data-level="3.2.1" data-path="data-structures.html"><a href="data-structures.html#looping-over-multiple-files"><i class="fa fa-check"></i><b>3.2.1</b> Looping over multiple files</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures.html"><a href="data-structures.html#nested-loops-optional"><i class="fa fa-check"></i><b>3.2.2</b> Nested loops (OPTIONAL)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#functions"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
+<li class="chapter" data-level="3.3" data-path="data-structures.html"><a href="data-structures.html#functions-1"><i class="fa fa-check"></i><b>3.3</b> Functions</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#conditionals-within-functions"><i class="fa fa-check"></i><b>3.3.1</b> Conditionals within functions</a></li>
-<li class="chapter" data-level="3.3.2" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#nested-conditionals"><i class="fa fa-check"></i><b>3.3.2</b> Nested conditionals</a></li>
-<li class="chapter" data-level="3.3.3" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#function-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Function arguments</a></li>
-<li class="chapter" data-level="3.3.4" data-path="basics-of-r-part-2.html"><a href="basics-of-r-part-2.html#combining-functions"><i class="fa fa-check"></i><b>3.3.4</b> Combining functions</a></li>
+<li class="chapter" data-level="3.3.1" data-path="data-structures.html"><a href="data-structures.html#conditionals-within-functions"><i class="fa fa-check"></i><b>3.3.1</b> Conditionals within functions</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-structures.html"><a href="data-structures.html#nested-conditionals"><i class="fa fa-check"></i><b>3.3.2</b> Nested conditionals</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-structures.html"><a href="data-structures.html#function-arguments"><i class="fa fa-check"></i><b>3.3.3</b> Function arguments</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-structures.html"><a href="data-structures.html#combining-functions"><i class="fa fa-check"></i><b>3.3.4</b> Combining functions</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Data Wrangling</b></span></li>
@@ -332,17 +353,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="loading-packages" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Loading packages</h2>
 <p>Let’s load the usual packages.</p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="comparing-multiple-means.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
-<span id="cb435-2"><a href="comparing-multiple-means.html#cb435-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)       <span class="co"># car stands for Companion to Applied Regression</span></span>
-<span id="cb435-3"><a href="comparing-multiple-means.html#cb435-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="comparing-multiple-means.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb407-2"><a href="comparing-multiple-means.html#cb407-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)       <span class="co"># car stands for Companion to Applied Regression</span></span>
+<span id="cb407-3"><a href="comparing-multiple-means.html#cb407-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <div id="merging-datasets" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Merging datasets</h2>
 <p>In this section, we will learn how to merge datasets. We will use something called <a href="https://www.eiu.com/topic/democracy-index">democracy index (democracy score)</a> and convert it into categorical data. As the name suggests, democracy index measures the degree of democracy of a country on a scale from 0 to 10, with higher scores being correlated with greater democracy. In our dataset, however, the scale is from -10 to 10. This data set has been pre-cleaned and made available on <a href="https://www.gapminder.org/data/">gapminder</a>. Alternatively, download the file by <a href="./data/07_multi-compare/democracy_score_use_as_color.csv">clicking here</a>.</p>
 <p>Let’s load our dataset.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="comparing-multiple-means.html#cb436-1" aria-hidden="true" tabindex="-1"></a>democracy.raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;data/07_multi-compare/democracy_score_use_as_color.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="comparing-multiple-means.html#cb408-1" aria-hidden="true" tabindex="-1"></a>democracy.raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;data/07_multi-compare/democracy_score_use_as_color.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>The first thing you should do with new data is explore it. Since the output is quite large, we’ll only show the first row, but you should definitely take a deeper look.</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="comparing-multiple-means.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(democracy.raw, <span class="at">n=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="comparing-multiple-means.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(democracy.raw, <span class="at">n=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##       country X1800 X1801 X1802 X1803 X1804 X1805 X1806 X1807 X1808 X1809 X1810
 ## 1 Afghanistan    -6    -6    -6    -6    -6    -6    -6    -6    -6    -6    -6
 ##   X1811 X1812 X1813 X1814 X1815 X1816 X1817 X1818 X1819 X1820 X1821 X1822 X1823
@@ -378,36 +399,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   X2006 X2007 X2008 X2009 X2010 X2011
 ## 1    NA    NA    NA    NA    NA    NA</code></pre>
 <p>Don’t forget about <code>str()</code> and <code>summary()</code>!</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="comparing-multiple-means.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(democracy.raw)</span>
-<span id="cb439-2"><a href="comparing-multiple-means.html#cb439-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(democracy.raw)</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="comparing-multiple-means.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(democracy.raw)</span>
+<span id="cb411-2"><a href="comparing-multiple-means.html#cb411-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(democracy.raw)</span></code></pre></div>
 <p>As you can see, there is a lot of missing data (denoted by NA). NA values are often problematic for analyses, so we would like to either remove them or impute (estimate) them. In our case, let’s get rid of the rws with missing data for the year 2007 (the <code>X2007</code> column).</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="comparing-multiple-means.html#cb440-1" aria-hidden="true" tabindex="-1"></a>dem07 <span class="ot">&lt;-</span> democracy.raw <span class="sc">%&gt;%</span></span>
-<span id="cb440-2"><a href="comparing-multiple-means.html#cb440-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, X2007) <span class="sc">%&gt;%</span>  <span class="co"># choose</span></span>
-<span id="cb440-3"><a href="comparing-multiple-means.html#cb440-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(X2007))       <span class="co"># selecting all non-NA rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="comparing-multiple-means.html#cb412-1" aria-hidden="true" tabindex="-1"></a>dem07 <span class="ot">&lt;-</span> democracy.raw <span class="sc">%&gt;%</span></span>
+<span id="cb412-2"><a href="comparing-multiple-means.html#cb412-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, X2007) <span class="sc">%&gt;%</span>  <span class="co"># choose</span></span>
+<span id="cb412-3"><a href="comparing-multiple-means.html#cb412-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(X2007))       <span class="co"># selecting all non-NA rows</span></span></code></pre></div>
 <p>Here, <code>is.na()</code> will return TRUE for missing data. Recall that <code>!</code> is the NOT logical operator (i.e., <code>!TRUE</code> is equivalent to <code>FALSE</code> and vice versa. It follows that <code>!is.na()</code> returns true for non-empty data.</p>
 <p>Let’s take a looks at how the democracy score is distributed. Here, I’d like to treat each democracy score as a factor.</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="comparing-multiple-means.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dem07, <span class="fu">aes</span>(<span class="fu">as.factor</span>(X2007))) <span class="sc">+</span></span>
-<span id="cb441-2"><a href="comparing-multiple-means.html#cb441-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="comparing-multiple-means.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dem07, <span class="fu">aes</span>(<span class="fu">as.factor</span>(X2007))) <span class="sc">+</span></span>
+<span id="cb413-2"><a href="comparing-multiple-means.html#cb413-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
 <p>Before we do anything, let’s look at some potentially interesting counts. First, we’ll look at two ways to count “low-level” countries. To do so, we will arbitrarily define any democracy score <span class="math inline">\(\leq\)</span> -3 as low-level. Now, we will count the number of countries in each group.</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="comparing-multiple-means.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dem07[dem07<span class="sc">$</span>X2007 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span>,])  <span class="co"># base R</span></span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="comparing-multiple-means.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dem07[dem07<span class="sc">$</span>X2007 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span>,])  <span class="co"># base R</span></span></code></pre></div>
 <pre><code>## [1] 39</code></pre>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="comparing-multiple-means.html#cb444-1" aria-hidden="true" tabindex="-1"></a>dem07 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(X2007 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()  <span class="co"># with dplyr pipe operator</span></span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="comparing-multiple-means.html#cb416-1" aria-hidden="true" tabindex="-1"></a>dem07 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(X2007 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()  <span class="co"># with dplyr pipe operator</span></span></code></pre></div>
 <pre><code>## [1] 39</code></pre>
 <p>Let’s define medium-level countries as having a democracy score betwen -2 and 5 inclusive.</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="comparing-multiple-means.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dem07[dem07<span class="sc">$</span>X2007 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">&amp;</span> dem07<span class="sc">$</span>X2007 <span class="sc">&lt;=</span> <span class="dv">5</span>,])  <span class="co"># base R</span></span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="comparing-multiple-means.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dem07[dem07<span class="sc">$</span>X2007 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">&amp;</span> dem07<span class="sc">$</span>X2007 <span class="sc">&lt;=</span> <span class="dv">5</span>,])  <span class="co"># base R</span></span></code></pre></div>
 <pre><code>## [1] 32</code></pre>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="comparing-multiple-means.html#cb448-1" aria-hidden="true" tabindex="-1"></a>dem07 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(X2007 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">&amp;</span> X2007 <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()  <span class="co"># with dplyr pipe operator</span></span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="comparing-multiple-means.html#cb420-1" aria-hidden="true" tabindex="-1"></a>dem07 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(X2007 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">&amp;</span> X2007 <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()  <span class="co"># with dplyr pipe operator</span></span></code></pre></div>
 <pre><code>## [1] 32</code></pre>
 <p><strong>Exercise:</strong> count the number of high-level countries using both base R and dplyr. High-level countries will be defined as those with democracy score greater or equal to 6.</p>
 <p>Now let’s actually assign a new categorical variable to each country (row) using the <code>cut()</code> function. Let’s call the new row <code>demLev</code> (our shorthand for democracy level).</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="comparing-multiple-means.html#cb450-1" aria-hidden="true" tabindex="-1"></a>tempDemLev <span class="ot">&lt;-</span> <span class="fu">cut</span>(dem07<span class="sc">$</span>X2007,</span>
-<span id="cb450-2"><a href="comparing-multiple-means.html#cb450-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="fl">2.5</span>, <span class="fl">4.5</span>, <span class="cn">Inf</span>),</span>
-<span id="cb450-3"><a href="comparing-multiple-means.html#cb450-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="st">&quot;LowDem&quot;</span>, <span class="st">&quot;MidDem&quot;</span>, <span class="st">&quot;HighDem&quot;</span>))</span>
-<span id="cb450-4"><a href="comparing-multiple-means.html#cb450-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb450-5"><a href="comparing-multiple-means.html#cb450-5" aria-hidden="true" tabindex="-1"></a>dem07<span class="sc">$</span>demLev <span class="ot">&lt;-</span> tempDemLev  <span class="co"># base R method</span></span>
-<span id="cb450-6"><a href="comparing-multiple-means.html#cb450-6" aria-hidden="true" tabindex="-1"></a><span class="co"># dem07 &lt;- dem07 %&gt;% mutate(demLev = tempDemLev)  # dplyr method</span></span>
-<span id="cb450-7"><a href="comparing-multiple-means.html#cb450-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dem07)</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="comparing-multiple-means.html#cb422-1" aria-hidden="true" tabindex="-1"></a>tempDemLev <span class="ot">&lt;-</span> <span class="fu">cut</span>(dem07<span class="sc">$</span>X2007,</span>
+<span id="cb422-2"><a href="comparing-multiple-means.html#cb422-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="fl">2.5</span>, <span class="fl">4.5</span>, <span class="cn">Inf</span>),</span>
+<span id="cb422-3"><a href="comparing-multiple-means.html#cb422-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="st">&quot;LowDem&quot;</span>, <span class="st">&quot;MidDem&quot;</span>, <span class="st">&quot;HighDem&quot;</span>))</span>
+<span id="cb422-4"><a href="comparing-multiple-means.html#cb422-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb422-5"><a href="comparing-multiple-means.html#cb422-5" aria-hidden="true" tabindex="-1"></a>dem07<span class="sc">$</span>demLev <span class="ot">&lt;-</span> tempDemLev  <span class="co"># base R method</span></span>
+<span id="cb422-6"><a href="comparing-multiple-means.html#cb422-6" aria-hidden="true" tabindex="-1"></a><span class="co"># dem07 &lt;- dem07 %&gt;% mutate(demLev = tempDemLev)  # dplyr method</span></span>
+<span id="cb422-7"><a href="comparing-multiple-means.html#cb422-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dem07)</span></code></pre></div>
 <pre><code>##     country X2007  demLev
 ## 1   Albania     9 HighDem
 ## 2   Algeria     2  MidDem
@@ -417,12 +438,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 Australia    10 HighDem</code></pre>
 <p><strong>Note:</strong> The first argument for <code>cut()</code> takes a vector, the second takes the vector for cutoff thresholds, and the third are names of the bins defined by the cutoffs.</p>
 <p>We can now merge this new data with gapminder. The main idea of merging is to add the new variables as columns. The identifier of our observations will be <code>country</code>. Since we are taking data from different sources, a given country might exist in one data frame but not the other. Furthermore, the two data sets might use different names for the countries. Before merging, let’s check the data we want to merge. Note that <code>str_detect()</code> finds all instances where a particular string is in a column.</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="comparing-multiple-means.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s check how they name Korea</span></span>
-<span id="cb452-2"><a href="comparing-multiple-means.html#cb452-2" aria-hidden="true" tabindex="-1"></a>dem07 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(country, <span class="st">&#39;Korea&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="comparing-multiple-means.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s check how they name Korea</span></span>
+<span id="cb424-2"><a href="comparing-multiple-means.html#cb424-2" aria-hidden="true" tabindex="-1"></a>dem07 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(country, <span class="st">&#39;Korea&#39;</span>))</span></code></pre></div>
 <pre><code>##       country X2007  demLev
 ## 1 North Korea   -10  LowDem
 ## 2 South Korea     8 HighDem</code></pre>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="comparing-multiple-means.html#cb454-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(country, <span class="st">&#39;Korea&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="comparing-multiple-means.html#cb426-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(country, <span class="st">&#39;Korea&#39;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 24 x 6
 ##    country          continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -438,9 +459,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Korea, Dem. Rep. Asia       1997    67.7 21585105     1691.
 ## # … with 14 more rows</code></pre>
 <p>Now that we have a clear idea of which each looks like, we need to determine the potential differences between them. For example, you can’t merge <code>'Korea, Dem. Rep.'</code> with <code>'Korea'</code> since the two strings are not exactly equal.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="comparing-multiple-means.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setdiff() finds the differences between values in each dataset</span></span>
-<span id="cb456-2"><a href="comparing-multiple-means.html#cb456-2" aria-hidden="true" tabindex="-1"></a><span class="co"># unique() ensures that there are no duplicate values</span></span>
-<span id="cb456-3"><a href="comparing-multiple-means.html#cb456-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(<span class="fu">unique</span>(dem07<span class="sc">$</span>country), <span class="fu">unique</span>(gapminder<span class="sc">$</span>country))</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="comparing-multiple-means.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setdiff() finds the differences between values in each dataset</span></span>
+<span id="cb428-2"><a href="comparing-multiple-means.html#cb428-2" aria-hidden="true" tabindex="-1"></a><span class="co"># unique() ensures that there are no duplicate values</span></span>
+<span id="cb428-3"><a href="comparing-multiple-means.html#cb428-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(<span class="fu">unique</span>(dem07<span class="sc">$</span>country), <span class="fu">unique</span>(gapminder<span class="sc">$</span>country))</span></code></pre></div>
 <pre><code>##  [1] &quot;Armenia&quot;              &quot;Azerbaijan&quot;           &quot;Belarus&quot;             
 ##  [4] &quot;Bhutan&quot;               &quot;Cape Verde&quot;           &quot;Cyprus&quot;              
 ##  [7] &quot;Estonia&quot;              &quot;Fiji&quot;                 &quot;Georgia&quot;             
@@ -452,25 +473,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [25] &quot;Tajikistan&quot;           &quot;Timor-Leste&quot;          &quot;Turkmenistan&quot;        
 ## [28] &quot;Ukraine&quot;              &quot;United Arab Emirates&quot; &quot;Uzbekistan&quot;          
 ## [31] &quot;Yemen&quot;</code></pre>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="comparing-multiple-means.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(<span class="fu">unique</span>(gapminder<span class="sc">$</span>country), <span class="fu">unique</span>(dem07<span class="sc">$</span>country))</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="comparing-multiple-means.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(<span class="fu">unique</span>(gapminder<span class="sc">$</span>country), <span class="fu">unique</span>(dem07<span class="sc">$</span>country))</span></code></pre></div>
 <pre><code>##  [1] &quot;Afghanistan&quot;            &quot;Bosnia and Herzegovina&quot; &quot;Hong Kong, China&quot;      
 ##  [4] &quot;Iceland&quot;                &quot;Korea, Dem. Rep.&quot;       &quot;Korea, Rep.&quot;           
 ##  [7] &quot;Puerto Rico&quot;            &quot;Reunion&quot;                &quot;Sao Tome and Principe&quot; 
 ## [10] &quot;Taiwan&quot;                 &quot;West Bank and Gaza&quot;     &quot;Yemen, Rep.&quot;</code></pre>
 <p>It looks like we need to change “South Korea” to “Korea, Rep.” and “Yemen” to “Yemen, Rep.” We can do this using the factor recode function: <code>fct_recode()</code></p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="comparing-multiple-means.html#cb460-1" aria-hidden="true" tabindex="-1"></a>dem07 <span class="ot">&lt;-</span> dem07 <span class="sc">%&gt;%</span></span>
-<span id="cb460-2"><a href="comparing-multiple-means.html#cb460-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">fct_recode</span>(country,</span>
-<span id="cb460-3"><a href="comparing-multiple-means.html#cb460-3" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&#39;Korea, Rep.&#39;</span> <span class="ot">=</span> <span class="st">&#39;South Korea&#39;</span>,</span>
-<span id="cb460-4"><a href="comparing-multiple-means.html#cb460-4" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&#39;Yemen, Rep.&#39;</span> <span class="ot">=</span> <span class="st">&#39;Yemen&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="comparing-multiple-means.html#cb432-1" aria-hidden="true" tabindex="-1"></a>dem07 <span class="ot">&lt;-</span> dem07 <span class="sc">%&gt;%</span></span>
+<span id="cb432-2"><a href="comparing-multiple-means.html#cb432-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">fct_recode</span>(country,</span>
+<span id="cb432-3"><a href="comparing-multiple-means.html#cb432-3" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&#39;Korea, Rep.&#39;</span> <span class="ot">=</span> <span class="st">&#39;South Korea&#39;</span>,</span>
+<span id="cb432-4"><a href="comparing-multiple-means.html#cb432-4" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&#39;Yemen, Rep.&#39;</span> <span class="ot">=</span> <span class="st">&#39;Yemen&#39;</span>))</span></code></pre></div>
 <p>Finally, let’s can merge the two data frames using a left join. There are many types of joins (right join, inner join, etc.), and you can check them out <a href="https://dplyr.tidyverse.org/reference/join.html">here</a>.</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="comparing-multiple-means.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="co"># need to filter out missing data!</span></span>
-<span id="cb461-2"><a href="comparing-multiple-means.html#cb461-2" aria-hidden="true" tabindex="-1"></a>my_gap <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb461-3"><a href="comparing-multiple-means.html#cb461-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dem07, <span class="at">by =</span> <span class="st">&quot;country&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb461-4"><a href="comparing-multiple-means.html#cb461-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(demLev)) <span class="sc">%&gt;%</span></span>
-<span id="cb461-5"><a href="comparing-multiple-means.html#cb461-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(lifeExp))</span>
-<span id="cb461-6"><a href="comparing-multiple-means.html#cb461-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb461-7"><a href="comparing-multiple-means.html#cb461-7" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s see what the data looks like now</span></span>
-<span id="cb461-8"><a href="comparing-multiple-means.html#cb461-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_gap)</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="comparing-multiple-means.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="co"># need to filter out missing data!</span></span>
+<span id="cb433-2"><a href="comparing-multiple-means.html#cb433-2" aria-hidden="true" tabindex="-1"></a>my_gap <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb433-3"><a href="comparing-multiple-means.html#cb433-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dem07, <span class="at">by =</span> <span class="st">&quot;country&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb433-4"><a href="comparing-multiple-means.html#cb433-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(demLev)) <span class="sc">%&gt;%</span></span>
+<span id="cb433-5"><a href="comparing-multiple-means.html#cb433-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(lifeExp))</span>
+<span id="cb433-6"><a href="comparing-multiple-means.html#cb433-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb433-7"><a href="comparing-multiple-means.html#cb433-7" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s see what the data looks like now</span></span>
+<span id="cb433-8"><a href="comparing-multiple-means.html#cb433-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_gap)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 8
 ##   country continent  year lifeExp     pop gdpPercap X2007 demLev 
 ##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;  
@@ -491,7 +512,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>iris$Species</code> refers to one column in <code>iris</code>. That is, the column with the name of the species (setosa, versicolor, or virginica).</li>
 <li>We can see how many rows and columns are in a <code>data.frame</code> with the <code>dim</code> command. <code>dim(iris)</code> prints out the number of rows (150) and the number of columns (5):</li>
 </ul>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="comparing-multiple-means.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="comparing-multiple-means.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -499,7 +520,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4          4.6         3.1          1.5         0.2  setosa
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="comparing-multiple-means.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="comparing-multiple-means.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
 ##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
 ##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
@@ -522,7 +543,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The data distributes normally within <em>each group</em>.</li>
 </ol>
 <p>Let’s address the first point.</p>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="comparing-multiple-means.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="comparing-multiple-means.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
 ## group   2  0.5902 0.5555
@@ -535,9 +556,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>We also need to tell R where to find the <code>Sepal.Width</code> and <code>Species</code> data, so we pass the variable name of the <code>iris data.frame</code> to the <code>data</code> parameter.</li>
 </ol>
 <p>But we want to store the model, not just print it to the screen, so we use the assignment operator <code>&lt;-</code> to store the product of the <code>aov</code> function in a variable of our choice</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="comparing-multiple-means.html#cb469-1" aria-hidden="true" tabindex="-1"></a>Sepal.Width.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">formula =</span> Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="comparing-multiple-means.html#cb441-1" aria-hidden="true" tabindex="-1"></a>Sepal.Width.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">formula =</span> Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code></pre></div>
 <p>Notice how when we execute this command, nothing printed in the console. This is because we instead sent the output of the <code>aov</code> call to a variable. If you just type the variable name, you will see the familiar output from the <code>aov</code> function:</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="comparing-multiple-means.html#cb470-1" aria-hidden="true" tabindex="-1"></a>Sepal.Width.aov</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="comparing-multiple-means.html#cb442-1" aria-hidden="true" tabindex="-1"></a>Sepal.Width.aov</span></code></pre></div>
 <pre><code>## Call:
 ##    aov(formula = Sepal.Width ~ Species, data = iris)
 ## 
@@ -549,7 +570,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 0.3396877
 ## Estimated effects may be unbalanced</code></pre>
 <p>To see the results of the ANOVA, we call the <code>summary()</code> function:</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="comparing-multiple-means.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="at">object =</span> Sepal.Width.aov)</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="comparing-multiple-means.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="at">object =</span> Sepal.Width.aov)</span></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## Species       2  11.35   5.672   49.16 &lt;2e-16 ***
 ## Residuals   147  16.96   0.115                   
@@ -557,13 +578,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>The species <em>do</em> have significantly different sepal width (P &lt; 0.001). However, ANOVA does not tell us <em>which</em> species are different. We can run a <em>post hoc</em> test to assess <em>how</em> the species are different. A Tukey test comparing means would be one option. We will do the Tukey test after determining normality.</p>
 <p>Now, let’s take a look at the normality. First, we will plot the diagnostic figures.</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="comparing-multiple-means.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Width.aov)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-201-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-201-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-201-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-201-4.png" width="672" /></p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="comparing-multiple-means.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Width.aov)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-179-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-179-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-179-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-179-4.png" width="672" /></p>
 <p>Most importantly, the dots in Q-Q plot (upper right) should align with the line pretty well. This figure is acceptable. If the dots deviate from the line too much, the data would not be considered normal. If you still perform the ANOVA, you should view your results critically (or ignore them, at worst).</p>
 <p>Please do not include such diagnostic figures in the main text of your manuscripts. This might qualify for a supplementary figure at most.</p>
 <p>Although we’ve also examined residuals with the QQ plot, we can also use a formal test:</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="comparing-multiple-means.html#cb475-1" aria-hidden="true" tabindex="-1"></a>residuals_Sepal_Width <span class="ot">&lt;-</span> <span class="fu">residuals</span>(<span class="at">object =</span> Sepal.Width.aov)</span>
-<span id="cb475-2"><a href="comparing-multiple-means.html#cb475-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="at">x =</span> residuals_Sepal_Width)</span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="comparing-multiple-means.html#cb447-1" aria-hidden="true" tabindex="-1"></a>residuals_Sepal_Width <span class="ot">&lt;-</span> <span class="fu">residuals</span>(<span class="at">object =</span> Sepal.Width.aov)</span>
+<span id="cb447-2"><a href="comparing-multiple-means.html#cb447-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="at">x =</span> residuals_Sepal_Width)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -578,7 +599,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>These two justified our choice for one-way ANOVA. The result of ANOVA also indicated that at least one species of the 3 has significantly different sepal width from others. Which one?</p>
 <p>To do this, we need to run “Post-Hoc” test. Let’s do Tukey Honest Significant Differences (HSD). The nice thing is that <code>TukeyHSD()</code> can directly take the result of ANOVA as the argument.</p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="comparing-multiple-means.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(Sepal.Width.aov)</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="comparing-multiple-means.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(Sepal.Width.aov)</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -603,13 +624,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you have exhausted your attempts to data transformation, you may then use non-parametric tests. A note for <a href="http://www.biostathandbook.com/kruskalwallis.html">Kruskal-Wallis H-test</a>.</p>
 <p>When your data doesn’t satisfy the normality or equal variance assumption, ANOVA does not strictly apply. However, one-way ANOVA is not very sensitive to deviations from normality. Kruskal-Wallis doesn’t assume normality, but it does assume same distribution (equal variance). If your data do not meet either assumption, you would want to use Welch’s One-way Test. Now, let’s get back to gapminder data.</p>
 <p>Let’s add another categorical variable calle <code>Income_Level</code>. This time we will split by the quartiles.</p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="comparing-multiple-means.html#cb479-1" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.1952</span> <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>)</span>
-<span id="cb479-2"><a href="comparing-multiple-means.html#cb479-2" aria-hidden="true" tabindex="-1"></a>border_1952 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(dat<span class="fl">.1952</span><span class="sc">$</span>gdpPercap, <span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>))</span>
-<span id="cb479-3"><a href="comparing-multiple-means.html#cb479-3" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.1952</span><span class="sc">$</span>Income_Level_1952 <span class="ot">&lt;-</span> <span class="fu">cut</span>(dat<span class="fl">.1952</span><span class="sc">$</span>gdpPercap,</span>
-<span id="cb479-4"><a href="comparing-multiple-means.html#cb479-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">c</span>(<span class="dv">0</span>, border_1952[<span class="dv">1</span>],</span>
-<span id="cb479-5"><a href="comparing-multiple-means.html#cb479-5" aria-hidden="true" tabindex="-1"></a>                                    border_1952[<span class="dv">2</span>], border_1952[<span class="dv">3</span>], <span class="cn">Inf</span>),</span>
-<span id="cb479-6"><a href="comparing-multiple-means.html#cb479-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">c</span>(<span class="st">&#39;Low&#39;</span>, <span class="st">&#39;Low Middle&#39;</span>, <span class="st">&#39;High Middle&#39;</span>, <span class="st">&#39;High&#39;</span>))</span>
-<span id="cb479-7"><a href="comparing-multiple-means.html#cb479-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat<span class="fl">.1952</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="comparing-multiple-means.html#cb451-1" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.1952</span> <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>)</span>
+<span id="cb451-2"><a href="comparing-multiple-means.html#cb451-2" aria-hidden="true" tabindex="-1"></a>border_1952 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(dat<span class="fl">.1952</span><span class="sc">$</span>gdpPercap, <span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>))</span>
+<span id="cb451-3"><a href="comparing-multiple-means.html#cb451-3" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.1952</span><span class="sc">$</span>Income_Level_1952 <span class="ot">&lt;-</span> <span class="fu">cut</span>(dat<span class="fl">.1952</span><span class="sc">$</span>gdpPercap,</span>
+<span id="cb451-4"><a href="comparing-multiple-means.html#cb451-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">c</span>(<span class="dv">0</span>, border_1952[<span class="dv">1</span>],</span>
+<span id="cb451-5"><a href="comparing-multiple-means.html#cb451-5" aria-hidden="true" tabindex="-1"></a>                                    border_1952[<span class="dv">2</span>], border_1952[<span class="dv">3</span>], <span class="cn">Inf</span>),</span>
+<span id="cb451-6"><a href="comparing-multiple-means.html#cb451-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">c</span>(<span class="st">&#39;Low&#39;</span>, <span class="st">&#39;Low Middle&#39;</span>, <span class="st">&#39;High Middle&#39;</span>, <span class="st">&#39;High&#39;</span>))</span>
+<span id="cb451-7"><a href="comparing-multiple-means.html#cb451-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat<span class="fl">.1952</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   country continent  year lifeExp    pop gdpPercap X2007 demLev Income_Level_19…
 ##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;int&gt;     &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;           
@@ -619,13 +640,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Argent… Americas   1952    62.5 1.79e7     5911.     8 HighD… High            
 ## 5 Austra… Oceania    1952    69.1 8.69e6    10040.    10 HighD… High            
 ## 6 Austria Europe     1952    66.8 6.93e6     6137.    10 HighD… High</code></pre>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="comparing-multiple-means.html#cb481-1" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.2007</span> <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
-<span id="cb481-2"><a href="comparing-multiple-means.html#cb481-2" aria-hidden="true" tabindex="-1"></a>border_2007 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(dat<span class="fl">.2007</span><span class="sc">$</span>gdpPercap, <span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>))</span>
-<span id="cb481-3"><a href="comparing-multiple-means.html#cb481-3" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.2007</span><span class="sc">$</span>Income_Level_2007 <span class="ot">&lt;-</span> <span class="fu">cut</span>(dat<span class="fl">.2007</span><span class="sc">$</span>gdpPercap,</span>
-<span id="cb481-4"><a href="comparing-multiple-means.html#cb481-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">c</span>(<span class="dv">0</span>, border_2007[<span class="dv">1</span>],</span>
-<span id="cb481-5"><a href="comparing-multiple-means.html#cb481-5" aria-hidden="true" tabindex="-1"></a>                                    border_2007[<span class="dv">2</span>], border_2007[<span class="dv">3</span>], <span class="cn">Inf</span>),</span>
-<span id="cb481-6"><a href="comparing-multiple-means.html#cb481-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">c</span>(<span class="st">&#39;Low&#39;</span>, <span class="st">&#39;Low Middle&#39;</span>, <span class="st">&#39;High Middle&#39;</span>, <span class="st">&#39;High&#39;</span>))</span>
-<span id="cb481-7"><a href="comparing-multiple-means.html#cb481-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat<span class="fl">.2007</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="comparing-multiple-means.html#cb453-1" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.2007</span> <span class="ot">&lt;-</span> my_gap <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb453-2"><a href="comparing-multiple-means.html#cb453-2" aria-hidden="true" tabindex="-1"></a>border_2007 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(dat<span class="fl">.2007</span><span class="sc">$</span>gdpPercap, <span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>))</span>
+<span id="cb453-3"><a href="comparing-multiple-means.html#cb453-3" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.2007</span><span class="sc">$</span>Income_Level_2007 <span class="ot">&lt;-</span> <span class="fu">cut</span>(dat<span class="fl">.2007</span><span class="sc">$</span>gdpPercap,</span>
+<span id="cb453-4"><a href="comparing-multiple-means.html#cb453-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">c</span>(<span class="dv">0</span>, border_2007[<span class="dv">1</span>],</span>
+<span id="cb453-5"><a href="comparing-multiple-means.html#cb453-5" aria-hidden="true" tabindex="-1"></a>                                    border_2007[<span class="dv">2</span>], border_2007[<span class="dv">3</span>], <span class="cn">Inf</span>),</span>
+<span id="cb453-6"><a href="comparing-multiple-means.html#cb453-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">c</span>(<span class="st">&#39;Low&#39;</span>, <span class="st">&#39;Low Middle&#39;</span>, <span class="st">&#39;High Middle&#39;</span>, <span class="st">&#39;High&#39;</span>))</span>
+<span id="cb453-7"><a href="comparing-multiple-means.html#cb453-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat<span class="fl">.2007</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   country continent  year lifeExp    pop gdpPercap X2007 demLev Income_Level_20…
 ##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;int&gt;     &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;           
@@ -636,17 +657,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Austra… Oceania    2007    81.2 2.04e7    34435.    10 HighD… High            
 ## 6 Austria Europe     2007    79.8 8.20e6    36126.    10 HighD… High</code></pre>
 <p>For now, let’s focus on the data of in 1952.</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="comparing-multiple-means.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> Income_Level_1952, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb483-2"><a href="comparing-multiple-means.html#cb483-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb483-3"><a href="comparing-multiple-means.html#cb483-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-205-1.png" width="672" /></p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="comparing-multiple-means.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> Income_Level_1952, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb455-2"><a href="comparing-multiple-means.html#cb455-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb455-3"><a href="comparing-multiple-means.html#cb455-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-183-1.png" width="672" /></p>
 <p>We can also visualize life expectancy for each democracy level:</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="comparing-multiple-means.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> demLev, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb484-2"><a href="comparing-multiple-means.html#cb484-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb484-3"><a href="comparing-multiple-means.html#cb484-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="comparing-multiple-means.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> demLev, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb456-2"><a href="comparing-multiple-means.html#cb456-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb456-3"><a href="comparing-multiple-means.html#cb456-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-184-1.png" width="672" /></p>
 <p>Let’s check the variance.</p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="comparing-multiple-means.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(lifeExp <span class="sc">~</span> Income_Level_1952, <span class="at">data =</span> dat<span class="fl">.1952</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="comparing-multiple-means.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(lifeExp <span class="sc">~</span> Income_Level_1952, <span class="at">data =</span> dat<span class="fl">.1952</span>)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value   Pr(&gt;F)   
 ## group   3  4.2319 0.006881 **
@@ -654,8 +675,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>A p-value of 0.0047 suggested that the variances are significantly different. Therefore, we shoud not run ANOVA or Kruskal-Wallis. Let’s run Welch’s one-way test.</p>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="comparing-multiple-means.html#cb487-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(lifeExp <span class="sc">~</span> Income_Level_1952, <span class="at">data =</span> dat<span class="fl">.1952</span>)</span>
-<span id="cb487-2"><a href="comparing-multiple-means.html#cb487-2" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="comparing-multiple-means.html#cb459-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(lifeExp <span class="sc">~</span> Income_Level_1952, <span class="at">data =</span> dat<span class="fl">.1952</span>)</span>
+<span id="cb459-2"><a href="comparing-multiple-means.html#cb459-2" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
 <pre><code>## 
 ##  One-way analysis of means (not assuming equal variances)
 ## 
@@ -664,62 +685,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A p-value of 2.2e-16 suggested that at least one category of <code>Income_Level_1952</code> had values of <code>lifeExp</code> that are significantly different from others. Let’s run a Post-Hoc test to find out.</p>
 <p>Since we are running a non-parametric test, the appropriate test would be Games-Howell post-hoc test. Unfortunately, R does not have a built-in function for Games-Howell. Let’s define a function to do this task.</p>
 <p><strong>Note</strong>: you don’t need to know how the code below works.</p>
-<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="comparing-multiple-means.html#cb489-1" aria-hidden="true" tabindex="-1"></a>games.howell <span class="ot">&lt;-</span> <span class="cf">function</span>(grp, obs) {</span>
-<span id="cb489-2"><a href="comparing-multiple-means.html#cb489-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Create combinations</span></span>
-<span id="cb489-3"><a href="comparing-multiple-means.html#cb489-3" aria-hidden="true" tabindex="-1"></a>  combs <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="fu">unique</span>(grp), <span class="dv">2</span>)</span>
-<span id="cb489-4"><a href="comparing-multiple-means.html#cb489-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb489-5"><a href="comparing-multiple-means.html#cb489-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Statistics that will be used throughout the calculations:</span></span>
-<span id="cb489-6"><a href="comparing-multiple-means.html#cb489-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># n = sample size of each group</span></span>
-<span id="cb489-7"><a href="comparing-multiple-means.html#cb489-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># groups = number of groups in data</span></span>
-<span id="cb489-8"><a href="comparing-multiple-means.html#cb489-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mean = means of each group sample</span></span>
-<span id="cb489-9"><a href="comparing-multiple-means.html#cb489-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># std = variance of each group sample</span></span>
-<span id="cb489-10"><a href="comparing-multiple-means.html#cb489-10" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">tapply</span>(obs, grp, length)</span>
-<span id="cb489-11"><a href="comparing-multiple-means.html#cb489-11" aria-hidden="true" tabindex="-1"></a>  groups <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">tapply</span>(obs, grp, length))</span>
-<span id="cb489-12"><a href="comparing-multiple-means.html#cb489-12" aria-hidden="true" tabindex="-1"></a>  Mean <span class="ot">&lt;-</span> <span class="fu">tapply</span>(obs, grp, mean)</span>
-<span id="cb489-13"><a href="comparing-multiple-means.html#cb489-13" aria-hidden="true" tabindex="-1"></a>  std <span class="ot">&lt;-</span> <span class="fu">tapply</span>(obs, grp, var)</span>
-<span id="cb489-14"><a href="comparing-multiple-means.html#cb489-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb489-15"><a href="comparing-multiple-means.html#cb489-15" aria-hidden="true" tabindex="-1"></a>  statistics <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(combs), <span class="cf">function</span>(x) {</span>
-<span id="cb489-16"><a href="comparing-multiple-means.html#cb489-16" aria-hidden="true" tabindex="-1"></a>    mean.diff <span class="ot">&lt;-</span> Mean[combs[<span class="dv">2</span>,x]] <span class="sc">-</span> Mean[combs[<span class="dv">1</span>,x]]</span>
-<span id="cb489-17"><a href="comparing-multiple-means.html#cb489-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># t-values</span></span>
-<span id="cb489-18"><a href="comparing-multiple-means.html#cb489-18" aria-hidden="true" tabindex="-1"></a>    t <span class="ot">&lt;-</span> <span class="fu">abs</span>(Mean[combs[<span class="dv">1</span>,x]] <span class="sc">-</span> Mean[combs[<span class="dv">2</span>,x]]) <span class="sc">/</span> <span class="fu">sqrt</span>((std[combs[<span class="dv">1</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">1</span>,x]]) <span class="sc">+</span> (std[combs[<span class="dv">2</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">2</span>,x]]))</span>
-<span id="cb489-19"><a href="comparing-multiple-means.html#cb489-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Degrees of Freedom</span></span>
-<span id="cb489-20"><a href="comparing-multiple-means.html#cb489-20" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> (std[combs[<span class="dv">1</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">1</span>,x]] <span class="sc">+</span> std[combs[<span class="dv">2</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">2</span>,x]])<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="co"># numerator dof</span></span>
-<span id="cb489-21"><a href="comparing-multiple-means.html#cb489-21" aria-hidden="true" tabindex="-1"></a>      ((std[combs[<span class="dv">1</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">1</span>,x]])<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (n[combs[<span class="dv">1</span>,x]] <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># Part 1 of denominator dof</span></span>
-<span id="cb489-22"><a href="comparing-multiple-means.html#cb489-22" aria-hidden="true" tabindex="-1"></a>         (std[combs[<span class="dv">2</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">2</span>,x]])<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (n[combs[<span class="dv">2</span>,x]] <span class="sc">-</span> <span class="dv">1</span>)) <span class="co"># Part 2 of denominator dof</span></span>
-<span id="cb489-23"><a href="comparing-multiple-means.html#cb489-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># p-values</span></span>
-<span id="cb489-24"><a href="comparing-multiple-means.html#cb489-24" aria-hidden="true" tabindex="-1"></a>    p <span class="ot">&lt;-</span> <span class="fu">ptukey</span>(t <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span>), groups, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb489-25"><a href="comparing-multiple-means.html#cb489-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sigma standard error</span></span>
-<span id="cb489-26"><a href="comparing-multiple-means.html#cb489-26" aria-hidden="true" tabindex="-1"></a>    se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fl">0.5</span> <span class="sc">*</span> (std[combs[<span class="dv">1</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">1</span>,x]] <span class="sc">+</span> std[combs[<span class="dv">2</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">2</span>,x]]))</span>
-<span id="cb489-27"><a href="comparing-multiple-means.html#cb489-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Upper Confidence Limit</span></span>
-<span id="cb489-28"><a href="comparing-multiple-means.html#cb489-28" aria-hidden="true" tabindex="-1"></a>    upper.conf <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(combs), <span class="cf">function</span>(x) {</span>
-<span id="cb489-29"><a href="comparing-multiple-means.html#cb489-29" aria-hidden="true" tabindex="-1"></a>      mean.diff <span class="sc">+</span> <span class="fu">qtukey</span>(<span class="at">p =</span> <span class="fl">0.95</span>, <span class="at">nmeans =</span> groups, <span class="at">df =</span> df) <span class="sc">*</span> se</span>
-<span id="cb489-30"><a href="comparing-multiple-means.html#cb489-30" aria-hidden="true" tabindex="-1"></a>    })[[<span class="dv">1</span>]]</span>
-<span id="cb489-31"><a href="comparing-multiple-means.html#cb489-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Lower Confidence Limit</span></span>
-<span id="cb489-32"><a href="comparing-multiple-means.html#cb489-32" aria-hidden="true" tabindex="-1"></a>    lower.conf <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(combs), <span class="cf">function</span>(x) {</span>
-<span id="cb489-33"><a href="comparing-multiple-means.html#cb489-33" aria-hidden="true" tabindex="-1"></a>      mean.diff <span class="sc">-</span> <span class="fu">qtukey</span>(<span class="at">p =</span> <span class="fl">0.95</span>, <span class="at">nmeans =</span> groups, <span class="at">df =</span> df) <span class="sc">*</span> se</span>
-<span id="cb489-34"><a href="comparing-multiple-means.html#cb489-34" aria-hidden="true" tabindex="-1"></a>    })[[<span class="dv">1</span>]]</span>
-<span id="cb489-35"><a href="comparing-multiple-means.html#cb489-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Group Combinations</span></span>
-<span id="cb489-36"><a href="comparing-multiple-means.html#cb489-36" aria-hidden="true" tabindex="-1"></a>    grp.comb <span class="ot">&lt;-</span> <span class="fu">paste</span>(combs[<span class="dv">1</span>,x], <span class="st">&#39;:&#39;</span>, combs[<span class="dv">2</span>,x])</span>
-<span id="cb489-37"><a href="comparing-multiple-means.html#cb489-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Collect all statistics into list</span></span>
-<span id="cb489-38"><a href="comparing-multiple-means.html#cb489-38" aria-hidden="true" tabindex="-1"></a>    stats <span class="ot">&lt;-</span> <span class="fu">list</span>(grp.comb, mean.diff, se, t, df, p, upper.conf, lower.conf)</span>
-<span id="cb489-39"><a href="comparing-multiple-means.html#cb489-39" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb489-40"><a href="comparing-multiple-means.html#cb489-40" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb489-41"><a href="comparing-multiple-means.html#cb489-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Unlist statistics collected earlier</span></span>
-<span id="cb489-42"><a href="comparing-multiple-means.html#cb489-42" aria-hidden="true" tabindex="-1"></a>  stats.unlisted <span class="ot">&lt;-</span> <span class="fu">lapply</span>(statistics, <span class="cf">function</span>(x) {</span>
-<span id="cb489-43"><a href="comparing-multiple-means.html#cb489-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unlist</span>(x)</span>
-<span id="cb489-44"><a href="comparing-multiple-means.html#cb489-44" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb489-45"><a href="comparing-multiple-means.html#cb489-45" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb489-46"><a href="comparing-multiple-means.html#cb489-46" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create dataframe from flattened list</span></span>
-<span id="cb489-47"><a href="comparing-multiple-means.html#cb489-47" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="fu">unlist</span>(stats.unlisted), <span class="at">nrow =</span> <span class="fu">length</span>(stats.unlisted), <span class="at">byrow=</span><span class="cn">TRUE</span>))</span>
-<span id="cb489-48"><a href="comparing-multiple-means.html#cb489-48" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select columns set as factors that should be numeric and change with as.numeric</span></span>
-<span id="cb489-49"><a href="comparing-multiple-means.html#cb489-49" aria-hidden="true" tabindex="-1"></a>  results[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span><span class="sc">:</span><span class="fu">ncol</span>(results))] <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(<span class="fu">as.matrix</span>(results[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span><span class="sc">:</span><span class="fu">ncol</span>(results))])), <span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb489-50"><a href="comparing-multiple-means.html#cb489-50" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Rename data frame columns</span></span>
-<span id="cb489-51"><a href="comparing-multiple-means.html#cb489-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(results) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;groups&#39;</span>, <span class="st">&#39;Mean Difference&#39;</span>, <span class="st">&#39;Standard Error&#39;</span>, <span class="st">&#39;t&#39;</span>, <span class="st">&#39;df&#39;</span>, <span class="st">&#39;p&#39;</span>, <span class="st">&#39;upper limit&#39;</span>, <span class="st">&#39;lower limit&#39;</span>)</span>
-<span id="cb489-52"><a href="comparing-multiple-means.html#cb489-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(results)</span>
-<span id="cb489-53"><a href="comparing-multiple-means.html#cb489-53" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="comparing-multiple-means.html#cb461-1" aria-hidden="true" tabindex="-1"></a>games.howell <span class="ot">&lt;-</span> <span class="cf">function</span>(grp, obs) {</span>
+<span id="cb461-2"><a href="comparing-multiple-means.html#cb461-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Create combinations</span></span>
+<span id="cb461-3"><a href="comparing-multiple-means.html#cb461-3" aria-hidden="true" tabindex="-1"></a>  combs <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="fu">unique</span>(grp), <span class="dv">2</span>)</span>
+<span id="cb461-4"><a href="comparing-multiple-means.html#cb461-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb461-5"><a href="comparing-multiple-means.html#cb461-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Statistics that will be used throughout the calculations:</span></span>
+<span id="cb461-6"><a href="comparing-multiple-means.html#cb461-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># n = sample size of each group</span></span>
+<span id="cb461-7"><a href="comparing-multiple-means.html#cb461-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># groups = number of groups in data</span></span>
+<span id="cb461-8"><a href="comparing-multiple-means.html#cb461-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mean = means of each group sample</span></span>
+<span id="cb461-9"><a href="comparing-multiple-means.html#cb461-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># std = variance of each group sample</span></span>
+<span id="cb461-10"><a href="comparing-multiple-means.html#cb461-10" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">tapply</span>(obs, grp, length)</span>
+<span id="cb461-11"><a href="comparing-multiple-means.html#cb461-11" aria-hidden="true" tabindex="-1"></a>  groups <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">tapply</span>(obs, grp, length))</span>
+<span id="cb461-12"><a href="comparing-multiple-means.html#cb461-12" aria-hidden="true" tabindex="-1"></a>  Mean <span class="ot">&lt;-</span> <span class="fu">tapply</span>(obs, grp, mean)</span>
+<span id="cb461-13"><a href="comparing-multiple-means.html#cb461-13" aria-hidden="true" tabindex="-1"></a>  std <span class="ot">&lt;-</span> <span class="fu">tapply</span>(obs, grp, var)</span>
+<span id="cb461-14"><a href="comparing-multiple-means.html#cb461-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb461-15"><a href="comparing-multiple-means.html#cb461-15" aria-hidden="true" tabindex="-1"></a>  statistics <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(combs), <span class="cf">function</span>(x) {</span>
+<span id="cb461-16"><a href="comparing-multiple-means.html#cb461-16" aria-hidden="true" tabindex="-1"></a>    mean.diff <span class="ot">&lt;-</span> Mean[combs[<span class="dv">2</span>,x]] <span class="sc">-</span> Mean[combs[<span class="dv">1</span>,x]]</span>
+<span id="cb461-17"><a href="comparing-multiple-means.html#cb461-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># t-values</span></span>
+<span id="cb461-18"><a href="comparing-multiple-means.html#cb461-18" aria-hidden="true" tabindex="-1"></a>    t <span class="ot">&lt;-</span> <span class="fu">abs</span>(Mean[combs[<span class="dv">1</span>,x]] <span class="sc">-</span> Mean[combs[<span class="dv">2</span>,x]]) <span class="sc">/</span> <span class="fu">sqrt</span>((std[combs[<span class="dv">1</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">1</span>,x]]) <span class="sc">+</span> (std[combs[<span class="dv">2</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">2</span>,x]]))</span>
+<span id="cb461-19"><a href="comparing-multiple-means.html#cb461-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Degrees of Freedom</span></span>
+<span id="cb461-20"><a href="comparing-multiple-means.html#cb461-20" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> (std[combs[<span class="dv">1</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">1</span>,x]] <span class="sc">+</span> std[combs[<span class="dv">2</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">2</span>,x]])<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="co"># numerator dof</span></span>
+<span id="cb461-21"><a href="comparing-multiple-means.html#cb461-21" aria-hidden="true" tabindex="-1"></a>      ((std[combs[<span class="dv">1</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">1</span>,x]])<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (n[combs[<span class="dv">1</span>,x]] <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># Part 1 of denominator dof</span></span>
+<span id="cb461-22"><a href="comparing-multiple-means.html#cb461-22" aria-hidden="true" tabindex="-1"></a>         (std[combs[<span class="dv">2</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">2</span>,x]])<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (n[combs[<span class="dv">2</span>,x]] <span class="sc">-</span> <span class="dv">1</span>)) <span class="co"># Part 2 of denominator dof</span></span>
+<span id="cb461-23"><a href="comparing-multiple-means.html#cb461-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># p-values</span></span>
+<span id="cb461-24"><a href="comparing-multiple-means.html#cb461-24" aria-hidden="true" tabindex="-1"></a>    p <span class="ot">&lt;-</span> <span class="fu">ptukey</span>(t <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span>), groups, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb461-25"><a href="comparing-multiple-means.html#cb461-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sigma standard error</span></span>
+<span id="cb461-26"><a href="comparing-multiple-means.html#cb461-26" aria-hidden="true" tabindex="-1"></a>    se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fl">0.5</span> <span class="sc">*</span> (std[combs[<span class="dv">1</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">1</span>,x]] <span class="sc">+</span> std[combs[<span class="dv">2</span>,x]] <span class="sc">/</span> n[combs[<span class="dv">2</span>,x]]))</span>
+<span id="cb461-27"><a href="comparing-multiple-means.html#cb461-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Upper Confidence Limit</span></span>
+<span id="cb461-28"><a href="comparing-multiple-means.html#cb461-28" aria-hidden="true" tabindex="-1"></a>    upper.conf <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(combs), <span class="cf">function</span>(x) {</span>
+<span id="cb461-29"><a href="comparing-multiple-means.html#cb461-29" aria-hidden="true" tabindex="-1"></a>      mean.diff <span class="sc">+</span> <span class="fu">qtukey</span>(<span class="at">p =</span> <span class="fl">0.95</span>, <span class="at">nmeans =</span> groups, <span class="at">df =</span> df) <span class="sc">*</span> se</span>
+<span id="cb461-30"><a href="comparing-multiple-means.html#cb461-30" aria-hidden="true" tabindex="-1"></a>    })[[<span class="dv">1</span>]]</span>
+<span id="cb461-31"><a href="comparing-multiple-means.html#cb461-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Lower Confidence Limit</span></span>
+<span id="cb461-32"><a href="comparing-multiple-means.html#cb461-32" aria-hidden="true" tabindex="-1"></a>    lower.conf <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(combs), <span class="cf">function</span>(x) {</span>
+<span id="cb461-33"><a href="comparing-multiple-means.html#cb461-33" aria-hidden="true" tabindex="-1"></a>      mean.diff <span class="sc">-</span> <span class="fu">qtukey</span>(<span class="at">p =</span> <span class="fl">0.95</span>, <span class="at">nmeans =</span> groups, <span class="at">df =</span> df) <span class="sc">*</span> se</span>
+<span id="cb461-34"><a href="comparing-multiple-means.html#cb461-34" aria-hidden="true" tabindex="-1"></a>    })[[<span class="dv">1</span>]]</span>
+<span id="cb461-35"><a href="comparing-multiple-means.html#cb461-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Group Combinations</span></span>
+<span id="cb461-36"><a href="comparing-multiple-means.html#cb461-36" aria-hidden="true" tabindex="-1"></a>    grp.comb <span class="ot">&lt;-</span> <span class="fu">paste</span>(combs[<span class="dv">1</span>,x], <span class="st">&#39;:&#39;</span>, combs[<span class="dv">2</span>,x])</span>
+<span id="cb461-37"><a href="comparing-multiple-means.html#cb461-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Collect all statistics into list</span></span>
+<span id="cb461-38"><a href="comparing-multiple-means.html#cb461-38" aria-hidden="true" tabindex="-1"></a>    stats <span class="ot">&lt;-</span> <span class="fu">list</span>(grp.comb, mean.diff, se, t, df, p, upper.conf, lower.conf)</span>
+<span id="cb461-39"><a href="comparing-multiple-means.html#cb461-39" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb461-40"><a href="comparing-multiple-means.html#cb461-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb461-41"><a href="comparing-multiple-means.html#cb461-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Unlist statistics collected earlier</span></span>
+<span id="cb461-42"><a href="comparing-multiple-means.html#cb461-42" aria-hidden="true" tabindex="-1"></a>  stats.unlisted <span class="ot">&lt;-</span> <span class="fu">lapply</span>(statistics, <span class="cf">function</span>(x) {</span>
+<span id="cb461-43"><a href="comparing-multiple-means.html#cb461-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unlist</span>(x)</span>
+<span id="cb461-44"><a href="comparing-multiple-means.html#cb461-44" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb461-45"><a href="comparing-multiple-means.html#cb461-45" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb461-46"><a href="comparing-multiple-means.html#cb461-46" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create dataframe from flattened list</span></span>
+<span id="cb461-47"><a href="comparing-multiple-means.html#cb461-47" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="fu">unlist</span>(stats.unlisted), <span class="at">nrow =</span> <span class="fu">length</span>(stats.unlisted), <span class="at">byrow=</span><span class="cn">TRUE</span>))</span>
+<span id="cb461-48"><a href="comparing-multiple-means.html#cb461-48" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select columns set as factors that should be numeric and change with as.numeric</span></span>
+<span id="cb461-49"><a href="comparing-multiple-means.html#cb461-49" aria-hidden="true" tabindex="-1"></a>  results[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span><span class="sc">:</span><span class="fu">ncol</span>(results))] <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(<span class="fu">as.matrix</span>(results[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span><span class="sc">:</span><span class="fu">ncol</span>(results))])), <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb461-50"><a href="comparing-multiple-means.html#cb461-50" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Rename data frame columns</span></span>
+<span id="cb461-51"><a href="comparing-multiple-means.html#cb461-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(results) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;groups&#39;</span>, <span class="st">&#39;Mean Difference&#39;</span>, <span class="st">&#39;Standard Error&#39;</span>, <span class="st">&#39;t&#39;</span>, <span class="st">&#39;df&#39;</span>, <span class="st">&#39;p&#39;</span>, <span class="st">&#39;upper limit&#39;</span>, <span class="st">&#39;lower limit&#39;</span>)</span>
+<span id="cb461-52"><a href="comparing-multiple-means.html#cb461-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(results)</span>
+<span id="cb461-53"><a href="comparing-multiple-means.html#cb461-53" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>After defining the function, we can use it. If you decide to use the Games-Howell function, you can simply copy-and-paste it. Since this function is open-source code, citation is not necessary.</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="comparing-multiple-means.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">games.howell</span>(<span class="at">grp =</span> dat<span class="fl">.1952</span><span class="sc">$</span>Income_Level_1952,  <span class="co"># Groups, the categorical variable</span></span>
-<span id="cb490-2"><a href="comparing-multiple-means.html#cb490-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">obs =</span> dat<span class="fl">.1952</span><span class="sc">$</span>lifeExp)            <span class="co"># Observations, the continuous variable</span></span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="comparing-multiple-means.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">games.howell</span>(<span class="at">grp =</span> dat<span class="fl">.1952</span><span class="sc">$</span>Income_Level_1952,  <span class="co"># Groups, the categorical variable</span></span>
+<span id="cb462-2"><a href="comparing-multiple-means.html#cb462-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">obs =</span> dat<span class="fl">.1952</span><span class="sc">$</span>lifeExp)            <span class="co"># Observations, the continuous variable</span></span></code></pre></div>
 <pre><code>##                     groups Mean Difference Standard Error      t     df    p
 ## 1 Low Middle : High Middle           8.807          1.444  4.311 58.295 0.00
 ## 2        Low Middle : High          20.169          1.440  9.905 58.438 0.00
@@ -738,10 +759,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="two-way-anova" class="section level3" number="8.3.3">
 <h3><span class="header-section-number">8.3.3</span> Two-way ANOVA</h3>
 <p>We can also look at 2 independent categorical variables together with a two-way ANOVA. This is as easy as calling <code>aov()</code> with an additional variable on the right side of the <code>y ~ x</code> formula. For example, we can take a look at both <code>Income_Level_2007</code> and <code>demLevel</code> as explanatory variables to the response variable <code>lifeExp</code>.</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="comparing-multiple-means.html#cb492-1" aria-hidden="true" tabindex="-1"></a>two_way_plus <span class="ot">&lt;-</span> <span class="fu">aov</span>(lifeExp <span class="sc">~</span> Income_Level_2007 <span class="sc">+</span> demLev, <span class="at">data =</span> dat<span class="fl">.2007</span>)</span>
-<span id="cb492-2"><a href="comparing-multiple-means.html#cb492-2" aria-hidden="true" tabindex="-1"></a>two_way_star <span class="ot">&lt;-</span> <span class="fu">aov</span>(lifeExp <span class="sc">~</span> Income_Level_2007 <span class="sc">*</span> demLev, <span class="at">data =</span> dat<span class="fl">.2007</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="comparing-multiple-means.html#cb464-1" aria-hidden="true" tabindex="-1"></a>two_way_plus <span class="ot">&lt;-</span> <span class="fu">aov</span>(lifeExp <span class="sc">~</span> Income_Level_2007 <span class="sc">+</span> demLev, <span class="at">data =</span> dat<span class="fl">.2007</span>)</span>
+<span id="cb464-2"><a href="comparing-multiple-means.html#cb464-2" aria-hidden="true" tabindex="-1"></a>two_way_star <span class="ot">&lt;-</span> <span class="fu">aov</span>(lifeExp <span class="sc">~</span> Income_Level_2007 <span class="sc">*</span> demLev, <span class="at">data =</span> dat<span class="fl">.2007</span>)</span></code></pre></div>
 <p>You might have noticed that I used <code>+</code> to connect the 2 explanatory variables in the first line and <code>*</code> for the second line. How are they different? Take a look at the results below.</p>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="comparing-multiple-means.html#cb493-1" aria-hidden="true" tabindex="-1"></a>two_way_plus</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="comparing-multiple-means.html#cb465-1" aria-hidden="true" tabindex="-1"></a>two_way_plus</span></code></pre></div>
 <pre><code>## Call:
 ##    aov(formula = lifeExp ~ Income_Level_2007 + demLev, data = dat.2007)
 ## 
@@ -752,7 +773,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Residual standard error: 7.152973
 ## Estimated effects may be unbalanced</code></pre>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="comparing-multiple-means.html#cb495-1" aria-hidden="true" tabindex="-1"></a>two_way_star</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="comparing-multiple-means.html#cb467-1" aria-hidden="true" tabindex="-1"></a>two_way_star</span></code></pre></div>
 <pre><code>## Call:
 ##    aov(formula = lifeExp ~ Income_Level_2007 * demLev, data = dat.2007)
 ## 
@@ -763,14 +784,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Residual standard error: 6.942895
 ## Estimated effects may be unbalanced</code></pre>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="comparing-multiple-means.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(two_way_plus)</span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="comparing-multiple-means.html#cb469-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(two_way_plus)</span></code></pre></div>
 <pre><code>##                    Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## Income_Level_2007   3  12199    4066  79.476 &lt;2e-16 ***
 ## demLev              2    438     219   4.277 0.0159 *  
 ## Residuals         126   6447      51                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="comparing-multiple-means.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(two_way_star)</span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="comparing-multiple-means.html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(two_way_star)</span></code></pre></div>
 <pre><code>##                           Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## Income_Level_2007          3  12199    4066   84.36 &lt;2e-16 ***
 ## demLev                     2    438     219    4.54 0.0126 *  
@@ -788,14 +809,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We have discussed extensively for the scenario where you have a continuous variable and a categorical variable. Now we will talk about what you do if both variables are continuous.</p>
 <p>For this final section, we will test for a relationship between life expectancy and per capita <a href="https://en.wikipedia.org/wiki/Gross_domestic_product">gross domestic product</a> (GDP).</p>
 <p>As we did for the ANOVA analyses, it is usually a good idea to visually inspect the data when possible. Here we can use the <code>plot</code> function to create a scatterplot of the two columns of interest, <code>lifeExp</code> and <code>gdpPercap</code>.</p>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="comparing-multiple-means.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb501-2"><a href="comparing-multiple-means.html#cb501-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-213-1.png" width="672" /></p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="comparing-multiple-means.html#cb473-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb473-2"><a href="comparing-multiple-means.html#cb473-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-191-1.png" width="672" /></p>
 <p>We can see immediately that this is unlikely a linear relationship. In this case, we will need to log-transform the GDP data to obtain a linear relationship.</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="comparing-multiple-means.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb502-2"><a href="comparing-multiple-means.html#cb502-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb502-3"><a href="comparing-multiple-means.html#cb502-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-214-1.png" width="672" /></p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="comparing-multiple-means.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb474-2"><a href="comparing-multiple-means.html#cb474-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb474-3"><a href="comparing-multiple-means.html#cb474-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-192-1.png" width="672" /></p>
 <p>Now that the data are properly transformed, we can create the linear model for the predictability of life expectancy based on gross domestic product. Before we do that let’s make it clear:</p>
 <ol style="list-style-type: decimal">
 <li><p>From the scatter plot we can identify a positive relationship – when log(GDP per capita) increases, the life expectancy also tends to be higher. The tendency of one variable going up or down <em>linearly</em> with the increase of another variable is called “correlation.” The more consistent the points are with a LINEAR trend, the higher the closer the correlation is to -1 (for negative relationships) or +1 (for positive relationships).</p></li>
@@ -803,17 +824,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>We can only discuss strength of correlation with these linear regression, but NOT the causation. That is, correlation does NOT imply causation.</p></li>
 </ol>
 <p>We can plot the linear model easily:</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="comparing-multiple-means.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb503-2"><a href="comparing-multiple-means.html#cb503-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb503-3"><a href="comparing-multiple-means.html#cb503-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb503-4"><a href="comparing-multiple-means.html#cb503-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)  <span class="co"># lm = linear model</span></span></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="comparing-multiple-means.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb475-2"><a href="comparing-multiple-means.html#cb475-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb475-3"><a href="comparing-multiple-means.html#cb475-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb475-4"><a href="comparing-multiple-means.html#cb475-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)  <span class="co"># lm = linear model</span></span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="_main_files/figure-html/lm-method-1.png" width="672" /></p>
 <p>To get rid of the confidence band around the line, pass <code>se = FALSE</code> into <code>geom_smooth()</code>.</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="comparing-multiple-means.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb505-2"><a href="comparing-multiple-means.html#cb505-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb505-3"><a href="comparing-multiple-means.html#cb505-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb505-4"><a href="comparing-multiple-means.html#cb505-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)  <span class="co"># lm = linear model</span></span></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="comparing-multiple-means.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb477-2"><a href="comparing-multiple-means.html#cb477-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb477-3"><a href="comparing-multiple-means.html#cb477-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb477-4"><a href="comparing-multiple-means.html#cb477-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)  <span class="co"># lm = linear model</span></span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="_main_files/figure-html/lm-method-sefalse-1.png" width="672" /></p>
 <p>You can also customize the colour and thickness of the line. As always, use the <code>?</code> operator to get the full documentation.</p>
@@ -821,8 +842,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pearson-correlation" class="section level3" number="8.4.2">
 <h3><span class="header-section-number">8.4.2</span> Pearson correlation</h3>
 <p>Let’s look at the correlation. For normal distributed data, we calculate the Pearson correlation for the log-transformed variable.</p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="comparing-multiple-means.html#cb507-1" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.2007</span><span class="sc">$</span>log_GDP <span class="ot">&lt;-</span> <span class="fu">log</span>(dat<span class="fl">.2007</span><span class="sc">$</span>gdpPercap)   <span class="co"># add new variable</span></span>
-<span id="cb507-2"><a href="comparing-multiple-means.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">x =</span> dat<span class="fl">.2007</span><span class="sc">$</span>log_GDP, <span class="at">y =</span> dat<span class="fl">.2007</span><span class="sc">$</span>lifeExp, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)  <span class="co"># method options: pearson, kendall, spearman</span></span></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="comparing-multiple-means.html#cb479-1" aria-hidden="true" tabindex="-1"></a>dat<span class="fl">.2007</span><span class="sc">$</span>log_GDP <span class="ot">&lt;-</span> <span class="fu">log</span>(dat<span class="fl">.2007</span><span class="sc">$</span>gdpPercap)   <span class="co"># add new variable</span></span>
+<span id="cb479-2"><a href="comparing-multiple-means.html#cb479-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">x =</span> dat<span class="fl">.2007</span><span class="sc">$</span>log_GDP, <span class="at">y =</span> dat<span class="fl">.2007</span><span class="sc">$</span>lifeExp, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)  <span class="co"># method options: pearson, kendall, spearman</span></span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -836,10 +857,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 0.8078163</code></pre>
 <p>The p-value suggests the correlation is significant. The correlation coefficient of 0.8 suggests a positive correation (y increases as x increases). In case you see a negative value, the correlation if negative (one variable going up while the other going down).</p>
 <p>Next we can construct a linear model.</p>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="comparing-multiple-means.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a linear model</span></span>
-<span id="cb509-2"><a href="comparing-multiple-means.html#cb509-2" aria-hidden="true" tabindex="-1"></a>lifeExp.v.gdp <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> lifeExp <span class="sc">~</span> log_GDP, <span class="at">data =</span> dat<span class="fl">.2007</span>)</span>
-<span id="cb509-3"><a href="comparing-multiple-means.html#cb509-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Investigate results of the model</span></span>
-<span id="cb509-4"><a href="comparing-multiple-means.html#cb509-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lifeExp.v.gdp)</span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="comparing-multiple-means.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a linear model</span></span>
+<span id="cb481-2"><a href="comparing-multiple-means.html#cb481-2" aria-hidden="true" tabindex="-1"></a>lifeExp.v.gdp <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> lifeExp <span class="sc">~</span> log_GDP, <span class="at">data =</span> dat<span class="fl">.2007</span>)</span>
+<span id="cb481-3"><a href="comparing-multiple-means.html#cb481-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Investigate results of the model</span></span>
+<span id="cb481-4"><a href="comparing-multiple-means.html#cb481-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lifeExp.v.gdp)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = lifeExp ~ log_GDP, data = dat.2007)
@@ -862,11 +883,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For our question, the relationship between life expectancy and GDP, focus on the <em>coefficients</em> section, specifically the line for <code>log_GDP</code>.</p>
 <p>First of all, there <em>is</em> a significant relationship between these two variables (p &lt; 2 x 10<sup>-16</sup>, or, as R reports in the <code>Pr&gt;(|t|)</code> column, p &lt; 2e-16). The <code>Estimate</code> column of the results lists a value of <code>lifeExp.v.gdp$coefficients['log_GDP']</code>. For every 10-fold increase in per capita GDP (remember we log<sub>10</sub>-transformed GDP), life expectancy increases by almost 7 years.</p>
 <p>The linear model relies assumes that your data is normally distributed. We can generate a diagnostic plot in the same way as one-way ANOVA.</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="comparing-multiple-means.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lifeExp.v.gdp)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-216-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-216-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-216-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-216-4.png" width="672" /></p>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="comparing-multiple-means.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lifeExp.v.gdp)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-194-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-194-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-194-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-194-4.png" width="672" /></p>
 <p>Q-Q plot suggested this data deviates from normality. Let’s also take a look at the residues of the linear model:</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="comparing-multiple-means.html#cb512-1" aria-hidden="true" tabindex="-1"></a>residuals_lm <span class="ot">&lt;-</span> <span class="fu">residuals</span>(<span class="at">object =</span> lifeExp.v.gdp)</span>
-<span id="cb512-2"><a href="comparing-multiple-means.html#cb512-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="at">x =</span> residuals_lm)</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="comparing-multiple-means.html#cb484-1" aria-hidden="true" tabindex="-1"></a>residuals_lm <span class="ot">&lt;-</span> <span class="fu">residuals</span>(<span class="at">object =</span> lifeExp.v.gdp)</span>
+<span id="cb484-2"><a href="comparing-multiple-means.html#cb484-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="at">x =</span> residuals_lm)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -877,7 +898,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="spearman-correlation" class="section level3" number="8.4.3">
 <h3><span class="header-section-number">8.4.3</span> Spearman correlation</h3>
 <p>If your variables are not normally distributed, you can use the non-parametric Spearman correlation as alternative. Instead of Pearson’s R, the Spearman test outputs rho (<span class="math inline">\(\rho\)</span>),</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="comparing-multiple-means.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(dat<span class="fl">.2007</span><span class="sc">$</span>lifeExp, dat<span class="fl">.2007</span><span class="sc">$</span>log_GDP, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="comparing-multiple-means.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(dat<span class="fl">.2007</span><span class="sc">$</span>lifeExp, dat<span class="fl">.2007</span><span class="sc">$</span>log_GDP, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Spearman&#39;s rank correlation rho
 ## 

@@ -1,0 +1,23 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+
+```{r if-ex, exercise=TRUE}
+x <- 4
+if (x > 5) {
+  x <- 2
+}
+x
+
+```
+
+<div data-iframe-height></div>

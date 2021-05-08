@@ -1,0 +1,27 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+```{r ch2-ex1, exercise=TRUE}
+names <- c("Eddie", "Pouria", "Jasmine", "Ana")
+ages <- c(20, 21, 21, 22)
+```
+```{r ch2-ex1-solution}
+names <- c("Eddie", "Pouria", "Jasmine", "Ana")
+ages <- c(20, 21, 21, 22)
+
+names[c(2, 4)]     # q1
+names[ages > 20]   # q2
+names[ages != 21]  # q3
+mean(ages)         # q4
+```
+
+<div data-iframe-height></div>

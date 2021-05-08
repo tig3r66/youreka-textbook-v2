@@ -1,0 +1,150 @@
+# Data Structures
+
+In this chapter, we will learn about data structures that will greatly aid our data science workflow.
+
+## Vectors
+
+Vectors are a sequence of values with the **same type**. We can create vectors using `c()`, which stands for "combine".
+
+```{r vec}
+(my_nums <- c(2.8, 3.2, 1.5, 3.8))
+```
+
+To access the elements inside a vector, we can do something called "slicing". To access a single item or multiple items, use the square bracket operator `[]`. In general `[]` in R means, "give me a piece of something". For example:
+
+```{r basic-subsetting}
+my_nums[4]
+my_nums[1:3]
+my_nums[c(1, 2, 3)] == my_nums[1:3]
+```
+
+In `my_nums[1:3]`, the `1:3` creates a vector from 1 to 3, which is then used to subset multiple items in a vector. Here are some additional useful functions:
+
+```{r useful-fns, eval=F}
+length(my_nums)
+mean(my_nums)
+max(my_nums)
+min(my_nums)
+sum(my_nums)
+```
+
+Given the data in the interactive block, consider the following exercises:
+
+1. Select "Pouria" and "Ana" from the `names` vector.
+1. Select all individuals who have ages greater than 20. Assume the order of names and ages correlates by index.
+1. Select all individuals whose age is not 21.
+1. Find the average age of all individuals.
+
+<!---LEARNR EX 1-->
+
+<iframe class="interactive" id="ch2-ex1" src="https://tig3r66.shinyapps.io/ch2-ex1/" scrolling="no" frameborder="no"></iframe>
+
+<!------------->
+
+
+### Missing values
+
+So far we've worked with data with no missing values. In real life, however, we often have missing values (`NA` values). Unfortunately for us, R does not get along with `NA` values.
+
+```{r missing-vals}
+density_ha <- c(2.8, 3.2, 1.5, NA)
+mean(density_ha)
+```
+
+Why did we get `NA`? Well, it's hard to say what a calculation including `NA` should be, so most calculations return `NA` when `NA` is in the data. One way to resolve this issue is to tell our function to remove the `NA` before executing:
+
+```{r missing-vals-narm}
+mean(density_ha, na.rm = TRUE)
+```
+
+
+## Lists
+
+Lists are a vector-like structure that can store other objects/data structures. You can think of it like a vector that holds other vectors.
+
+```{r list-intro}
+sites <- c("a", "b", "c")
+notes <- "It was a good day in the field today. Warm, sunny, lots of gators."
+helpers <- 4
+field_notes <- list(sites, notes, helpers)
+```
+
+You can index lists in the following ways:
+
+```{r list-index}
+field_notes[1]
+field_notes[[1]]
+```
+
+We can also give the values names and access them using the `$` symbol--which is the preferred method--or via `["variable_name"]` with subsetting. Try getting the `my_sets` vector from `field_notes`.
+
+<!---LEARNR EX 2-->
+
+<iframe class="interactive" id="ch2-ex2" src="https://tig3r66.shinyapps.io/ch2-ex2/" scrolling="no" frameborder="no"></iframe>
+
+<!------------->
+
+
+## Data frames
+
+This is where things get really exciting! We will use these data structures extensively in the upcoming labs, so it's important to pay attention here.
+
+A data frame is a list of equal length vectors grouped together. More importantly, a data frame can contain both categorical and numerical values, whereas a vector can only contain variables of the same type (i.e., all numerical, all categorical, etc.).
+
+```{R}
+sites <- c("a", "a", "b", "c")
+area_ha <- c(1, 2, 3, 4)
+density_ha <- c(2.8, 3.2, 1.5, NA)
+# creating the data frame
+surveys <- data.frame(sites, density_ha, area_ha)
+surveys
+```
+
+Here are some useful commands to investigate a data frame:
+
+  * `str()` returns the structure of a data frame.
+  * `length()` returns the length of a data frame.
+  * `ncol()` returns the number of columns of a data frame (same as `length()`)
+  * `nrow()` returns the number of rows of a data frame.
+
+```{r df-str}
+str(surveys)
+ncol(surveys)
+nrow(surveys)
+```
+
+Subsetting data frames is extremely similar to that for vectors. This time, however, we need to consider both rows and columns. We can access a specific member like this: `my_data_frame[row, column]`. Try playing around with the code below :)
+
+<!---LEARNR EX 3-->
+
+<iframe class="interactive" id="ch2-ex3" src="https://tig3r66.shinyapps.io/ch2-ex3/" scrolling="no" frameborder="no"></iframe>
+
+<!------------->
+
+
+### External data
+
+We can read in external data using the`read.csv()` function. The main argument is the location of the data, which is either a url or a path on your computer.
+
+```{r}
+shrub_data <- read.csv('https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv')
+```
+
+### Factors
+
+Let's use the `str()` function to get more information about our variable `shrub_data`.
+
+```{r}
+str(shrub_data)
+```
+
+Notice that the `shrubID` column has type `Factor`. A factor is a special data type in R for categorical data. Factors are useful for statistics, but can mess up some aspects of computation as we'll see in future chapters.
+
+```{r}
+shrub_data <- read.csv('https://datacarpentry.org/semester-biology/data/shrub-dimensions-labeled.csv', stringsAsFactors = FALSE)
+str(shrub_data)
+```
+
+<script>
+  iFrameResize({}, ".interactive");
+</script>

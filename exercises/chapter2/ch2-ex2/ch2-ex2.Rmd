@@ -1,0 +1,30 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+```{r ch2-ex2, exercise=TRUE}
+sites <- c("a", "b", "c")
+notes <- "It was a good day in the field today. Warm, sunny, lots of gators."
+helpers <- 4
+field_notes <- list(my_sites = sites, notes = notes, my_helpers = helpers)
+```
+```{r ch2-ex2-solution}
+sites <- c("a", "b", "c")
+notes <- "It was a good day in the field today. Warm, sunny, lots of gators."
+helpers <- 4
+field_notes <- list(my_sites = sites, notes = notes, my_helpers = helpers)
+
+field_notes$my_sites       # method 1
+field_notes[["my_sites"]]  # method 2
+field_notes[[1]]           # method 3
+```
+
+<div data-iframe-height></div>

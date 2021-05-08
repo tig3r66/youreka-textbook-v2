@@ -1,0 +1,13 @@
+name: ch1-ex2
+title: ch1-ex2
+username:
+account: youreka-textbook
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4092033
+bundleId: 4567532
+url: https://youreka-textbook.shinyapps.io/ch1-ex2/
+when: 1620339932.10111
+lastSyncTime: 1620339932.10113
+asMultiple: FALSE
+asStatic: FALSE
