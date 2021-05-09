@@ -1,0 +1,32 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+```{r ch3-ex, exercise=TRUE, eval=FALSE}
+calc_vol <- function(____, ____, ____) {
+  volume <- ____
+  return(____)
+}
+
+calc_vol(____, ____, ____)
+calc_vol(____, ____, ____)
+```
+```{r ch3-ex-solution}
+calc_vol <- function(length, width, height) {
+  volume <- length * width * height
+  return(volume)
+}
+
+calc_vol(1, 1, 1)
+calc_vol(3, 2, 5)
+```
+
+<div data-iframe-height></div>

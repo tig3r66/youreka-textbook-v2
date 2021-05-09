@@ -15,22 +15,21 @@ for (item in list_of_items) {
 
 And here is an example:
 
-```{r good-loop}
-for (i in 1:5) {
+```{r short-loop}
+for (i in 1:3) {
   print(i)
 }
 ```
 
-You can also have multiple lines of code in the body of a loop.
+In the previous example, we used the dummy variable `i` to take on some range of values. Notice that `i` can be called anything you want.
 
-```{r  multi-line-loop}
-for (number in 1:5) {
-  number <- number*2
-  print(number)
-}
-```
+Try creating a for loop that prints the square of a number plus one for numbers ranging from 2 to 6.
 
-In the previous examples, we used the dummy variables `i` and `number` to take on some range of values. Notice that `i` can be called anything you want.
+<!---LEARNR EX 1-->
+
+<iframe class="interactive" id="ch3-ex1" src="https://y-textbook.shinyapps.io/ch3-ex1/" scrolling="no" frameborder="no"></iframe>
+
+<!------------->
 
 
 ### Looping over multiple files
@@ -50,8 +49,9 @@ Our goal is to determine the number of satellite coordinates per file.
 First, retrieve the name of each file.
 
 ```{r external-files}
-data_files <- list.files(path = "data/04_intro-to-r/", pattern = "locations-.*.txt", 
-                        full.names = TRUE)
+my_dir <- "data/04_intro-to-r/"  # files are located in this location (on my computer)
+my_files <- "locations-.*.txt"   # file names follow this pattern
+data_files <- list.files(path = my_dir, pattern = my_files, full.names = TRUE)
 ```
 
 Note that the asterisk in `"*.txt"` refers to "any name in this directory" whereas the `".txt"` part ensures we are only selecting .txt files.
@@ -70,16 +70,20 @@ for (i in 1:length(data_files)) {
 Now, store the output in a data frame and associate the file name with the count.
 
 ```{r show-count-results}
+# initializing the data frame with empty columns
 results <- data.frame(file_name = character(length(data_files)),
                       count = integer(length(data_files)),
                       stringsAsFactors = FALSE)
 
-for (i in 1:length(data_files)){
+# reading the data into the data frame
+for (i in 1:length(data_files)) {
   data <- read.csv(data_files[i])
   count <- nrow(data)
   results$file_name[i] <- data_files[i]
   results$count[i] <- count
 }
+
+# voila!
 results
 ```
 
@@ -88,7 +92,7 @@ results
 
 Sometimes, we need to loop over more than a single range of numbers. For example, what if we want to select all pixels on a 2x3 rectangular screen? Here, we need to cover both the "x" and "y" pixel coodinates:
 
-```{R}
+```{r nested-loop}
 for (i in 1:2) {
   for (j in 1:3) {
     print(paste("i = " , i, "; j = ", j, sep=""))
@@ -103,183 +107,43 @@ Sometimes, we will need to create custom functions. Luckily, we can define our o
 
 This is the general syntax for a function:
   
-```{r eval=F}
+```{r gen-fn eval=F}
 function_name <- function(arguments) {
   output_value <- do_something(inputs)
   return(output_value)
 }
 ```
 
-**Remark:** every function *returns* a value. Recall from your grade-school math class that functions take an input and return an output. In R, however, a function may or may not take user-defined input.
+Remark: every function *returns* a value. Recall from your grade-school math class that functions take an input and return an output. In R, however, a function may or may not take user-defined input. This brings us to an extremely important point: **creating a function does NOT run it. You must call the function to run it.**
 
-This brings me to an extremely important point: **creating a function does NOT run it. You must call the function to run it.**
-  
-A function is meant to be reusable---treat it as such.
+As an exercise, create a function called `calc_vol` that takes three parameters length, width, and height, and use those values to calculate the volume of the object. Then, call the function to calculate the volume of a 1x1x1 object and a 3x2x5 object.
 
-```{r call-func}
-# define the function
-calc_shrub_vol <- function(length, width, height) {
-  area <- length * width
-  volume <- area * height
-  return(volume)
-}
-# call the function
-calc_shrub_vol(0.8, 1.6, 2.0)
-```
+<!---LEARNR EX 2-->
 
-As always, to save a function's return value, you need to store the output in an appropriate data structure.
+<iframe class="interactive" id="ch3-ex2" src="https://y-textbook.shinyapps.io/ch3-ex2/" scrolling="no" frameborder="no"></iframe>
 
-```{r store-func-output}
-shrub_vol <- calc_shrub_vol(0.8, 1.6, 2.0)
-```
-
-A helpful tip is to treat functions like a black box---the only things a function "knows" are the inputs we pass it. Likewise, the only thing R "knows" about a function is the output the function returns.
-
-Let's walk through `calc_shrub_vol()`'s  execution (key terms are in bold):
-
-  1. **Call** the `calc_shrub_vol()` function. Within the function,
-      a) Assign 0.8 to `length`, 1.6 to `width`, and 2.0 to `height` *inside* the function.
-      b) Calculate the area and assign it to `area`.
-      c) Calculate volume and assign it to `volume`.
-      d) **Return** `volume` as the function output.
-  2. Assign the function's output to a new variable called `shrub_vol`.
+<!------------->
 
 Since R treats functions like a black box, you can't access a variable that was created in a function. You **must** save the output of a function (to a variable) to use it later.
 
 
 ### Conditionals within functions
 
-Recall that we used a conditional to estimate mass differently for different types of vegetation. Since this is the kind of code we are going to want to reuse, let's move it into a function.
+We can use conditionals in a function for more complex tasks. As an exercise, create a function called `pred_c19_cases` to predict the number of COVID-19 cases in a population (note that these numbers are fictional):
 
-```{R}
-est_mass <- function(volume, veg_type) {
-  if (veg_type == "tree") {
-    mass <- 2.65 * volume^0.9
-  } else if (veg_type == "grass") {
-    mass <- 0.65 * volume^1.2
-  } else {
-    mass <- NA
-  }
-  return(mass)
-}
-```
+1. The function will have two parameters `pop_size` (population size) and `vac_brand` (vaccine brand).
+1. If the vaccine is Moderna, multiply `pop_size` by 0.941.
+1. If the vaccine is Pfizer, multiply `pop_size` by 0.950.
+1. If the vaccine is Astrazeneca, multiply `pop_size` by 0.870.
+1. Return the predicted cases by subtracting the number of healthy individuals from `pop_size`.
 
-We can then run this function with different vegetation types and get different estimates for mass.
+<!---LEARNR EX 3-->
 
-```{R}
-est_mass(1.6, "tree")
-est_mass(1.6, "grass")
-est_mass(1.6, "shrub")
-```
+<iframe class="interactive" id="ch3-ex3" src="https://y-textbook.shinyapps.io/ch3-ex3/" scrolling="no" frameborder="no"></iframe>
 
-Let's walk through how `est_mass(1.6, "shrub")` executes:
+<!------------->
 
-  1. When we call `est_mass()`, the function assigns `1.6` to `volume` and `"shrub"` to `veg_type`.
-  1. The function checks if `veg_type` is equal to `"tree"`.
-  1. It isn't, so it checks if `veg_type` is equal to `"grass"`.
-  1. It isn't, so it goes to the `else` statement and executes the code in that block. Hee, the function assigns`NA` to `mass`.
-  1. The function exits the if/else if/else blocks and returns the value for `mass`, which is `NA`.
-
-
-### Nested conditionals
-
-Occasionally, we need to make complex decisions that can't be captured using a simple if/else if/else statement. For example, we might have different equations for some vegetation types based on the age of the plant. To solve this problem, we can "nest" conditionals inside of one another.
-
-```{R}
-est_mass <- function(volume, veg_type, age) {
-  if (veg_type == "tree") {
-    # nested condition
-    if (age < 5) {
-      mass <- 1.6 * volume^0.8
-    } else {
-      mass <- 2.65 * volume^0.9
-    }
-  } else if (veg_type == "grass" | veg_type == "shrub") {
-    mass <- 0.65 * volume^1.2
-  } else {
-    mass <- NA
-  }
-  return(mass)
-}
-```
-
-```{r call-est_mass}
-est_mass(1.6, "tree", age = 2)
-est_mass(1.6, "shrub", age = 5)
-```
-
-Try to minimize nested functions whenever possible as it can be difficult to read.
-
-
-### Function arguments
-
-As seen previously, we can use custom inputs by defining an input argument. As lazy programmers, we usually want to call a function without typing much. This is where **default arguments** come in handy. For example, many of our shrubs are the same height so for those shrubs we only measure the `length` and `width`. We can set a default value for shrub height for cases where we don't measure it.
-
-```{R}
-calc_shrub_vol <- function(length, width, height = 1) {
-  area <- length * width
-  volume <- area * height
-  return(volume)
-}
-
-calc_shrub_vol(0.8, 1.6)  # default argument for height
-calc_shrub_vol(0.8, 1.6, 2.0)  # default argument is overridden by 2,0
-calc_shrub_vol(length = 0.8, width = 1.6, height = 2.0)
-```
-
-As you could tell from the last two examples, you can override the default argument by providing your own value.
-
-Here are some additional points:
-
-  1. You can always use names to assign a parameter to an argument.
-  2. If not, using names then order is determined by parameter order. For example,
-      * First value is `length`, second value is `width`, third value is `height`.
-  3. In many cases there are *a lot* of optional arguments. In this case, we can specify an argument by name to avoid confusion.
-  4. Oftentimes, only the optional arguments are specified (i.e., those without a default value).
-
-In our case, we would write:
-
-```{R}
-calc_shrub_vol(0.8, 1.6, height = 2.0)
-```
-
-### Combining functions
-
-Here are some guidelines for creating good functions:
-
-  * Each function should be single conceptual chunk of code.
-  * Functions can be combined to perform larger tasks.
-
-```{R}
-est_shrub_mass <- function(volume) {
-  mass <- 2.65 * volume^0.9
-}
-
-shrub_volume <- calc_shrub_vol(0.8, 1.6, 2.0)
-shrub_mass <- est_shrub_mass(shrub_volume)
-```
-
-We can nest functions. Below, the inner function executes before the outer function executes.
-
-```{R}
-shrub_mass <- est_shrub_mass(calc_shrub_vol(0.8, 1.6, 2.0))
-```
-
-We need to be careful with this because nesting code can be difficult to read. As a general rule of thumb, don't nest more than two functions.
-
-We can also call functions from inside other functions. This allows us to organize function calls into logical groups.
-
-```{R}
-est_shrub_mass_dim <- function(length, width, height) {
-  volume <- calc_shrub_vol(length, width, height)
-  mass <- est_shrub_mass(volume)
-  return(mass)
-}
-
-est_shrub_mass_dim(0.8, 1.6, 2.0)
-```
-
-Now that we've got the basics of R under our belts, we can jump into the fun data science applications `r emo::ji("smile")`
+Now that we've got the basics of R under our belts, we can jump into the delightful world of data science `r emo::ji("smile")`.
 
 <script>
   iFrameResize({}, ".interactive");

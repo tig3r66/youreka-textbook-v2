@@ -387,3 +387,7 @@ And finally, the data is **always** the very first argument of every dplyr funct
 Blog post [Hands-on dplyr tutorial for faster data manipulation in R](http://www.dataschool.io/dplyr-tutorial-for-faster-data-manipulation-in-r/) by Data School, that includes a link to an R Markdown document and links to videos
 
 [Cheatsheet](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) from R Studio for `dplyr`.
+
+<script>
+  iFrameResize({}, ".interactive");
+</script>

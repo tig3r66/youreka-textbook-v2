@@ -1,0 +1,13 @@
+name: ch3-ex2
+title: ch3-ex2
+username:
+account: y-textbook
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4104849
+bundleId: 4578045
+url: https://y-textbook.shinyapps.io/ch3-ex2/
+when: 1620593224.24675
+lastSyncTime: 1620593224.24676
+asMultiple: FALSE
+asStatic: FALSE

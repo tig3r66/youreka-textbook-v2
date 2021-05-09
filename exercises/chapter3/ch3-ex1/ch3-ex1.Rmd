@@ -1,0 +1,23 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+```{r ch3-ex1, exercise=TRUE}
+
+```
+```{r ch3-ex1-solution}
+for (number in 2:6) {
+  number <- number^2 + 1
+  print(number)
+}
+```
+
+<div data-iframe-height></div>

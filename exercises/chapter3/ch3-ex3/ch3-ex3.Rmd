@@ -1,0 +1,48 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+```{r ch3-ex3, exercise=TRUE, eval=FALSE}
+pred_c19_cases <- function(pop_size, vac_brand) {
+  # solve the problem here :)
+  
+}
+
+# DON'T MODIFY THE CODE BELOW
+n <- 10000
+moderna_cases <- pred_c19_cases(n, "Moderna")
+pfizer_cases <- pred_c19_cases(n, "Pfizer")
+astra_cases <- pred_c19_cases(n, "Astrazeneca")
+barplot(c(moderna_cases, pfizer_cases, astra_cases),
+        names = c("Moderna", "Pfizer", "Astrazeneca"))
+```
+```{r ch3-ex3-solution}
+pred_c19_cases <- function(pop_size, vac_brand) {
+  if (vac_brand == "Moderna") {
+    n_healthy <- pop_size * 0.941
+  } else if (vac_brand == "Pfizer") {
+    n_healthy <- pop_size * 0.950
+  } else if (vac_brand == "Astrazeneca") {
+    n_healthy <- pop_size * 0.870
+  }
+  
+  return(pop_size - n_healthy)
+}
+
+n <- 10000
+moderna_cases <- pred_c19_cases(n, "Moderna")
+pfizer_cases <- pred_c19_cases(n, "Pfizer")
+astra_cases <- pred_c19_cases(n, "Astrazeneca")
+barplot(c(moderna_cases, pfizer_cases, astra_cases),
+        names = c("Moderna", "Pfizer", "Astrazeneca"))
+```
+
+<div data-iframe-height></div>
