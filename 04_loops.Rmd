@@ -107,7 +107,7 @@ Sometimes, we will need to create custom functions. Luckily, we can define our o
 
 This is the general syntax for a function:
   
-```{r gen-fn eval=F}
+```{r gen-fn, eval=F}
 function_name <- function(arguments) {
   output_value <- do_something(inputs)
   return(output_value)

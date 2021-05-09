@@ -410,7 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s take a looks at how the democracy score is distributed. Here, I’d like to treat each democracy score as a factor.</p>
 <div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="comparing-multiple-means.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dem07, <span class="fu">aes</span>(<span class="fu">as.factor</span>(X2007))) <span class="sc">+</span></span>
 <span id="cb316-2"><a href="comparing-multiple-means.html#cb316-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 <p>Before we do anything, let’s look at some potentially interesting counts. First, we’ll look at two ways to count “low-level” countries. To do so, we will arbitrarily define any democracy score <span class="math inline">\(\leq\)</span> -3 as low-level. Now, we will count the number of countries in each group.</p>
 <div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="comparing-multiple-means.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dem07[dem07<span class="sc">$</span>X2007 <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">3</span>,])  <span class="co"># base R</span></span></code></pre></div>
 <pre><code>## [1] 39</code></pre>
@@ -580,7 +580,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The species <em>do</em> have significantly different sepal width (P &lt; 0.001). However, ANOVA does not tell us <em>which</em> species are different. We can run a <em>post hoc</em> test to assess <em>how</em> the species are different. A Tukey test comparing means would be one option. We will do the Tukey test after determining normality.</p>
 <p>Now, let’s take a look at the normality. First, we will plot the diagnostic figures.</p>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="comparing-multiple-means.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Width.aov)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-150-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-150-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-150-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-150-4.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-148-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-148-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-148-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-148-4.png" width="672" /></p>
 <p>Most importantly, the dots in Q-Q plot (upper right) should align with the line pretty well. This figure is acceptable. If the dots deviate from the line too much, the data would not be considered normal. If you still perform the ANOVA, you should view your results critically (or ignore them, at worst).</p>
 <p>Please do not include such diagnostic figures in the main text of your manuscripts. This might qualify for a supplementary figure at most.</p>
 <p>Although we’ve also examined residuals with the QQ plot, we can also use a formal test:</p>
@@ -661,12 +661,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="comparing-multiple-means.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> Income_Level_1952, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
 <span id="cb358-2"><a href="comparing-multiple-means.html#cb358-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb358-3"><a href="comparing-multiple-means.html#cb358-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-152-1.png" width="672" /></p>
 <p>We can also visualize life expectancy for each democracy level:</p>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="comparing-multiple-means.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.1952</span>, <span class="fu">aes</span>(<span class="at">x =</span> demLev, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
 <span id="cb359-2"><a href="comparing-multiple-means.html#cb359-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb359-3"><a href="comparing-multiple-means.html#cb359-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-155-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
 <p>Let’s check the variance.</p>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="comparing-multiple-means.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(lifeExp <span class="sc">~</span> Income_Level_1952, <span class="at">data =</span> dat<span class="fl">.1952</span>)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
@@ -812,12 +812,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As we did for the ANOVA analyses, it is usually a good idea to visually inspect the data when possible. Here we can use the <code>plot</code> function to create a scatterplot of the two columns of interest, <code>lifeExp</code> and <code>gdpPercap</code>.</p>
 <div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="comparing-multiple-means.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
 <span id="cb376-2"><a href="comparing-multiple-means.html#cb376-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-160-1.png" width="672" /></p>
 <p>We can see immediately that this is unlikely a linear relationship. In this case, we will need to log-transform the GDP data to obtain a linear relationship.</p>
 <div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="comparing-multiple-means.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat<span class="fl">.2007</span>, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
 <span id="cb377-2"><a href="comparing-multiple-means.html#cb377-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb377-3"><a href="comparing-multiple-means.html#cb377-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
 <p>Now that the data are properly transformed, we can create the linear model for the predictability of life expectancy based on gross domestic product. Before we do that let’s make it clear:</p>
 <ol style="list-style-type: decimal">
 <li><p>From the scatter plot we can identify a positive relationship – when log(GDP per capita) increases, the life expectancy also tends to be higher. The tendency of one variable going up or down <em>linearly</em> with the increase of another variable is called “correlation.” The more consistent the points are with a LINEAR trend, the higher the closer the correlation is to -1 (for negative relationships) or +1 (for positive relationships).</p></li>
@@ -885,7 +885,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First of all, there <em>is</em> a significant relationship between these two variables (p &lt; 2 x 10<sup>-16</sup>, or, as R reports in the <code>Pr&gt;(|t|)</code> column, p &lt; 2e-16). The <code>Estimate</code> column of the results lists a value of <code>lifeExp.v.gdp$coefficients['log_GDP']</code>. For every 10-fold increase in per capita GDP (remember we log<sub>10</sub>-transformed GDP), life expectancy increases by almost 7 years.</p>
 <p>The linear model relies assumes that your data is normally distributed. We can generate a diagnostic plot in the same way as one-way ANOVA.</p>
 <div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="comparing-multiple-means.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lifeExp.v.gdp)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-165-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-165-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-165-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-165-4.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-163-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-163-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-163-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-163-4.png" width="672" /></p>
 <p>Q-Q plot suggested this data deviates from normality. Let’s also take a look at the residues of the linear model:</p>
 <div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="comparing-multiple-means.html#cb387-1" aria-hidden="true" tabindex="-1"></a>residuals_lm <span class="ot">&lt;-</span> <span class="fu">residuals</span>(<span class="at">object =</span> lifeExp.v.gdp)</span>
 <span id="cb387-2"><a href="comparing-multiple-means.html#cb387-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="at">x =</span> residuals_lm)</span></code></pre></div>
