@@ -23,7 +23,7 @@ looping-over-multiple-files
 nested-loops
 functions-1
 conditionals-within-functions
-gapminder-and-dplyr
+data-exploration
 get-the-gapminder-data
 explore-gapminder
 importing-and-exporting-data

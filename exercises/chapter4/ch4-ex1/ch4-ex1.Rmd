@@ -1,0 +1,21 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+library(gapminder)
+```
+
+```{r ch4-ex1, exercise=TRUE}
+str(gapminder)         # summary of your object
+head(gapminder)        # first 6 rows printed
+tail(gapminder)        # last 6 rows printed
+head(gapminder, n=3)   # first 3 rows printed
+```
+
+<div data-iframe-height></div>

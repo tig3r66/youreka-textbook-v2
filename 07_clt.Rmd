@@ -93,6 +93,8 @@ Notice two things:
 
 Pretty cool, right?
 
+<!-- <iframe class="interactive" id="ch7-clt-means" src="https://gallery.shinyapps.io/CLT_mean/" scrolling="no" frameborder="no"></iframe> -->
+
 
 ## CLT for proportions
 
@@ -164,3 +166,7 @@ As you can see, the bigger your sample size, the less variability there is, and 
 This example shows the power of the CLT---it allows us to predict a sampling distribution regardless of the original population.
 
 **NOTE:** The CLT says NOTHING about the individual sample points themselves. Remember our original data data points are either 0 or 1. However, the mean is a continuous variable.
+
+<script>
+  iFrameResize({}, ".interactive");
+</script>

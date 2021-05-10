@@ -1,8 +1,8 @@
 # (PART) Data Wrangling {-}
 
-# Gapminder and dplyr
+# Data exploration
 
-Whenever you have rectangular, "spreadsheetey" data, your default data structure in R should be the **data frame**. Do not depart from this without good reason. Data frames are awesome because
+Whenever you have rectangular, "spreadsheetey" data, your default data structure in R should be the **data frame**. Data frames are awesome because
 
   1. They neatly package related variables and maintain a "row-ordering" like that in a spreadsheet. This makes it easy to apply filters to rows and columns of interest.
   2. Most functions for inference, modelling, and graphing will happily take a data frame object.
@@ -10,78 +10,58 @@ Whenever you have rectangular, "spreadsheetey" data, your default data structure
 
 Data frames, unlike general arrays or matrices in R, can hold variables of different flavours. For example, data frames can simultaneously hold *character data* (e.g., subject ID or name), *quantitative data* (e.g., white blood cell count), and *categorical information* (e.g., treated vs. untreated).
 
-If you use data structures that can only hold 1 type of data (e.g., matrices) for data analysis, you are likely to make the terrible mistake of spreading a dataset out over multiple, unlinked objects. Why? Because you can't put character data, such as subject name, into the numeric matrix that holds white blood cell count. This fragmentation is a bad idea.
+If you use data structures that can only hold 1 type of data (e.g., matrices) for data analysis, you are likely to make the terrible mistake of spreading a dataset out over multiple, unlinked objects. Why? Because you can't put character data, such as subject name, into the numeric matrix that holds white blood cell count.
 
 
 ## Get the gapminder data
 
 We will work with some of the data from the [Gapminder project](https://www.gapminder.org/). The Gapminder project contains the gapminder dataset, which summarises the progression of countries over time for statistics like life expectancy and GDP.
 
-If you haven't installed gapminder yet, you can do so like this:
+If you haven't installed gapminder or the tidyverse yet, you can do so like this:
 
 ```{r eval = FALSE}
 install.packages("gapminder")
+install.packages("tidyverse")
 ```
 
-Now load the package.
+Now load the two packages.
 
-```{r}
+```{r loading, message=FALSE, warning=FALSE}
 library(gapminder)
+library(tidyverse)
 ```
 
 
 ## Explore gapminder
 
-By loading the gapminder package, we now have access to a data frame by the same name. Get an overview of the data frame with `str()`, which displays the structure of an object.
+By loading the gapminder package, we now have access to a data frame by the same name.
 
-```{r}
-str(gapminder)
-```
-
-`str()` will provide a sensible description of almost anything and, worst case, nothing bad can actually happen. When in doubt, just use `str()` on your recently created objects to get ideas about what to do next.
-
-We could print the `gapminder` object itself to screen. However, if you've used R before, you might be reluctant to do this, because large datasets fill your Console and provide very little insight.
-
-If you have not already done so, install the tidyverse meta-package now:
-
-```{r eval = FALSE}
-install.packages("tidyverse")
-```
-
-Now load it:
-
-```{r, message = F, warning = F}
-library(tidyverse)
+```{r gap-view}
+gapminder
 class(gapminder)
 ```
 
-We can now print gapminder! Notice that the **class** (type of data structure) of the gapminder object is a **tibble**, the tidyverse's version of R's data frame. A tibble is also a data frame.
-
-```{r}
-gapminder
-```
+Notice that the **class** (type of data structure) of the gapminder object is a **tibble**, the tidyverse's version of R's data frame. A tibble is also a data frame.
 
 Although this seems like a lot of output, notice that tibbles provide a nice print method that shows the most important stuff and doesn't fill up your console. Let's make sense of the output:
 
   1. The first line refers to what we're printing---a tibble with 1704 rows and 6 columns.
-  2. Below each column heading, we see `<fct>   <fct>   <int>   <dbl>   <int>   <dbl>`. These refer to the **variable type** of that column.
+  1. Below each column heading, we see `<fct>   <fct>   <int>   <dbl>   <int>   <dbl>`. These refer to the **variable type** of that column.
       a. `fct` is a factor (kind of like a categorical variable), `int` stands for integer, and `dbl` stands for double (a number with decimal places).
 
-If you're only interested in the first or last couple of rows, use `head()` or `tail()`.
-
+If you're only interested in a summary, use `str()`, `head()` or `tail()`.
+  
+  1. `str()` will provide a sensible description of almost anything and, worst case, nothing bad can actually happen. When in doubt, just use `str()` on your recently created objects to get ideas about what to do next.  
   1. `head()` displays the first 6 rows of your data frame by default, and
-  2. `tail()` shows the last 6 rows.
+  1. `tail()` shows the last 6 rows.
 
-```{r}
-head(gapminder)
-tail(gapminder)
-```
+Play around with these functions in the interactive block below!
 
-You can also specify the number of rows displayed by passing in a number.
+<!---LEARNR EX 1-->
 
-```{r, eval}
-head(gapminder, n = 3)
-```
+<iframe class="interactive" id="ch4-ex1" src="https://y-textbook.shinyapps.io/ch4-ex1/" scrolling="no" frameborder="no"></iframe>
+
+<!------------->
 
 Just for your reference, if you want to change a data frame into a tibble for nicer printing, use `as_tibble()`!
 
@@ -91,36 +71,32 @@ as_tibble(my_data_frame)  # my_data_frame is the thing we want to make a tibble
 
 Here are more ways to query basic info on a data frame:
 
-| Function  | Description                       |
-|:----------|:----------------------------------|
-| `names()` | returns column names              |
-| `ncol()`  | returns number of columns         |
-| `nrow()`  | returns number of rows            |
-| `dim()`   | returns # of rows by # of columns |
+| Function   | Description                                  |
+|:-----------|:---------------------------------------------|
+| `names()`  | returns column names                         |
+| `ncol()`   | returns number of columns                    |
+| `nrow()`   | returns number of rows                       |
+| `dim()`    | returns # of rows by # of columns            |
+| `summary()`| returns a statistical summary of each column |
 
-```{r}
-names(gapminder)
-ncol(gapminder)
-nrow(gapminder)
-dim(gapminder)
-```
+Try playing around with these functions in the interactive window.
 
-A statistical summary of the data can be obtained with `summary()`. That is, each column's statistics are shown separately.
+<!---LEARNR EX 2-->
 
-```{r}
-summary(gapminder)
-```
+<iframe class="interactive" id="ch4-ex2" src="https://y-textbook.shinyapps.io/ch4-ex2/" scrolling="no" frameborder="no"></iframe>
+
+<!------------->
 
 
 ### Importing and exporting data
 
-We can export the data frame to a comma-separated values (.csv) file.
+We can export data frames to a comma-separated values (.csv) file.
 
 ```{r}
 write.csv(gapminder, file = "data/03_data-frames/gapminder.csv")
 ```
 
-The ".csv" extension stands for comma-separated values. This is the preferred way of importing and exporting data as it contains no formatting. You can also import a .csv file to Excel.
+The ".csv" extension stands for comma-separated values. This is the preferred way of importing and exporting data as it contains no formatting.
 
 On top of writing to a .csv file, we can also read .csv files into R. It's as simple as `read.csv()`!
 

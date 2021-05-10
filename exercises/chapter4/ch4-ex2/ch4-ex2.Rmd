@@ -1,0 +1,22 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: header.html
+runtime: shiny_prerendered
+---
+  
+```{r setup, include=FALSE}
+library(learnr)
+library(gapminder)
+```
+
+```{r ch4-ex1, exercise=TRUE}
+names(gapminder)
+dim(gapminder)
+ncol(gapminder)
+nrow(gapminder)
+summary(gapminder)
+```
+
+<div data-iframe-height></div>

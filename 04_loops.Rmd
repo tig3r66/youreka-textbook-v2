@@ -38,18 +38,18 @@ We turn our attention now to a (slightly more) useful example: how do we analyze
 
 In this hypothetical example, we have 5 datasets with satellite coodinates at specific points orbiting the Earth. Suppose the files are similarly named (click on the files to download them):
 
-  * [locations-2016-01-01.txt](./data/04_intro-to-r/locations-2016-01-01.txt)
-  * [locations-2016-01-02.txt](./data/04_intro-to-r/locations-2016-01-02.txt)
-  * [locations-2016-01-03.txt](./data/04_intro-to-r/locations-2016-01-03.txt)
-  * [locations-2016-01-04.txt](./data/04_intro-to-r/locations-2016-01-04.txt)
-  * [locations-2016-01-05.txt](./data/04_intro-to-r/locations-2016-01-05.txt)
+  * [locations-2016-01-01.txt](data/04_intro-to-r/locations-2016-01-01.txt)
+  * [locations-2016-01-02.txt](data/04_intro-to-r/locations-2016-01-02.txt)
+  * [locations-2016-01-03.txt](data/04_intro-to-r/locations-2016-01-03.txt)
+  * [locations-2016-01-04.txt](data/04_intro-to-r/locations-2016-01-04.txt)
+  * [locations-2016-01-05.txt](data/04_intro-to-r/locations-2016-01-05.txt)
 
 Our goal is to determine the number of satellite coordinates per file.
 
 First, retrieve the name of each file.
 
 ```{r external-files}
-my_dir <- "data/04_intro-to-r/"  # files are located in this location (on my computer)
+my_dir <- "data/04_intro-to-r"  # files are located in this location (on my computer)
 my_files <- "locations-.*.txt"   # file names follow this pattern
 data_files <- list.files(path = my_dir, pattern = my_files, full.names = TRUE)
 ```

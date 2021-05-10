@@ -1,0 +1,13 @@
+name: ch4-ex1
+title: ch4-ex1
+username:
+account: y-textbook
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4105380
+bundleId: 4578540
+url: https://y-textbook.shinyapps.io/ch4-ex1/
+when: 1620604422.76045
+lastSyncTime: 1620604422.76046
+asMultiple: FALSE
+asStatic: FALSE
