@@ -11,47 +11,47 @@ library(gridExtra)
 ui <- fluidPage(
   # Title ----
   titlePanel("Central Limit Theorem", windowTitle = "CLT"),
-
+  
   sidebarLayout(
-    sidebarPanel(width = 2,
-      wellPanel(
-        # Select distribution ----
-        selectInput("dist", "Population distribution:",
-                     c("Normal" = "rnorm",
-                       "Uniform" = "runif",
-                       "Right skewed" = "rlnorm",
-                       "Left skewed" = "rbeta"),
-                     selected = "rnorm"),
-        # hr(),
-
-        # Distribution parameters / features ----
-        uiOutput("mu"),
-        uiOutput("sd"),
-        uiOutput("minmax"),
-        uiOutput("skew"),
-
-        # Select sample size ----
-        sliderInput("n",
-                    "Sample size:", 
-                    value = 30,
-                    min = 2,
-                    max = 500),
-        br(),
-
-        # Number of samples ----
-        sliderInput("k",
-                    "Number of samples:",
-                    value = 200,
-                    min = 10,
-                    max = 1000),
-      ),
-      
-      # Informational text ---- 
-      helpText(a(href="https://github.com/tig3r66/youreka-textbook-v2/tree/main/assets/interactive_apps", target="_blank", "View the code")),
-      helpText(a(href="https://github.com/ShinyEd/intro-stats", target="_blank", "Code adapted from ShinyEd"))
-
+    sidebarPanel(width = 4, align="center",
+                 wellPanel(
+                   # Select distribution ----
+                   selectInput("dist", "Population distribution:",
+                               c("Normal" = "rnorm",
+                                 "Uniform" = "runif",
+                                 "Right skewed" = "rlnorm",
+                                 "Left skewed" = "rbeta"),
+                               selected = "rnorm"),
+                   # hr(),
+                   
+                   # Distribution parameters / features ----
+                   uiOutput("mu"),
+                   uiOutput("sd"),
+                   uiOutput("minmax"),
+                   uiOutput("skew"),
+                   
+                   # Select sample size ----
+                   sliderInput("n",
+                               "Sample size", 
+                               value = 30,
+                               min = 2,
+                               max = 500),
+                   br(),
+                   
+                   # Number of samples ----
+                   sliderInput("k",
+                               "Number of samples",
+                               value = 200,
+                               min = 10,
+                               max = 1000),
+                 ),
+                 
+                 # Informational text ---- 
+                 helpText(a(href="https://github.com/tig3r66/youreka-textbook-v2/tree/main/assets/interactive_apps", target="_blank", "View the code")),
+                 helpText(a(href="https://github.com/ShinyEd/intro-stats", target="_blank", "Code adapted from ShinyEd"))
+                 
     ),
-
+    
     mainPanel(
       tabsetPanel(
         type = "tabs",
@@ -60,17 +60,19 @@ ui <- fluidPage(
           title = "Distributions",
           
           fluidRow(
-            column(width = 5,
+            column(width = 12,
                    br(),
                    # Population plot ----
-                   plotOutput("pop.dist")),
-            column(width = 7,
+                   plotOutput("pop.dist"))
+          ),
+          fluidRow(
+            column(width = 12,
                    br(),
                    # Sampling plot ----
                    plotOutput("sampling.dist"))
           )
         ),
-
+        
         # Second tab ----
         tabPanel(
           title = "Samples",
@@ -81,7 +83,7 @@ ui <- fluidPage(
           div(h3(textOutput("num.samples")), align = "center"),
           br()
         )
-
+        
       )
     )
   )
@@ -99,7 +101,7 @@ server <- function(input, output, session) {
     {
       if (input$dist == "rnorm") {
         sliderInput("mu",
-                    "Mean:",
+                    "Mean",
                     value = 0,
                     min = -40,
                     max = 50)
@@ -111,13 +113,13 @@ server <- function(input, output, session) {
     {
       if (input$dist == "rnorm") {
         sliderInput("sd",
-                    "Standard deviation:",
+                    "Standard deviation",
                     value = 20,
                     min = 1,
                     max = 30)
       }
     })
-
+  
   # Minmax slider for Uniform distribution ----
   output$minmax = renderUI(
     {
@@ -129,7 +131,7 @@ server <- function(input, output, session) {
                     max = 20)
       }
     })
-
+  
   # Making sure range for uniform distribution != 0 ----
   observeEvent(input$minmax, {
     
@@ -145,7 +147,7 @@ server <- function(input, output, session) {
       }
     }
   })
-
+  
   # skew slider for rlnorm and rbeta ----
   output$skew = renderUI(
     {
@@ -162,9 +164,9 @@ server <- function(input, output, session) {
   
   # generating random samples ----
   rand_draw <- function(dist, n, mu, sd, min, max, skew) {
-
+    
     vals = NULL
-
+    
     if (dist == "rbeta") {
       req(skew)
       if (skew == "low") {
@@ -177,12 +179,12 @@ server <- function(input, output, session) {
         vals = do.call(dist, list(n=n, shape1=5, shape2=1)) 
       }
     }
-
+    
     else if (dist == "rnorm") {
       req(mu, sd)
       vals = do.call(dist, list(n=n, mean=mu, sd=sd))
     }
-
+    
     else if (dist == "rlnorm") {
       req(skew)
       if (skew == "low"){
@@ -195,24 +197,24 @@ server <- function(input, output, session) {
         vals = do.call(dist, list(n=n, meanlog=0, sdlog=1))
       }
     }
-
+    
     else if (dist == "runif") {
       req(min, max)
       vals = do.call(dist, list(n=n, min=min, max=max))
     }
     return(vals)
   }
-
+  
   rep_rand_draw = repeatable(rand_draw)
-
+  
   # Defining some reactive variables to use later ----
   parent = reactive({
-
+    
     n_sample = 1e5
     return(rep_rand_draw(input$dist, n_sample, input$mu, input$sd,
                          input$minmax[1], input$minmax[2], input$skew))
   })
-
+  
   samples = reactive({
     pop = parent()
     n = input$n
@@ -229,7 +231,7 @@ server <- function(input, output, session) {
     req(input$minmax)
     return(input$minmax[2])
   })
-
+  
   # plot 1 ----
   output$pop.dist = renderPlot({
     
@@ -238,25 +240,25 @@ server <- function(input, output, session) {
                       rlnorm = "Population distribution: Right skewed",
                       rbeta = "Population distribution: Left skewed",
                       runif = "Population distribution: Uniform")
-
+    
     pop = parent()
     m_pop =  round(mean(pop), 2)
     sd_pop = round(sd(pop), 2)
-
+    
     pop = tibble(samples = pop)
     pdens = density(pop$samples)
-
+    
     x_range = max(pop$samples) - min(pop$samples)
     y_pos = max(pdens$y) - 0.2*max(pdens$y)
-
+    
     if (input$dist == "rnorm") {
-
+      
       req(input$mu)
       mu = input$mu
-
+      
       x_pos = ifelse(mu > 0, min(-100, min(pop$samples)) + 20,
                      max(100, max(pop$samples)) - 20)
-
+      
       ggplot(data = pop, aes(x = samples, y = ..density..)) + 
         geom_histogram(bins = 45, color = "white", fill = "#7FA9D7") +
         # geom_density() + draws a weird baseline. using stat_density() instead.
@@ -271,7 +273,7 @@ server <- function(input, output, session) {
         theme(plot.title = element_text(hjust = 0.5),
               panel.grid.major = element_blank(),
               panel.grid.minor = element_blank())
-
+      
     } else if (input$dist == "runif") {
       
       if (u_min() == u_max()){
@@ -279,7 +281,7 @@ server <- function(input, output, session) {
         # observeEvent is fixing the range.
       } else {
         
-        x_pos = max(pop$samples) - 0.15*x_range
+        x_pos = max(pop$samples) - 0.2*x_range
         
         ggplot(data = pop, aes(x = samples, y = ..density..)) +
           geom_histogram(bins = 45, color = "white", fill = "#7FA9D7") +
@@ -297,7 +299,7 @@ server <- function(input, output, session) {
       
     } else if (input$dist == "rlnorm") {
       
-      x_pos = max(pop$samples) - 0.1*x_range
+      x_pos = max(pop$samples) - 0.2*x_range
       
       ggplot(data = pop, aes(x = samples, y = ..density..)) + 
         geom_histogram(bins = 45, color = "white", fill = "#7FA9D7") +
@@ -314,7 +316,7 @@ server <- function(input, output, session) {
       
     } else if (input$dist == "rbeta") {
       
-      x_pos = min(pop$samples) + 0.1*x_range
+      x_pos = min(pop$samples) + 0.2*x_range
       
       ggplot(data = pop, aes(x = samples, y = ..density..)) + 
         geom_histogram(bins = 45, color = "white", fill = "#7FA9D7") +
@@ -338,7 +340,7 @@ server <- function(input, output, session) {
     
     y = samples()
     x = samples() %>% as_tibble()
-
+    
     plots = list(rep(NA, 8))
     for(i in 1:8) {
       
@@ -348,16 +350,16 @@ server <- function(input, output, session) {
       x_range = max(y[,i]) - min(y[,i])
       pdens = density(y[,i])
       
-      x_pos = ifelse(input$dist == "rbeta", min(y[,i]) + 0.15*x_range, 
-                     max(y[,i]) - 0.15*x_range)
-
+      x_pos = ifelse(input$dist == "rbeta", min(y[,i]) + 0.2*x_range, 
+                     max(y[,i]) - 0.2*x_range)
+      
       plots[[i]] = ggplot(x, aes_string(x = paste0("V", i))) +
         geom_dotplot(alpha = 0.8, dotsize = 0.7) +
         labs(title = paste("Sample", i), x = "", y = "") +
         theme_light(base_size = 15) +
         annotate("text", x = x_pos, y = 1.8,
                  label = bquote(atop(bar(x) ~ "=" ~ .(mean),
-                               s ~ "=" ~ .(sd))),
+                                     s ~ "=" ~ .(sd))),
                  color = "black", size = 3) +
         scale_y_continuous(limits = c(0,2), breaks = NULL) +
         theme(plot.title = element_text(hjust = 0.5),
@@ -369,15 +371,15 @@ server <- function(input, output, session) {
                  plots[[6]], plots[[7]], plots[[8]], ncol = 4)
   })
   
-
+  
   # text for sample plots ----
   output$num.samples = renderText({
-
+    
     k = input$k
     paste0("... continuing to Sample ", k,".")
     
   })
-
+  
   # plot 3 ----
   output$sampling.dist = renderPlot({
     
@@ -389,7 +391,7 @@ server <- function(input, output, session) {
     
     n = input$n
     k = input$k
-
+    
     pop = parent()
     m_pop =  round(mean(pop),2)
     sd_pop = round(sd(pop),2)
@@ -424,7 +426,7 @@ server <- function(input, output, session) {
             panel.grid.minor = element_blank())
     
     if (input$dist == "runif") {
-
+      
       if (u_min() == u_max()) {
         " "
       } else {
@@ -434,7 +436,25 @@ server <- function(input, output, session) {
       p
     }
   })
-
+ 
+  
+  output$residuals <- renderPlot({
+    par(mfrow=c(1,3), cex.main=2, cex.lab=2, cex.axis=2, mar=c(4,5,2,2))
+    residuals = summary(lmResults())$residuals
+    predicted = predict(lmResults(), newdata = data.frame(x=mydata()$x))
+    plot(residuals ~ predicted, 
+         main="Residuals vs. Fitted Values", xlab="Fitted Values", ylab="Residuals", 
+         pch=19, col = COL[1,2])
+    abline(h = 0, lty = 2)
+    d = density(residuals)$y
+    h = hist(residuals, plot = FALSE)
+    hist(residuals, main="Histogram of Residuals", xlab="Residuals", 
+         col=COL[1,2], prob = TRUE, ylim = c(0,max(max(d), max(h$density))))
+    lines(density(residuals), col = COL[1], lwd = 2)
+    qqnorm(residuals, pch=19, col = COL[1,2], main = "Normal Q-Q Plot of Residuals")
+    qqline(residuals, col = COL[1], lwd = 2)
+  }, height=280 ) 
 }
+
 # Create the Shiny app object ---------------------------------------
 shinyApp(ui = ui, server = server)

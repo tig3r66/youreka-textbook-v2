@@ -1,0 +1,13 @@
+name: slreg
+title: slreg
+username:
+account: intro-stats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4116214
+bundleId: 4587102
+url: https://intro-stats.shinyapps.io/slreg/
+when: 1620761873.89811
+lastSyncTime: 1620761873.89812
+asMultiple: FALSE
+asStatic: FALSE

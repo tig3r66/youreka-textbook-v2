@@ -4,7 +4,13 @@
 
 In this chapter, we will investigate the intuition behind the **Central Limit Theorem** (CLT). In short, the CLT states that if you have a bunch of samples and plotted the distribution of means (not individual observations!), the distribution would look normal regardless of the population distribution. This theorem is incredibly powerful, and we will explore how it applies to data analysis in future chapters.
 
+
 ## CLT for means
+
+Before formally exploring the CLT, play around with the CLT app! In short, the app takes samples from the "Population Distribution" and plots the mean of those samples in the "Sampling Distribution" histogram.
+
+<iframe class="interactive" id="ch7-clt-means" src="https://intro-stats.shinyapps.io/clt-means/" scrolling="no" frameborder="no"></iframe>
+
 
 ### CLT Part 1
 
@@ -92,8 +98,6 @@ Notice two things:
 2. Even though our *original population* was uniform (i.e., NOT normal), our *sampling distribution* looks normal. In fact, any population distribution will look normal given enough sample means. This observation is captured by the **CLT**.
 
 Pretty cool, right?
-
-<!-- <iframe class="interactive" id="ch7-clt-means" src="https://gallery.shinyapps.io/CLT_mean/" scrolling="no" frameborder="no"></iframe> -->
 
 
 ## CLT for proportions

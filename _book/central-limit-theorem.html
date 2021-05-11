@@ -351,6 +351,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this chapter, we will investigate the intuition behind the <strong>Central Limit Theorem</strong> (CLT). In short, the CLT states that if you have a bunch of samples and plotted the distribution of means (not individual observations!), the distribution would look normal regardless of the population distribution. This theorem is incredibly powerful, and we will explore how it applies to data analysis in future chapters.</p>
 <div id="clt-for-means" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> CLT for means</h2>
+<p>Before formally exploring the CLT, play around with the CLT app! In short, the app takes samples from the “Population Distribution” and plots the mean of those samples in the “Sampling Distribution” histogram.</p>
+<iframe class="interactive" id="ch7-clt-means" src="https://intro-stats.shinyapps.io/clt_means/" scrolling="no" frameborder="no">
+</iframe>
 <div id="clt-part-1" class="section level3" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> CLT Part 1</h3>
 <p>As always, let’s load the tidyverse.</p>
@@ -358,10 +361,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Many observed quantities follow normal distribution. Imagine we have a population following normal distribution that has a mean of 10 and standard deviation of 2. If we draw samples from it, are we able to estimate its mean?</p>
 <p>In this example, we will use <code>rnorm()</code>, a random number generator for this simulation. Here, <code>rnorm()</code> returns a vector of random numbers from a normal distribution.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="central-limit-theorem.html#cb2-1" aria-hidden="true" tabindex="-1"></a>(samp10 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>))</span></code></pre></div>
-<pre><code>##  [1]  9.032934 10.559190 12.176907  7.500795 10.735097  9.813547 12.535651
-##  [8] 11.065760 13.541708 10.032984</code></pre>
+<pre><code>##  [1]  6.465672 11.796886  6.470914  7.874624 13.278912 10.789257  9.530008
+##  [8]  9.619844 12.505787  8.921708</code></pre>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="central-limit-theorem.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samp10)</span></code></pre></div>
-<pre><code>## [1] 10.69946</code></pre>
+<pre><code>## [1] 9.725361</code></pre>
 <p>Apparently the mean is not 10, but it is pretty close. This should make sense; when we draw a sample to estimate the mean, we may get very close to the desired “true mean,” but we also expect some error. What if I repeat the estimation 10000 times with 10 samples?</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="central-limit-theorem.html#cb6-1" aria-hidden="true" tabindex="-1"></a>means10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="cn">NA</span>)</span>
 <span id="cb6-2"><a href="central-limit-theorem.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># doing experiments 10,000 times</span></span>
@@ -420,7 +423,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Even though our <em>original population</em> was uniform (i.e., NOT normal), our <em>sampling distribution</em> looks normal. In fact, any population distribution will look normal given enough sample means. This observation is captured by the <strong>CLT</strong>.</li>
 </ol>
 <p>Pretty cool, right?</p>
-<!-- <iframe class="interactive" id="ch7-clt-means" src="https://gallery.shinyapps.io/CLT_mean/" scrolling="no" frameborder="no"></iframe> -->
 </div>
 </div>
 <div id="clt-for-proportions" class="section level2" number="7.2">
